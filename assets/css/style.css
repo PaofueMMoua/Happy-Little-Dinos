@@ -37,7 +37,7 @@ body {
     position: relative;
     width:15vw;
     height:15vw;
-    background-color:transparent
+    background-color:transparent;
 }
 .hero-txt h1 {
     color:white; 
@@ -48,5 +48,5 @@ body {
     z-index:2;
     color:#FFA953;
     font-size:4vw;
-
+    text-decoration: none;
 }
