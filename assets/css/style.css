@@ -1,5 +1,6 @@
 * {
-    font-family: "Bahiana variant0"
+font-family:'Bahiana', cursive;
+font-weight: 100;
 }
 
 body {
@@ -16,7 +17,6 @@ body {
     height: 100vh;
     width:100vw;
     overflow:hidden;
-    z-index:-1;
     margin:0px;
     border:0px;
 }
@@ -31,21 +31,22 @@ body {
 
 .hero-btn {
     background-image: url('../../Foot.png');
-    /* background-color: #F27F77; */
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
     position: relative;
-    width:fit-content;
-    height:fit-content;
-    color:#FFA953;
-    z-index:1;
-    width:10vw;
+    width:15vw;
     height:15vw;
-    font-size:1.5vw;
     background-color:transparent
 }
 .hero-txt h1 {
     color:white; 
-    font-size:3rem ;
+    font-size:8vw ;
+}
+
+.hero-btn a {
+    z-index:2;
+    color:#FFA953;
+    font-size:4vw;
+
 }
