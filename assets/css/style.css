@@ -9,7 +9,7 @@ body {
 }
 
 .hero-img {
-    background-image:url('../../dino.png') ;
+    background-image:url('../img/dino.png') ;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -30,7 +30,7 @@ body {
 }
 
 .hero-btn {
-    background-image: url('../../Foot_left.png');
+    background-image: url('../img/Foot_left.png');
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -42,7 +42,7 @@ body {
 }
 
 .hero-btn-2 {
-    background-image: url('../../Foot_right.png');
+    background-image: url('../img/Foot_right.png');
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -63,4 +63,37 @@ body {
     color:#FFA953;
     font-size:2.5vw;
     text-decoration: none;
+}
+
+.hero-btn a:hover, .hero-btn-2 a:hover {
+    color:#ffce9d;
+}
+
+/* single player dino select */
+
+.hero-img-two {
+    background-color: black;
+    height: 100vh;
+    width:100vw;
+    overflow:hidden;
+    margin:0px;
+    border:0px;
+}
+
+.dino {
+    background-image:url('');
+    width:15vw;
+    height:15vw;
+}
+
+.dino_two {
+    background-image:url('');
+    width:15vw;
+    height:15vw;
+}
+
+.dino-space {
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
 }
