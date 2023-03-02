@@ -81,13 +81,13 @@ body {
 }
 
 .dino {
-    background-image:url('');
+    background-image:url('../img/Bronto.png');
     width:15vw;
     height:15vw;
 }
 
 .dino_two {
-    background-image:url('');
+    background-image:url('../img/stego.png');
     width:15vw;
     height:15vw;
 }
