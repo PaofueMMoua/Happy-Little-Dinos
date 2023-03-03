@@ -81,15 +81,27 @@ body {
 }
 
 .dino {
-    background-image:url('../img/Bronto.png');
-    width:15vw;
-    height:15vw;
+    background-image:url('../../assets/img/Bronto.png');
+background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    width: 15vw;
+    height: 15vw;
+    background-color: transparent;
+    border: none;
 }
 
 .dino_two {
     background-image:url('../img/stego.png');
-    width:15vw;
-    height:15vw;
+background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    width: 15vw;
+    height: 15vw;
+    background-color: transparent;
+    border: none;
 }
 
 .dino-space {
