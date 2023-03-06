@@ -41,8 +41,7 @@ let cards = card.random;
 let card_amount = cards.length
 
 function start_turn() {
-    if (card_amount < 5) {
+    if (card_amount != 5) {
         card++
     }
-    for()
 }
