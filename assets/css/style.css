@@ -82,7 +82,7 @@ body {
 
 .dino {
     background-image:url('../../assets/img/Bronto.png');
-background-position: center;
+    background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
     position: relative;
@@ -115,7 +115,7 @@ background-position: center;
     flex-direction:column;
 }
 
-.column h3 {
+.column a {
     font-size:5vw
 }
 

@@ -23,7 +23,7 @@ else {
     let main = document.getElementById("dino_two");
 }
 
-card = [
+let card = [
     ['', 3],
     ['', 4],
     ['', 5],
