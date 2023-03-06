@@ -1,3 +1,5 @@
+// Needed things
+
 let board = [
     [0,0,0,0,0,0,0,0,0,0],
     [0,0,0,0,0,0,0,0,0,0],
@@ -9,7 +11,7 @@ let board = [
 ]
 
 let dino_1 = document.getElementById("dino_one");
-dino_1.addEventListener('click', choose())
+dino_1.addEventListener('click', choice())
 
 let choice = false;
 
@@ -45,3 +47,6 @@ function start_turn() {
         card++
     }
 }
+
+
+// Only in single player

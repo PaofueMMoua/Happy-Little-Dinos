@@ -109,3 +109,25 @@ background-position: center;
     justify-content: space-between;
     align-items: center;
 }
+
+.column {
+    display:flex;
+    flex-direction:column;
+}
+
+.column h3 {
+    font-size:5vw
+}
+
+.green {
+    background:-webkit-linear-gradient(yellowgreen,yellowgreen, yellowgreen,rgb(105, 147, 0), green, green);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+}
+
+.blue {
+    background:-webkit-linear-gradient(blue,blue, blue,rgb(106, 3, 233), purple, purple);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
