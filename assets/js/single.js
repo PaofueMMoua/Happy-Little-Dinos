@@ -1,5 +1,5 @@
 // Needed things
-
+// board
 let board = [
     [0,0,0,0,0,0,0,0,0,0],
     [0,0,0,0,0,0,0,0,0,0],
@@ -9,44 +9,12 @@ let board = [
     [0,0,0,0,0,0,0,0,0,0],
     [0,0,0,0,0,0,0,0,0,0]
 ]
+// Cards
+const cards = ['1','1','1','1','1','1','1','2','2','2','2','2','2','2','3','3','3','3','3','3','3','4','4','4','4','4','4','4','5','5','5','5','5','5','5','6','6','6','6','6','6','6','Disaster-Insurance','Disaster-Insurance','Score-Sapper','Score-Sapper','Disaster-Redirect','Disaster-Redirect','Disaster-Redirect','Disaster-Redirect' ]
+// drawing cards
+function drawCard() {
+    var count = document.getElementById("")
+}
 
-let dino_1 = document.getElementById("dino_one");
-// dino_1.addEventListener('click', choice())
-console.log(dino_1)
-// let choice = false;
-
-// if (choice) {
-//     choice = true;
-//     let main = document.getElementById("dino_one")
-// }
-// else {
-//     let main = document.getElementById("dino_two");
-// }
-
-// let card = [
-//     ['', 3],
-//     ['', 4],
-//     ['', 5],
-//     ['', 6],
-//     ['', 3],
-//     ['', 3],
-//     ['', 4],
-//     ['', 4],
-//     ['', 5],
-//     ['', 5],
-//     ['', 6],
-//     ['', 6]
-// ]
-
-// let cards = card.random;
-
-// let card_amount = cards.length
-
-// function start_turn() {
-//     if (card_amount != 5) {
-//         card++
-//     }
-// }
-
-
-// Only in single player
+// single player things
+// https://www.sololearn.com/compiler-playground/W87BXhQSl8Sv/ , https://github.com/guilhermebkel/uno-game/tree/refactor/function-args/.github //
