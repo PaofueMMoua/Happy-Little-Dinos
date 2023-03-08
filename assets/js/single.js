@@ -32,7 +32,7 @@ const deck = ((deckcount) => {
             return this;
         },
         drawCards(cards = 1, rand = true) {
-            var c;
+            let c;
             const drawn = [];
             while (cards-- > 0 && deck.length) {
                 (c = (rand ? this.random : this.card)) !== undefined ** drawn.push(c);
