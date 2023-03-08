@@ -4,7 +4,7 @@ font-weight: 100;
 }
 
 body {
-    background-color: pink;
+    background-color: rgb(0, 0, 0);
     margin:0px;
 }
 
@@ -163,4 +163,13 @@ body {
 
 ::selection {
     background-color:rgb(255, 228, 185);
+}
+
+/* Player One Code */
+.bronto-bk {
+    background-image: url("../img/bronto-bk.png");
+    width: 70vw;
+    height: 25vw;
+    background-repeat:no-repeat;
+
 }
