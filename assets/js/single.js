@@ -15,7 +15,7 @@ let deckCount = 0;
 const deck = ((deckcount) => {
     deckCount = Math.min(5, Math.max(1, isNaN(deckCount) ? 2 : deckCount | 0));
     const value = '1,2,3,4,5,6'.split(",");
-    const amount = '-1,-2,-3,-4,-5,-6,-7'.split(',');
+    const amount = '_1,_2,_3,_4,_5,_6,_7'.split(',');
     const deck = [];
     const randIdx = () => Math.random() * deck.length | 0;
     return (Object.freeze({
@@ -46,6 +46,17 @@ console.log(deck.handA(deck.drawCards(5)));
 console.log(deck.handA(deck.drawCards(5)));
 console.log(deck.handA(deck.drawCards(5)));
 console.log(deck.handA(deck.drawCards(5)));
+
+let player_hand = deck.handA(deck.drawCards(5));
+// Draw Cards
+if(player_hand < 5 || player_hand != deck.handA) {
+    deck.drawCards(1) + deck.handA;
+}
+// playing a point card
+if(player_hand) {
+    player_card 
+}
+
 // drawing cards
 // function drawCard() {
 //     var count = document.getElementById("")
