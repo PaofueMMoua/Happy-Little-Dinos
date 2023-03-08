@@ -54,8 +54,11 @@ body {
 }
 
 .hero-txt h1 {
-    color:white; 
-    font-size:7vw ;
+    font-size:7vw;
+}
+
+.title {
+    color:white;
 }
 
 .hero-btn a, .hero-btn-2 a {
@@ -78,6 +81,9 @@ body {
     overflow:hidden;
     margin:0px;
     border:0px;
+    background-repeat:no-repeat;
+    background-size: cover;
+    background-position:center;
 }
 
 .dino {
@@ -90,11 +96,14 @@ body {
     height: 15vw;
     background-color: transparent;
     border: none;
+    transition: -webkit-transform 0.2s;
+	transition: transform 0.2s;
+	transition: transform 0.2s, -webkit-transform 0.2s;
 }
 
 .dino_two {
     background-image:url('../img/stego.png');
-background-position: center;
+    background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
     position: relative;
@@ -102,6 +111,15 @@ background-position: center;
     height: 15vw;
     background-color: transparent;
     border: none;
+    transition: -webkit-transform 0.2s;
+	transition: transform 0.2s;
+	transition: transform 0.2s, -webkit-transform 0.2s;
+}
+
+.dino:hover,
+.dino_two:hover {
+    -webkit-transform:scale(1.2);
+        transform:scale(1.2);
 }
 
 .dino-space {
@@ -119,15 +137,30 @@ background-position: center;
     font-size:5vw
 }
 
-.green {
-    background:-webkit-linear-gradient(yellowgreen,yellowgreen, yellowgreen,rgb(105, 147, 0), green, green);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-
+.green,
+.blue {
+    color:white;
+    text-decoration:none;
 }
 
-.blue {
-    background:-webkit-linear-gradient(blue,blue, blue,rgb(106, 3, 233), purple, purple);
-    -webkit-background-clip: text;
+.green:hover {
+    background: linear-gradient(17deg, rgb(115, 155, 15) 30%, rgb(185, 232, 92) 44%, rgb(166, 222, 27) 68%, rgb(143, 234, 100) 81%); 
+    -webkit-background-clip:text;
     -webkit-text-fill-color: transparent;
+    transition: all 250ms ease;
+}
+
+.blue:hover {
+    background: linear-gradient(17deg, rgb(34, 89, 161) 30%, rgb(93, 129, 212) 44%, rgb(181, 96, 215) 68%, rgb(98, 14, 134) 81%); 
+    -webkit-background-clip:text;
+    -webkit-text-fill-color: transparent;
+    transition: all 250ms ease;
+}
+
+.dino-select {
+    color: #F27F77;
+}
+
+::selection {
+    background-color:rgb(255, 228, 185);
 }
