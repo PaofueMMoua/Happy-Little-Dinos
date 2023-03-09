@@ -1,6 +1,8 @@
 * {
 font-family:'Bahiana', cursive;
 font-weight: 100;
+margin:0;
+padding:0;
 }
 
 body {
@@ -169,7 +171,34 @@ body {
 .bronto-bk {
     background-image: url("../img/bronto-bk.png");
     width: 70vw;
-    height: 25vw;
+    /* height: 25vw; */
     background-repeat:no-repeat;
+}
 
+.char-bronto {
+    width:17vw;
+}
+
+.char-name {
+    margin-left:5vw;
+    font-size:4vw;
+    color:white;
+}
+
+.trait {
+    width:5vw;
+}
+
+.traits-sec {
+    display:flex;
+    flex-direction:row;
+}
+
+p {
+    font-size:3vw;
+    margin-left:1vw;
+    margin-right:1vw;
+    top:1vw;
+    position:relative;
+    color:rgb(250, 248, 248);
 }
