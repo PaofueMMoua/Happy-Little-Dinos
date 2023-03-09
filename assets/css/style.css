@@ -154,7 +154,7 @@ body {
     background: linear-gradient(17deg, rgb(34, 89, 161) 30%, rgb(93, 129, 212) 44%, rgb(181, 96, 215) 68%, rgb(98, 14, 134) 81%); 
     -webkit-background-clip:text;
     -webkit-text-fill-color: transparent;
-    transition: all 250ms ease;
+    transition: all 250ms ease; 
 }
 
 .dino-select {
@@ -162,6 +162,7 @@ body {
 }
 
 ::selection {
+<<<<<<< Updated upstream
     background-color:rgb(255, 228, 185);
 }
 
@@ -173,3 +174,10 @@ body {
     background-repeat:no-repeat;
 
 }
+=======
+    background-color:rgb(255, 228, 185)
+}
+
+/* playertwo */
+
+>>>>>>> Stashed changes
