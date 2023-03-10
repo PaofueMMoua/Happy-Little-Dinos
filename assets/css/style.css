@@ -157,15 +157,11 @@ body {
     background: linear-gradient(17deg, rgb(34, 89, 161) 30%, rgb(93, 129, 212) 44%, rgb(181, 96, 215) 68%, rgb(98, 14, 134) 81%); 
     -webkit-background-clip:text;
     -webkit-text-fill-color: transparent;
-    transition: all 250ms ease;
+    transition: all 250ms ease; 
 }
 
 .dino-select {
     color: #F27F77;
-}
-
-::selection {
-    background-color:rgb(255, 228, 185);
 }
 
 /*BRONTO'S AVATAR + TRAITS*/
@@ -191,7 +187,6 @@ body {
     flex-direction:row;
 }
 
-/* BRONTO NEEDS TO BE CROPPED TO FIT ALL CONTENT IN CHACTER AREA */
 .char-bronto {
     width:15vw;
 }
@@ -302,4 +297,129 @@ body {
     margin-left:3vw;
 }
 
+::selection {
+    background-color:rgb(255, 228, 185);
+}
 
+/*BRONTO'S AVATAR + TRAITS*/
+.bronto-board {
+    display:flex;
+    flex:wrap;
+    justify-content:center;
+}
+
+.bronto-bk {
+    background-image: url("../img/background.png");
+    /* height: 25vw; */
+    background-repeat:no-repeat;
+    justify-content:flex-start;
+}
+
+.bronto-bk2 {
+    background-image: url("../img/background2.png");
+    width:40vw;
+    background-repeat:no-repeat;
+    display:flex;
+    flex-direction:row;
+}
+::selection {
+    background-color:rgb(255, 228, 185)
+}
+
+/* playertwo */
+
+.char-bronto {
+    width:17vw;
+}
+
+.char-name {
+    margin-left:5vw;
+    font-size:4vw;
+    color:white;
+}
+
+.trait {
+    width:5vw;
+}
+
+.traits-sec {
+    display:flex;
+    flex-direction:row;
+}
+
+p {
+    font-size:3vw;
+    margin-left:1vw;
+    margin-right:1vw;
+    top:1vw;
+    position:relative;
+    color:rgb(250, 248, 248);
+}
+
+/*BRONTO'S ESCAPE ROUTE */
+.escape-route {
+    box-sizing:border-box;
+    display:flex;
+    background-color:antiquewhite;
+    width:30vw;
+    height:23vw;
+    margin-top:1vw;
+    margin-bottom:1vw;
+}
+
+.cell {
+    background-color:#FFA953;
+    border: solid 1px;
+}
+
+.cell {
+    width:2.5vw;
+    height:2.5vw;
+    text-align: center;
+}
+
+.escape-cell {
+    width:4vw;
+}
+
+.escape-directions {
+    font-size:.8vw;
+    color:black;
+    font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    width:15vw;
+    text-align: center;
+}
+
+/* BRONTO'S DISASTER AREA */
+.disaster-area {
+    box-sizing:border-box;
+    margin-top:3vw;
+}
+
+.disaster-cell {
+    background-color:aqua;
+    border:solid 1px;
+    margin:.5vw;
+}
+
+.disaster-img {
+    width:4vw;
+}
+
+.disaster-flex {
+    display:flex;
+    flex-direction: row;
+    justify-content:space-around;
+    width:10vw;
+    margin:0;
+}
+
+.disaster-area h2 {
+    font-size:2.3vw;
+    text-align: center;
+}
+
+.dis-cell5 {
+    width:fit-content;
+    margin-left:3vw;
+}
