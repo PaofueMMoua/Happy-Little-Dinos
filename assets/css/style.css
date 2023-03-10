@@ -326,36 +326,6 @@ body {
     background-color:rgb(255, 228, 185)
 }
 
-/* playertwo */
-
-.char-bronto {
-    width:17vw;
-}
-
-.char-name {
-    margin-left:5vw;
-    font-size:4vw;
-    color:white;
-}
-
-.trait {
-    width:5vw;
-}
-
-.traits-sec {
-    display:flex;
-    flex-direction:row;
-}
-
-p {
-    font-size:3vw;
-    margin-left:1vw;
-    margin-right:1vw;
-    top:1vw;
-    position:relative;
-    color:rgb(250, 248, 248);
-}
-
 /*BRONTO'S ESCAPE ROUTE */
 .escape-route {
     box-sizing:border-box;
@@ -423,3 +393,33 @@ p {
     width:fit-content;
     margin-left:3vw;
 }
+
+/* playertwo */
+
+/* .char-bronto {
+    width:17vw;
+}
+
+.char-name {
+    margin-left:5vw;
+    font-size:4vw;
+    color:white;
+}
+
+.trait {
+    width:5vw;
+}
+
+.traits-sec {
+    display:flex;
+    flex-direction:row;
+}
+
+p {
+    font-size:3vw;
+    margin-left:1vw;
+    margin-right:1vw;
+    top:1vw;
+    position:relative;
+    color:rgb(250, 248, 248);
+} */
