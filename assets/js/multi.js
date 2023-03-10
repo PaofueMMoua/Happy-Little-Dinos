@@ -1,15 +1,35 @@
 // multi
 
-import {joinRoom, selfId } from 'https://cdn.skypack.dev/trystero/ipfs';
+import trystero from 'https://cdn.skypack.dev/trystero';
+
+import {joinRoom, selfId} from 'trystero/ipfs'
 const user = {appId: 'HappyLittleDinosaurDemo'};
 
-const config = {appId: 'Dino-testing'}
+const config = {appId: 'chrome'}
+const room = joinRoom(config, 'dino')
 // Inform if someone joins 
 onPeerJoin(peerId => console.log(`${peerId} joined`))
 // Informs if someone leaves
 onPeerJoin(peerId => console.log(`${peerId} left`))
 
-joinRoom({appId: 'Anonymouse', password:'dino-test'}, 'test')
+// joinRoom({appId: 'Anonymouse', password:'dino-test'}, 'test')
+
+const [sendCursor, getCursor] = room.makeAction('cursormove')
+
+window.addEventListener('mousemove', e => sendCursor([e.clientX, e.clientY]))
+
+getCursor(([x, y], peerId) => {
+  const peerCursor = cursorMap[peerId]
+  peerCursor.style.left = x + 'px'
+  peerCursor.style.top = y + 'px'
+})
+
+room.onPeerJoin(peerId =>
+    setInterval(
+      async () => console.log(`took ${await room.ping(peerId)}ms`),
+      2000
+    )
+  )  
 
 let myName = `Anonymouse`;
 // Attempting to make this a random string assigned to each user that interacts and joins.
