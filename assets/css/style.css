@@ -173,6 +173,7 @@ body {
     display:flex;
     flex:wrap;
     justify-content:center;
+    height:21vw;
 }
 
 .bronto-bk {
@@ -190,30 +191,32 @@ body {
     flex-direction:row;
 }
 
+/* BRONTO NEEDS TO BE CROPPED TO FIT ALL CONTENT IN CHACTER AREA */
 .char-bronto {
-    width:17vw;
+    width:15vw;
 }
 
 .char-name {
-    margin-left:5vw;
-    font-size:4vw;
-    color:white;
+    text-align: center;
+    font-size:3vw;
+    color:rgb(0, 0, 0);
 }
 
 .trait {
-    width:5vw;
+    width:3.5vw;
 }
 
 .traits-sec {
     display:flex;
     flex-direction:row;
+    justify-content: center;
 }
 
-p {
-    font-size:3vw;
+.number {
+    font-size:2.5vw;
     margin-left:1vw;
     margin-right:1vw;
-    top:1vw;
+    top:.5vw;
     position:relative;
     color:rgb(250, 248, 248);
 }
@@ -221,23 +224,36 @@ p {
 /*BRONTO'S ESCAPE ROUTE */
 .escape-route {
     box-sizing:border-box;
-    display:flex;
     background-color:antiquewhite;
     width:30vw;
-    height:23vw;
+    height:20vw;
     margin-top:1vw;
     margin-bottom:1vw;
 }
 
+.row {
+    display:flex;
+    flex-direction:row;
+}
+
+.row3,
+.row5,
+.row6 {
+    flex-direction:row-reverse;
+}
+
 .cell {
+    width:3vw;
+    height:2.7vw;
+    text-align: center;
     background-color:#FFA953;
     border: solid 1px;
 }
 
-.cell {
-    width:2.5vw;
-    height:2.5vw;
-    text-align: center;
+.cell-num {
+    position:relative;
+    top:.6vw;
+    font-size:1.2vw;
 }
 
 .escape-cell {
@@ -255,7 +271,7 @@ p {
 /* BRONTO'S DISASTER AREA */
 .disaster-area {
     box-sizing:border-box;
-    margin-top:3vw;
+    margin-top:2vw;
 }
 
 .disaster-cell {
