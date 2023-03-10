@@ -8,7 +8,7 @@ const config = {appId: 'san_narciso_3d'}
 joinRoom({appId: 'Anonymouse', password:'dino-test'}, 'test')
 
 let myName = `Anonymouse`;
-
+// Attempting to make this a random string assigned to each user that interacts and joins.
 function RandomId() {
     return Math.random().toString(2).substring(1,2);
 }
