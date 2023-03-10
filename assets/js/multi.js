@@ -3,7 +3,7 @@
 import {joinRoom, selfId } from 'https://cdn.skypack.dev/trystero/ipfs';
 const user = {appId: 'HappyLittleDinosaurDemo'};
 
-const config = {appId: 'san_narciso_3d'}
+const config = {appId: 'Dino-testing'}
 // Inform if someone joins 
 onPeerJoin(peerId => console.log(`${peerId} joined`))
 // Informs if someone leaves
@@ -16,7 +16,7 @@ let myName = `Anonymouse`;
 function RandomId() {
     return Math.random().toString(2).substring(1,2);
 }
-
+let peerId = myName + RandomId(selfId);
 // Used for connecting but will need to run first.
 //https://www.skypack.dev/view/trystero#encryption
 
