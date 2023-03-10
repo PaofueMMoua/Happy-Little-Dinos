@@ -4,6 +4,10 @@ import {joinRoom, selfId } from 'https://cdn.skypack.dev/trystero/ipfs';
 const user = {appId: 'HappyLittleDinosaurDemo'};
 
 const config = {appId: 'san_narciso_3d'}
+// Inform if someone joins 
+onPeerJoin(peerId => console.log(`${peerId} joined`))
+// Informs if someone leaves
+onPeerJoin(peerId => console.log(`${peerId} left`))
 
 joinRoom({appId: 'Anonymouse', password:'dino-test'}, 'test')
 
@@ -66,16 +70,8 @@ function random() {
     }
 }
 // Creating the player
-let players = new Array();
 
-function newplayers(num){
-    players = new Array();
-    for(vari=0;i<=num;i++) {
-        let hand = new Array();
-        let player = {Name: 'User' + i, ID:i, Score: 0, Hand : hand};
-        players.push(player);
-    }
-}
+
 
 // function PlayerUi() {
 //     document.getElementById('user').innerHTML = '';
