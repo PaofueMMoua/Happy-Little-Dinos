@@ -168,12 +168,26 @@ body {
     background-color:rgb(255, 228, 185);
 }
 
-/* Player One Code */
+/*BRONTO'S AVATAR + TRAITS*/
+.bronto-board {
+    display:flex;
+    flex:wrap;
+    justify-content:center;
+}
+
 .bronto-bk {
-    background-image: url("../img/bronto-bk.png");
-    width: 70vw;
+    background-image: url("../img/background.png");
     /* height: 25vw; */
     background-repeat:no-repeat;
+    justify-content:flex-start;
+}
+
+.bronto-bk2 {
+    background-image: url("../img/background2.png");
+    width:40vw;
+    background-repeat:no-repeat;
+    display:flex;
+    flex-direction:row;
 }
 
 .char-bronto {
@@ -203,3 +217,73 @@ p {
     position:relative;
     color:rgb(250, 248, 248);
 }
+
+/*BRONTO'S ESCAPE ROUTE */
+.escape-route {
+    box-sizing:border-box;
+    display:flex;
+    background-color:antiquewhite;
+    width:30vw;
+    height:23vw;
+    margin-top:1vw;
+    margin-bottom:1vw;
+}
+
+.cell {
+    background-color:#FFA953;
+    border: solid 1px;
+}
+
+.cell {
+    width:2.5vw;
+    height:2.5vw;
+    text-align: center;
+}
+
+.escape-cell {
+    width:4vw;
+}
+
+.escape-directions {
+    font-size:.8vw;
+    color:black;
+    font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    width:15vw;
+    text-align: center;
+}
+
+/* BRONTO'S DISASTER AREA */
+.disaster-area {
+    box-sizing:border-box;
+    margin-top:3vw;
+}
+
+.disaster-cell {
+    background-color:aqua;
+    border:solid 1px;
+    margin:.5vw;
+}
+
+.disaster-img {
+    width:4vw;
+}
+
+.disaster-flex {
+    display:flex;
+    flex-direction: row;
+    justify-content:space-around;
+    width:10vw;
+    margin:0;
+}
+
+.disaster-area h2 {
+    font-size:2.3vw;
+    text-align: center;
+}
+
+.dis-cell5 {
+    width:fit-content;
+    margin-left:3vw;
+}
+
+
