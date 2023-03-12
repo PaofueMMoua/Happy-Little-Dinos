@@ -228,11 +228,19 @@ body {
 /*BRONTO'S ESCAPE ROUTE */
 .escape-route {
     box-sizing:border-box;
-    /* background-color:antiquewhite; */
+    background-color:antiquewhite;
     width:30vw;
-    height:20vw;
+    /* height:20vw; */
     margin-top:1vw;
     margin-bottom:1vw;
+}
+
+.cell {
+    width:2.5vw;
+    height:2.5vw;
+    text-align: center;
+    background-color:#FFA953;
+    border: solid .1vw;
 }
 
 .row {
@@ -240,28 +248,95 @@ body {
     flex-direction:row;
 }
 
-.row3,
-.row5,
-.row6 {
+.row3 {
     flex-direction:row-reverse;
 }
 
-.cell {
-    width:3vw;
-    height:2.7vw;
-    text-align: center;
-    background-color:#FFA953;
-    border: solid 1px;
+.row5 {
+    flex-direction:row-reverse;
+    margin-right:9.5vw;
 }
 
-.cell-num {
+.row6 {
+    flex-direction:row-reverse;
+    margin-right:4vw;
+}
+
+.row7-nums {
+    display: flex;
+    flex-direction: row;
+    position: relative;
+}
+
+.cell6 {
+    position:relative;
+}
+
+.cell13 {
+    padding-top:1vw;
+}
+
+.cell1,
+.cell5 {
+    position:relative;
+    top:1.03vw;
+    right:2.21vw;
+    border-bottom:transparent;
+    border-top:transparent;
+}
+
+.cell1 {
+    right:4.7vw;
+}
+
+/* .cell4 {
+    left:2.34vw;
+} */
+
+.cell2,
+.cell3,
+.cell4 {
+    position:relative;
+    top:1vw;
+    left:.65vw;
+}
+
+.cell2, 
+.cell3 {
+    border-right:transparent;
+}
+
+.cell13 {
+    border-bottom:transparent;
+}
+
+.cell-num,
+.escape-cell p,
+.start-cell p {
     position:relative;
     top:.6vw;
     font-size:1.2vw;
 }
 
-.escape-cell {
-    width:4vw;
+.cell6,
+.cell7,
+.cell8,
+.cell8,
+.cell9,
+.cell10,
+.cell11 {
+    border-right:transparent;
+}
+
+.empty {
+    border:transparent;
+    width:2.52vw;
+    background-color:transparent;
+}
+
+.escape-cell,
+.start-cell {
+    width:5.25vw;
 }
 
 .escape-directions {
