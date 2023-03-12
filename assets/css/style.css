@@ -231,8 +231,6 @@ body {
     background-color:antiquewhite;
     width:30vw;
     /* height:20vw; */
-    margin-top:1vw;
-    margin-bottom:1vw;
 }
 
 .cell {
@@ -241,25 +239,100 @@ body {
     text-align: center;
     background-color:#FFA953;
     border: solid .1vw;
+    position:relative;
 }
 
 .row {
     display:flex;
     flex-direction:row;
+    position:relative;
+}
+
+.row2 {
+    margin-left:1.35vw;
+    top:.31vw;
 }
 
 .row3 {
-    flex-direction:row-reverse;
+    margin-left:1.35vw;
+    top:.3vw;
+}
+
+.row4 {
+    left:1.35vw;
+    top:.3vw;
 }
 
 .row5 {
-    flex-direction:row-reverse;
-    margin-right:9.5vw;
+    left:3.85vw;
+    top:.35vw;
 }
 
 .row6 {
-    flex-direction:row-reverse;
-    margin-right:4vw;
+    margin-left:6.35vw;
+    bottom:.14vw;
+    margin-top:.5vw;
+}
+
+.row7 {
+    bottom:.1vw;
+}
+
+.cell24,
+.cell25,
+.cell26,
+.cell27,
+.cell28,
+.cell29,
+.cell30,
+.cell32,
+.cell33,
+.cell34,
+.cell35,
+.cell36,
+.cell37,
+.cell38,
+.cell39,
+.cell48,
+.cell47,
+.cell46,
+.cell45,
+.cell44,
+.cell43,
+.cell42 {
+    border-right:transparent;
+}
+
+.cell48 {
+    border-left:transparent;
+}
+
+.cell22 {
+    padding-top:.4vw;
+    bottom:.35vw;
+    border-top:transparent;
+}
+
+.cell30 {
+    border-left:transparent;
+}
+
+.cell40 {
+    padding-top:.4vw;
+    bottom:.3vw;
+    border-top:transparent;
+}
+
+.cell31 {
+    padding-top:.4vw;
+    bottom:.3vw;
+    border-top:transparent;
+}
+
+.cell49 {
+    padding-top:.4vw;
+    bottom:.3vw;
+    border-top:transparent;
 }
 
 .row7-nums {
@@ -268,54 +341,62 @@ body {
     position: relative;
 }
 
-.cell6 {
-    position:relative;
+.cell18,
+.cell19,
+.cell20,
+.cell21 {
+    border-right:transparent;
 }
 
-.cell13 {
-    padding-top:1vw;
+.cell12 {
+    padding-top:.4vw;
+    border-top:transparent;
+    bottom:.3vw;
+}
+
+.cell17 {
+    padding-top:.4vw;
+    bottom:.3vw;
+    border-top:transparent;
+}
+
+.cell16 {
+    border-left:transparent;
 }
 
 .cell1,
 .cell5 {
-    position:relative;
-    top:1.03vw;
-    right:2.21vw;
+    top:.55vw;
+    right:2.5vw;
     border-bottom:transparent;
     border-top:transparent;
 }
 
 .cell1 {
-    right:4.7vw;
+    right:5vw;
 }
-
-/* .cell4 {
-    left:2.34vw;
-} */
 
 .cell2,
 .cell3,
 .cell4 {
-    position:relative;
-    top:1vw;
-    left:.65vw;
+    top:.9vw;
+    right:2.5vw;
 }
 
 .cell2, 
-.cell3 {
+.cell3,
+.cell14,
+.cell15,
+.cell16 {
     border-right:transparent;
-}
-
-.cell13 {
-    border-bottom:transparent;
 }
 
 .cell-num,
 .escape-cell p,
 .start-cell p {
-    position:relative;
     top:.6vw;
     font-size:1.2vw;
+    position:relative;
 }
 
 .cell6,
@@ -330,8 +411,8 @@ body {
 
 .empty {
     border:transparent;
-    width:2.52vw;
     background-color:transparent;
+    width:1.1vw;
 }
 
 .escape-cell,
