@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Baloo+Bhai+2&display=swap');
+
 * {
 font-family:'Bahiana', cursive;
 font-weight: 100;
@@ -203,7 +205,7 @@ body {
 .char-name {
     text-align: center;
     font-size:3vw;
-    color:rgb(226, 226, 224);
+    color:#DEE0F4;
 }
 
 .trait {
@@ -222,23 +224,23 @@ body {
     margin-right:1vw;
     top:.5vw;
     position:relative;
-    color:rgb(250, 248, 248);
+    color:#DEE0F4;
 } 
 
 /*BRONTO'S ESCAPE ROUTE */
 .escape-route {
     box-sizing:border-box;
-    background-color:antiquewhite;
-    width:30vw;
-    /* height:20vw; */
+    margin-left:.5vw;
+    margin-top:.2vw;
+    width:25vw;
 }
 
 .cell {
     width:2.5vw;
     height:2.5vw;
     text-align: center;
-    background-color:#FFA953;
-    border: solid .1vw;
+    background-color:#DEE0F4;
+    border: solid .1vw #693396b4;
     position:relative;
 }
 
@@ -250,7 +252,7 @@ body {
 
 .row2 {
     margin-left:1.35vw;
-    top:.31vw;
+    top:.3vw;
 }
 
 .row3 {
@@ -260,12 +262,12 @@ body {
 
 .row4 {
     left:1.35vw;
-    top:.3vw;
+    top:.28vw;
 }
 
 .row5 {
     left:3.85vw;
-    top:.35vw;
+    top:.34vw;
 }
 
 .row6 {
@@ -309,7 +311,7 @@ body {
 
 .cell22 {
     padding-top:.4vw;
-    bottom:.35vw;
+    bottom:.39vw;
     border-top:transparent;
 }
 
@@ -349,14 +351,14 @@ body {
 }
 
 .cell12 {
-    padding-top:.4vw;
+    padding-top:.45vw;
     border-top:transparent;
-    bottom:.3vw;
+    bottom:.4vw;
 }
 
 .cell17 {
     padding-top:.4vw;
-    bottom:.3vw;
+    bottom:.35vw;
     border-top:transparent;
 }
 
@@ -397,6 +399,7 @@ body {
     top:.6vw;
     font-size:1.2vw;
     position:relative;
+    color:#693396b4;
 }
 
 .cell6,
@@ -423,21 +426,34 @@ body {
 .escape-directions {
     font-size:.8vw;
     color:black;
-    font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-    width:15vw;
+    font-family:"Baloo Bhai 2", sans-serif;
+    line-height:1vw;
+    font-weight:bold;
+    width:14vw;
     text-align: center;
+    margin-left:2.5vw;
+    margin-top:.5vw;
 } 
+
+.bronto-foot {
+    width:2vw;
+    position:relative;
+    bottom:1vw;
+}
 
 /* BRONTO'S DISASTER AREA */
 .disaster-area {
     box-sizing:border-box;
     margin-top:2vw;
+    margin-left:2vw;
 }
 
 .disaster-cell {
-    background-color:aqua;
-    border:solid 1px;
+    background-color:#51555254;
+    border-radius:.4vw;
     margin:.5vw;
+    height:4vw;
+    width:4vw;
 }
 
 .disaster-img {
@@ -455,12 +471,14 @@ body {
 .disaster-area h2 {
     font-size:2.3vw;
     text-align: center;
+    color:#DEE0F4;
 }
 
 .dis-cell5 {
-    width:fit-content;
     margin-left:3vw;
 }
+
+
 
 ::selection {
     background-color:rgb(255, 228, 185);
