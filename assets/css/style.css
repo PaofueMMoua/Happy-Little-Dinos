@@ -164,7 +164,7 @@ body {
     color: #F27F77;
 }
 
-/*BRONTO'S AVATAR + TRAITS*/
+/* BRONTO'S AVATAR + TRAITS */
 .bronto-board {
     display:flex;
     flex:wrap;
@@ -173,10 +173,13 @@ body {
 }
 
 .bronto-bk {
-    background-image: url("../img/background.png");
-    /* height: 25vw; */
+    background-image: url("../img/test1.png"); 
     background-repeat:no-repeat;
     justify-content:flex-start;
+    background-size:cover;
+    background-size:16.65vw;
+    background-position-y:bottom;
+    background-position-x:right;
 }
 
 .bronto-bk2 {
@@ -185,16 +188,22 @@ body {
     background-repeat:no-repeat;
     display:flex;
     flex-direction:row;
+    background-size:cover;
+    background-position-x:left;
+    background-position-y:bottom;
+    background-color:rgb(225, 182, 241);
 }
 
 .char-bronto {
     width:15vw;
+    bottom:-1vw;
+    position:relative;
 }
 
 .char-name {
     text-align: center;
     font-size:3vw;
-    color:rgb(0, 0, 0);
+    color:rgb(226, 226, 224);
 }
 
 .trait {
@@ -214,12 +223,12 @@ body {
     top:.5vw;
     position:relative;
     color:rgb(250, 248, 248);
-}
+} 
 
 /*BRONTO'S ESCAPE ROUTE */
 .escape-route {
     box-sizing:border-box;
-    background-color:antiquewhite;
+    /* background-color:antiquewhite; */
     width:30vw;
     height:20vw;
     margin-top:1vw;
@@ -261,7 +270,7 @@ body {
     font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     width:15vw;
     text-align: center;
-}
+} 
 
 /* BRONTO'S DISASTER AREA */
 .disaster-area {
@@ -301,125 +310,7 @@ body {
     background-color:rgb(255, 228, 185);
 }
 
-/*BRONTO'S AVATAR + TRAITS*/
-.bronto-board {
-    display:flex;
-    flex:wrap;
-    justify-content:center;
-}
 
-.bronto-bk {
-    background-image: url("../img/background.png");
-    /* height: 25vw; */
-    background-repeat:no-repeat;
-    justify-content:flex-start;
-}
 
-.bronto-bk2 {
-    background-image: url("../img/background2.png");
-    width:40vw;
-    background-repeat:no-repeat;
-    display:flex;
-    flex-direction:row;
-}
-::selection {
-    background-color:rgb(255, 228, 185)
-}
 
-/*BRONTO'S ESCAPE ROUTE */
-.escape-route {
-    box-sizing:border-box;
-    display:flex;
-    background-color:antiquewhite;
-    width:30vw;
-    height:23vw;
-    margin-top:1vw;
-    margin-bottom:1vw;
-}
 
-.cell {
-    background-color:#FFA953;
-    border: solid 1px;
-}
-
-.cell {
-    width:2.5vw;
-    height:2.5vw;
-    text-align: center;
-}
-
-.escape-cell {
-    width:4vw;
-}
-
-.escape-directions {
-    font-size:.8vw;
-    color:black;
-    font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-    width:15vw;
-    text-align: center;
-}
-
-/* BRONTO'S DISASTER AREA */
-.disaster-area {
-    box-sizing:border-box;
-    margin-top:3vw;
-}
-
-.disaster-cell {
-    background-color:aqua;
-    border:solid 1px;
-    margin:.5vw;
-}
-
-.disaster-img {
-    width:4vw;
-}
-
-.disaster-flex {
-    display:flex;
-    flex-direction: row;
-    justify-content:space-around;
-    width:10vw;
-    margin:0;
-}
-
-.disaster-area h2 {
-    font-size:2.3vw;
-    text-align: center;
-}
-
-.dis-cell5 {
-    width:fit-content;
-    margin-left:3vw;
-}
-
-/* playertwo */
-
-/* .char-bronto {
-    width:17vw;
-}
-
-.char-name {
-    margin-left:5vw;
-    font-size:4vw;
-    color:white;
-}
-
-.trait {
-    width:5vw;
-}
-
-.traits-sec {
-    display:flex;
-    flex-direction:row;
-}
-
-p {
-    font-size:3vw;
-    margin-left:1vw;
-    margin-right:1vw;
-    top:1vw;
-    position:relative;
-    color:rgb(250, 248, 248);
-} */
