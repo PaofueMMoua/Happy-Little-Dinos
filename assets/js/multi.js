@@ -19,17 +19,17 @@ const [sendCursor, getCursor] = room.makeAction('cursormove')
 window.addEventListener('mousemove', e => sendCursor([e.clientX, e.clientY]))
 
 getCursor(([x, y], peerId) => {
-  const peerCursor = cursorMap[peerId]
-  peerCursor.style.left = x + 'px'
-  peerCursor.style.top = y + 'px'
+    const peerCursor = cursorMap[peerId]
+    peerCursor.style.left = x + 'px'
+    peerCursor.style.top = y + 'px'
 })
 
 room.onPeerJoin(peerId =>
     setInterval(
-      async () => console.log(`took ${await room.ping(peerId)}ms`),
-      2000
+        async () => console.log(`took ${await room.ping(peerId)}ms`),
+        2000
     )
-  )  
+)
 
 let myName = `Anonymouse`;
 // Attempting to make this a random string assigned to each user that interacts and joins.
@@ -42,8 +42,6 @@ let peerId = myName + RandomId(selfId);
 
 let ND = document.getElementById('') //Add in the input for getting the card.
 ND.addEventListener('click', random(newDeck))
-
-
 
 //cards within the deck
 const values = ['1','2','3','4','5','6','Disaster-Insurance','Score-Sapper','Disaster-Redirect', 'Score-Booster'];
