@@ -175,7 +175,7 @@ body {
 }
 
 .bronto-bk {
-    background-image: url("../img/test1.png"); 
+    background-image: url("../img/bronto-bk.png"); 
     background-repeat:no-repeat;
     justify-content:flex-start;
     background-size:cover;
@@ -185,7 +185,7 @@ body {
 }
 
 .bronto-bk2 {
-    background-image: url("../img/background2.png");
+    background-image: url("../img/bronto-bk2.png");
     width:40vw;
     background-repeat:no-repeat;
     display:flex;
@@ -235,7 +235,8 @@ body {
     width:25vw;
 }
 
-.cell {
+.cell,
+.steg-cell {
     width:2.5vw;
     height:2.5vw;
     text-align: center;
@@ -301,36 +302,40 @@ body {
 .cell45,
 .cell44,
 .cell43,
-.cell42 {
+.cell42,
+.cell18,
+.cell19,
+.cell20,
+.cell21,
+.cell2, 
+.cell3,
+.cell14,
+.cell15,
+.cell16,
+.cell6,
+.cell7,
+.cell8,
+.cell8,
+.cell9,
+.cell10,
+.cell11 {
     border-right:transparent;
 }
 
-.cell48 {
+.cell48,
+.cell30,
+.cell16 {
     border-left:transparent;
 }
 
 .cell22 {
     padding-top:.4vw;
-    bottom:.39vw;
+    bottom:.35vw;
     border-top:transparent;
-}
+} 
 
-.cell30 {
-    border-left:transparent;
-}
-
-.cell40 {
-    padding-top:.4vw;
-    bottom:.3vw;
-    border-top:transparent;
-}
-
-.cell31 {
-    padding-top:.4vw;
-    bottom:.3vw;
-    border-top:transparent;
-}
-
+.cell40,
+.cell31,
 .cell49 {
     padding-top:.4vw;
     bottom:.3vw;
@@ -343,13 +348,6 @@ body {
     position: relative;
 }
 
-.cell18,
-.cell19,
-.cell20,
-.cell21 {
-    border-right:transparent;
-}
-
 .cell12 {
     padding-top:.45vw;
     border-top:transparent;
@@ -360,10 +358,6 @@ body {
     padding-top:.4vw;
     bottom:.35vw;
     border-top:transparent;
-}
-
-.cell16 {
-    border-left:transparent;
 }
 
 .cell1,
@@ -385,14 +379,6 @@ body {
     right:2.5vw;
 }
 
-.cell2, 
-.cell3,
-.cell14,
-.cell15,
-.cell16 {
-    border-right:transparent;
-}
-
 .cell-num,
 .escape-cell p,
 .start-cell p {
@@ -400,16 +386,6 @@ body {
     font-size:1.2vw;
     position:relative;
     color:#693396b4;
-}
-
-.cell6,
-.cell7,
-.cell8,
-.cell8,
-.cell9,
-.cell10,
-.cell11 {
-    border-right:transparent;
 }
 
 .empty {
@@ -468,7 +444,8 @@ body {
     margin:0;
 }
 
-.disaster-area h2 {
+.disaster-area h2,
+h3 {
     font-size:2.3vw;
     text-align: center;
     color:#DEE0F4;
@@ -477,8 +454,39 @@ body {
 .dis-cell5 {
     margin-left:3vw;
 }
+/* STEGO */
+.stego {
+    margin-top:8vw;
+}
 
+.stego-bk {
+    background-image:url("../img/stego-bk.png");
+}
 
+.stego-bk2 {
+    background-image:url("../img/stego-bk2.png");
+    background-color:rgb(239, 243, 234);
+}
+
+.char-stego {
+    margin-top:5vw;
+    width:15vw;
+}
+
+h3,
+.steg-name,
+.steg-num {
+    color:rgb(20, 19, 19);
+}
+
+.steg-cell {
+    background-color:#B9DCAC;
+    border-color:#613535b7;
+}
+
+.steg-cell p {
+    color:#613535b7;
+}
 
 ::selection {
     background-color:rgb(255, 228, 185);
