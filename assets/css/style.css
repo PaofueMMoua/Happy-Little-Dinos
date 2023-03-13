@@ -170,7 +170,8 @@ body {
 .bronto-board {
     display:flex;
     flex:wrap;
-    justify-content:center;
+    margin-left:3vw;
+    margin-top:.5vw;
     height:21vw;
 }
 
@@ -456,7 +457,7 @@ h3 {
 }
 /* STEGO */
 .stego {
-    margin-top:8vw;
+    margin-top:3vw;
 }
 
 .stego-bk {
