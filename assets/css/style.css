@@ -179,7 +179,6 @@ body {
 .testflex  {
     display:flex;
     justify-content: space-between;
-    margin-right:2vw;
 }
 
 .testing {
@@ -187,12 +186,48 @@ body {
     margin-top:.5vw;
 }
 
-.playercards2 {
+.centercards img {
     position:relative;
-    top:10.5vw;
 }
 
+.dis-deck,
+.draw-deck {
+    top:5vw;
+}
 
+.dis-deck {
+    left:3vw;
+}
+
+.player1-point,
+.player2-point {
+    left:3vw;
+}
+
+.play2 {
+    position:relative;
+    left:8.5vw
+}
+
+.card2 {
+    position:relative;
+    right:1.5vw;
+}
+
+.card3 {
+    position:relative;
+    right:3vw;
+}
+
+.card4 {
+    position:relative;
+    right:4.5vw;
+}
+
+.card5 {
+    position:relative;
+    right:6vw;
+}
 
 .bronto-bk {
     background-image: url("../img/bronto-bk.png"); 
@@ -474,9 +509,10 @@ h3 {
 .dis-cell5 {
     margin-left:3vw;
 }
+
 /* STEGO */
 .stego {
-    margin-top:3vw;
+    margin-top:4vw;
 }
 
 .stego-bk {

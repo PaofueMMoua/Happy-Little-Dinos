@@ -4,18 +4,43 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Player 1</title>
+    <title>Multiplayer</title>
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bahiana&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./assets/css/style.css">
 </head>
 <body>
-<div class="testflex">
-<div class="allboards">
     <div class="bronto-board">
         <div class="bronto-bk">
             <img class="char-bronto" src="assets/img/Bronto.png" alt="char-bronto">
             <h2 class="char-name">Bronto</h2>
+
+            <div class="traits-sec">
+               <img class="trait" src="assets/img/blue-disaster.png" alt="blue broken heart">
+               <p>+1</p>
+               <img class="trait" src="assets/img/red-disaster.png" alt="red dino skull"> 
+               <p>-1</p>
+            </div>
+    </div>  
+    <div class ="bronto-bk2">
+        <div class="escape-route">
+            <div class="row1 row">
+                <div class="cell escape-cell"><p>YOU'VE ESCAPED!</p></div>
+                <p class="cell-directions">Move your meeple across the route to escape disasters</p>
+            </div>
+            <div class="row2 row">
+                <div class="cell cell49"><p class="cell-num">49</p></div>
+                    <div class="cell cell48"><p class="cell-num">48</p></div>
+                    <div class="cell cell47"><p class="cell-num">47</p></div>
+                    <div class="cell cell46"><p class="cell-num">46</p></div>
+                    <div class="cell cell45"><p class="cell-num">45</p></div>
+                    <div class="cell cell44"><p class="cell-num">44</p></div>
+                    <div class="cell cell43"><p class="cell-num">43</p></div>
+                    <div class="cell cell42"><p class="cell-num">42</p></div>
+                    <div class="cell cell41"><p class="cell-num">41</p></div>
+            </div>
+        </div>
+
                 <div class="traits-sec">
                     <img class="trait" src="assets/img/blue-disaster.png" alt="blue broken heart">
                     <p class="number">+1</p>
@@ -96,6 +121,7 @@
                         <div class="cell cell11"id="col-8"><p class="cell-num"id="row-6">11</p></div>
                         <div class="cell cell12"id="col-9"><p class="cell-num"id="row-6">12</p></div>  
                     </div>
+                    
                 </div>
             </div>  
             <div class="disaster-area">
@@ -121,7 +147,9 @@
                 <h2>Disaster Area</h2>
             </div>  
         </div>  
+
     </div>
+
 <!-- STEGO -->
     <div class="bronto-board stego">
         <div class="bronto-bk stego-bk">
@@ -206,7 +234,8 @@
                         <div class="steg-cell cell10" id="col-7"><p class="cell-num" id="row-6">10</p></div>
                         <div class="steg-cell cell11" id="col-8"><p class="cell-num" id="row-6">11</p></div>
                         <div class="steg-cell cell12" id="col-9"><p class="cell-num" id="row-6">12</p></div>  
-                    </div>   
+                    </div>
+                    
                 </div>
             </div>  
             <div class="disaster-area">
@@ -233,32 +262,10 @@
             </div>  
         </div>  
     </div>
-</div>
+    <div class="card-in-hand">
+        <img src="/assets/cards/21.png" alt="">
+    </div>
 
-<div class="cards">
-    <div class="playercards1">
-        <img class="testing" src="/assets/cards/testcard1.png" alt="">
-        <img class="testing" src="/assets/cards/testcard1.png" alt="">
-        <img class="testing" src="/assets/cards/testcard1.png" alt="">
-        <img class="testing" src="/assets/cards/testcard1.png" alt="">
-        <img class="testing" src="/assets/cards/testcard1.png" alt="">  
-    </div>
-    <div class="centercards">
-        <img class="testing c" src="/assets/cards/testcard1.png" alt="">
-        <img class="testing" src="/assets/cards/testcard1.png" alt="">
-        <img class="testing" src="/assets/cards/testcard1.png" alt="">
-        <img class="testing" src="/assets/cards/testcard1.png" alt="">
-    </div>
-    <div class="playercards2">
-        <img class="testing" src="/assets/cards/testcard1.png" alt="">
-        <img class="testing" src="/assets/cards/testcard1.png" alt="">
-        <img class="testing" src="/assets/cards/testcard1.png" alt="">
-        <img class="testing" src="/assets/cards/testcard1.png" alt="">
-        <img class="testing" src="/assets/cards/testcard1.png" alt="">  
-    </div>
-</div>
-</div>
-
-    <script src="./assets/js/single.js"></script>
+    <script src="./assets/js/multi.js"></script>
 </body>
 </html>
