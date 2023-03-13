@@ -43,7 +43,7 @@ const deck = ((deckcount) => {
         },
         get length() { returndeck.length },
     })).newDeck();
-})('pho');
+})();
 console.log(deck.handA(deck.drawCards(5)));
 console.log(deck.handA(deck.drawCards(5)));
 console.log(deck.handA(deck.drawCards(5)));
@@ -52,14 +52,17 @@ console.log(deck.handA(deck.drawCards(5)));
 
 let player_hand = deck.handA(deck.drawCards(5));
 // Draw Cards
-if(player_hand < 5 || player_hand != deck.handA) {
-    deck.drawCards(1) + deck.handA;
+if(player_hand < 5 || player_hand.length != deck.handA.length) {
+    deck.drawCards(1) + player_hand;
 }
 // playing a point card
-if(player_hand) {
-    player_card 
+for(let i = 0; i <= 5; i++) {
+    if(player_hand[i] = 'clicked') {
+        played_cards = player_hand[i];
+        player_hand[i].remove;
+    }
 }
-
+// score
 function score() {
     
 }
