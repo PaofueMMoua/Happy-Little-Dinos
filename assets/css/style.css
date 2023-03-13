@@ -170,10 +170,29 @@ body {
 .bronto-board {
     display:flex;
     flex:wrap;
-    margin-left:3vw;
+    margin-left:1vw;
     margin-top:.5vw;
     height:21vw;
+    width:55vw;
 }
+
+.testflex  {
+    display:flex;
+    justify-content: space-between;
+    margin-right:2vw;
+}
+
+.testing {
+    width:8vw;
+    margin-top:.5vw;
+}
+
+.playercards2 {
+    position:relative;
+    top:10.5vw;
+}
+
+
 
 .bronto-bk {
     background-image: url("../img/bronto-bk.png"); 

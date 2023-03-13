@@ -9,7 +9,7 @@ let board = [
     [0,0,0,0,0,0,0,0,0,0],
     [0,0,0,0,0,0,0,0,0,0]
 ]
-
+let score = 0;
 
 // Cards
 // const cards = ['1', '1', '1', '1', '1', '1', '1', '2', '2', '2', '2', '2', '2', '2', '3', '3', '3', '3', '3', '3', '3', '4', '4', '4', '4', '4', '4', '4', '5', '5', '5', '5', '5', '5', '5', '6', '6', '6', '6', '6', '6', '6', 'Disaster-Insurance', 'Disaster-Insurance', 'Score-Sapper', 'Score-Sapper', 'Disaster-Redirect', 'Disaster-Redirect', 'Score-Booster', 'Score-Booster']
@@ -43,31 +43,42 @@ const deck = ((deckcount) => {
         },
         get length() { returndeck.length },
     })).newDeck();
-})('pho');
+})();
 console.log(deck.handA(deck.drawCards(5)));
 console.log(deck.handA(deck.drawCards(5)));
 console.log(deck.handA(deck.drawCards(5)));
 console.log(deck.handA(deck.drawCards(5)));
 console.log(deck.handA(deck.drawCards(5)));
+
+let round_end = false;
 
 let player_hand = deck.handA(deck.drawCards(5));
 // Draw Cards
-if(player_hand < 5 || player_hand != deck.handA) {
-    deck.drawCards(1) + deck.handA;
+if(player_hand < 5 || player_hand.length != deck.handA.length) {
+    deck.drawCards(1) + player_hand;
 }
 // playing a point card
-if(player_hand) {
-    player_card 
+for(let i = 0; i <= 5; i++) {
+    if(player_hand[i] = 'clicked') {
+        played_cards = player_hand[i];
+        player_hand[i].remove;
+    }
+}
+// score
+function FS() {
+    if(round_end = true) {
+        score = score + point;
+        for(let i = 0; i<= 50; i++) {
+            if(score = i) {
+                let k = score;
+                let j = document.getElementsByClassName('cell'+k);
+                // change the board position.
+            }
+        } 
+    }
 }
 
-function score() {
-    
-}
 
-// drawing cards
-// function drawCard() {
-//     var count = document.getElementById("")
-// }
 
 // single player things
 // https://www.sololearn.com/compiler-playground/W87BXhQSl8Sv/ , https://github.com/guilhermebkel/uno-game/tree/refactor/function-args/.github //
