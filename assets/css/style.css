@@ -173,6 +173,15 @@ body {
     margin-left:3vw;
     margin-top:.5vw;
     height:21vw;
+    width:55vw;
+}
+
+.what  {
+    display:flex;
+}
+
+.testing {
+    width:20vw;
 }
 
 .bronto-bk {
