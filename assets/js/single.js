@@ -60,6 +60,10 @@ if(player_hand) {
     player_card 
 }
 
+function score() {
+    
+}
+
 // drawing cards
 // function drawCard() {
 //     var count = document.getElementById("")
