@@ -125,10 +125,6 @@ function FS() {
     } 
 }
 
-if(round_end = true) {
-    FS();
-}
-
 // single player things
 // AI
 function SR() {
