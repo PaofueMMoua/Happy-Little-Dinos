@@ -12,6 +12,9 @@ let board = [
 let score = 0;
 let temp_points = 0;
 
+
+
+
 // Cards
 // const cards = ['1', '1', '1', '1', '1', '1', '1', '2', '2', '2', '2', '2', '2', '2', '3', '3', '3', '3', '3', '3', '3', '4', '4', '4', '4', '4', '4', '4', '5', '5', '5', '5', '5', '5', '5', '6', '6', '6', '6', '6', '6', '6', 'Disaster-Insurance', 'Disaster-Insurance', 'Score-Sapper', 'Score-Sapper', 'Disaster-Redirect', 'Disaster-Redirect', 'Score-Booster', 'Score-Booster']
 let deckCount = 0;
@@ -132,7 +135,7 @@ function SR() {
     deck.drawCards(1) + ai_hand;
     deck.ai_hand.sort()
     }
-    
+
 }
 
 // https://www.sololearn.com/compiler-playground/W87BXhQSl8Sv/ , https://github.com/guilhermebkel/uno-game/tree/refactor/function-args/.github //

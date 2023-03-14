@@ -548,7 +548,11 @@ h3,
     background-color:rgb(255, 228, 185);
 }
 
+.allboards2 {
+    display:none;
+}
 
-
-
+.allboards {
+    display:block;
+}
 
