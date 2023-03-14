@@ -99,22 +99,25 @@ function calculate() {
 
 // score
 function FS() {
-    if(round_end = true) {
-        score = score + point;
-        for(let i = 0; i<= 50; i++) {
-            if(score = i) {
-                let k = score;
-                let j = document.getElementsByClassName('cell'+k);
-                // change the board position.
-                let row = document.getElementById(j)
-                let col = document.getElementById(row.children[0])
-                board[row][col];
-            }
-        } 
-    }
+    score = score + point;
+    for(let i = 0; i<= 50; i++) {
+        if(score = i) {
+            let k = calculate(played_cards);
+            let j = document.getElementsByClassName('cell'+k);
+            // change the board position.
+            let row = document.getElementById(j)
+            let col = document.getElementById(row.children[0])
+            board[row][col];
+        }
+    } 
 }
 
-
+if(round_end = true) {
+    FS();
+}
 
 // single player things
+// AI
+
+
 // https://www.sololearn.com/compiler-playground/W87BXhQSl8Sv/ , https://github.com/guilhermebkel/uno-game/tree/refactor/function-args/.github //
