@@ -10,6 +10,7 @@ let board = [
     [0,0,0,0,0,0,0,0,0,0]
 ]
 let score = 0;
+let temp_points = 0;
 
 // Cards
 // const cards = ['1', '1', '1', '1', '1', '1', '1', '2', '2', '2', '2', '2', '2', '2', '3', '3', '3', '3', '3', '3', '3', '4', '4', '4', '4', '4', '4', '4', '5', '5', '5', '5', '5', '5', '5', '6', '6', '6', '6', '6', '6', '6', 'Disaster-Insurance', 'Disaster-Insurance', 'Score-Sapper', 'Score-Sapper', 'Disaster-Redirect', 'Disaster-Redirect', 'Score-Booster', 'Score-Booster']
@@ -58,12 +59,44 @@ if(player_hand < 5 || player_hand.length != deck.handA.length) {
     deck.drawCards(1) + player_hand;
 }
 // playing a point card
-for(let i = 0; i <= 5; i++) {
+let played_cards = [];
+
+for (let i = 0; i <= 5; i++) {
     if(player_hand[i] = 'clicked') {
         played_cards = player_hand[i];
         player_hand[i].remove;
     }
 }
+
+// calc player card
+function calculate() {
+    for (let i = 0; i <= 2; i++) {
+        if (played_cards = number) {
+            if (played_cards[i] = i) {
+                temp_points = temp_points + i;
+            }
+            // if (played_cards[i] = 6) {
+            //     temp_points = temp_points + 6;
+            // }
+            // else if (played_cards[i] = 5) {
+            //     temp_points = temp_points + 5;
+            // }
+            // else if (played_cards[i] = 4) {
+            //     temp_points = temp_points + 4;
+            // }
+            // else if (played_cards[i] = 3) {
+            //     temp_points = temp_points + 3;
+            // }
+            // else if (played_cards[i] = 2) {
+            //     temp_points = temp_points + 2;
+            // }
+            // else if (played_cards[i] = 1) {
+            //     temp_points = temp_points + 1;
+            // }
+        }
+    }
+}
+
 // score
 function FS() {
     if(round_end = true) {
@@ -73,6 +106,9 @@ function FS() {
                 let k = score;
                 let j = document.getElementsByClassName('cell'+k);
                 // change the board position.
+                let row = document.getElementById(j)
+                let col = document.getElementById(row.children[0])
+                board[row][col];
             }
         } 
     }
