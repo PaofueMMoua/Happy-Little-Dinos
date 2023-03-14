@@ -87,24 +87,7 @@ function calculate() {
             if (played_cards[i] = i) {
                 temp_points = temp_points + i;
             }
-            // if (played_cards[i] = 6) {
-            //     temp_points = temp_points + 6;
-            // }
-            // else if (played_cards[i] = 5) {
-            //     temp_points = temp_points + 5;
-            // }
-            // else if (played_cards[i] = 4) {
-            //     temp_points = temp_points + 4;
-            // }
-            // else if (played_cards[i] = 3) {
-            //     temp_points = temp_points + 3;
-            // }
-            // else if (played_cards[i] = 2) {
-            //     temp_points = temp_points + 2;
-            // }
-            // else if (played_cards[i] = 1) {
-            //     temp_points = temp_points + 1;
-            // }
+            
         }
     }
 }
