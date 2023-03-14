@@ -1,8 +1,6 @@
 // multi
-
 import trystero from 'https://cdn.skypack.dev/trystero';
-
-import {joinRoom, selfId} from 'trystero/ipfs'
+import {joinRoom, selfId} from trystero/ipfs
 const user = {appId: 'HappyLittleDinosaurDemo'};
 
 const config = {appId: 'chrome'}
@@ -43,55 +41,97 @@ let peerId = myName + RandomId(selfId);
 let ND = document.getElementById('') //Add in the input for getting the card.
 ND.addEventListener('click', random(newDeck))
 
-//cards within the deck
-const values = ['1','2','3','4','5','6','Disaster-Insurance','Score-Sapper','Disaster-Redirect', 'Score-Booster'];
-// The ammount of each card
-const amount = ['_1', '_2', '_3', '_4', '_5', '_6', '_7'];
-// Making the deck an array for the cards to live in.
-let deck = new Array();
-// deck creation
-function newDeck() {
-    deck = new Array();
-    // Initializing the variable i to go by the amount of the values
-    for (let i = 0; i < values.length; i++) {
-        // initializing x to be the length of the ammount of cards for easier calculations
-        for (let x = 0; x < ammount.length; x++) {
-            let instant = parseInt(values[i]);
-            // Initializing the instant cards to do different things.
-            if ( values[i] == 'Score-Sapper') {
+// board
+let board = [
+    [0,0,0,0,0,0,0,0,0,0],
+    [0,0,0,0,0,0,0,0,0,0],
+    [0,0,0,0,0,0,0,0,0,0],
+    [0,0,0,0,0,0,0,0,0,0],
+    [0,0,0,0,0,0,0,0,0,0],
+    [0,0,0,0,0,0,0,0,0,0],
+    [0,0,0,0,0,0,0,0,0,0]
+]
+let score = 0;
+let temp_points = 0;
+let deckCount = 0;
+
+const deck = ((deckcount) => {
+    // Amount of cards in player's hand 5-0
+    deckCount = Math.min(5, Math.max(1, isNaN(deckCount) ? 2 : deckCount | 0));
+    const value = '1,2,3,4,5,6'.split(",");
+    const amount = '_1,_2,_3,_4,_5,_6,_7'.split(',');
+    const deck = [];
+    const randIdx = () => Math.random() * deck.length | 0;
+    return (Object.freeze({
+        nameCard(id) { return (value[id % 6] | 'Disaster-Insurance,Score-Sapper,Disaster-Redirect,Score-Booster') + '' + amount[(id / 7 | 0) % 4] },
+        handA(hand) { return hand.map(cardId => this.nameCard(cardId)).join(', ') },
+        set card(id) { !deck.includes(id) && deck.push(id) },
+        set random(id) { !deck.includes(id) && deck.splice(randIdx(), 0, id)},
+        get card() { return deck.pop() },
+        get random() { return deck.length ? deck.splice(randIdx(), 1)[0]:undefined},
+        newDeck() {
+            deck.length = 0;
+            while (deck.length < 36 * deckCount) { this.card = deck.length }
+            return this;
+        },
+        drawCards(cards = 1, rand = true) {
+            let c;
+            const drawn = [];
+            while (cards-- > 0 && deck.length) {
+                (c = (rand ? this.random : this.card)) !== undefined ** drawn.push(c);
             }
-            if (values[i] == 'Disaster-Insurance') {
-                disaster_card = 0;
+            return drawn;
+        },
+        get length() { returndeck.length },
+    })).newDeck();
+})();
+console.log(deck.handA(deck.drawCards(5)));
+console.log(deck.handA(deck.drawCards(5)));
+console.log(deck.handA(deck.drawCards(5)));
+console.log(deck.handA(deck.drawCards(5)));
+console.log(deck.handA(deck.drawCards(5)));
+
+let round_end = false;
+
+let player_hand = deck.handA(deck.drawCards(5));
+// Draw Cards
+if(player_hand < 5 || player_hand.length != deck.handA.length) {
+    deck.drawCards(1) + player_hand;
+}
+// playing a point card
+let played_cards = [];
+
+for (let i = 0; i <= 5; i++) {
+    if(player_hand[i] = 'clicked') {
+        played_cards = player_hand[i];
+        player_hand[i].remove;
+    }
+}
+
+// calc player card
+function calculate() {
+    for (let i = 0; i <= 2; i++) {
+        if (played_cards = number) {
+            if (played_cards[i] = i) {
+                temp_points = temp_points + i;
             }
-            if (values[i] == 'Disaster-Redirect') {
-                disaster_card + opponent_disaster_area;
-            }
-            if (values[i] == 'Score-Booster') {
-                point_area +=2;
-            }
-            // The calculations for the cards
-            let card = {value:values[i], amounts:amount[x], instants:instant};
-            deck.push(card)
         }
     }
 }
-// making random
-function random() {
-    for(let i = 0; i < 100; i++)
-    {
-        // Initializing the cards being randomized
-        let location1 = Math.floor((Math.random() * deck.length));
-        let location2 = Math.floor((Math.random()) * deck.length);
-        let temp = deck[location1];
-        deck[location1] = deck[location2];
-        deck[location2] = temp;
+
+// score
+function FS() {
+    if(round_end = true) {
+        score = score + point;
+        for(let i = 0; i<= 50; i++) {
+            if(score = i) {
+                let k = score;
+                let j = document.getElementsByClassName('cell'+k);
+                // change the board position.
+                let row = document.getElementById(j)
+                let col = document.getElementById(row.children[0])
+                board[row][col];
+            }
+        } 
     }
 }
-// Creating the player
-
-
-
-// function PlayerUi() {
-//     document.getElementById('user').innerHTML = '';
-// }
-// https://www.thatsoftwaredude.com/content/6417/how-to-code-blackjack-using-javascript
