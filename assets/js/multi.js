@@ -38,19 +38,19 @@
 // // Used for connecting but will need to run first.
 // //https://www.skypack.dev/view/trystero#encryption
 
-import { joinRoom, selfId } from 'https://cdn.skypack.dev/trystero/ipfs';
-const config = {appId: 'CARTChatDemo'};
-const room = joinRoom(config, 'lobby');
-const idsToNames = {}; // map of peer ids to names
+// import { joinRoom, selfId } from 'https://cdn.skypack.dev/trystero/ipfs';
+// const config = {appId: 'CARTChatDemo'};
+// const room = joinRoom(config, 'lobby');
+// const idsToNames = {}; // map of peer ids to names
 
-let myName = `Anonymouse`; // name based on peer id
-nameInput.placeholder = `${myName} #${selfId.substring(0, 4)}`; 
-console.log(`My peer id is ${selfId} and my name is ${myName}`);
+// let myName = `Anonymouse`; // name based on peer id
+// nameInput.placeholder = `${myName} #${selfId.substring(0, 4)}`; 
+// console.log(`My peer id is ${selfId} and my name is ${myName}`);
 
 
 
-let ND = document.getElementById('') //Add in the input for getting the card.
-ND.addEventListener('click', random(newDeck))
+// let ND = document.getElementById('') //Add in the input for getting the card.
+// ND.addEventListener('click', random(newDeck))
 
 // board
 let board = [
@@ -65,7 +65,6 @@ let board = [
 let score = 0;
 let temp_points = 0;
 let deckCount = 0;
-
 const deck = ((deckcount) => {
     // Amount of cards in player's hand 5-0
     deckCount = Math.min(5, Math.max(1, isNaN(deckCount) ? 2 : deckCount | 0));
@@ -87,21 +86,20 @@ const deck = ((deckcount) => {
         },
         drawCards(cards = 1, rand = true) {
             let c;
-            const drawn = [];
+            let x = [];
             while (cards-- > 0 && deck.length) {
-                (c = (rand ? this.random : this.card)) !== undefined ** drawn.push(c);
+                (c = (rand ? this.random : this.card)) !== undefined ** x.push(c);
             }
-            return drawn;
+            return x;
         },
         get length() { returndeck.length },
     })).newDeck();
 })();
 console.log(deck.handA(deck.drawCards(5)));
-console.log(deck.handA(deck.drawCards(5)));
-console.log(deck.handA(deck.drawCards(5)));
-console.log(deck.handA(deck.drawCards(5)));
-console.log(deck.handA(deck.drawCards(5)));
-
+//console.log(deck.handA(deck.drawCards(5)));
+//console.log(deck.handA(deck.drawCards(5)));
+//console.log(deck.handA(deck.drawCards(5)));
+//console.log(deck.handA(deck.drawCards(5)));
 let round_end = false;
 
 let player_hand = deck.handA(deck.drawCards(5));
@@ -129,6 +127,18 @@ function calculate() {
         }
     }
 }
+
+//let cardInHand = [];
+//function temp() {
+//    for(let i=0; i<=5; i++) {
+//        let firstNum;
+//        firstNum = charAt(0);
+//        cardInHand.push(firstNum);
+//    }  
+//}
+//console.log(x);
+//console.log(temp);
+
 
 // score
 function FS() {

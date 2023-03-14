@@ -142,4 +142,16 @@ for (let i = 0; i = 5; i++) {
     }
 }
 
+cardInHand = [1,2,3,4,5];
+function changeImage () {
+    for(let i=0; i<=5; i++) {
+        if(cardInHand[i] = 1) {
+           return document.getElementById("steg-card" + [i]).src = "point1.png";
+        } 
+        else if(cardInHand[i] = 2) {
+            return document.getElementById("steg-card" + [i]).src = "point2.png";
+        }
+    }
+}
+
 // https://www.sololearn.com/compiler-playground/W87BXhQSl8Sv/ , https://github.com/guilhermebkel/uno-game/tree/refactor/function-args/.github //
