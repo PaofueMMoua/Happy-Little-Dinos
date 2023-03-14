@@ -496,6 +496,15 @@ h3,
     background-color:rgb(255, 228, 185);
 }
 
+
+.allboards2 {
+    display:none;
+}
+
+.allboards {
+    display:block;
+}
+
 .testflex  {
     display:flex;
 }
@@ -558,6 +567,3 @@ h3,
     position:relative;
     right:6vw;
 }
-
-
-

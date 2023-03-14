@@ -1,5 +1,6 @@
 // Needed things
 // board
+// Make 2 boards cause of each dinosaur one for bronto andone for stego.
 let board = [
     [0,0,0,0,0,0,0,0,0,0],
     [0,0,0,0,0,0,0,0,0,0],
@@ -11,6 +12,11 @@ let board = [
 ]
 let score = 0;
 let temp_points = 0;
+
+let stego = document.getElementsById("dino_one")
+stego.addEventListener('click', document.getElementsByClassName('allboards2').style.display = 'none' && 'click', document.getElementsByClassName('allboards').style.display = block);
+let bronto = document.getElementsById("dino_one")
+bronto.addEventListener('click', document.getElementsByClassName('allboards').style.display = 'none' && 'click', document.getElementsByClassName('allboards2').style.display = block);
 
 // Cards
 // const cards = ['1', '1', '1', '1', '1', '1', '1', '2', '2', '2', '2', '2', '2', '2', '3', '3', '3', '3', '3', '3', '3', '4', '4', '4', '4', '4', '4', '4', '5', '5', '5', '5', '5', '5', '5', '6', '6', '6', '6', '6', '6', '6', 'Disaster-Insurance', 'Disaster-Insurance', 'Score-Sapper', 'Score-Sapper', 'Disaster-Redirect', 'Disaster-Redirect', 'Score-Booster', 'Score-Booster']
@@ -128,7 +134,7 @@ function SR() {
     deck.drawCards(1) + ai_hand;
     deck.ai_hand.sort()
     }
-    
+
 }
 
 // https://www.sololearn.com/compiler-playground/W87BXhQSl8Sv/ , https://github.com/guilhermebkel/uno-game/tree/refactor/function-args/.github //
