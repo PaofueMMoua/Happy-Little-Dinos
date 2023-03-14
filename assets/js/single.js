@@ -119,4 +119,10 @@ function SR() {
 
 }
 
+for (let i = 0; i = 5; i++) {
+    for (let j = 0; j = 7; j++) {
+        player_hand.split('_' + j)
+    }
+}
+
 // https://www.sololearn.com/compiler-playground/W87BXhQSl8Sv/ , https://github.com/guilhermebkel/uno-game/tree/refactor/function-args/.github //
