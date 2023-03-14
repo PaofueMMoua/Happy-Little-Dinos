@@ -29,6 +29,11 @@ const deck = ((deckcount) => {
         set random(id) { !deck.includes(id) && deck.splice(randIdx(), 0, id)},
         get card() { return deck.pop() },
         get random() { return deck.length ? deck.splice(randIdx(), 1)[0]:undefined},
+        ai_hand(ai_hand) { return ai_hand.map(cardId => this.nameCard(cardId)).join(', ') },
+        set card(id) { !deck.includes(id) && deck.push(id) },
+        set random(id) { !deck.includes(id) && deck.splice(randIdx(), 0, id)},
+        get card() { return deck.pop() },
+        get random() { return deck.length ? deck.splice(randIdx(), 1)[0]:undefined},
         newDeck() {
             deck.length = 0;
             while (deck.length < 36 * deckCount) { this.card = deck.length }
@@ -57,7 +62,9 @@ let player_hand = deck.handA(deck.drawCards(5));
 // Draw Cards
 if(player_hand < 5 || player_hand.length != deck.handA.length) {
     deck.drawCards(1) + player_hand;
+    deck.handA.sort()
 }
+
 // playing a point card
 let played_cards = [];
 
@@ -114,6 +121,14 @@ function FS() {
 
 // single player things
 // AI
+function SR() {
+    let ai_hand = deck.drawCards(5);
 
+    if (ai_hand < 5 || ai_hand.length != deck.handA.length) {
+    deck.drawCards(1) + ai_hand;
+    deck.ai_hand.sort()
+    }
+    
+}
 
 // https://www.sololearn.com/compiler-playground/W87BXhQSl8Sv/ , https://github.com/guilhermebkel/uno-game/tree/refactor/function-args/.github //
