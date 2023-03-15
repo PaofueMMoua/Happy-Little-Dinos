@@ -16,8 +16,8 @@ let board = [
 function dino_switch() {
     let m = document.getElementById('dino_one')
     let n = document.getElementById('dino_two')
-    n.addEventListener('click', dino_sw())
-    m.addEventListener('click', dino_sw_two())
+    dino_sw(n)
+    dino_sw_two(m)
 }
 
 function dino_sw_two() {
