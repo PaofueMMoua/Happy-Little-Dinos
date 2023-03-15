@@ -13,13 +13,26 @@ let board = [
 // let score = 0;
 // let temp_points = 0;
 
-let stego = document.getElementsById("dino")
-stego.addEventListener('click', document.getElementsByClassName('allboards2').style.display = 'none');
-stego.addEventListener('click', document.getElementsByClassName('allboards').style.display = 'block')
-let bronto = document.getElementsById("dino_two")
-bronto.addEventListener('click', document.getElementsByClassName('allboards').style.display = none);
-bronto.addEventListener( 'click', document.getElementsByClassName('allboards2').style.display = block)
+function dino_switch() {
+    let x = document.getElementById('dino_one')
+    let y = document.getElementById('dino_two')
+    x.addEventListener('click', dino_sw())
+    y.addEventListener('click', dino_sw_two())
+}
 
+function dino_sw_two() {
+    let x = document.getElementById('allboards2');
+    let y = document.getElementById('allboards');
+    y.style.display = 'block';
+    x.style.display = 'none';
+}
+
+function dino_sw() {
+    let x = document.getElementById('allboards2');
+    let y = document.getElementById('allboards');
+    x.style.display = 'block';
+    y.style.display = 'none';
+}
 // Cards
 // const cards = ['1', '1', '1', '1', '1', '1', '1', '2', '2', '2', '2', '2', '2', '2', '3', '3', '3', '3', '3', '3', '3', '4', '4', '4', '4', '4', '4', '4', '5', '5', '5', '5', '5', '5', '5', '6', '6', '6', '6', '6', '6', '6', 'Disaster-Insurance', 'Disaster-Insurance', 'Score-Sapper', 'Score-Sapper', 'Disaster-Redirect', 'Disaster-Redirect', 'Score-Booster', 'Score-Booster']
 let deckCount = 0;
