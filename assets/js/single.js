@@ -13,10 +13,12 @@ let board = [
 // let score = 0;
 // let temp_points = 0;
 
-// let stego = document.getElementsById("dino")
-// stego.addEventListener('click', document.getElementsByClassName('allboards2').style.display = 'none' && 'click', document.getElementsByClassName('allboards').style.display = block);
-// let bronto = document.getElementsById("dino_two")
-// bronto.addEventListener('click', document.getElementsByClassName('allboards').style.display = 'none' && 'click', document.getElementsByClassName('allboards2').style.display = block);
+let stego = document.getElementsById("dino")
+stego.addEventListener('click', document.getElementsByClassName('allboards2').style.display = 'none');
+stego.addEventListener('click', document.getElementsByClassName('allboards').style.display = 'block')
+let bronto = document.getElementsById("dino_two")
+bronto.addEventListener('click', document.getElementsByClassName('allboards').style.display = none);
+bronto.addEventListener( 'click', document.getElementsByClassName('allboards2').style.display = block)
 
 // Cards
 // const cards = ['1', '1', '1', '1', '1', '1', '1', '2', '2', '2', '2', '2', '2', '2', '3', '3', '3', '3', '3', '3', '3', '4', '4', '4', '4', '4', '4', '4', '5', '5', '5', '5', '5', '5', '5', '6', '6', '6', '6', '6', '6', '6', 'Disaster-Insurance', 'Disaster-Insurance', 'Score-Sapper', 'Score-Sapper', 'Disaster-Redirect', 'Disaster-Redirect', 'Score-Booster', 'Score-Booster']
@@ -128,8 +130,8 @@ for (let i = 0; i = 5; i++) {
 cardInHand = [1,2,3,4,5];
 function changeImage () {
     for(let i=0; i<=5; i++) {
-        if(cardInHand[i] = 1) {
-           return document.getElementById("steg-card" + [i]).src = "point1.png";
+        if (cardInHand[i] = 1) {
+            return document.getElementById("steg-card" + [i]).src = "point1.png";
         } 
         else if(cardInHand[i] = 2) {
             return document.getElementById("steg-card" + [i]).src = "point2.png";
