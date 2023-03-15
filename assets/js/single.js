@@ -25,6 +25,7 @@ function dino_sw_two() {
     let y = document.getElementById('allboards');
     y.style.display = 'block';
     x.style.display = 'none';
+
 }
 
 function dino_sw() {
@@ -80,6 +81,7 @@ console.log(deck.handA(deck.drawCards(5)));
 let round_end = false;
 
 let player_hand = deck.handA(deck.drawCards(5)).sort;
+
 // Draw Cards
 if(player_hand <= 5 ) {
     deck.drawCards(1) + player_hand;
@@ -131,23 +133,84 @@ function SR() {
     deck.drawCards(1) + ai_hand;
     deck.ai_hand.sort()
     }
-
 }
 
-for (let i = 0; i = 5; i++) {
-    for (let j = 0; j = 7; j++) {
-        player_hand.split('_' + j)
+function test () {
+    for(let i=0; i<=4; i++) {
+        console.log ("steg-card" + [i + 1]);
     }
 }
+test();
 
-cardInHand = [1,2,3,4,5];
-function changeImage () {
-    for(let i=0; i<=5; i++) {
-        if (cardInHand[i] = 1) {
-            return document.getElementById("steg-card" + [i]).src = "point1.png";
-        } 
-        else if(cardInHand[i] = 2) {
-            return document.getElementById("steg-card" + [i]).src = "point2.png";
+//cardInHand = [1,5,4,2,3];
+//let bv = document.getElementsByClassName("draw-deck");
+//bv.addEventListener('click', changeImage);
+//
+//function changeImage (cardInHand) {
+//    for(let i=0; i<=5; i++) {
+//        if (cardInHand[i] = 1) {
+//            return document.getElementById("steg-card" + [i + 1]).src = "point1.png";
+//        } 
+//        else if(cardInHand[i] = 2) {
+//            return document.getElementById("steg-card" + [i + 1]).src = "point2.png";
+//        }
+//        else if(cardInHand[i] = 3) {
+//            return document.getElementById("steg-card" + [i + 1]).src="point3.png";
+//        } 
+//        else if(cardInHand[i] = 4) {
+//            return document.getElementById("steg-card" + [i + 1]).src="point4.png";
+//        } 
+//        else if(cardInHand[i] = 5) {
+//            return document.getElementById("steg-card" + [i + 1]).src="point5.png";
+//        } 
+//        else if(cardInHand[i] = 6) {
+//            return document.getElementById("steg-card" + [i + 1]).src="point6.png";
+//        }
+//        else if (cardInHand[i] = "Disaster Insurance") {
+//            return document.getElementById("steg-card" + [i + 1]).src="point2.png";
+//        }
+//    }
+//}
+
+let disasters = ["disaster-beach", "disaster-burn", "disaster-cannibal", "disaster-circle", "disaster-cold", "disaster-empty", "disaster-ghosted", "disaster-leaf", "disaster-personal", "disaster-sad", "disaster-shark", "disaster-spa",
+"disaster-squirrely", "disaster-stomped", "disaster-trapped"];
+
+disasters = [
+    ["disaster-beach", "red"],
+    ["disaster-burn", "blue"],
+    ["disaster-cannibal", "red"],
+    ["disaster-circle", "blue"],
+    ["disaster-cold", "green"],
+    ["disaster-ghosted", "blue"],
+    ["disaster-leaf", "green"],
+    ["disaster-personal", "green"],
+    ["disaster-sad", "blue"],
+    ["disaster-shark", "red"],
+    ["disaster-spa", "green"],
+    ["disaster-squirrely", "red"],
+    ["disaster-stomped", "red"],
+    ["disaster-trapped", "green"]
+]
+
+function fu() {
+    let idea = Math.round(Math.random() * 14);
+    console.log(idea);
+    let card = disasters[idea];
+    console.log(card);
+    let x = disasters.splice(idea, 1);
+    console.log(disasters);
+    let image = "/assets/cards2/" + card + ".png";
+    console.log(image);
+    return disasters;
+    //document.getElementsByClassName("dis-deck").src = image;
+} 
+
+fu();
+
+function f() {
+    for (let i = 0; i = 5; i++) {
+        for (let j = 0; j = 7; j++) {
+            player_hand.remove('_' + j);
         }
     }
 }

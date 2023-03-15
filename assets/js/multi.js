@@ -128,18 +128,6 @@ function calculate() {
     }
 }
 
-//let cardInHand = [];
-//function temp() {
-//    for(let i=0; i<=5; i++) {
-//        let firstNum;
-//        firstNum = charAt(0);
-//        cardInHand.push(firstNum);
-//    }  
-//}
-//console.log(x);
-//console.log(temp);
-
-
 // score
 function FS() {
     score = score + point;
