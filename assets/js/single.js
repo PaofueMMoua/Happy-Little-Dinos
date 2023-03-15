@@ -2,23 +2,45 @@
 // board
 // Make 2 boards cause of each dinosaur one for bronto andone for stego.
 let board = [
-    [0,0,0,0,0,0,0,0,0,0],
-    [0,0,0,0,0,0,0,0,0,0],
-    [0,0,0,0,0,0,0,0,0,0],
-    [0,0,0,0,0,0,0,0,0,0],
-    [0,0,0,0,0,0,0,0,0,0],
-    [0,0,0,0,0,0,0,0,0,0],
-    [0,0,0,0,0,0,0,0,0,0]
-]
+    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+];
 // let score = 0;
 // let temp_points = 0;
 
-function dino_switch() {
-    let m = document.getElementById('dino_one')
-    let n = document.getElementById('dino_two')
-    n.addEventListener('click', dino_sw())
-    m.addEventListener('click', dino_sw_two())
-}
+const a = document.getElementById('allboards2')
+const b = document.getElementById('allboards')
+const m = document.getElementById('Bronto')
+const n = document.getElementById('Stego')
+m.addEventListener("click", function(){
+    document.cookie = 'bronto'
+});
+n.addEventListener("click", function() {
+    document.cookie = 'stego'
+})
+
+window.onload
+// https://www.w3schools.com/js/js_cookies.asp#:~:text=With%20JavaScript%2C%20a%20cookie%20can,date%20(in%20UTC%20time). ,  https://www.w3schools.com/jsref/tryit.asp?filename=tryjsref_onload_dom
+
+
+// function dino_sw() {
+//     // a.style.display = 'block';
+//     // b.style.display = 'none';
+//     a.classList.toggle('hide', false);
+//     b.classList.toggle('hide', true);
+// }
+
+// function dino_sw_two() {
+//     // b.style.display = 'block';
+//     // a.style.display = 'none';
+//     a.classList.toggle('hide', true);
+//     b.classList.toggle('hide', false);
+// }
 
 function dino_sw_two() {
     let x = document.getElementById('allboards2');
@@ -28,12 +50,6 @@ function dino_sw_two() {
 
 }
 
-function dino_sw() {
-    let x = document.getElementById('allboards2');
-    let y = document.getElementById('allboards');
-    x.style.display = 'block';
-    y.style.display = 'none';
-}
 // Cards
 // const cards = ['1', '1', '1', '1', '1', '1', '1', '2', '2', '2', '2', '2', '2', '2', '3', '3', '3', '3', '3', '3', '3', '4', '4', '4', '4', '4', '4', '4', '5', '5', '5', '5', '5', '5', '5', '6', '6', '6', '6', '6', '6', '6', 'Disaster-Insurance', 'Disaster-Insurance', 'Score-Sapper', 'Score-Sapper', 'Disaster-Redirect', 'Disaster-Redirect', 'Score-Booster', 'Score-Booster']
 let deckCount = 0;
@@ -48,14 +64,14 @@ const deck = ((deckcount) => {
         nameCard(id) { return (value[id % 6] | 'Disaster-Insurance,Score-Sapper,Disaster-Redirect,Score-Booster') + '' + amount[(id / 7 | 0) % 4] },
         handA(hand) { return hand.map(cardId => this.nameCard(cardId)).join(', ') },
         set card(id) { !deck.includes(id) && deck.push(id) },
-        set random(id) { !deck.includes(id) && deck.splice(randIdx(), 0, id)},
+        set random(id) { !deck.includes(id) && deck.splice(randIdx(), 0, id) },
         get card() { return deck.pop() },
-        get random() { return deck.length ? deck.splice(randIdx(), 1)[0]:undefined},
+        get random() { return deck.length ? deck.splice(randIdx(), 1)[0] : undefined },
         ai_hand(ai_hand) { return ai_hand.map(cardId => this.nameCard(cardId)).join(', ') },
         set card(id) { !deck.includes(id) && deck.push(id) },
-        set random(id) { !deck.includes(id) && deck.splice(randIdx(), 0, id)},
+        set random(id) { !deck.includes(id) && deck.splice(randIdx(), 0, id) },
         get card() { return deck.pop() },
-        get random() { return deck.length ? deck.splice(randIdx(), 1)[0]:undefined},
+        get random() { return deck.length ? deck.splice(randIdx(), 1)[0] : undefined },
         newDeck() {
             deck.length = 0;
             while (deck.length < 36 * deckCount) { this.card = deck.length }
@@ -83,7 +99,7 @@ let round_end = false;
 let player_hand = deck.handA(deck.drawCards(5)).sort;
 
 // Draw Cards
-if(player_hand <= 5 ) {
+if (player_hand <= 5) {
     deck.drawCards(1) + player_hand;
 }
 
@@ -104,7 +120,7 @@ function calculate() {
             if (played_cards[i] = i) {
                 temp_points = temp_points + i;
             }
-            
+
         }
     }
 }
@@ -112,16 +128,16 @@ function calculate() {
 // score
 function FS() {
     score = score + point;
-    for(let i = 0; i<= 50; i++) {
-        if(score = i) {
+    for (let i = 0; i <= 50; i++) {
+        if (score = i) {
             let k = calculate(played_cards);
-            let j = document.getElementsByClassName('cell'+k);
+            let j = document.getElementsByClassName('cell' + k);
             // change the board position.
             let row = document.getElementById(j)
             let col = document.getElementById(row.children[0])
             board[row][col];
         }
-    } 
+    }
 }
 
 // single player things
@@ -130,8 +146,8 @@ function SR() {
     let ai_hand = deck.drawCards(5);
 
     if (ai_hand < 5 || ai_hand.length != deck.handA.length) {
-    deck.drawCards(1) + ai_hand;
-    deck.ai_hand.sort()
+        deck.drawCards(1) + ai_hand;
+        deck.ai_hand.sort()
     }
 }
 
@@ -192,25 +208,14 @@ disasters = [
     ["disaster-trapped", "green"]
 ]
 
-function fu() {
-    let idea = Math.round(Math.random() * 14);
-    console.log(idea);
-    let card = disasters[idea];
-    console.log(card);
-    let x = disasters.splice(idea, 1);
-    console.log(disasters);
-    let image = "/assets/cards2/" + card + ".png";
-    console.log(image);
-    return disasters;
-    //document.getElementsByClassName("dis-deck").src = image;
-} 
-
-fu();
-
-function f() {
-    for (let i = 0; i = 5; i++) {
-        for (let j = 0; j = 7; j++) {
-            player_hand.remove('_' + j);
+cardInHand = [1, 2, 3, 4, 5];
+function changeImage() {
+    for (let i = 0; i <= 5; i++) {
+        if (cardInHand[i] = 1) {
+            return document.getElementById("steg-card" + [i]).src = "point1.png";
+        }
+        else if (cardInHand[i] = 2) {
+            return document.getElementById("steg-card" + [i]).src = "point2.png";
         }
     }
 }
