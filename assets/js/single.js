@@ -14,10 +14,10 @@ let board = [
 // let temp_points = 0;
 
 function dino_switch() {
-    let x = document.getElementById('dino_one')
-    let y = document.getElementById('dino_two')
-    x.addEventListener('click', dino_sw())
-    y.addEventListener('click', dino_sw_two())
+    let m = document.getElementById('dino_one')
+    let n = document.getElementById('dino_two')
+    n.addEventListener('click', dino_sw())
+    m.addEventListener('click', dino_sw_two())
 }
 
 function dino_sw_two() {
