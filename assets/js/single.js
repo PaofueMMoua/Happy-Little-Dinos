@@ -81,8 +81,11 @@ console.log(deck.handA(deck.drawCards(5)));
 let round_end = false;
 let player_hand = deck.handA(deck.drawCards(5))
 for(let i=0; i<10; i++) {
-    
-player_hand.split('_' + i);
+    for (let x = 0; x <=10; x++) {
+        if (player_hand = i + '_' + x) {
+            player_hand.split('_' + i);
+        }
+    }
 }
 // Draw Cards
 // if (player_hand <= 5) {
