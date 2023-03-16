@@ -501,13 +501,13 @@ h3,
     display: none;
 }
 
-/* .allboards2 {
+.allboards2 {
     display:none;
 }
 
 .allboards {
     display:block;
-} */
+}
 
 .testflex  {
     display:flex;

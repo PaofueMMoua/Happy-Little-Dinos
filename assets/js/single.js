@@ -26,46 +26,51 @@ n.addEventListener("click", function() {
     document.cookie = 'stego'
 })
 
-function SetCookie(cDino, exDays, cValue) {
-    const d = newDate();
-    d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
-    let expire = 'expire=' + d.toUTCString();
-    document.cookie = cDino + '=' + cValue + ';' + expire + ';path=/';
-}
+// function SetCookie(cDino, exDays, cValue) {
+//     const d = newDate();
+//     d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
+//     let expire = 'expire=' + d.toUTCString();
+//     document.cookie = cDino + '=' + cValue + ';' + expire + ';path=/';
+// }
 
-function getCookie(cDino) {
-    let name = cDino + '=';
-    let decodedCookie = decodeURIComponent(document.cookie);
-    let ca = decodedCookie.split(';');
-    for (let i = 0; i < ca.length; i++) {
-        let c = ca[i];
-        while (c.charAt(0) =='') {
-            c = c.substring(1);
-        }
-        if (c.indexOf(name) == 0) {
-            return c.substring(name.length, c.length);
-        }
-    }
-    return '';
-}
+// function getCookie(cDino) {
+//     let name = cDino + '=';
+//     let decodedCookie = decodeURIComponent(document.cookie);
+//     let ca = decodedCookie.split(';');
+//     for (let i = 0; i < ca.length; i++) {
+//         let c = ca[i];
+//         while (c.charAt(0) =='') {
+//             c = c.substring(1);
+//         }
+//         if (c.indexOf(name) == 0) {
+//             return c.substring(name.length, c.length);
+//         }
+//     }
+//     return '';
+// }
 
-function checkCookie() {
-    let user = getCookie('usename');
-    user = dino()
-    if (user != '' && user != null) {
-        SetCookie('username', user, 365);
-    }
-}
+// function checkCookie() {
+//     let user = getCookie('usename');
+//     user = dino()
+//     if (user != '' && user != null) {
+//         SetCookie('username', user, 365);
+//     }
+// }
 
 document.getElementsByClassName('singleplayer').onload = function () {
-    let cookie = getCookie('bronto');
-    if (document.cookie = 'bronto') {
+    let cookie = document.cookie;
+    if (cookie = 'bronto') {
         a.style.display = 'block'
         b.style.display = 'none'
+        document.cookie.split(cookie)
     }
-    if (cookie ='stego') {
+    else if (cookie = 'stego') {
         a.style.display = 'none'
         b.style.display = 'block'
+        document.cookie.split(cookie)
+    }
+    else if (cookie = '' || cookie == null) {
+        alert('WOW NO COOKIES SO NO DINOSAURS')
     }
 }
 
