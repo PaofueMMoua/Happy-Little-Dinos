@@ -20,10 +20,20 @@ const b = document.getElementById('allboards')
 const m = document.getElementById('Bronto')
 const n = document.getElementById('Stego')
 m.addEventListener("click", function(){
-    document.cookie = 'bronto'
+    let hero = document.getElementById('hero-img-two')
+    hero.style.display = 'none';
+    b.style.display = 'none';
+    a.style.display = 'block';
+    let testflex = document.getElementById('testflex')
+    testflex.style.display = 'flex';
 });
 n.addEventListener("click", function() {
-    document.cookie = 'stego'
+    let hero = document.getElementById('hero-img-two')
+    hero.style.display = 'none';
+    b.style.display = 'block';
+    a.style.display = 'none';
+    let testflex = document.getElementById('testflex')
+    testflex.style.display = 'flex';
 })
 
 // function SetCookie(cDino, exDays, cValue) {
@@ -57,22 +67,22 @@ n.addEventListener("click", function() {
 //     }
 // }
 
-document.getElementsByClassName('singleplayer').onload = function () {
-    let cookie = document.cookie;
-    if (cookie = 'bronto') {
-        a.style.display = 'block'
-        b.style.display = 'none'
-        document.cookie.split(cookie)
-    }
-    else if (cookie = 'stego') {
-        a.style.display = 'none'
-        b.style.display = 'block'
-        document.cookie.split(cookie)
-    }
-    else if (cookie = '' || cookie == null) {
-        alert('WOW NO COOKIES SO NO DINOSAURS')
-    }
-}
+// document.getElementsByClassName('singleplayer').onload = function () {
+//     let cookie = document.cookie;
+//     if (cookie = 'bronto') {
+//         a.style.display = 'block'
+//         b.style.display = 'none'
+//         document.cookie.split(cookie)
+//     }
+//     else if (cookie = 'stego') {
+//         a.style.display = 'none'
+//         b.style.display = 'block'
+//         document.cookie.split(cookie)
+//     }
+//     else if (cookie = '' || cookie == null) {
+//         alert('WOW NO COOKIES SO NO DINOSAURS')
+//     }
+// }
 
 // https://www.w3schools.com/jsref/tryit.asp?filename=tryjsref_onload_dom
 // https://www.w3schools.com/js/js_cookies.asp#:~:text=With%20JavaScript%2C%20a%20cookie%20can,date%20(in%20UTC%20time). ,  https://www.w3schools.com/jsref/tryit.asp?filename=tryjsref_onload_dom
@@ -92,13 +102,13 @@ document.getElementsByClassName('singleplayer').onload = function () {
 //     b.classList.toggle('hide', false);
 // }
 
-function dino_sw_two() {
-    let x = document.getElementById('allboards2');
-    let y = document.getElementById('allboards');
-    y.style.display = 'block';
-    x.style.display = 'none';
+// function dino_sw_two() {
+//     let x = document.getElementById('allboards2');
+//     let y = document.getElementById('allboards');
+//     y.style.display = 'block';
+//     x.style.display = 'none';
 
-}
+// }
 
 // Cards
 // const cards = ['1', '1', '1', '1', '1', '1', '1', '2', '2', '2', '2', '2', '2', '2', '3', '3', '3', '3', '3', '3', '3', '4', '4', '4', '4', '4', '4', '4', '5', '5', '5', '5', '5', '5', '5', '6', '6', '6', '6', '6', '6', '6', 'Disaster-Insurance', 'Disaster-Insurance', 'Score-Sapper', 'Score-Sapper', 'Disaster-Redirect', 'Disaster-Redirect', 'Score-Booster', 'Score-Booster']
