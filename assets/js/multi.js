@@ -149,7 +149,20 @@ function calculate() {
     }
 }
 
-// score
+ // calc player card simplified?
+ // function calculate(played_cards, number) {
+    // let temp_points = 0;
+    // for (let i = 0; i <= 2; i++) {
+        // if (played_cards[i] === number) {
+          //  temp_points += i;
+        // }
+     // }
+    // return temp_points;
+ // }
+
+
+
+ // score
 function FS() {
     score = score + point;
     for(let i = 0; i<= 50; i++) {
@@ -164,6 +177,74 @@ function FS() {
     } 
 }
 
-if(round_end = true) {
+// score modified?
+// function FS() {
+ //   let score = 0;
+   // let point = 1;
+   // score += point;
+    
+   // for (let i = 0; i <= 50; i++) {
+   //     if (score === i) {
+  //          let k = calculate(played_cards);
+  //          let j = document.getElementsByClassName('cell' + k)[0];
+   //         // change the board position.
+  //          let row = document.getElementById(j.id);
+   //         let col = row.children[0];
+            // do something with board[row][col]
+   //     }
+   // }
+//}
+
+// Card Movement
+// let card = document.getElementById("card");
+// let isDragging = false;
+// let currentX;
+// let currentY;
+// let initialX;
+// let initialY;
+// let xOffset = 0;
+// let yOffset = 0;
+
+// card.addEventListener("mousedown", dragStart);
+// card.addEventListener("mouseup", dragEnd);
+// card.addEventListener("mousemove", drag);
+
+// function dragStart(event) {
+  // initialX = event.clientX - xOffset;
+  // initialY = event.clientY - yOffset;
+
+  // if (event.target === card) {
+    // isDragging = true;
+  // }
+// }
+
+// function dragEnd(event) {
+  // initialX = currentX;
+  // initialY = currentY;
+
+  // isDragging = false;
+// }
+
+// function drag(event) {
+  // if (isDragging) {
+    // event.preventDefault();
+
+    // currentX = event.clientX - initialX;
+    // currentY = event.clientY - initialY;
+
+    // xOffset = currentX;
+    // yOffset = currentY;
+
+    // setTranslate(currentX, currentY, card);
+  // }
+// }
+
+// function setTranslate(xPos, yPos, el) {
+  // el.style.transform = "translate3d(" + xPos + "px, " + yPos + "px, 0)";
+// }
+
+
+
+if(round_end == true) {
     FS();
 }
