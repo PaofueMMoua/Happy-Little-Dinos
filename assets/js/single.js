@@ -12,9 +12,7 @@ let board = [
 ];
 // let score = 0;
 // let temp_points = 0;
-function dino() {
-    
-}
+
 const a = document.getElementById('allboards2')
 const b = document.getElementById('allboards')
 const m = document.getElementById('Bronto')

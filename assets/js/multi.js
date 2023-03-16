@@ -52,6 +52,27 @@
 // let ND = document.getElementById('') //Add in the input for getting the card.
 // ND.addEventListener('click', random(newDeck))
 
+const a = document.getElementById('allboards2')
+const b = document.getElementById('allboards')
+const m = document.getElementById('Bronto')
+const n = document.getElementById('Stego')
+m.addEventListener("click", function(){
+    let hero = document.getElementById('hero-img-two')
+    hero.style.display = 'none';
+    b.style.display = 'none';
+    a.style.display = 'block';
+    let testflex = document.getElementById('testflex')
+    testflex.style.display = 'flex';
+});
+n.addEventListener("click", function() {
+    let hero = document.getElementById('hero-img-two')
+    hero.style.display = 'none';
+    b.style.display = 'block';
+    a.style.display = 'none';
+    let testflex = document.getElementById('testflex')
+    testflex.style.display = 'flex';
+})
+
 // board
 let board = [
     [0,0,0,0,0,0,0,0,0,0],
