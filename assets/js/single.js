@@ -73,6 +73,7 @@ const deck = ((deckcount) => {
         get length() { returndeck.length },
     })).newDeck();
 })();
+
 console.log(deck.handA(deck.drawCards(5)));
 console.log(deck.handA(deck.drawCards(5)));
 console.log(deck.handA(deck.drawCards(5)));
@@ -80,23 +81,27 @@ console.log(deck.handA(deck.drawCards(5)));
 console.log(deck.handA(deck.drawCards(5)));
 
 let round_end = false;
-
-let player_hand = deck.handA(deck.drawCards(5)).sort;
-
-// Draw Cards
-if (player_hand <= 5) {
-    deck.drawCards(1) + player_hand;
+let player_hand = deck.handA(deck.drawCards(5))
+for(let i=0; i<10; i++) {
+    
+player_hand.split('_' + i);
 }
+// Draw Cards
+// if (player_hand <= 5) {
+//     deck.drawCards(1) + player_hand;
+// }
+
+console.log(player_hand);
 
 // playing a point card
 let played_cards = [];
 
-// for (let i = 0; i <= 5; i++) {
-//     if(player_hand[i] ) {
-//         played_cards = player_hand[i];
-//         player_hand[i].remove;
-//     }
-// }
+for (let i = 0; i <= 5; i++) {
+    if(player_hand[i] ) {
+        played_cards = player_hand[i];
+        player_hand[i].remove;
+    }
+}
 
 // calc player card
 function calculate() {
@@ -143,35 +148,59 @@ function test () {
 }
 test();
 
-//cardInHand = [1,5,4,2,3];
-//let bv = document.getElementsByClassName("draw-deck");
-//bv.addEventListener('click', changeImage);
-//
-//function changeImage (cardInHand) {
-//    for(let i=0; i<=5; i++) {
-//        if (cardInHand[i] = 1) {
-//            return document.getElementById("steg-card" + [i + 1]).src = "point1.png";
-//        } 
-//        else if(cardInHand[i] = 2) {
-//            return document.getElementById("steg-card" + [i + 1]).src = "point2.png";
-//        }
-//        else if(cardInHand[i] = 3) {
-//            return document.getElementById("steg-card" + [i + 1]).src="point3.png";
-//        } 
-//        else if(cardInHand[i] = 4) {
-//            return document.getElementById("steg-card" + [i + 1]).src="point4.png";
-//        } 
-//        else if(cardInHand[i] = 5) {
-//            return document.getElementById("steg-card" + [i + 1]).src="point5.png";
-//        } 
-//        else if(cardInHand[i] = 6) {
-//            return document.getElementById("steg-card" + [i + 1]).src="point6.png";
-//        }
-//        else if (cardInHand[i] = "Disaster Insurance") {
-//            return document.getElementById("steg-card" + [i + 1]).src="point2.png";
-//        }
-//    }
-//}
+cardInHand = [1,5,4,2,3];
+const bv = document.getElementsById("this")
+bv.addEventListener('click', function() {
+    for(let i=0; i<=5; i++) {
+        if (cardInHand[i] = 1) {
+            return document.getElementById("steg-card" + [i + 1]).src = "/assets/cards2/point5.png";
+        } 
+        else if(cardInHand[i] = 2) {
+            return document.getElementById("steg-card" + [i + 1]).src = "/assets/cards2/point5.png";
+        }
+        else if(cardInHand[i] = 3) {
+            return document.getElementById("steg-card" + [i + 1]).src="/assets/cards2/point5.png";
+        } 
+        else if(cardInHand[i] = 4) {
+            return document.getElementById("steg-card" + [i + 1]).src="/assets/cards2/point5.png";
+        } 
+        else if(cardInHand[i] = 5) {
+            return document.getElementById("steg-card" + [i + 1]).src="/assets/cards2/point5.png";
+        } 
+        else if(cardInHand[i] = 6) {
+            return document.getElementById("steg-card" + [i + 1]).src="/assets/cards2/point5.png";
+        }
+        else if (cardInHand[i] = "Disaster Insurance") {
+            return document.getElementById("steg-card" + [i + 1]).src="/assets/cards2/point5.png";
+        }
+    }
+});
+
+// function changeImage (cardInHand) {
+//     for(let i=0; i<=5; i++) {
+//         if (cardInHand[i] = 1) {
+//             return document.getElementById("steg-card" + [i + 1]).src = "/assets/cards2/point5.png";
+//         } 
+//         else if(cardInHand[i] = 2) {
+//             return document.getElementById("steg-card" + [i + 1]).src = "point2.png";
+//         }
+//         else if(cardInHand[i] = 3) {
+//             return document.getElementById("steg-card" + [i + 1]).src="point3.png";
+//         } 
+//         else if(cardInHand[i] = 4) {
+//             return document.getElementById("steg-card" + [i + 1]).src="point4.png";
+//         } 
+//         else if(cardInHand[i] = 5) {
+//             return document.getElementById("steg-card" + [i + 1]).src="point5.png";
+//         } 
+//         else if(cardInHand[i] = 6) {
+//             return document.getElementById("steg-card" + [i + 1]).src="point6.png";
+//         }
+//         else if (cardInHand[i] = "Disaster Insurance") {
+//             return document.getElementById("steg-card" + [i + 1]).src="point2.png";
+//         }
+//     }
+// }
 
 let disasters = ["disaster-beach", "disaster-burn", "disaster-cannibal", "disaster-circle", "disaster-cold", "disaster-empty", "disaster-ghosted", "disaster-leaf", "disaster-personal", "disaster-sad", "disaster-shark", "disaster-spa",
 "disaster-squirrely", "disaster-stomped", "disaster-trapped"];
