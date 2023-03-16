@@ -13,23 +13,23 @@ let board = [
 // let score = 0;
 // let temp_points = 0;
 
-const a = document.getElementById('allboards2')
-const b = document.getElementById('allboards')
-const m = document.getElementById('Bronto')
-const n = document.getElementById('Stego')
-m.addEventListener("click", function(){
+const all = document.getElementById('allboards2')
+const bll = document.getElementById('allboards')
+const Bronto = document.getElementById('Bronto')
+const Stego = document.getElementById('Stego')
+Bronto.addEventListener("click", function() {
     let hero = document.getElementById('hero-img-two')
     hero.style.display = 'none';
-    b.style.display = 'none';
-    a.style.display = 'block';
+    bll.style.display = 'none';
+    all.style.display = 'block';
     let testflex = document.getElementById('testflex')
     testflex.style.display = 'flex';
 });
-n.addEventListener("click", function() {
+Stego.addEventListener("click", function() {
     let hero = document.getElementById('hero-img-two')
     hero.style.display = 'none';
-    b.style.display = 'block';
-    a.style.display = 'none';
+    bll.style.display = 'block';
+    all.style.display = 'none';
     let testflex = document.getElementById('testflex')
     testflex.style.display = 'flex';
 })
@@ -186,20 +186,42 @@ function calculate() {
 }
 
 // score
-function FS() {
-    score = score + point;
-    for (let i = 0; i <= 50; i++) {
-        if (score = i) {
-            let k = calculate(played_cards);
-            let j = document.getElementsByClassName('cell' + k);
-            // change the board position.
-            let row = document.getElementById(j)
-            let col = document.getElementById(row.children[0])
-            board[row][col];
-        }
+
+// function FS() {
+//     score = score + point;
+//     for (let i = 0; i <= 50; i++) {
+//         if (score = i) {
+//             let k = calculate(played_cards);
+//             let j = document.getElementsByClassName('cell' + k);
+
+//             let row = document.getElementById(j)
+//             let col = document.getElementById(row.children[0])
+            
+//         }
+//     }
+// }
+
+let score = 0;
+let point = 5;
+score = score + point;
+for (let i = 0; i <= 50; i++) {
+    if (score = i) {
+        let k = 5;
+        let j = document.getElementsByClassName('cell' + k);
+        let row = document.getElementById(j)
+        let col = document.getElementById(j.firstChild) 
+        let temp_img = document.createElement('img')
+        temp_img.src = "/assets/img/stego-meeple.png"
+        let temporary = document.getElementById('col-' + row)
+        temporary.appendChild(img);
     }
 }
 
+<<<<<<< Updated upstream
+=======
+// https://www.w3schools.com/jsref/prop_node_firstchild.asp , https://stackoverflow.com/questions/2735881/adding-images-to-an-html-document-with-javascript
+
+>>>>>>> Stashed changes
 
 // single player things
 // AI
