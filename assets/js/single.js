@@ -12,7 +12,9 @@ let board = [
 ];
 // let score = 0;
 // let temp_points = 0;
-
+function dino() {
+    
+}
 const a = document.getElementById('allboards2')
 const b = document.getElementById('allboards')
 const m = document.getElementById('Bronto')
@@ -24,7 +26,50 @@ n.addEventListener("click", function() {
     document.cookie = 'stego'
 })
 
-window.onload
+function SetCookie(cDino, exDays, cValue) {
+    const d = newDate();
+    d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
+    let expire = 'expire=' + d.toUTCString();
+    document.cookie = cDino + '=' + cValue + ';' + expire + ';path=/';
+}
+
+function getCookie(cDino) {
+    let name = cDino + '=';
+    let decodedCookie = decodeURIComponent(document.cookie);
+    let ca = decodedCookie.split(';');
+    for (let i = 0; i < ca.length; i++) {
+        let c = ca[i];
+        while (c.charAt(0) =='') {
+            c = c.substring(1);
+        }
+        if (c.indexOf(name) == 0) {
+            return c.substring(name.length, c.length);
+        }
+    }
+    return '';
+}
+
+function checkCookie() {
+    let user = getCookie('usename');
+    user = dino()
+    if (user != '' && user != null) {
+        SetCookie('username', user, 365);
+    }
+}
+
+document.getElementsByClassName('singleplayer').onload = function () {
+    let cookie = getCookie('bronto');
+    if (document.cookie = 'bronto') {
+        a.style.display = 'block'
+        b.style.display = 'none'
+    }
+    if (cookie ='stego') {
+        a.style.display = 'none'
+        b.style.display = 'block'
+    }
+}
+
+// https://www.w3schools.com/jsref/tryit.asp?filename=tryjsref_onload_dom
 // https://www.w3schools.com/js/js_cookies.asp#:~:text=With%20JavaScript%2C%20a%20cookie%20can,date%20(in%20UTC%20time). ,  https://www.w3schools.com/jsref/tryit.asp?filename=tryjsref_onload_dom
 
 
