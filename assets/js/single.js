@@ -111,6 +111,7 @@ function myfunction2() {
         }
     } 
     cardsInHand = [];
+    return cardsInHand;
 };
 
 //DISASTER CARDS
@@ -163,13 +164,6 @@ let player_hand = deck.handA(deck.drawCards(5))
 
 // playing a point card
 let played_cards = [];
-
-for (let i = 0; i <= 5; i++) {
-    if(player_hand[i] ) {
-        played_cards = player_hand[i];
-        player_hand[i].remove;
-    }
-}
 
 // calc player card
 function calculate() {
