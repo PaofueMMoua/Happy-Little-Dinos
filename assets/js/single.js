@@ -1,6 +1,5 @@
 // Needed things
-// board
-// Make 2 boards cause of each dinosaur one for bronto andone for stego.
+
 let board = [
     [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
     [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
@@ -10,8 +9,9 @@ let board = [
     [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
     [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
 ];
-// let score = 0;
-// let temp_points = 0;
+let score = 0;
+let temp_points = 0;
+let points = 0;
 
 const all = document.getElementById('allboards2')
 const bll = document.getElementById('allboards')
@@ -56,7 +56,6 @@ stegx.addEventListener("click", function() {
 })
 
 // Cards
-// const cards = ['1', '1', '1', '1', '1', '1', '1', '2', '2', '2', '2', '2', '2', '2', '3', '3', '3', '3', '3', '3', '3', '4', '4', '4', '4', '4', '4', '4', '5', '5', '5', '5', '5', '5', '5', '6', '6', '6', '6', '6', '6', '6', 'Disaster-Insurance', 'Disaster-Insurance', 'Score-Sapper', 'Score-Sapper', 'Disaster-Redirect', 'Disaster-Redirect', 'Score-Booster', 'Score-Booster']
 let deckCount = 0;
 const deck = ((deckcount) => {
     // Amount of cards in player's hand 5-0
@@ -94,12 +93,6 @@ const deck = ((deckcount) => {
     })).newDeck();
 })();
 
-console.log(deck.handA(deck.drawCards(5)));
-console.log(deck.handA(deck.drawCards(5)));
-console.log(deck.handA(deck.drawCards(5)));
-console.log(deck.handA(deck.drawCards(5)));
-console.log(deck.handA(deck.drawCards(5)));
-
 //CARDS IS WORKING
 let allCards=[1,1,1,1,1,1,1,2,2,2,2,2,,2,2,3,3,3,3,3,3,3,4,4,4,4,4,4,4,5,5,5,5,5,5,5,6,6,6,6,6,6,6,7,7,8,8,9,9,10,10];
 let cardsInHand = [];
@@ -108,18 +101,18 @@ function myfunction2() {
     f.style.display = 'none';
     if(allCards.length > 4) {
         for(let i=0; i<5; i++) {
-         let number = Math.round(Math.random()* allCards.length - .5);
-         let num = allCards[number];
-         cardsInHand.push(num);
-         let l = allCards.splice(number, 1);
-         console.log(allCards);
-         console.log(cardsInHand);
-         }
-     } 
-     else {
-         alert('Shuffling Cards');
-         allCards = [1,1,1,1,1,1,1,2,2,2,2,2,,2,2,3,3,3,3,3,3,3,4,4,4,4,4,4,4,5,5,5,5,5,5,5,6,6,6,6,6,6,6,7,7,8,8,9,9,10,10];
-     }
+        let number = Math.round(Math.random()* allCards.length - .5);
+        let num = allCards[number];
+        cardsInHand.push(num);
+        let l = allCards.splice(number, 1);
+        console.log(allCards);
+        console.log(cardsInHand);
+        }
+    } 
+    else {
+        alert('Shuffling Cards');
+        allCards = [1,1,1,1,1,1,1,2,2,2,2,2,,2,2,3,3,3,3,3,3,3,4,4,4,4,4,4,4,5,5,5,5,5,5,5,6,6,6,6,6,6,6,7,7,8,8,9,9,10,10];
+    }
     for(let i=0; i<=5; i++) {
         if (cardsInHand[i] == 1) {
             document.getElementById("steg-card" + [i + 1]).src = "/assets/cards2/point1.png";
@@ -200,34 +193,8 @@ function fu() {
     }
 }
 
-//TESTING DISASTER FUNCTION
-// console.log(fu());
-// console.log(fu());
-// console.log(fu());
-// console.log(fu());
-// console.log(fu());
-// console.log(fu());
-// console.log(fu());
-// console.log(fu());
-// console.log(fu());
-// console.log(fu());
-// console.log(fu());
-// console.log(fu());
-// console.log(fu());
-// console.log(fu());
-// console.log(fu());
-
-
 let round_end = false;
 let player_hand = deck.handA(deck.drawCards(5))
-
-console.log(player_hand);
-// Draw Cards
-// if (player_hand <= 5) {
-//     deck.drawCards(1) + player_hand;
-// }
-
-console.log(player_hand);
 
 // playing a point card
 let played_cards = [];
@@ -246,29 +213,12 @@ function calculate() {
             if (played_cards[i] = i) {
                 temp_points = temp_points + i;
             }
-
         }
     }
 }
 
 // score
 
-// function FS() {
-//     score = score + point;
-//     for (let i = 0; i <= 50; i++) {
-//         if (score = i) {
-//             let k = calculate(played_cards);
-//             let j = document.getElementsByClassName('cell' + k);
-
-//             let row = document.getElementById(j)
-//             let col = document.getElementById(row.children[0])
-            
-//         }
-//     }
-// }
-
-let score = 0;
-let point = 5;
 score = score + point;
 for (let i = 0; i <= 50; i++) {
     if (score = i) {
@@ -282,19 +232,6 @@ for (let i = 0; i <= 50; i++) {
         temporary.appendChild(img);
     }
 }
-let pre_point = 5;
-let score_button = document.getElementById('score-button')
-score_button.addEventListener('click', function () {
-    for (let i = 0; i <= 50; i++) {
-        if (score = i) {
-            let j = pre_point;
-            pre_point = point
-            let k = document.createElement('img');
-            i.src = './assets/img/stego-meeple.png';
-            let temporary = document.getElementById('col-' + j)
-        }
-    }
-})
 
 // single player things
 // AI
@@ -306,16 +243,3 @@ function SR() {
         deck.ai_hand.sort()
     }
 }
-
-
-    // for(let i=0; i<10; i++) {
-    //     for (let x = 0; x <=10; x++) {
-    //         if (player_hand = i + '_' + x) {
-    //             let player_hand_new = player_hand.split('_' + i);
-    //             let pl = Integer.parseInt(player_hand_new)
-    //         }
-    //     }
-    // }
-
-
-// https://www.sololearn.com/compiler-playground/W87BXhQSl8Sv/ , https://github.com/guilhermebkel/uno-game/tree/refactor/function-args/.github //
