@@ -101,7 +101,7 @@ console.log(deck.handA(deck.drawCards(5)));
 console.log(deck.handA(deck.drawCards(5)));
 
 //CARDS IS WORKING
-let allCards=[1,1,1,1,1,2,2,2,2,2,3,3,3,3,3,4,4,4,4,4,5,5,5,5,5,6,6,6,6,6,7,7,8,8,9,9,10,10];
+let allCards=[1,1,1,1,1,1,1,2,2,2,2,2,,2,2,3,3,3,3,3,3,3,4,4,4,4,4,4,4,5,5,5,5,5,5,5,6,6,6,6,6,6,6,7,7,8,8,9,9,10,10];
 let cardsInHand = [];
 function myfunction2() {
     let f = document.getElementById("reveal")
@@ -118,6 +118,7 @@ function myfunction2() {
      } 
      else {
          alert('Shuffling Cards');
+         allCards = [1,1,1,1,1,1,1,2,2,2,2,2,,2,2,3,3,3,3,3,3,3,4,4,4,4,4,4,4,5,5,5,5,5,5,5,6,6,6,6,6,6,6,7,7,8,8,9,9,10,10];
      }
     for(let i=0; i<=5; i++) {
         if (cardsInHand[i] == 1) {
