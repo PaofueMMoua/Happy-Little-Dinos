@@ -35,24 +35,24 @@ Stego.addEventListener("click", function() {
 })
 
 //DOES THE SAME THING BUT WHEN YOU CLICK ON THE DINOS RATHER THAN THEIR NAME
-const brontx = document.getElementById('dino')
-const stegx = document.getElementById('dino_two')
-brontx.addEventListener("click", function() {
-    let hero = document.getElementById('hero-img-two')
-    hero.style.display = 'none';
-    bll.style.display = 'none';
-    all.style.display = 'block';
-    let testflex = document.getElementById('testflex')
-    testflex.style.display = 'flex';
-});
-stegx.addEventListener("click", function() {
-    let hero = document.getElementById('hero-img-two')
-    hero.style.display = 'none';
-    bll.style.display = 'block';
-    all.style.display = 'none';
-    let testflex = document.getElementById('testflex')
-    testflex.style.display = 'flex';
-})
+// const brontx = document.getElementById('dino')
+// const stegx = document.getElementById('dino_two')
+// brontx.addEventListener("click", function() {
+//     let hero = document.getElementById('hero-img-two')
+//     hero.style.display = 'none';
+//     bll.style.display = 'none';
+//     all.style.display = 'block';
+//     let testflex = document.getElementById('testflex')
+//     testflex.style.display = 'flex';
+// });
+// stegx.addEventListener("click", function() {
+//     let hero = document.getElementById('hero-img-two')
+//     hero.style.display = 'none';
+//     bll.style.display = 'block';
+//     all.style.display = 'none';
+//     let testflex = document.getElementById('testflex')
+//     testflex.style.display = 'flex';
+// })
 
 // Cards
 // const cards = ['1', '1', '1', '1', '1', '1', '1', '2', '2', '2', '2', '2', '2', '2', '3', '3', '3', '3', '3', '3', '3', '4', '4', '4', '4', '4', '4', '4', '5', '5', '5', '5', '5', '5', '5', '6', '6', '6', '6', '6', '6', '6', 'Disaster-Insurance', 'Disaster-Insurance', 'Score-Sapper', 'Score-Sapper', 'Disaster-Redirect', 'Disaster-Redirect', 'Score-Booster', 'Score-Booster']
@@ -99,6 +99,58 @@ console.log(deck.handA(deck.drawCards(5)));
 console.log(deck.handA(deck.drawCards(5)));
 console.log(deck.handA(deck.drawCards(5)));
 
+//CARDS IS WORKING
+let allCards=[1,1,1,1,1,2,2,2,2,2,3,3,3,3,3,4,4,4,4,4,5,5,5,5,5,6,6,6,6,6,7,7,8,8,9,9,10,10];
+let cardsInHand = [];
+function myfunction2() {
+    if(allCards.length > 4) {
+        for(let i=0; i<5; i++) {
+         let number = Math.round(Math.random()* allCards.length - .5);
+         let num = allCards[number];
+         cardsInHand.push(num);
+         let l = allCards.splice(number, 1);
+         console.log(allCards);
+         console.log(cardsInHand);
+         }
+     } 
+     else {
+         alert('why is this not working?');
+     }
+    for(let i=0; i<=5; i++) {
+        if (cardsInHand[i] == 1) {
+            document.getElementById("steg-card" + [i + 1]).src = "/assets/cards2/point1.png";
+        } 
+        else if(cardsInHand[i] == 2) {
+            document.getElementById("steg-card" + [i + 1]).src = "/assets/cards2/point2.png";
+        }
+        else if(cardsInHand[i] == 3) {
+            document.getElementById("steg-card" + [i + 1]).src="/assets/cards2/point3.png";
+        } 
+        else if(cardsInHand[i] == 4) {
+           document.getElementById("steg-card" + [i + 1]).src="/assets/cards2/point4.png";
+        } 
+        else if(cardsInHand[i] == 5) {
+            document.getElementById("steg-card" + [i + 1]).src="/assets/cards2/point5.png";
+        } 
+        else if(cardsInHand[i] == 6) {
+            document.getElementById("steg-card" + [i + 1]).src="/assets/cards2/point6.png";
+        }
+        else if(cardsInHand[i] == 7) {
+            document.getElementById("steg-card" + [i + 1]).src="/assets/cards2/instant-booster.png";
+        }
+        else if(cardsInHand[i] == 8) {
+            document.getElementById("steg-card" + [i + 1]).src="/assets/cards2/instant-insurance.png";
+        }
+        else if(cardsInHand[i] == 9) {
+            document.getElementById("steg-card" + [i + 1]).src="/assets/cards2/instant-redirect.png";
+        }
+        else if(cardsInHand[i] == 10) {
+            document.getElementById("steg-card" + [i + 1]).src="/assets/cards2/instant-sapper.png";
+        }
+    } 
+    cardsInHand = [];
+};
+
 //DISASTER CARDS
 let disasters = [
     ["disaster-beach", "red"],
@@ -120,14 +172,9 @@ let disasters = [
 function fu() {
     if(disasters.length > 0) {
         let idea = Math.round(Math.random() * disasters.length - .5);
-        console.log(disasters.length);
-        console.log(idea);
         let card = disasters[idea];
-        console.log(card);
         let x = disasters.splice(idea, 1);
-        console.log(disasters);
         let image = "/assets/cards2/" + card[0] + ".png";
-        console.log(image);
     }
     else {
         disasters = [
@@ -244,114 +291,15 @@ function SR() {
     }
 }
 
-function test () {
-    for(let i=0; i<=4; i++) {
-        console.log ("steg-card" + [i + 1]);
-    }
-}
-test();
 
-//WORKING FUNCTION TO CHANGE IMAGE
-function myFunction() {
-    document.getElementById("steg-card1").src = "point5.png";
-}
+    // for(let i=0; i<10; i++) {
+    //     for (let x = 0; x <=10; x++) {
+    //         if (player_hand = i + '_' + x) {
+    //             let player_hand_new = player_hand.split('_' + i);
+    //             let pl = Integer.parseInt(player_hand_new)
+    //         }
+    //     }
+    // }
 
-
-// const bv = document.getElementsById("this");
-// const img = document.getElementById("steg-card1");
-// bv.addEventListener("click", function() {
-//     document.getElementById("steg-card1").src = '/assets/cards2/point5.png';
-// });
-// bv.addEventListener("click", document.getElementsByClassName("playercards2").children[0].removeElement.createElement('img'); img.src = "./assets/cards2/point5.png");
-// bv.addEventListener("click", document.getElementById("steg-card3").createImage)
-// src = "/assets/cards2/point5.png"
-    for(let i=0; i<10; i++) {
-        for (let x = 0; x <=10; x++) {
-            if (player_hand = i + '_' + x) {
-                let player_hand_new = player_hand.split('_' + i);
-                let pl = Integer.parseInt(player_hand_new)
-            }
-        }
-    }
-
-
-function myfunction2() {
-    let cardInHand=[];
-    for(let i=0; i<5; i++) {
-        number = Math.round(Math.random()*10);
-        cardInHand.push(number);
-        } 
-    for(let i=0; i<=5; i++) {
-        if (cardInHand[i] == 1) {
-            document.getElementById("steg-card" + [i + 1]).src = "/assets/cards2/point1.png";
-        } 
-        else if(cardInHand[i] == 2) {
-            document.getElementById("steg-card" + [i + 1]).src = "/assets/cards2/point2.png";
-        }
-        else if(cardInHand[i] == 3) {
-            document.getElementById("steg-card" + [i + 1]).src="/assets/cards2/point3.png";
-        } 
-        else if(cardInHand[i] == 4) {
-           document.getElementById("steg-card" + [i + 1]).src="/assets/cards2/point4.png";
-        } 
-        else if(cardInHand[i] == 5) {
-            document.getElementById("steg-card" + [i + 1]).src="/assets/cards2/point5.png";
-        } 
-        else if(cardInHand[i] == 6) {
-            document.getElementById("steg-card" + [i + 1]).src="/assets/cards2/point6.png";
-        }
-        else if(cardInHand[i] == 7) {
-            document.getElementById("steg-card" + [i + 1]).src="/assets/cards2/instant-booster.png";
-        }
-        else if(cardInHand[i] == 8) {
-            document.getElementById("steg-card" + [i + 1]).src="/assets/cards2/instant-insurance.png";
-        }
-        else if(cardInHand[i] == 9) {
-            document.getElementById("steg-card" + [i + 1]).src="/assets/cards2/instant-redirect.png";
-        }
-        else if(cardInHand[i] == 10) {
-            document.getElementById("steg-card" + [i + 1]).src="/assets/cards2/instant-sapper.png";
-        }
-    } 
-};
-
-// function changeImage (cardInHand) {
-//     for(let i=0; i<=5; i++) {
-//         if (cardInHand[i] = 1) {
-//             return document.getElementById("steg-card" + [i + 1]).src = "/assets/cards2/point5.png";
-//         } 
-//         else if(cardInHand[i] = 2) {
-//             return document.getElementById("steg-card" + [i + 1]).src = "point2.png";
-//         }
-//         else if(cardInHand[i] = 3) {
-//             return document.getElementById("steg-card" + [i + 1]).src="point3.png";
-//         } 
-//         else if(cardInHand[i] = 4) {
-//             return document.getElementById("steg-card" + [i + 1]).src="point4.png";
-//         } 
-//         else if(cardInHand[i] = 5) {
-//             return document.getElementById("steg-card" + [i + 1]).src="point5.png";
-//         } 
-//         else if(cardInHand[i] = 6) {
-//             return document.getElementById("steg-card" + [i + 1]).src="point6.png";
-//         }
-//         else if (cardInHand[i] = "Disaster Insurance") {
-//             return document.getElementById("steg-card" + [i + 1]).src="point2.png";
-//         }
-//     }
-// }
-
-
-
-function changeImage() {
-    for (let i = 0; i <= 5; i++) {
-        if (cardInHand[i] = 1) {
-            return document.getElementById("steg-card" + [i]).src = "point1.png";
-        }
-        else if (cardInHand[i] = 2) {
-            return document.getElementById("steg-card" + [i]).src = "point2.png";
-        }
-    }
-}
 
 // https://www.sololearn.com/compiler-playground/W87BXhQSl8Sv/ , https://github.com/guilhermebkel/uno-game/tree/refactor/function-args/.github //
