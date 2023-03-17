@@ -235,9 +235,11 @@ for (let i = 0; i <= 50; i++) {
 
 // single player things
 // AI
-let ai_hand = deck.drawCards(5);
+let ai_hand = deck.ai_hand(deck.drawCards(5));
 
-
+function ai_card_choice() {
+    
+}
 
 function SR() {
     if (ai_hand < 5 ) {
