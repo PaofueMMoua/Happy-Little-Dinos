@@ -233,12 +233,20 @@ for (let i = 0; i <= 50; i++) {
     }
 }
 
+function average() {
+    let avg = (ai_hand[1] + ai_hand[2] + ai_hand[3] + ai_hand[4] + ai_hand[5] + ai_hand[6]) / ai_hand.length;
+}
+
 // single player things
 // AI
 let ai_hand = deck.ai_hand(deck.drawCards(5));
 
-function ai_card_choice() {
+function play() {
     
+}
+
+function ai_card_choice() {
+    play(average());
 }
 
 function SR() {
