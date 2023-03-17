@@ -235,10 +235,12 @@ for (let i = 0; i <= 50; i++) {
 
 // single player things
 // AI
-function SR() {
-    let ai_hand = deck.drawCards(5);
+let ai_hand = deck.drawCards(5);
 
-    if (ai_hand < 5 || ai_hand.length != deck.handA.length) {
+
+
+function SR() {
+    if (ai_hand < 5 ) {
         deck.drawCards(1) + ai_hand;
         deck.ai_hand.sort()
     }
