@@ -128,7 +128,7 @@ function myfunction2() {
             document.getElementById("steg-card" + [i + 1]).src="/assets/cards2/point3.png";
         } 
         else if(cardsInHand[i] == 4) {
-           document.getElementById("steg-card" + [i + 1]).src="/assets/cards2/point4.png";
+            document.getElementById("steg-card" + [i + 1]).src="/assets/cards2/point4.png";
         } 
         else if(cardsInHand[i] == 5) {
             document.getElementById("steg-card" + [i + 1]).src="/assets/cards2/point5.png";
@@ -279,7 +279,18 @@ for (let i = 0; i <= 50; i++) {
         temporary.appendChild(img);
     }
 }
-
+let pre_point = 5;
+let score_button = document.getElementById('score-button')
+score_button.addEventListener('click', function () {
+    for (let i = 0; i <= 50; i++) {
+        if (score = i) {
+            let j = pre_point;
+            pre_point = point
+            let k = document.createElement('img');
+            i.src = './assets/img/stego-meeple.png';
+            let temporary = document.getElementById('col-' + j)
+        }
+})
 
 // single player things
 // AI
