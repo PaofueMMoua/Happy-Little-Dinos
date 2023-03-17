@@ -17,7 +17,7 @@ const all = document.getElementById('allboards2')
 const bll = document.getElementById('allboards')
 const Bronto = document.getElementById('Bronto')
 const Stego = document.getElementById('Stego')
-Bronto.addEventListener("click", function() {
+Bronto.addEventListener("click", function () {
     let hero = document.getElementById('hero-img-two')
     hero.style.display = 'none';
     bll.style.display = 'none';
@@ -25,7 +25,7 @@ Bronto.addEventListener("click", function() {
     let testflex = document.getElementById('testflex')
     testflex.style.display = 'flex';
 });
-Stego.addEventListener("click", function() {
+Stego.addEventListener("click", function () {
     let hero = document.getElementById('hero-img-two')
     hero.style.display = 'none';
     bll.style.display = 'block';
@@ -38,7 +38,7 @@ Stego.addEventListener("click", function() {
 //DOES THE SAME THING BUT WHEN YOU CLICK ON THE DINOS RATHER THAN THEIR NAME
 const brontx = document.getElementById('dino')
 const stegx = document.getElementById('dino_two')
-brontx.addEventListener("click", function() {
+brontx.addEventListener("click", function () {
     let hero = document.getElementById('hero-img-two')
     hero.style.display = 'none';
     bll.style.display = 'none';
@@ -46,7 +46,7 @@ brontx.addEventListener("click", function() {
     let testflex = document.getElementById('testflex')
     testflex.style.display = 'flex';
 });
-stegx.addEventListener("click", function() {
+stegx.addEventListener("click", function () {
     let hero = document.getElementById('hero-img-two')
     hero.style.display = 'none';
     bll.style.display = 'block';
@@ -59,58 +59,57 @@ stegx.addEventListener("click", function() {
 let deckCount = 0;
 
 //CARDS IS WORKING
-let allCards=[1,1,1,1,1,1,1,2,2,2,2,2,,2,2,3,3,3,3,3,3,3,4,4,4,4,4,4,4,5,5,5,5,5,5,5,6,6,6,6,6,6,6,7,7,8,8,9,9,10,10];
+let allCards = [1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, , 2, 2, 3, 3, 3, 3, 3, 3, 3, 4, 4, 4, 4, 4, 4, 4, 5, 5, 5, 5, 5, 5, 5, 6, 6, 6, 6, 6, 6, 6, 7, 7, 8, 8, 9, 9, 10, 10];
 let cardsInHand = [];
 function myfunction2() {
     let f = document.getElementById("reveal")
     f.style.display = 'none';
-    if(allCards.length > 4) {
-        for(let i=0; i<5; i++) {
-        let number = Math.round(Math.random()* allCards.length - .5);
-        let num = allCards[number];
-        cardsInHand.push(num);
-        let l = allCards.splice(number, 1);
-        console.log(allCards);
-        console.log(cardsInHand);
+    if (allCards.length > 4) {
+        for (let i = 0; i < 5; i++) {
+            let number = Math.round(Math.random() * allCards.length - .5);
+            let num = allCards[number];
+            cardsInHand.push(num);
+            let l = allCards.splice(number, 1);
+            console.log(allCards);
+            console.log(cardsInHand);
         }
-    } 
+    }
     else {
         alert('Shuffling Cards');
-        allCards = [1,1,1,1,1,1,1,2,2,2,2,2,,2,2,3,3,3,3,3,3,3,4,4,4,4,4,4,4,5,5,5,5,5,5,5,6,6,6,6,6,6,6,7,7,8,8,9,9,10,10];
+        allCards = [1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, , 2, 2, 3, 3, 3, 3, 3, 3, 3, 4, 4, 4, 4, 4, 4, 4, 5, 5, 5, 5, 5, 5, 5, 6, 6, 6, 6, 6, 6, 6, 7, 7, 8, 8, 9, 9, 10, 10];
     }
-    for(let i=0; i<=5; i++) {
+    for (let i = 0; i <= 5; i++) {
         if (cardsInHand[i] == 1) {
             document.getElementById("steg-card" + [i + 1]).src = "/assets/cards2/point1.png";
-        } 
-        else if(cardsInHand[i] == 2) {
+        }
+        else if (cardsInHand[i] == 2) {
             document.getElementById("steg-card" + [i + 1]).src = "/assets/cards2/point2.png";
         }
-        else if(cardsInHand[i] == 3) {
-            document.getElementById("steg-card" + [i + 1]).src="/assets/cards2/point3.png";
-        } 
-        else if(cardsInHand[i] == 4) {
-            document.getElementById("steg-card" + [i + 1]).src="/assets/cards2/point4.png";
-        } 
-        else if(cardsInHand[i] == 5) {
-            document.getElementById("steg-card" + [i + 1]).src="/assets/cards2/point5.png";
-        } 
-        else if(cardsInHand[i] == 6) {
-            document.getElementById("steg-card" + [i + 1]).src="/assets/cards2/point6.png";
+        else if (cardsInHand[i] == 3) {
+            document.getElementById("steg-card" + [i + 1]).src = "/assets/cards2/point3.png";
         }
-        else if(cardsInHand[i] == 7) {
-            document.getElementById("steg-card" + [i + 1]).src="/assets/cards2/instant-booster.png";
+        else if (cardsInHand[i] == 4) {
+            document.getElementById("steg-card" + [i + 1]).src = "/assets/cards2/point4.png";
         }
-        else if(cardsInHand[i] == 8) {
-            document.getElementById("steg-card" + [i + 1]).src="/assets/cards2/instant-insurance.png";
+        else if (cardsInHand[i] == 5) {
+            document.getElementById("steg-card" + [i + 1]).src = "/assets/cards2/point5.png";
         }
-        else if(cardsInHand[i] == 9) {
-            document.getElementById("steg-card" + [i + 1]).src="/assets/cards2/instant-redirect.png";
+        else if (cardsInHand[i] == 6) {
+            document.getElementById("steg-card" + [i + 1]).src = "/assets/cards2/point6.png";
         }
-        else if(cardsInHand[i] == 10) {
-            document.getElementById("steg-card" + [i + 1]).src="/assets/cards2/instant-sapper.png";
+        else if (cardsInHand[i] == 7) {
+            document.getElementById("steg-card" + [i + 1]).src = "/assets/cards2/instant-booster.png";
         }
-    } 
-    cardsInHand = [];
+        else if (cardsInHand[i] == 8) {
+            document.getElementById("steg-card" + [i + 1]).src = "/assets/cards2/instant-insurance.png";
+        }
+        else if (cardsInHand[i] == 9) {
+            document.getElementById("steg-card" + [i + 1]).src = "/assets/cards2/instant-redirect.png";
+        }
+        else if (cardsInHand[i] == 10) {
+            document.getElementById("steg-card" + [i + 1]).src = "/assets/cards2/instant-sapper.png";
+        }
+    }
     return cardsInHand;
 };
 
@@ -133,7 +132,7 @@ let disasters = [
 ]
 
 function fu() {
-    if(disasters.length > 0) {
+    if (disasters.length > 0) {
         let idea = Math.round(Math.random() * disasters.length - .5);
         let card = disasters[idea];
         let x = disasters.splice(idea, 1);
@@ -184,7 +183,7 @@ for (let i = 0; i <= 50; i++) {
         let k = 5;
         let j = document.getElementsByClassName('cell' + k);
         let row = document.getElementById(j)
-        let col = document.getElementById(j.firstChild) 
+        let col = document.getElementById(j.firstChild)
         let temp_img = document.createElement('img')
         temp_img.src = "/assets/img/stego-meeple.png"
         let temporary = document.getElementById('col-' + row)
@@ -201,7 +200,7 @@ function average() {
 let ai_hand = deck.ai_hand(deck.drawCards(5));
 
 function play() {
-    
+
 }
 
 function ai_card_choice() {
@@ -209,8 +208,36 @@ function ai_card_choice() {
 }
 
 function SR() {
-    if (ai_hand < 5 ) {
+    if (ai_hand < 5) {
         deck.drawCards(1) + ai_hand;
         deck.ai_hand.sort()
     }
 }
+
+ai_cardsInHand = [];
+function ai_myfunction2() {
+    let f = document.getElementById("reveal")
+    f.style.display = 'none';
+    if (allCards.length > 4) {
+        for (let i = 0; i < 5; i++) {
+            let number = Math.round(Math.random() * allCards.length - .5);
+            let num = allCards[number];
+            cardsInHand.push(num);
+            let l = allCards.splice(number, 1);
+            console.log(allCards);
+            console.log(cardsInHand);
+        }
+    }
+    else {
+        alert('Shuffling Cards');
+        allCards = [1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 3, 3, 4, 4, 4, 4, 4, 4, 4, 5, 5, 5, 5, 5, 5, 5, 6, 6, 6, 6, 6, 6, 6, 7, 7, 8, 8, 9, 9, 10, 10];
+    }
+    for (let i = 0; i <= 5; i++) {
+        for (j = 0; j <= 10; j++) {
+            if (ai_cardsInHand[i] == j) {
+                document.getElementById("steg-card" + [i + j]).src = "/assets/cards2/point" + j + ".png";
+            }
+        }
+    }
+    return ai_cardsInHandler;
+};
