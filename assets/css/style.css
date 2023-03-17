@@ -566,6 +566,14 @@ h3,
     right:6vw;
 }
 
+#reveal {
+    color:black;
+    position:relative;
+    font-size:3vw;
+    bottom:7.5vw;
+    left:1vw;
+}
+
 /* Card Movement
 #card {
   cursor: move;

@@ -36,24 +36,24 @@ Stego.addEventListener("click", function() {
 
 
 //DOES THE SAME THING BUT WHEN YOU CLICK ON THE DINOS RATHER THAN THEIR NAME
-// const brontx = document.getElementById('dino')
-// const stegx = document.getElementById('dino_two')
-// brontx.addEventListener("click", function() {
-//     let hero = document.getElementById('hero-img-two')
-//     hero.style.display = 'none';
-//     bll.style.display = 'none';
-//     all.style.display = 'block';
-//     let testflex = document.getElementById('testflex')
-//     testflex.style.display = 'flex';
-// });
-// stegx.addEventListener("click", function() {
-//     let hero = document.getElementById('hero-img-two')
-//     hero.style.display = 'none';
-//     bll.style.display = 'block';
-//     all.style.display = 'none';
-//     let testflex = document.getElementById('testflex')
-//     testflex.style.display = 'flex';
-// })
+const brontx = document.getElementById('dino')
+const stegx = document.getElementById('dino_two')
+brontx.addEventListener("click", function() {
+    let hero = document.getElementById('hero-img-two')
+    hero.style.display = 'none';
+    bll.style.display = 'none';
+    all.style.display = 'block';
+    let testflex = document.getElementById('testflex')
+    testflex.style.display = 'flex';
+});
+stegx.addEventListener("click", function() {
+    let hero = document.getElementById('hero-img-two')
+    hero.style.display = 'none';
+    bll.style.display = 'block';
+    all.style.display = 'none';
+    let testflex = document.getElementById('testflex')
+    testflex.style.display = 'flex';
+})
 
 // Cards
 // const cards = ['1', '1', '1', '1', '1', '1', '1', '2', '2', '2', '2', '2', '2', '2', '3', '3', '3', '3', '3', '3', '3', '4', '4', '4', '4', '4', '4', '4', '5', '5', '5', '5', '5', '5', '5', '6', '6', '6', '6', '6', '6', '6', 'Disaster-Insurance', 'Disaster-Insurance', 'Score-Sapper', 'Score-Sapper', 'Disaster-Redirect', 'Disaster-Redirect', 'Score-Booster', 'Score-Booster']
@@ -104,6 +104,8 @@ console.log(deck.handA(deck.drawCards(5)));
 let allCards=[1,1,1,1,1,2,2,2,2,2,3,3,3,3,3,4,4,4,4,4,5,5,5,5,5,6,6,6,6,6,7,7,8,8,9,9,10,10];
 let cardsInHand = [];
 function myfunction2() {
+    let f = document.getElementById("reveal")
+    f.style.display = 'none';
     if(allCards.length > 4) {
         for(let i=0; i<5; i++) {
          let number = Math.round(Math.random()* allCards.length - .5);
@@ -290,6 +292,7 @@ score_button.addEventListener('click', function () {
             i.src = './assets/img/stego-meeple.png';
             let temporary = document.getElementById('col-' + j)
         }
+    }
 })
 
 // single player things
