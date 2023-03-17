@@ -34,6 +34,7 @@ Stego.addEventListener("click", function() {
     testflex.style.display = 'flex';
 })
 
+
 //DOES THE SAME THING BUT WHEN YOU CLICK ON THE DINOS RATHER THAN THEIR NAME
 // const brontx = document.getElementById('dino')
 // const stegx = document.getElementById('dino_two')
@@ -114,7 +115,7 @@ function myfunction2() {
          }
      } 
      else {
-         alert('why is this not working?');
+         alert('Shuffling Cards');
      }
     for(let i=0; i<=5; i++) {
         if (cardsInHand[i] == 1) {
