@@ -33,6 +33,27 @@ Stego.addEventListener("click", function() {
     let testflex = document.getElementById('testflex')
     testflex.style.display = 'flex';
 })
+
+//DOES THE SAME THING BUT WHEN YOU CLICK ON THE DINOS RATHER THAN THEIR NAME
+const brontx = document.getElementById('dino')
+const stegx = document.getElementById('dino_two')
+brontx.addEventListener("click", function() {
+    let hero = document.getElementById('hero-img-two')
+    hero.style.display = 'none';
+    bll.style.display = 'none';
+    all.style.display = 'block';
+    let testflex = document.getElementById('testflex')
+    testflex.style.display = 'flex';
+});
+stegx.addEventListener("click", function() {
+    let hero = document.getElementById('hero-img-two')
+    hero.style.display = 'none';
+    bll.style.display = 'block';
+    all.style.display = 'none';
+    let testflex = document.getElementById('testflex')
+    testflex.style.display = 'flex';
+})
+
 // Cards
 // const cards = ['1', '1', '1', '1', '1', '1', '1', '2', '2', '2', '2', '2', '2', '2', '3', '3', '3', '3', '3', '3', '3', '4', '4', '4', '4', '4', '4', '4', '5', '5', '5', '5', '5', '5', '5', '6', '6', '6', '6', '6', '6', '6', 'Disaster-Insurance', 'Disaster-Insurance', 'Score-Sapper', 'Score-Sapper', 'Disaster-Redirect', 'Disaster-Redirect', 'Score-Booster', 'Score-Booster']
 let deckCount = 0;
@@ -72,7 +93,13 @@ const deck = ((deckcount) => {
     })).newDeck();
 })();
 
+console.log(deck.handA(deck.drawCards(5)));
+console.log(deck.handA(deck.drawCards(5)));
+console.log(deck.handA(deck.drawCards(5)));
+console.log(deck.handA(deck.drawCards(5)));
+console.log(deck.handA(deck.drawCards(5)));
 
+//DISASTER CARDS
 let disasters = [
     ["disaster-beach", "red"],
     ["disaster-burn", "blue"],
@@ -102,7 +129,6 @@ function fu() {
         let image = "/assets/cards2/" + card[0] + ".png";
         console.log(image);
     }
-
     else {
         disasters = [
             ["disaster-beach", "red"],
@@ -123,34 +149,23 @@ function fu() {
     }
 }
 
-console.log(fu());
-console.log(fu());
-console.log(fu());
-console.log(fu());
-console.log(fu());
-console.log(fu());
-console.log(fu());
-console.log(fu());
-console.log(fu());
-console.log(fu());
-console.log(fu());
-console.log(fu());
-console.log(fu());
-console.log(fu());
-console.log(fu());
-console.log(fu());
-console.log(fu());
-console.log(fu());
-console.log(fu());
-console.log(fu());
-console.log(fu());
+//TESTING DISASTER FUNCTION
+// console.log(fu());
+// console.log(fu());
+// console.log(fu());
+// console.log(fu());
+// console.log(fu());
+// console.log(fu());
+// console.log(fu());
+// console.log(fu());
+// console.log(fu());
+// console.log(fu());
+// console.log(fu());
+// console.log(fu());
+// console.log(fu());
+// console.log(fu());
+// console.log(fu());
 
-
-console.log(deck.handA(deck.drawCards(5)));
-console.log(deck.handA(deck.drawCards(5)));
-console.log(deck.handA(deck.drawCards(5)));
-console.log(deck.handA(deck.drawCards(5)));
-console.log(deck.handA(deck.drawCards(5)));
 
 let round_end = false;
 let player_hand = deck.handA(deck.drawCards(5))
@@ -217,11 +232,6 @@ for (let i = 0; i <= 50; i++) {
     }
 }
 
-<<<<<<< Updated upstream
-=======
-// https://www.w3schools.com/jsref/prop_node_firstchild.asp , https://stackoverflow.com/questions/2735881/adding-images-to-an-html-document-with-javascript
-
->>>>>>> Stashed changes
 
 // single player things
 // AI
@@ -264,9 +274,13 @@ function myFunction() {
         }
     }
 
-// let cardInHand = [1,5,4,2,3];
+
 function myfunction2() {
-    let cardInHand = pl;
+    let cardInHand=[];
+    for(let i=0; i<5; i++) {
+        number = Math.round(Math.random()*10);
+        cardInHand.push(number);
+        } 
     for(let i=0; i<=5; i++) {
         if (cardInHand[i] == 1) {
             document.getElementById("steg-card" + [i + 1]).src = "/assets/cards2/point1.png";
@@ -285,6 +299,18 @@ function myfunction2() {
         } 
         else if(cardInHand[i] == 6) {
             document.getElementById("steg-card" + [i + 1]).src="/assets/cards2/point6.png";
+        }
+        else if(cardInHand[i] == 7) {
+            document.getElementById("steg-card" + [i + 1]).src="/assets/cards2/instant-booster.png";
+        }
+        else if(cardInHand[i] == 8) {
+            document.getElementById("steg-card" + [i + 1]).src="/assets/cards2/instant-insurance.png";
+        }
+        else if(cardInHand[i] == 9) {
+            document.getElementById("steg-card" + [i + 1]).src="/assets/cards2/instant-redirect.png";
+        }
+        else if(cardInHand[i] == 10) {
+            document.getElementById("steg-card" + [i + 1]).src="/assets/cards2/instant-sapper.png";
         }
     } 
 };
