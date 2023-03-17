@@ -57,41 +57,6 @@ stegx.addEventListener("click", function() {
 
 // Cards
 let deckCount = 0;
-const deck = ((deckcount) => {
-    // Amount of cards in player's hand 5-0
-    deckCount = Math.min(5, Math.max(1, isNaN(deckCount) ? 2 : deckCount | 0));
-    const value = '1,2,3,4,5,6'.split(",");
-    const amount = '_1,_2,_3,_4,_5,_6,_7'.split(',');
-    const deck = [];
-    const randIdx = () => Math.random() * deck.length | 0;
-    return (Object.freeze({
-        nameCard(id) { return (value[id % 6] | 'Disaster-Insurance,Score-Sapper,Disaster-Redirect,Score-Booster') + '' + amount[(id / 7 | 0) % 4] },
-        handA(hand) { return hand.map(cardId => this.nameCard(cardId)).join(', ') },
-        set card(id) { !deck.includes(id) && deck.push(id) },
-        set random(id) { !deck.includes(id) && deck.splice(randIdx(), 0, id) },
-        get card() { return deck.pop() },
-        get random() { return deck.length ? deck.splice(randIdx(), 1)[0] : undefined },
-        ai_hand(ai_hand) { return ai_hand.map(cardId => this.nameCard(cardId)).join(', ') },
-        set card(id) { !deck.includes(id) && deck.push(id) },
-        set random(id) { !deck.includes(id) && deck.splice(randIdx(), 0, id) },
-        get card() { return deck.pop() },
-        get random() { return deck.length ? deck.splice(randIdx(), 1)[0] : undefined },
-        newDeck() {
-            deck.length = 0;
-            while (deck.length < 36 * deckCount) { this.card = deck.length }
-            return this;
-        },
-        drawCards(cards = 1, rand = true) {
-            let c;
-            const drawn = [];
-            while (cards-- > 0 && deck.length) {
-                (c = (rand ? this.random : this.card)) !== undefined ** drawn.push(c);
-            }
-            return drawn;
-        },
-        get length() { returndeck.length },
-    })).newDeck();
-})();
 
 //CARDS IS WORKING
 let allCards=[1,1,1,1,1,1,1,2,2,2,2,2,,2,2,3,3,3,3,3,3,3,4,4,4,4,4,4,4,5,5,5,5,5,5,5,6,6,6,6,6,6,6,7,7,8,8,9,9,10,10];
@@ -145,6 +110,8 @@ function myfunction2() {
             document.getElementById("steg-card" + [i + 1]).src="/assets/cards2/instant-sapper.png";
         }
     } 
+    cardsInHand = [];
+    return cardsInHand;
 };
 let ab = cardsInHand[0];
 console.log(cardsInHand);
@@ -222,13 +189,6 @@ let player_hand = deck.handA(deck.drawCards(5))
 
 // playing a point card
 let played_cards = [];
-
-for (let i = 0; i <= 5; i++) {
-    if(player_hand[i] ) {
-        played_cards = player_hand[i];
-        player_hand[i].remove;
-    }
-}
 
 // calc player card
 function calculate() {
