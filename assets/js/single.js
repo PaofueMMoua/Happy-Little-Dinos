@@ -105,17 +105,17 @@ let cardsInHand = [];
 function myfunction2() {
     if(allCards.length > 4) {
         for(let i=0; i<5; i++) {
-         let number = Math.round(Math.random()* allCards.length - .5);
-         let num = allCards[number];
-         cardsInHand.push(num);
-         let l = allCards.splice(number, 1);
-         console.log(allCards);
-         console.log(cardsInHand);
-         }
-     } 
-     else {
-         alert('why is this not working?');
-     }
+        let number = Math.round(Math.random()* allCards.length - .5);
+        let num = allCards[number];
+        cardsInHand.push(num);
+        let l = allCards.splice(number, 1);
+        console.log(allCards);
+        console.log(cardsInHand);
+        }
+    } 
+    else {
+        alert('why is this not working?');
+    }
     for(let i=0; i<=5; i++) {
         if (cardsInHand[i] == 1) {
             document.getElementById("steg-card" + [i + 1]).src = "/assets/cards2/point1.png";
@@ -127,7 +127,7 @@ function myfunction2() {
             document.getElementById("steg-card" + [i + 1]).src="/assets/cards2/point3.png";
         } 
         else if(cardsInHand[i] == 4) {
-           document.getElementById("steg-card" + [i + 1]).src="/assets/cards2/point4.png";
+            document.getElementById("steg-card" + [i + 1]).src="/assets/cards2/point4.png";
         } 
         else if(cardsInHand[i] == 5) {
             document.getElementById("steg-card" + [i + 1]).src="/assets/cards2/point5.png";
@@ -278,7 +278,18 @@ for (let i = 0; i <= 50; i++) {
         temporary.appendChild(img);
     }
 }
-
+let pre_point = 5;
+let score_button = document.getElementById('score-button')
+score_button.addEventListener('click', function () {
+    for (let i = 0; i <= 50; i++) {
+        if (score = i) {
+            let j = pre_point;
+            pre_point = point
+            let k = document.createElement('img');
+            i.src = './assets/img/stego-meeple.png';
+            let temporary = document.getElementById('col-' + j)
+        }
+})
 
 // single player things
 // AI

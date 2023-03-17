@@ -496,17 +496,12 @@ h3,
     background-color:rgb(255, 228, 185);
 }
 
-
-.hide {
-    display: none;
-}
-
 .allboards2 {
     display:none;
 }
 
 .allboards {
-    display:block;
+    display:none;
 }
 
 .testflex  {
