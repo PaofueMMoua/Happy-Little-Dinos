@@ -112,6 +112,31 @@ function myfunction2() {
     }
     return cardsInHand;
 };
+let ab = cardsInHand[0];
+console.log(cardsInHand);
+console.log("/assets/cards2/point" + [ab] + ".png");
+
+//USERS WILL BE ABLE TO PLAY CARDS
+let handOne = document.getElementById("steg-card1")
+let handTwo = document.getElementById("steg-card2")
+let handThree = document.getElementById("steg-card3")
+let handFour = document.getElementById("steg-card4")
+let handFive = document.getElementById("steg-card5")
+// handOne.addEventListener("click", playIt());
+// handTwo.addEventListener("click", playIt());
+// handThree.addEventListener("click", playIt());
+// handFour.addEventListener("click", playIt());
+// handFive.addEventListener("click", playIt());
+
+function playIt() {
+    if(handOne.addEventListener("click")) {
+        let ab = cardsInHand[0];
+        if(ab = 1 || 2 || 3 || 4 || 5 || 6) {
+          document.getElementById("pointCenter").src="/assets/cards2/point" + [ab] + ".png";
+        }
+        
+    }
+}
 
 //DISASTER CARDS
 let disasters = [
