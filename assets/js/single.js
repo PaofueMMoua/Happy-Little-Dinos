@@ -33,8 +33,6 @@ Stego.addEventListener("click", function () {
     let testflex = document.getElementById('testflex')
     testflex.style.display = 'flex';
 })
-
-
 //DOES THE SAME THING BUT WHEN YOU CLICK ON THE DINOS RATHER THAN THEIR NAME
 // const brontx = document.getElementById('dino')
 // const stegx = document.getElementById('dino_two')
@@ -57,7 +55,6 @@ Stego.addEventListener("click", function () {
 
 // Cards
 let deckCount = 0;
-
 //CARDS IS WORKING
 let allCards = [1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 3, 3, 4, 4, 4, 4, 4, 4, 4, 5, 5, 5, 5, 5, 5, 5, 6, 6, 6, 6, 6, 6, 6, 7, 7, 8, 8, 9, 9, 10, 10];
 let cardsInHand = [];
@@ -114,9 +111,6 @@ function myfunction2() {
     }
     return cardsInHand;
 };
-
-
-
 //USERS WILL BE ABLE TO PLAY CARDS
 // let handOne = document.getElementById("steg-card1")
 // let handTwo = document.getElementById("steg-card2")
@@ -128,7 +122,6 @@ function myfunction2() {
 // handThree.addEventListener("click", playIt());
 // handFour.addEventListener("click", playIt());
 // handFive.addEventListener("click", playIt());
-
 function playIt_1() {
         if(cardsInHand[0] == 1) {
             console.log(cardsInHand);
@@ -265,6 +258,208 @@ function playIt_2() {
         console.log(cardsInHand);
     } 
 };
+function playIt_3() {
+    if(cardsInHand[2] == 1) {
+        console.log(cardsInHand);
+        document.getElementById("pointCenter").src="/assets/cards2/point" + cardsInHand[2] + ".png";
+        document.getElementById("steg-card1").src="";
+        cardsInHand.shift();
+    }
+    else if(cardsInHand[2] == 2) {
+        document.getElementById("pointCenter").src="/assets/cards2/point" + cardsInHand[2] + ".png";
+        document.getElementById("steg-card1").src="";
+        cardsInHand.shift();
+        console.log(cardsInHand);
+        console.log("/assets/cards2/point" + cardsInHand[2] + ".png");
+    }
+    else if(cardsInHand[2] == 3) {
+        document.getElementById("pointCenter").src="/assets/cards2/point" + cardsInHand[2] + ".png";
+        document.getElementById("steg-card1").src="";
+        cardsInHand.shift();
+        console.log(cardsInHand);
+        console.log("/assets/cards2/point" + cardsInHand[2] + ".png");
+    }
+    else if(cardsInHand[2] == 4) {
+        document.getElementById("pointCenter").src="/assets/cards2/point" + cardsInHand[2] + ".png";
+        document.getElementById("steg-card1").src="";
+        cardsInHand.shift();
+        console.log(cardsInHand);
+        console.log("/assets/cards2/point" + cardsInHand[2] + ".png");
+    }
+    else if(cardsInHand[2] == 5) {
+        document.getElementById("pointCenter").src="/assets/cards2/point" + cardsInHand[2] + ".png";
+        document.getElementById("steg-card1").src="";
+        cardsInHand.shift();
+        console.log(cardsInHand);
+        console.log("/assets/cards2/point" + cardsInHand[2] + ".png");
+    }
+    else if(cardsInHand[2] == 6) {
+        document.getElementById("pointCenter").src="/assets/cards2/point" + cardsInHand[2] + ".png";
+        document.getElementById("steg-card1").src="";
+        cardsInHand.shift();
+        console.log(cardsInHand);
+        console.log("/assets/cards2/point" + cardsInHand[2] + ".png");
+    }
+    else if(cardsInHand[2] == 7) {
+        document.getElementById("instantCenter").src="/assets/cards2/instant-booster.png";
+        document.getElementById("steg-card1").src="";
+        cardsInHand.shift();
+        console.log(cardsInHand);
+    }
+    else if(cardsInHand[2] == 8) {
+        document.getElementById("instantCenter").src="/assets/cards2/instant-insurance.png";
+        document.getElementById("steg-card1").src="";
+        cardsInHand.shift();
+        console.log(cardsInHand);
+    }
+    else if(cardsInHand[2] == 9) {
+        document.getElementById("instantCenter").src="/assets/cards2/instant-redirect.png";
+        document.getElementById("steg-card1").src="";
+        cardsInHand.shift();
+        console.log(cardsInHand);
+    }
+    else if(cardsInHand[2] == 10) {
+        document.getElementById("instantCenter").src="/assets/cards2/instant-sapper.png";
+        document.getElementById("steg-card1").src="";
+        cardsInHand.shift();
+        console.log(cardsInHand);
+    } 
+};
+function playIt_4() {
+    if(cardsInHand[3] == 1) {
+        console.log(cardsInHand);
+        document.getElementById("pointCenter").src="/assets/cards2/point" + cardsInHand[3] + ".png";
+        document.getElementById("steg-card1").src="";
+        cardsInHand.shift();
+    }
+    else if(cardsInHand[3] == 2) {
+        document.getElementById("pointCenter").src="/assets/cards2/point" + cardsInHand[3] + ".png";
+        document.getElementById("steg-card1").src="";
+        cardsInHand.shift();
+        console.log(cardsInHand);
+        console.log("/assets/cards2/point" + cardsInHand[3] + ".png");
+    }
+    else if(cardsInHand[3] == 3) {
+        document.getElementById("pointCenter").src="/assets/cards2/point" + cardsInHand[3] + ".png";
+        document.getElementById("steg-card1").src="";
+        cardsInHand.shift();
+        console.log(cardsInHand);
+        console.log("/assets/cards2/point" + cardsInHand[3] + ".png");
+    }
+    else if(cardsInHand[3] == 4) {
+        document.getElementById("pointCenter").src="/assets/cards2/point" + cardsInHand[3] + ".png";
+        document.getElementById("steg-card1").src="";
+        cardsInHand.shift();
+        console.log(cardsInHand);
+        console.log("/assets/cards2/point" + cardsInHand[3] + ".png");
+    }
+    else if(cardsInHand[3] == 5) {
+        document.getElementById("pointCenter").src="/assets/cards2/point" + cardsInHand[3] + ".png";
+        document.getElementById("steg-card1").src="";
+        cardsInHand.shift();
+        console.log(cardsInHand);
+        console.log("/assets/cards2/point" + cardsInHand[3] + ".png");
+    }
+    else if(cardsInHand[3] == 6) {
+        document.getElementById("pointCenter").src="/assets/cards2/point" + cardsInHand[3] + ".png";
+        document.getElementById("steg-card1").src="";
+        cardsInHand.shift();
+        console.log(cardsInHand);
+        console.log("/assets/cards2/point" + cardsInHand[3] + ".png");
+    }
+    else if(cardsInHand[3] == 7) {
+        document.getElementById("instantCenter").src="/assets/cards2/instant-booster.png";
+        document.getElementById("steg-card1").src="";
+        cardsInHand.shift();
+        console.log(cardsInHand);
+    }
+    else if(cardsInHand[3] == 8) {
+        document.getElementById("instantCenter").src="/assets/cards2/instant-insurance.png";
+        document.getElementById("steg-card1").src="";
+        cardsInHand.shift();
+        console.log(cardsInHand);
+    }
+    else if(cardsInHand[3] == 9) {
+        document.getElementById("instantCenter").src="/assets/cards2/instant-redirect.png";
+        document.getElementById("steg-card1").src="";
+        cardsInHand.shift();
+        console.log(cardsInHand);
+    }
+    else if(cardsInHand[3] == 10) {
+        document.getElementById("instantCenter").src="/assets/cards2/instant-sapper.png";
+        document.getElementById("steg-card1").src="";
+        cardsInHand.shift();
+        console.log(cardsInHand);
+    } 
+};
+function playIt_5() {
+    if(cardsInHand[4] == 1) {
+        console.log(cardsInHand);
+        document.getElementById("pointCenter").src="/assets/cards2/point" + cardsInHand[4] + ".png";
+        document.getElementById("steg-card1").src="";
+        cardsInHand.shift();
+    }
+    else if(cardsInHand[4] == 2) {
+        document.getElementById("pointCenter").src="/assets/cards2/point" + cardsInHand[4] + ".png";
+        document.getElementById("steg-card1").src="";
+        cardsInHand.shift();
+        console.log(cardsInHand);
+        console.log("/assets/cards2/point" + cardsInHand[4] + ".png");
+    }
+    else if(cardsInHand[4] == 3) {
+        document.getElementById("pointCenter").src="/assets/cards2/point" + cardsInHand[4] + ".png";
+        document.getElementById("steg-card1").src="";
+        cardsInHand.shift();
+        console.log(cardsInHand);
+        console.log("/assets/cards2/point" + cardsInHand[4] + ".png");
+    }
+    else if(cardsInHand[4] == 4) {
+        document.getElementById("pointCenter").src="/assets/cards2/point" + cardsInHand[4] + ".png";
+        document.getElementById("steg-card1").src="";
+        cardsInHand.shift();
+        console.log(cardsInHand);
+        console.log("/assets/cards2/point" + cardsInHand[4] + ".png");
+    }
+    else if(cardsInHand[4] == 5) {
+        document.getElementById("pointCenter").src="/assets/cards2/point" + cardsInHand[4] + ".png";
+        document.getElementById("steg-card1").src="";
+        cardsInHand.shift();
+        console.log(cardsInHand);
+        console.log("/assets/cards2/point" + cardsInHand[4] + ".png");
+    }
+    else if(cardsInHand[4] == 6) {
+        document.getElementById("pointCenter").src="/assets/cards2/point" + cardsInHand[4] + ".png";
+        document.getElementById("steg-card1").src="";
+        cardsInHand.shift();
+        console.log(cardsInHand);
+        console.log("/assets/cards2/point" + cardsInHand[4] + ".png");
+    }
+    else if(cardsInHand[4] == 7) {
+        document.getElementById("instantCenter").src="/assets/cards2/instant-booster.png";
+        document.getElementById("steg-card1").src="";
+        cardsInHand.shift();
+        console.log(cardsInHand);
+    }
+    else if(cardsInHand[4] == 8) {
+        document.getElementById("instantCenter").src="/assets/cards2/instant-insurance.png";
+        document.getElementById("steg-card1").src="";
+        cardsInHand.shift();
+        console.log(cardsInHand);
+    }
+    else if(cardsInHand[4] == 9) {
+        document.getElementById("instantCenter").src="/assets/cards2/instant-redirect.png";
+        document.getElementById("steg-card1").src="";
+        cardsInHand.shift();
+        console.log(cardsInHand);
+    }
+    else if(cardsInHand[4] == 10) {
+        document.getElementById("instantCenter").src="/assets/cards2/instant-sapper.png";
+        document.getElementById("steg-card1").src="";
+        cardsInHand.shift();
+        console.log(cardsInHand);
+    } 
+};
+
 //DISASTER CARDS
 let disasters = [
     ["disaster-beach", "red"],
@@ -348,9 +543,16 @@ for (let i = 0; i <= 50; i++) {
 // single player things
 // AI
 let ai_hand = deck.ai_hand(deck.drawCards(5));
-
+ai_cardsInHand = []
 function ai_card_choice() {
-    ai_avg
+    for (let i = 0; i <= 2; i++) {
+        for (let x = 0; x <= 6; i++) {
+            if (ai_cardsInHand[i] == x) {
+                ai_played_cards = ai_cardsInHand[i];
+                document.getElementById('');
+            }
+        }
+    }
 }
 
 function SR() {
