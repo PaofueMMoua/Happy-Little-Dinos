@@ -60,7 +60,6 @@ let deckCount = 0;
 let allCards = [1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 3, 3, 4, 4, 4, 4, 4, 4, 4, 5, 5, 5, 5, 5, 5, 5, 6, 6, 6, 6, 6, 6, 6, 7, 7, 8, 8, 9, 9, 10, 10];
 let cardsInHand = [];
 let tempCards = [];
-// myfunction2();
 function myfunction2() {
     cardsInHand = [];
     tempCards = [];
@@ -126,8 +125,7 @@ function myfunction2() {
     // return cardsInHand && tempCards;
 };
 
-// Only let users draw cards if they have no cards in their hand or only instant cards
-// Should be working? Sometimes it works sometimes it doesn't or I am just going crazy
+// Only let users draw cards if they have no cards in their hand or only instant cards - WORKING
 function testas() {
     console.log(tempCards);
     if(!tempCards.includes(1) && !tempCards.includes(2) && !tempCards.includes(3) && !tempCards.includes(4) && !tempCards.includes(5) && !tempCards.includes(6)) {
@@ -138,6 +136,15 @@ function testas() {
         console.log("trash");
     }
 }
+
+//automates drawing new hand and alerts player when it is drawn - WORKING
+function vivaVida() {
+    if(tempCards.length == 0 || !tempCards.includes(1) && !tempCards.includes(2) && !tempCards.includes(3) && !tempCards.includes(4) && !tempCards.includes(5) && !tempCards.includes(6)) {
+     alert("drawing new deck");
+     myfunction2();
+     } 
+ }
+
 //USERS WILL BE ABLE TO PLAY CARDS
 let pc_count = 0;
 let ic_count = 0;
@@ -172,17 +179,7 @@ function calculatePoint() {
     vivaVida();
 }
 
-//automates drawing new hand and alerts player when it is drawn
-function vivaVida() {
-   if(tempCards.length == 0 || !tempCards.includes(1) && !tempCards.includes(2) && !tempCards.includes(3) && !tempCards.includes(4) && !tempCards.includes(5) && !tempCards.includes(6)) {
-    alert("drawing new deck");
-    myfunction2();
-    } 
-}
-
-
-//Play cards in the center (doesn't work)
-// I dont know how to write the pc_count/ic_count if statements 
+//Play cards in the center - WORKING 
 function playIt_1() {
     if(cardsInHand[0] >= 7) {
         if(ic_count == 0) {
@@ -222,7 +219,7 @@ function playIt_1() {
         }
     }
     check();
-    drawing_cards();
+    // drawing_cards();
 };
 
 function playIt_2() {
@@ -262,7 +259,7 @@ function playIt_2() {
         }    
     }
     check(); 
-    drawing_cards();
+    // drawing_cards();
 };
 
 function playIt_3() {
@@ -300,7 +297,7 @@ function playIt_3() {
         }    
     } 
     check();
-    drawing_cards();
+    // drawing_cards();
 };
 
 function playIt_4() {
@@ -338,7 +335,7 @@ function playIt_4() {
             
         }
     check();
-    drawing_cards();
+    // drawing_cards();
 };
 
 function playIt_5() {
@@ -374,16 +371,16 @@ function playIt_5() {
             }
         }
     check();
-    drawing_cards();
+    // drawing_cards();
 };
 
-function drawing_cards() {
-    if (cardsInHand > 5) {
-        let n = myfunction2();
-        n.splice(0, (a.length - 1))
-        cardsInHand = cardsInHand + n;
-    }
-}
+// function drawing_cards() {
+//     if (cardsInHand > 5) {
+//         let n = myfunction2();
+//         n.splice(0, (a.length - 1))
+//         cardsInHand = cardsInHand + n;
+//     }
+// }
 
 //play button functions (change color when hover + appear when player plays a point card)
 function check() {
