@@ -122,7 +122,7 @@ function myfunction2() {
             document.getElementById("steg-card" + [i + 1]).src = "/assets/cards2/point10.png";
         }
     }
-    return cardsInHand && tempCards;
+    // return cardsInHand && tempCards;
 };
 
 // Only let users draw cards if they have no cards in their hand or only instant cards
@@ -138,40 +138,70 @@ function testas() {
     }
 }
 //USERS WILL BE ABLE TO PLAY CARDS
-// let handOne = document.getElementById("steg-card1")
-// let handTwo = document.getElementById("steg-card2")
-// let handThree = document.getElementById("steg-card3")
-// let handFour = document.getElementById("steg-card4")
-// let handFive = document.getElementById("steg-card5")
-// handOne.addEventListener("click", playIt_1());
-// handTwo.addEventListener("click", playIt_2());
-// handThree.addEventListener("click", playIt_3());
-// handFour.addEventListener("click", playIt_4());
-// handFive.addEventListener("click", playIt_5());
-
+let pc_count = 0;
+let ic_count = 0;
+let play = document.getElementById("playButton");
 function playIt_1() {
-    if(cardsInHand[0] >= 7) {
-        // console.log(tempCards);
-        document.getElementById("instantCenter").src="/assets/cards2/point" + cardsInHand[0] + ".png";
-        document.getElementById("steg-card1").src="";
-        const index = tempCards.indexOf(cardsInHand[0]);
-        tempCards.splice(index,1);
-        cardsInHand[0] = 0; 
-        console.log(cardsInHand);
-    }
-    else if(cardsInHand[0] <= 6){
-        // console.log(tempCards);
-        document.getElementById("pointCenter").src="/assets/cards2/point" + cardsInHand[0] + ".png";
-        document.getElementById("steg-card1").src="";
-        console.log("/assets/cards2/point" + cardsInHand[0] + ".png");
-        const index = tempCards.indexOf(cardsInHand[0]);
-        tempCards.splice(index,1);
-        cardsInHand[0] = 0; 
-        console.log(cardsInHand);
+    if(pc_count <= 1 && ic_count <= 1) {
+        if(cardsInHand[0] >= 7) {
+                // console.log(tempCards);
+                document.getElementById("instantCenter").src="/assets/cards2/point" + cardsInHand[0] + ".png";
+                document.getElementById("steg-card1").src="";
+                const index = tempCards.indexOf(cardsInHand[0]);
+                tempCards.splice(index,1);
+                cardsInHand[0] = 0; 
+                console.log(cardsInHand);
+                ic_count = ic_count + 1;
+                console.log(ic_count);
+            }
+            else if(cardsInHand[0] <= 6){
+                // console.log(tempCards);
+                document.getElementById("pointCenter").src="/assets/cards2/point" + cardsInHand[0] + ".png";
+                document.getElementById("steg-card1").src="";
+                console.log("/assets/cards2/point" + cardsInHand[0] + ".png");
+                const index = tempCards.indexOf(cardsInHand[0]);
+                tempCards.splice(index,1);
+                cardsInHand[0] = 0; 
+                console.log(cardsInHand);
+                pc_count = pc_count + 1;
+                console.log(pc_count);
+            }
     } 
+    else if(pc_count >= 1 || ic_count >= 1) {
+        alert("you cannot play another card");
+    } 
+    check();
 };
 
+function check() {
+    if(pc_count == 1) {
+        play.style.backgroundColor = '#F27F77';
+        play.style.cursor = 'pointer';
+    }
+}
+
+function hoverIn(x) {
+    if (pc_count == 1) {
+      x.style.backgroundColor = '#16d26a'; 
+      play.style.cursor = 'pointer'; 
+    }
+    else {
+        x.style.backgroundColor = 'black';
+    }
+    
+}
+
+function hoverOut(x) {
+    if (pc_count == 1) {
+        x.style.backgroundColor = '#F27F77';
+    }
+    else {
+        x.style.backgroundColor = 'black';
+    }
+}
+
 function playIt_2() {
+    if(pc_count < 1 && ic_count <= 1) {
         if(cardsInHand[1] >= 7) {
             document.getElementById("instantCenter").src="/assets/cards2/point" + cardsInHand[1] + ".png";
             document.getElementById("steg-card2").src="";
@@ -179,7 +209,8 @@ function playIt_2() {
             tempCards.splice(index,1);
             cardsInHand[1] = 0;
             console.log(cardsInHand);  
-            
+            ic_count = ic_count + 1;
+            console.log(ic_count);
         }
         else if(cardsInHand[1] <= 6){
             document.getElementById("pointCenter").src="/assets/cards2/point" + cardsInHand[1] + ".png";
@@ -189,68 +220,97 @@ function playIt_2() {
             tempCards.splice(index,1);
             cardsInHand[1] = 0;
             console.log(cardsInHand);
-        } 
+            pc_count = pc_count + 1;
+            console.log(pc_count);
+        }
+    }
+    else if(pc_count >= 1 || ic_count >= 1) {
+        alert("you cannot play another card");
+    }      
+    check();  
 };
 
 function playIt_3() {
-    if(cardsInHand[2] >= 7) {
-        document.getElementById("instantCenter").src="/assets/cards2/point" + cardsInHand[2] + ".png";
-        document.getElementById("steg-card3").src="";
-        const index = tempCards.indexOf(cardsInHand[2]);
-        tempCards.splice(index,1);
-        cardsInHand[2] = 0;
-        console.log(cardsInHand); 
-         
-    }
-    else if(cardsInHand[2] <= 6){
-        document.getElementById("pointCenter").src="/assets/cards2/point" + cardsInHand[2] + ".png";
-        document.getElementById("steg-card3").src="";
-        console.log("/assets/cards2/point" + cardsInHand[2] + ".png");
-        const index = tempCards.indexOf(cardsInHand[2]);
-        tempCards.splice(index,1);
-        cardsInHand[2] = 0;
-        console.log(cardsInHand);
+    if(pc_count < 1 && ic_count < 1 || pc_count < 1 && ic_count >= 1) {
+        if(cardsInHand[2] >= 7) {
+            document.getElementById("instantCenter").src="/assets/cards2/point" + cardsInHand[2] + ".png";
+            document.getElementById("steg-card3").src="";
+            const index = tempCards.indexOf(cardsInHand[2]);
+            tempCards.splice(index,1);
+            cardsInHand[2] = 0;
+            console.log(cardsInHand); 
+            ic_count = ic_count + 1;
+
+        }
+        else if(cardsInHand[2] <= 6){
+            document.getElementById("pointCenter").src="/assets/cards2/point" + cardsInHand[2] + ".png";
+            document.getElementById("steg-card3").src="";
+            console.log("/assets/cards2/point" + cardsInHand[2] + ".png");
+            const index = tempCards.indexOf(cardsInHand[2]);
+            tempCards.splice(index,1);
+            cardsInHand[2] = 0;
+            console.log(cardsInHand);
+            pc_count = pc_count + 1;
         
-    } 
+        } 
+    }
+    else if(pc_count >= 1 || ic_count>= 1) {
+        alert("you cannot play another card");
+    }
+    check();
 };
 
 function playIt_4() {
-    if(cardsInHand[3] >= 7) {
-        document.getElementById("instantCenter").src="/assets/cards2/point" + cardsInHand[3] + ".png";
-        document.getElementById("steg-card4").src="";
-        const index = tempCards.indexOf(cardsInHand[3]);
-        tempCards.splice(index,1);
-        cardsInHand[3] = 0;
-        console.log(cardsInHand); 
- 
+    if(pc_count < 1 && ic_count < 1 || pc_count < 1 && ic_count >= 1) {
+        if(cardsInHand[3] >= 7) {
+            document.getElementById("instantCenter").src="/assets/cards2/point" + cardsInHand[3] + ".png";
+            document.getElementById("steg-card4").src="";
+            const index = tempCards.indexOf(cardsInHand[3]);
+            tempCards.splice(index,1);
+            cardsInHand[3] = 0;
+            console.log(cardsInHand); 
+            ic_count = ic_count + 1;
+        }
+        else if(cardsInHand[3] <= 6){
+            document.getElementById("pointCenter").src="/assets/cards2/point" + cardsInHand[3] + ".png";
+            document.getElementById("steg-card4").src="";
+            console.log("/assets/cards2/point" + cardsInHand[3] + ".png");
+            const index = tempCards.indexOf(cardsInHand[3]);
+            tempCards.splice(index,1); 
+            cardsInHand[3] = 0;
+            pc_count = pc_count + 1;
+        }
     }
-    else if(cardsInHand[3] <= 6){
-        document.getElementById("pointCenter").src="/assets/cards2/point" + cardsInHand[3] + ".png";
-        document.getElementById("steg-card4").src="";
-        console.log("/assets/cards2/point" + cardsInHand[3] + ".png");
-       const index = tempCards.indexOf(cardsInHand[3]);
-        tempCards.splice(index,1); 
-        cardsInHand[3] = 0;
-    }
+    else if(pc_count >= 1 || ic_count>= 1) {
+        alert("you cannot play another card");
+    } 
+    check();
 };
 
 function playIt_5() {
-    if(cardsInHand[4] >= 7) {
-        document.getElementById("instantCenter").src="/assets/cards2/point" + cardsInHand[4] + ".png";
-        document.getElementById("steg-card5").src="";
-        const index = tempCards.indexOf(cardsInHand[4]);
-        tempCards.splice(index,1);
-        cardsInHand[4] = 0;
-    }
-    else if(cardsInHand[4] <= 6){
-        document.getElementById("pointCenter").src="/assets/cards2/point" + cardsInHand[4] + ".png";
-        document.getElementById("steg-card5").src="";
-        console.log("/assets/cards2/point" + cardsInHand[4] + ".png");
-        const index = tempCards.indexOf(cardsInHand[4]);
-        tempCards.splice(index,1);
-        cardsInHand[4] = 0;
-        
-    } 
+    if(pc_count < 1 && ic_count < 1 || pc_count < 1 && ic_count >= 1) {
+        if(cardsInHand[4] >= 7) {
+                document.getElementById("instantCenter").src="/assets/cards2/point" + cardsInHand[4] + ".png";
+                document.getElementById("steg-card5").src="";
+                const index = tempCards.indexOf(cardsInHand[4]);
+                tempCards.splice(index,1);
+                cardsInHand[4] = 0;
+                ic_count = ic_count + 1;
+        }
+        else if(cardsInHand[4] <= 6){
+            document.getElementById("pointCenter").src="/assets/cards2/point" + cardsInHand[4] + ".png";
+            document.getElementById("steg-card5").src="";
+            console.log("/assets/cards2/point" + cardsInHand[4] + ".png");
+            const index = tempCards.indexOf(cardsInHand[4]);
+            tempCards.splice(index,1);
+            cardsInHand[4] = 0;
+            pc_count = pc_count + 1;
+        }
+     }
+    else if(pc_count >= 1 || ic_count>= 1) {
+        alert("you cannot play another card");
+    }   
+    check();
 };
 
 //DISASTER CARDS

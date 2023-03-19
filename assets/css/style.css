@@ -511,6 +511,27 @@ h3,
     margin-top:.5vw;
     width:8vw;
 }
+
+.play-card {
+    width:7.9vw;
+    height:3vw;
+    font-size:2vw;
+    text-align: center;
+    padding-top:.5vw;
+    background-color:black;
+    position:relative;
+    left:19vw;
+    bottom:5vw;
+    z-index:2;
+    border:none;
+    cursor:default;
+}
+
+/* #playButton:hover {
+    background-color:#16d26a;
+    cursor: pointer;
+} */
+
 .cards {
     margin-left:1.5vw;
 }
@@ -526,6 +547,11 @@ h3,
 
 .dis-deck {
     left:3vw;
+}
+
+.playercards2 {
+    bottom:3.5vw;
+    position:relative;
 }
 
 .player1-point,
