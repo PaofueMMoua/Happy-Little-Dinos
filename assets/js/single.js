@@ -541,153 +541,21 @@ function ai_myfunction2() {
 };
 let ai_ab = ai_cardsInHand[0];
 
-function ai_playIt_1() {
-    if(pc_count < 1 && ic_count < 1 || pc_count < 1 && ic_count >= 1) {
-        if(cardsInHand[0] >= 7) {
-                // console.log(tempCards);
-                document.getElementById("ai_instantCenter").src="/assets/cards2/point" + cardsInHand[0] + ".png";
-                document.getElementById("steg-card1").src="";
-                let index = tempCards.indexOf(cardsInHand[0]);
-                tempCards.splice(index,1);
-                played.push(cardsInHand[0]);
-                tempInstant = cardsInHand[0];
-                cardsInHand[0] = 0; 
-                console.log(cardsInHand);
-                ic_count = ic_count + 1;
-                console.log(ic_count);
-            }
-            else if(cardsInHand[0] <= 6){
-                // console.log(tempCards);
-                document.getElementById("ai_pointCenter").src="/assets/cards2/point" + cardsInHand[0] + ".png";
-                document.getElementById("steg-card1").src="";
-                console.log("/assets/cards2/point" + cardsInHand[0] + ".png");
-                let index = tempCards.indexOf(cardsInHand[0]);
-                played.push(cardsInHand[0]);
-                tempPoint = cardsInHand[0];
-                tempCards.splice(index,1);
-                cardsInHand[0] = 0; 
-                console.log(cardsInHand);
-                pc_count = pc_count + 1;
-                console.log(pc_count);
-            }
-    } 
-    check();
-};
-
-function ai_playIt_2() {
-    if(pc_count < 1 && ic_count < 1 || pc_count < 1 && ic_count >= 1) {
-        if(cardsInHand[1] >= 7) {
-            document.getElementById("ai_instantCenter").src="/assets/cards2/point" + cardsInHand[1] + ".png";
-            document.getElementById("steg-card2").src="";
-            let index = tempCards.indexOf(cardsInHand[1]);
-            played.push(cardsInHand[1]);
-            tempInstant = cardsInHand[1];
-            tempCards.splice(index,1);
-            cardsInHand[1] = 0;
-            console.log(cardsInHand);  
+function ai_playIt() {
+    if (pc_count < 1 && ic_count < 1 || pc_count < 1 && ic_count >= 1) {
+        if (cardsInHand[0] >= 7) {
+            // console.log(tempCards);
+            document.getElementById("ai_instantCenter").src = "/assets/cards2/point" + cardsInHand[0] + ".png";
+            document.getElementById("steg-card1").src = "";
+            let index = tempCards.indexOf(cardsInHand[0]);
+            tempCards.splice(index, 1);
+            played.push(cardsInHand[0]);
+            tempInstant = cardsInHand[0];
+            cardsInHand[0] = 0;
+            console.log(cardsInHand);
             ic_count = ic_count + 1;
             console.log(ic_count);
-        }
-        else if(cardsInHand[1] <= 6){
-            document.getElementById("ai_pointCenter").src="/assets/cards2/point" + cardsInHand[1] + ".png";
-            document.getElementById("steg-card2").src="";
-            console.log("/assets/cards2/point" + cardsInHand[1] + ".png");
-            let index = tempCards.indexOf(cardsInHand[1]);
-            played.push(cardsInHand[1]);
-            tempPoint = cardsInHand[1];
-            tempCards.splice(index,1);
-            cardsInHand[1] = 0;
-            console.log(cardsInHand);
-            pc_count = pc_count + 1;
-            console.log(pc_count);
-        }
-    } 
-    check();  
-};
-
-function ai_playIt_3() {
-    if(pc_count < 1 && ic_count < 1 || pc_count < 1 && ic_count >= 1) {
-        if(cardsInHand[2] >= 7) {
-            document.getElementById("ai_instantCenter").src="/assets/cards2/point" + cardsInHand[2] + ".png";
-            document.getElementById("steg-card3").src="";
-            let index = tempCards.indexOf(cardsInHand[2]);
-            played.push(cardsInHand[2]);
-            tempInstant = cardsInHand[2];
-            tempCards.splice(index,1);
-            cardsInHand[2] = 0;
-            console.log(cardsInHand); 
-            ic_count = ic_count + 1;
-
-        }
-        else if(cardsInHand[2] <= 6){
-            document.getElementById("ai_pointCenter").src="/assets/cards2/point" + cardsInHand[2] + ".png";
-            document.getElementById("steg-card3").src="";
-            console.log("/assets/cards2/point" + cardsInHand[2] + ".png");
-            let index = tempCards.indexOf(cardsInHand[2]);
-            played.push(cardsInHand[2]);
-            tempPoint = cardsInHand[2];
-            tempCards.splice(index,1);
-            cardsInHand[2] = 0;
-            console.log(cardsInHand);
-            pc_count = pc_count + 1;
-        
-        } 
-    }
-    check();
-};
-
-function ai_playIt_4() {
-    if(pc_count < 1 && ic_count < 1 || pc_count < 1 && ic_count >= 1) {
-        if(cardsInHand[3] >= 7) {
-            document.getElementById("ai_instantCenter").src="/assets/cards2/point" + cardsInHand[3] + ".png";
-            document.getElementById("steg-card4").src="";
-            let index = tempCards.indexOf(cardsInHand[3]);
-            played.push(cardsInHand[3]);
-            tempInstant = cardsInHand[3];
-            tempCards.splice(index,1);
-            cardsInHand[3] = 0;
-            console.log(cardsInHand); 
-            ic_count = ic_count + 1;
-        }
-        else if(cardsInHand[3] <= 6){
-            document.getElementById("ai_pointCenter").src="/assets/cards2/point" + cardsInHand[3] + ".png";
-            document.getElementById("steg-card4").src="";
-            console.log("/assets/cards2/point" + cardsInHand[3] + ".png");
-            let index = tempCards.indexOf(cardsInHand[3]);
-            played.push(cardsInHand[3]);
-            tempPoint = cardsInHand[3];
-            tempCards.splice(index,1); 
-            cardsInHand[3] = 0;
-            pc_count = pc_count + 1;
+            
         }
     }
-    check();
-};
-
-
-function ai_playIt_5() {
-    if(pc_count < 1 && ic_count < 1 || pc_count < 1 && ic_count >= 1) {
-        if(cardsInHand[4] >= 7) {
-                document.getElementById("ai_instantCenter").src="/assets/cards2/point" + cardsInHand[4] + ".png";
-                document.getElementById("steg-card5").src="";
-                let index = tempCards.indexOf(cardsInHand[4]);
-                played.push(cardsInHand[4]);
-                tempInstant = cardsInHand[4];
-                tempCards.splice(index,1);
-                cardsInHand[4] = 0;
-                ic_count = ic_count + 1;
-        }
-        else if(cardsInHand[4] <= 6){
-            document.getElementById("ai_pointCenter").src="/assets/cards2/point" + cardsInHand[4] + ".png";
-            document.getElementById("steg-card5").src="";
-            console.log("/assets/cards2/point" + cardsInHand[4] + ".png");
-            let index = tempCards.indexOf(cardsInHand[4]);
-            played.push(cardsInHand[4]);
-            tempPoint = cardsInHand[4];
-            tempCards.splice(index,1);
-            cardsInHand[4] = 0;
-            pc_count = pc_count + 1;
-        }
-    }
-    check();
 };
