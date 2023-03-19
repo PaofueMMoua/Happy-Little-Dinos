@@ -196,65 +196,65 @@ function playIt_2() {
         console.log(cardsInHand);
         document.getElementById("pointCenter").src="/assets/cards2/point" + cardsInHand[1] + ".png";
         document.getElementById("steg-card2").src="";
-        cardsInHand.shift();
+        cardsInHand.shift(1);
     }
     else if(cardsInHand[1] == 2) {
         document.getElementById("pointCenter").src="/assets/cards2/point" + cardsInHand[1] + ".png";
         document.getElementById("steg-card2").src="";
-        cardsInHand.shift();
+        cardsInHand.shift(1);
         console.log(cardsInHand);
         console.log("/assets/cards2/point" + cardsInHand[1] + ".png");
     }
     else if(cardsInHand[1] == 3) {
         document.getElementById("pointCenter").src="/assets/cards2/point" + cardsInHand[1] + ".png";
         document.getElementById("steg-card2").src="";
-        cardsInHand.shift();
+        cardsInHand.shift(1);
         console.log(cardsInHand);
         console.log("/assets/cards2/point" + cardsInHand[1] + ".png");
     }
     else if(cardsInHand[1] == 4) {
         document.getElementById("pointCenter").src="/assets/cards2/point" + cardsInHand[1] + ".png";
         document.getElementById("steg-card2").src="";
-        cardsInHand.shift();
+        cardsInHand.shift(1);
         console.log(cardsInHand);
         console.log("/assets/cards2/point" + cardsInHand[1] + ".png");
     }
     else if(cardsInHand[1] == 5) {
         document.getElementById("pointCenter").src="/assets/cards2/point" + cardsInHand[1] + ".png";
         document.getElementById("steg-card2").src="";
-        cardsInHand.shift();
+        cardsInHand.shift(1);
         console.log(cardsInHand);
         console.log("/assets/cards2/point" + cardsInHand[1] + ".png");
     }
     else if(cardsInHand[1] == 6) {
         document.getElementById("pointCenter").src="/assets/cards2/point" + cardsInHand[1] + ".png";
         document.getElementById("steg-card2").src="";
-        cardsInHand.shift();
+        cardsInHand.shift(1);
         console.log(cardsInHand);
         console.log("/assets/cards2/point" + cardsInHand[1] + ".png");
     }
     else if(cardsInHand[1] == 7) {
         document.getElementById("instantCenter").src="/assets/cards2/instant-booster.png";
         document.getElementById("steg-card2").src="";
-        cardsInHand.shift();
+        cardsInHand.shift(1);
         console.log(cardsInHand);
     }
     else if(cardsInHand[1] == 8) {
         document.getElementById("instantCenter").src="/assets/cards2/instant-insurance.png";
         document.getElementById("steg-card2").src="";
-        cardsInHand.shift();
+        cardsInHand.shift(1);
         console.log(cardsInHand);
     }
     else if(cardsInHand[1] == 9) {
         document.getElementById("instantCenter").src="/assets/cards2/instant-redirect.png";
         document.getElementById("steg-card2").src="";
-        cardsInHand.shift();
+        cardsInHand.shift(1);
         console.log(cardsInHand);
     }
     else if(cardsInHand[1] == 10) {
         document.getElementById("instantCenter").src="/assets/cards2/instant-sapper.png";
         document.getElementById("steg-card2").src="";
-        cardsInHand.shift();
+        cardsInHand.shift(1);
         console.log(cardsInHand);
     } 
 };
