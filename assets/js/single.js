@@ -64,21 +64,31 @@ function myfunction2() {
     cardsInHand = [];
     let f = document.getElementById("reveal")
     f.style.display = 'none';
-    if (allCards.length > 4) {
-        for (let i = 0; i < 5; i++) {
-            let number = Math.round(Math.random() * allCards.length - .5);
-            let num = allCards[number];
-            tempCards.push(num);
-            cardsInHand.push(num);
-            let l = allCards.splice(number, 1);
-            console.log(allCards);
-            console.log(cardsInHand);
+        if (allCards.length > 4) {
+            for (let i = 0; i < 5; i++) {
+                let number = Math.round(Math.random() * allCards.length - .5);
+                let num = allCards[number];
+                tempCards.push(num);
+                cardsInHand.push(num);
+                allCards.splice(number, 1);
+                console.log(allCards);
+                console.log(cardsInHand);
+            }  
         }
-    }
-    else {
-        alert('Shuffling Cards');
-        allCards = [1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, , 2, 2, 3, 3, 3, 3, 3, 3, 3, 4, 4, 4, 4, 4, 4, 4, 5, 5, 5, 5, 5, 5, 5, 6, 6, 6, 6, 6, 6, 6, 7, 7, 8, 8, 9, 9, 10, 10];
-    }
+        else {
+            alert('Shuffling Cards');
+            allCards = [1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, , 2, 2, 3, 3, 3, 3, 3, 3, 3, 4, 4, 4, 4, 4, 4, 4, 5, 5, 5, 5, 5, 5, 5, 6, 6, 6, 6, 6, 6, 6, 7, 7, 8, 8, 9, 9, 10, 10];
+            for (let i = 0; i < 5; i++) {
+                let number = Math.round(Math.random() * allCards.length - .5);
+                let num = allCards[number];
+                tempCards.push(num);
+                cardsInHand.push(num);
+                allCards.splice(number, 1);
+                console.log(allCards);
+                console.log(cardsInHand);
+            }  
+        }
+    
     for (let i = 0; i <= 5; i++) {
         if (cardsInHand[i] == 1) {
             document.getElementById("steg-card" + [i + 1]).src = "/assets/cards2/point1.png";
@@ -130,15 +140,18 @@ function playIt_1() {
         // console.log(tempCards);
         document.getElementById("instantCenter").src="/assets/cards2/point" + cardsInHand[0] + ".png";
         document.getElementById("steg-card1").src="";
-        // tempCards.shift();
-        console.log(cardsInHand); 
+        const index = tempCards.indexOf(cardsInHand[0]);
+        tempCards.splice(index,1);
+        cardsInHand[0] = 0; 
+        console.log(cardsInHand);
     }
     else if(cardsInHand[0] <= 6){
         // console.log(tempCards);
         document.getElementById("pointCenter").src="/assets/cards2/point" + cardsInHand[0] + ".png";
         document.getElementById("steg-card1").src="";
         console.log("/assets/cards2/point" + cardsInHand[0] + ".png");
-        // tempCards.shift();
+        const index = tempCards.indexOf(cardsInHand[0]);
+        tempCards.splice(index,1);
         cardsInHand[0] = 0; 
         console.log(cardsInHand);
     } 
@@ -148,60 +161,81 @@ function playIt_2() {
         if(cardsInHand[1] >= 7) {
             document.getElementById("instantCenter").src="/assets/cards2/point" + cardsInHand[1] + ".png";
             document.getElementById("steg-card2").src="";
+            const index = tempCards.indexOf(cardsInHand[1]);
+            tempCards.splice(index,1);
             cardsInHand[1] = 0;
             console.log(cardsInHand);  
+            
         }
         else if(cardsInHand[1] <= 6){
             document.getElementById("pointCenter").src="/assets/cards2/point" + cardsInHand[1] + ".png";
             document.getElementById("steg-card2").src="";
             console.log("/assets/cards2/point" + cardsInHand[1] + ".png");
+            const index = tempCards.indexOf(cardsInHand[1]);
+            tempCards.splice(index,1);
             cardsInHand[1] = 0;
             console.log(cardsInHand);
         } 
 };
+
 function playIt_3() {
     if(cardsInHand[2] >= 7) {
         document.getElementById("instantCenter").src="/assets/cards2/point" + cardsInHand[2] + ".png";
         document.getElementById("steg-card3").src="";
+        const index = tempCards.indexOf(cardsInHand[2]);
+        tempCards.splice(index,1);
         cardsInHand[2] = 0;
-        console.log(cardsInHand);  
+        console.log(cardsInHand); 
+         
     }
     else if(cardsInHand[2] <= 6){
         document.getElementById("pointCenter").src="/assets/cards2/point" + cardsInHand[2] + ".png";
         document.getElementById("steg-card3").src="";
         console.log("/assets/cards2/point" + cardsInHand[2] + ".png");
+        const index = tempCards.indexOf(cardsInHand[2]);
+        tempCards.splice(index,1);
         cardsInHand[2] = 0;
         console.log(cardsInHand);
+        
     } 
 };
+
 function playIt_4() {
     if(cardsInHand[3] >= 7) {
         document.getElementById("instantCenter").src="/assets/cards2/point" + cardsInHand[3] + ".png";
         document.getElementById("steg-card4").src="";
+        const index = tempCards.indexOf(cardsInHand[3]);
+        tempCards.splice(index,1);
         cardsInHand[3] = 0;
-        console.log(cardsInHand);  
+        console.log(cardsInHand); 
+ 
     }
     else if(cardsInHand[3] <= 6){
         document.getElementById("pointCenter").src="/assets/cards2/point" + cardsInHand[3] + ".png";
         document.getElementById("steg-card4").src="";
         console.log("/assets/cards2/point" + cardsInHand[3] + ".png");
+       const index = tempCards.indexOf(cardsInHand[3]);
+        tempCards.splice(index,1); 
         cardsInHand[3] = 0;
-        console.log(cardsInHand);
-    } 
+    }
 };
+
 function playIt_5() {
     if(cardsInHand[4] >= 7) {
         document.getElementById("instantCenter").src="/assets/cards2/point" + cardsInHand[4] + ".png";
         document.getElementById("steg-card5").src="";
+        const index = tempCards.indexOf(cardsInHand[4]);
+        tempCards.splice(index,1);
         cardsInHand[4] = 0;
-        console.log(cardsInHand);  
     }
     else if(cardsInHand[4] <= 6){
         document.getElementById("pointCenter").src="/assets/cards2/point" + cardsInHand[4] + ".png";
         document.getElementById("steg-card5").src="";
         console.log("/assets/cards2/point" + cardsInHand[4] + ".png");
+        const index = tempCards.indexOf(cardsInHand[4]);
+        tempCards.splice(index,1);
         cardsInHand[4] = 0;
-        console.log(cardsInHand);
+        
     } 
 };
 
