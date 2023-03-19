@@ -59,9 +59,10 @@ let deckCount = 0;
 let allCards = [1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 3, 3, 4, 4, 4, 4, 4, 4, 4, 5, 5, 5, 5, 5, 5, 5, 6, 6, 6, 6, 6, 6, 6, 7, 7, 8, 8, 9, 9, 10, 10];
 let cardsInHand = [];
 let tempCards = [];
-
+// myfunction2();
 function myfunction2() {
     cardsInHand = [];
+    tempCards = [];
     let f = document.getElementById("reveal")
     f.style.display = 'none';
         if (allCards.length > 4) {
@@ -123,6 +124,19 @@ function myfunction2() {
     }
     return cardsInHand && tempCards;
 };
+
+// Only let users draw cards if they have no cards in their hand or only instant cards
+// Should be working? Sometimes it works sometimes it doesn't or I am just going crazy
+function testas() {
+    console.log(tempCards);
+    if(!tempCards.includes(1) && !tempCards.includes(2) && !tempCards.includes(3) && !tempCards.includes(4) && !tempCards.includes(5) && !tempCards.includes(6) ) {
+       myfunction2(); 
+    }
+    else {
+        alert("You cannot draw cards at the moment");
+        console.log("trash");
+    }
+}
 //USERS WILL BE ABLE TO PLAY CARDS
 // let handOne = document.getElementById("steg-card1")
 // let handTwo = document.getElementById("steg-card2")
