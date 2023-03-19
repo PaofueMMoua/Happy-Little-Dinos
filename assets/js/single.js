@@ -558,4 +558,8 @@ function ai_playIt() {
             
         }
     }
+    if (played_cards < 0) {
+        let x = Math.random(0, 6);
+        ai_cardsInHand[x]
+    }
 };
