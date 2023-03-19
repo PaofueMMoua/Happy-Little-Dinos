@@ -33,25 +33,26 @@ Stego.addEventListener("click", function () {
     let testflex = document.getElementById('testflex')
     testflex.style.display = 'flex';
 })
+
 //DOES THE SAME THING BUT WHEN YOU CLICK ON THE DINOS RATHER THAN THEIR NAME
-// const brontx = document.getElementById('dino')
-// const stegx = document.getElementById('dino_two')
-// brontx.addEventListener("click", function () {
-//     let hero = document.getElementById('hero-img-two')
-//     hero.style.display = 'none';
-//     bll.style.display = 'none';
-//     all.style.display = 'block';
-//     let testflex = document.getElementById('testflex')
-//     testflex.style.display = 'flex';
-// });
-// stegx.addEventListener("click", function () {
-//     let hero = document.getElementById('hero-img-two')
-//     hero.style.display = 'none';
-//     bll.style.display = 'block';
-//     all.style.display = 'none';
-//     let testflex = document.getElementById('testflex')
-//     testflex.style.display = 'flex';
-// })
+const brontx = document.getElementById('dino')
+const stegx = document.getElementById('dino_two')
+brontx.addEventListener("click", function () {
+    let hero = document.getElementById('hero-img-two')
+    hero.style.display = 'none';
+    bll.style.display = 'none';
+    all.style.display = 'block';
+    let testflex = document.getElementById('testflex')
+    testflex.style.display = 'flex';
+});
+stegx.addEventListener("click", function () {
+    let hero = document.getElementById('hero-img-two')
+    hero.style.display = 'none';
+    bll.style.display = 'block';
+    all.style.display = 'none';
+    let testflex = document.getElementById('testflex')
+    testflex.style.display = 'flex';
+})
 
 // Cards
 let deckCount = 0;
@@ -173,33 +174,6 @@ function playIt_1() {
     check();
 };
 
-function check() {
-    if(pc_count == 1) {
-        play.style.backgroundColor = '#F27F77';
-        play.style.cursor = 'pointer';
-    }
-}
-
-function hoverIn(x) {
-    if (pc_count == 1) {
-      x.style.backgroundColor = '#16d26a'; 
-      play.style.cursor = 'pointer'; 
-    }
-    else {
-        x.style.backgroundColor = 'black';
-    }
-    
-}
-
-function hoverOut(x) {
-    if (pc_count == 1) {
-        x.style.backgroundColor = '#F27F77';
-    }
-    else {
-        x.style.backgroundColor = 'black';
-    }
-}
-
 function playIt_2() {
     if(pc_count < 1 && ic_count <= 1) {
         if(cardsInHand[1] >= 7) {
@@ -312,6 +286,34 @@ function playIt_5() {
     }   
     check();
 };
+
+//play button functions (change color when hover + appear when player plays a point card)
+function check() {
+    if(pc_count == 1) {
+        play.style.backgroundColor = '#F27F77';
+        play.style.cursor = 'pointer';
+    }
+}
+
+function hoverIn(x) {
+    if (pc_count == 1) {
+      x.style.backgroundColor = '#16d26a'; 
+      play.style.cursor = 'pointer'; 
+    }
+    else {
+        x.style.backgroundColor = 'black';
+    }
+    
+}
+
+function hoverOut(x) {
+    if (pc_count == 1) {
+        x.style.backgroundColor = '#F27F77';
+    }
+    else {
+        x.style.backgroundColor = 'black';
+    }
+}
 
 //DISASTER CARDS
 let disasters = [
