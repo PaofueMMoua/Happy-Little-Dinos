@@ -130,7 +130,7 @@ function myfunction2() {
 // Should be working? Sometimes it works sometimes it doesn't or I am just going crazy
 function testas() {
     console.log(tempCards);
-    if(!tempCards.includes(1) && !tempCards.includes(2) && !tempCards.includes(3) && !tempCards.includes(4) && !tempCards.includes(5) && !tempCards.includes(6) ) {
+    if(!tempCards.includes(1) && !tempCards.includes(2) && !tempCards.includes(3) && !tempCards.includes(4) && !tempCards.includes(5) && !tempCards.includes(6)) {
         myfunction2(); 
     }
     else {
@@ -166,55 +166,68 @@ let play = document.getElementById("playButton");
 
 function calculatePoint() {
     pc_count=0;
+    ic_count=0;
     document.getElementById("instantCenter").src="/assets/cards2/main-empty.png";
     document.getElementById("pointCenter").src="/assets/cards2/main-empty.png";
+    vivaVida();
+}
+
+//automates drawing new hand and alerts player when it is drawn
+function vivaVida() {
+   if(tempCards.length == 0 || !tempCards.includes(1) && !tempCards.includes(2) && !tempCards.includes(3) && !tempCards.includes(4) && !tempCards.includes(5) && !tempCards.includes(6)) {
+    alert("drawing new deck");
+    myfunction2();
+    } 
 }
 
 
 //Play cards in the center (doesn't work)
 // I dont know how to write the pc_count/ic_count if statements 
 function playIt_1() {
-    if(pc_count < 1 && ic_count < 1 || pc_count < 1 && ic_count >= 1) {
-        if(cardsInHand[0] >= 7) {
-                // console.log(tempCards);
-                document.getElementById("instantCenter").src="/assets/cards2/point" + cardsInHand[0] + ".png";
-                document.getElementById("steg-card1").src="";
-                let index = tempCards.indexOf(cardsInHand[0]);
-                tempCards.splice(index,1);
-                played.push(cardsInHand[0]);
-                tempInstant = cardsInHand[0];
-                cardsInHand[0] = 0; 
-                console.log(cardsInHand);
-                ic_count = ic_count + 1;
-                console.log(ic_count);
-            }
-            else if(cardsInHand[0] <= 6){
-                // console.log(tempCards);
-                document.getElementById("pointCenter").src="/assets/cards2/point" + cardsInHand[0] + ".png";
-                document.getElementById("steg-card1").src="";
-                console.log("/assets/cards2/point" + cardsInHand[0] + ".png");
-                let index = tempCards.indexOf(cardsInHand[0]);
-                played.push(cardsInHand[0]);
-                tempPoint = cardsInHand[0];
-                tempCards.splice(index,1);
-                cardsInHand[0] = 0; 
-                console.log(cardsInHand);
-                pc_count = pc_count + 1;
-                console.log(pc_count);
-            }
-    } 
-    else if(ic_count >= 1) {
-        alert("You cannot play another Instant card");
-    } else if(pc_count >= 1) {
-        alert("You cannot play another Point card");
+    if(cardsInHand[0] >= 7) {
+        if(ic_count == 0) {
+            // console.log(tempCards);
+            document.getElementById("instantCenter").src="/assets/cards2/point" + cardsInHand[0] + ".png";
+            document.getElementById("steg-card1").src="";
+            let index = tempCards.indexOf(cardsInHand[0]);
+            tempCards.splice(index,1);
+            played.push(cardsInHand[0]);
+            tempInstant = cardsInHand[0];
+            cardsInHand[0] = 0; 
+            console.log(cardsInHand);
+            ic_count = ic_count + 1;
+            console.log(ic_count);
+        }
+        else {
+            alert("you cannot play another instant card");
+        }           
+    }
+    else if(cardsInHand[0] <= 6){
+        if(pc_count == 0) {
+            // console.log(tempCards);
+            document.getElementById("pointCenter").src="/assets/cards2/point" + cardsInHand[0] + ".png";
+            document.getElementById("steg-card1").src="";
+            console.log("/assets/cards2/point" + cardsInHand[0] + ".png");
+            let index = tempCards.indexOf(cardsInHand[0]);
+            played.push(cardsInHand[0]);
+            tempPoint = cardsInHand[0];
+            tempCards.splice(index,1);
+            cardsInHand[0] = 0; 
+            console.log(cardsInHand);
+            pc_count = pc_count + 1;
+            console.log(pc_count);
+        }
+        else {
+            alert("you cannot play another point card");
+        }
     }
     check();
     drawing_cards();
 };
 
 function playIt_2() {
-    if(pc_count < 1 && ic_count < 1 || pc_count < 1 && ic_count >= 1) {
-        if(cardsInHand[1] >= 7) {
+    if(cardsInHand[1] >= 7) {
+        if(ic_count == 0) {
             document.getElementById("instantCenter").src="/assets/cards2/point" + cardsInHand[1] + ".png";
             document.getElementById("steg-card2").src="";
             let index = tempCards.indexOf(cardsInHand[1]);
@@ -226,7 +239,12 @@ function playIt_2() {
             ic_count = ic_count + 1;
             console.log(ic_count);
         }
-        else if(cardsInHand[1] <= 6){
+        else {
+            alert("you cannot play another instant card");
+        }
+    }
+    else if(cardsInHand[1] <= 6){
+        if(pc_count == 0) {
             document.getElementById("pointCenter").src="/assets/cards2/point" + cardsInHand[1] + ".png";
             document.getElementById("steg-card2").src="";
             console.log("/assets/cards2/point" + cardsInHand[1] + ".png");
@@ -239,19 +257,17 @@ function playIt_2() {
             pc_count = pc_count + 1;
             console.log(pc_count);
         }
-    } 
-    else if(ic_count >= 1) {
-        alert("You cannot play another Instant card");
-    } else if(pc_count >= 1) {
-        alert("You cannot play another Point card");
+        else {
+            alert("you cannot play another point card");
+        }    
     }
     check(); 
     drawing_cards();
 };
 
 function playIt_3() {
-    if(pc_count < 1 && ic_count < 1 || pc_count < 1 && ic_count >= 1) {
-        if(cardsInHand[2] >= 7) {
+    if(cardsInHand[2] >= 7) {
+        if(ic_count == 0) {
             document.getElementById("instantCenter").src="/assets/cards2/point" + cardsInHand[2] + ".png";
             document.getElementById("steg-card3").src="";
             let index = tempCards.indexOf(cardsInHand[2]);
@@ -261,9 +277,13 @@ function playIt_3() {
             cardsInHand[2] = 0;
             console.log(cardsInHand); 
             ic_count = ic_count + 1;
-
         }
-        else if(cardsInHand[2] <= 6){
+        else {
+            alert("you cannot play another instant card");
+        }     
+    }
+    else if(cardsInHand[2] <= 6){
+        if(pc_count == 0) {
             document.getElementById("pointCenter").src="/assets/cards2/point" + cardsInHand[2] + ".png";
             document.getElementById("steg-card3").src="";
             console.log("/assets/cards2/point" + cardsInHand[2] + ".png");
@@ -273,56 +293,57 @@ function playIt_3() {
             tempCards.splice(index,1);
             cardsInHand[2] = 0;
             console.log(cardsInHand);
-            pc_count = pc_count + 1;
-        
-        } 
-    }
-    else if(ic_count >= 1) {
-        alert("You cannot play another Instant card");
-    } else if(pc_count >= 1) {
-        alert("You cannot play another Point card");
-    }
+            pc_count = pc_count + 1; 
+        }
+        else {
+            alert("you cannot play another point card")
+        }    
+    } 
     check();
     drawing_cards();
 };
 
 function playIt_4() {
-    if(pc_count < 1 && ic_count < 1 || pc_count < 1 && ic_count >= 1) {
         if(cardsInHand[3] >= 7) {
-            document.getElementById("instantCenter").src="/assets/cards2/point" + cardsInHand[3] + ".png";
-            document.getElementById("steg-card4").src="";
-            let index = tempCards.indexOf(cardsInHand[3]);
-            played.push(cardsInHand[3]);
-            tempInstant = cardsInHand[3];
-            tempCards.splice(index,1);
-            cardsInHand[3] = 0;
-            console.log(cardsInHand); 
-            ic_count = ic_count + 1;
+            if(ic_count == 0) {
+                document.getElementById("instantCenter").src="/assets/cards2/point" + cardsInHand[3] + ".png";
+                document.getElementById("steg-card4").src="";
+                let index = tempCards.indexOf(cardsInHand[3]);
+                played.push(cardsInHand[3]);
+                tempInstant = cardsInHand[3];
+                tempCards.splice(index,1);
+                cardsInHand[3] = 0;
+                console.log(cardsInHand); 
+                ic_count = ic_count + 1;
+            }
+            else {
+                alert("you cannot play another instant card");
+            } 
         }
         else if(cardsInHand[3] <= 6){
-            document.getElementById("pointCenter").src="/assets/cards2/point" + cardsInHand[3] + ".png";
-            document.getElementById("steg-card4").src="";
-            console.log("/assets/cards2/point" + cardsInHand[3] + ".png");
-            let index = tempCards.indexOf(cardsInHand[3]);
-            played.push(cardsInHand[3]);
-            tempPoint = cardsInHand[3];
-            tempCards.splice(index,1); 
-            cardsInHand[3] = 0;
-            pc_count = pc_count + 1;
+            if(pc_count == 0) {
+                document.getElementById("pointCenter").src="/assets/cards2/point" + cardsInHand[3] + ".png";
+                document.getElementById("steg-card4").src="";
+                console.log("/assets/cards2/point" + cardsInHand[3] + ".png");
+                let index = tempCards.indexOf(cardsInHand[3]);
+                played.push(cardsInHand[3]);
+                tempPoint = cardsInHand[3];
+                tempCards.splice(index,1); 
+                cardsInHand[3] = 0;
+                pc_count = pc_count + 1;
+            }
+            else {
+                alert("you cannot play another point card");
+            }
+            
         }
-    }
-    else if(ic_count >= 1) {
-        alert("You cannot play another Instant card");
-    } else if(pc_count >= 1) {
-        alert("You cannot play another Point card");
-    }
     check();
     drawing_cards();
 };
 
 function playIt_5() {
-    if(pc_count < 1 && ic_count < 1 || pc_count < 1 && ic_count >= 1) {
         if(cardsInHand[4] >= 7) {
+            if(ic_count == 0) {
                 document.getElementById("instantCenter").src="/assets/cards2/point" + cardsInHand[4] + ".png";
                 document.getElementById("steg-card5").src="";
                 let index = tempCards.indexOf(cardsInHand[4]);
@@ -330,25 +351,28 @@ function playIt_5() {
                 tempInstant = cardsInHand[4];
                 tempCards.splice(index,1);
                 cardsInHand[4] = 0;
-                ic_count = ic_count + 1;
+                ic_count = ic_count + 1; 
+            }
+            else {
+                alert("you cannot play another instant card");
+            }
         }
         else if(cardsInHand[4] <= 6){
-            document.getElementById("pointCenter").src="/assets/cards2/point" + cardsInHand[4] + ".png";
-            document.getElementById("steg-card5").src="";
-            console.log("/assets/cards2/point" + cardsInHand[4] + ".png");
-            let index = tempCards.indexOf(cardsInHand[4]);
-            played.push(cardsInHand[4]);
-            tempPoint = cardsInHand[4];
-            tempCards.splice(index,1);
-            cardsInHand[4] = 0;
-            pc_count = pc_count + 1;
+            if(pc_count == 0) {
+                document.getElementById("pointCenter").src="/assets/cards2/point" + cardsInHand[4] + ".png";
+                document.getElementById("steg-card5").src="";
+                console.log("/assets/cards2/point" + cardsInHand[4] + ".png");
+                let index = tempCards.indexOf(cardsInHand[4]);
+                played.push(cardsInHand[4]);
+                tempPoint = cardsInHand[4];
+                tempCards.splice(index,1);
+                cardsInHand[4] = 0;
+                pc_count = pc_count + 1;
+            }
+            else {
+                alert("you cannot play another point card");
+            }
         }
-    }
-    else if(ic_count >= 1) {
-        alert("You cannot play another Instant card");
-    } else if(pc_count >= 1) {
-        alert("You cannot play another Point card");
-    }
     check();
     drawing_cards();
 };
