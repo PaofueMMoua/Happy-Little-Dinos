@@ -357,7 +357,7 @@ function drawing_cards() {
     if (cardsInHand > 5) {
         let n = myfunction2();
         n.splice(0, (a.length - 1))
-        cardsInHand + n;
+        cardsInHand = cardsInHand + n;
     }
 }
 
