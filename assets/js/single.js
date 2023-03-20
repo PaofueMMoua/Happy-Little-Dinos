@@ -17,6 +17,7 @@ const all = document.getElementById('allboards2')
 const bll = document.getElementById('allboards')
 const Bronto = document.getElementById('Bronto')
 const Stego = document.getElementById('Stego')
+let playerOne;
 Bronto.addEventListener("click", function () {
     let hero = document.getElementById('hero-img-two')
     hero.style.display = 'none';
@@ -24,6 +25,7 @@ Bronto.addEventListener("click", function () {
     all.style.display = 'block';
     let testflex = document.getElementById('testflex')
     testflex.style.display = 'flex';
+    playerOne = "bronto";
 });
 Stego.addEventListener("click", function () {
     let hero = document.getElementById('hero-img-two')
@@ -32,6 +34,7 @@ Stego.addEventListener("click", function () {
     all.style.display = 'none';
     let testflex = document.getElementById('testflex')
     testflex.style.display = 'flex';
+    playerOne = "stego";
 })
 
 //DOES THE SAME THING BUT WHEN YOU CLICK ON THE DINOS RATHER THAN THEIR NAME
@@ -44,6 +47,7 @@ brontx.addEventListener("click", function () {
     all.style.display = 'block';
     let testflex = document.getElementById('testflex')
     testflex.style.display = 'flex';
+    playerOne = "bronto";
 });
 stegx.addEventListener("click", function () {
     let hero = document.getElementById('hero-img-two')
@@ -52,6 +56,7 @@ stegx.addEventListener("click", function () {
     all.style.display = 'none';
     let testflex = document.getElementById('testflex')
     testflex.style.display = 'flex';
+    playerOne = "stego";
 })
 
 // Cards
@@ -151,10 +156,11 @@ let pc_count = 0;
 let ic_count = 0;
 let totalPoints = 0;
 let instantPoints = 0;
+let tempInstant = 0;
 let tempPoints = 0;
 // let pointPoint = 0;
 let played = [];
-let opp_instantPoints = 0;
+// let opp_instantPoints = 0;
  
 let play = document.getElementById("playButton");
 
@@ -175,39 +181,85 @@ let play = document.getElementById("playButton");
 
 function instantCalc() {
     if(tempInstant == 7) {
-        instantPoints = 2;
+        return instantPoints = 2;
     }
-    if(tempInstant == 8) {
-       instantPoints = 0;
+    else if(tempInstant == 8) {
+       return instantPoints = 0;
         // Disaster card is discarded   
     }
-    if(tempInstant == 9) {
-        instantPoints = 0;
+    else if(tempInstant == 9) {
+        return instantPoints = 0;
         // Disaster card goes to opponent
      }
-     if(tempInstant == 10) {
+     else if(tempInstant == 10) {
         opp_instantPoints = -2;
-        instantPoints = 0;
+        return instantPoints = 0;
+     } else {
+        return instantPoints = 0;
      }
 }
 
 function calculatePoint() {
-    totalPoints = tempPoints + instantCalc();
     pc_count = 0;
     ic_count = 0;
     document.getElementById("instantCenter").src="/assets/cards2/main-empty.png";
     document.getElementById("pointCenter").src="/assets/cards2/main-empty.png";
-    vivaVida();
+    totalPoints = tempPoints + instantCalc();
+    directDisaster();
 }
 
-// function directDisaster {
-//     if(totalPoints < opp_totalPoints) {
-//         if(disasterCount == 0) {
-//           document.getElementById("")
-//         }
-        
-//     }
-// }
+let disasterCount = 0;
+function directDisaster() {
+    let opp_totalPoints = Math.round(Math.random() * 10);
+    console.log("opp points =" + opp_totalPoints);
+    console.log("ur points =" + totalPoints);
+    if(totalPoints < opp_totalPoints) {
+        if(playerOne == "bronto") {
+           if(disasterCount <= 0) {
+                document.getElementById("brontoDisaster1").src="/assets/img/" + "blue" + "-disaster.png";
+                disasterCount = disasterCount + 1;
+            } 
+            else if(disasterCount == 1) {
+                document.getElementById("brontoDisaster2").src="/assets/img/" + "blue" + "-disaster.png";
+                disasterCount = disasterCount + 1;
+            }
+            else if(disasterCount == 2) {
+                document.getElementById("brontoDisaster3").src="/assets/img/" + "blue" + "-disaster.png";
+                disasterCount = disasterCount + 1;
+            }
+            else if(disasterCount == 3) {
+                document.getElementById("brontoDisaster4").src="/assets/img/" + "blue" + "-disaster.png";
+                disasterCount = disasterCount + 1;
+            }
+            else if(disasterCount == 4) {
+                document.getElementById("brontoDisaster5").src="/assets/img/" + "blue" + "-disaster.png";
+                disasterCount = disasterCount + 1;
+            } 
+        } else if(playerOne == "stego") {
+            if(disasterCount == 0) {
+                document.getElementById("stegoDisaster1").src="/assets/img/" + "blue" + "-disaster.png";
+                disasterCount = disasterCount + 1;
+            } 
+            else if(disasterCount == 1) {
+                document.getElementById("stegoDisaster2").src="/assets/img/" + "blue" + "-disaster.png";
+                disasterCount = disasterCount + 1;
+            }
+            else if(disasterCount == 2) {
+                document.getElementById("stegoDisaster3").src="/assets/img/" + "blue" + "-disaster.png";
+                disasterCount = disasterCount + 1;
+            }
+            else if(disasterCount == 3) {
+                document.getElementById("stegoDisaster4").src="/assets/img/" + "blue" + "-disaster.png";
+                disasterCount = disasterCount + 1;
+            }
+            else if(disasterCount == 4) {
+                document.getElementById("stegoDisaster5").src="/assets/img/" + "blue" + "-disaster.png";
+                disasterCount = disasterCount + 1;
+            }
+        }
+    }
+    vivaVida();
+}
 
 //Play cards in the center - WORKING 
 function playIt_1() {
