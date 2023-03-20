@@ -552,7 +552,7 @@ function ai_playIt() {
     for (let Num = 0; Num >= 11; Num++) {
         if (ai_cardsInHand[Num] >=7) {
         document.getElementById('ai_instantCenter').src = '/assets/cards2/point' + ai_cardsInHand[Num] + '.png';
-        document.getElementById('stego-card1').src = '';
+        document.getElementById('Bronto-card1').src = '';
         let index = ai_temp.indexOf(ai_cardsInHand[Num]);
         ai_tempCards.splice(index,1);
         ai_played.push(ai_cardsInHand[Num]);
@@ -562,16 +562,16 @@ function ai_playIt() {
     }
     }
     if(ai_cardsInHand[Num] <= 6){
-            if(ai_pc_count == 0) {
-                document.getElementById("ai_pointCenter").src="/assets/cards2/point" + ai_cardsInHand[x] + ".png";
-                document.getElementById("steg-card5").src="";
-                console.log("/assets/cards2/point" + ai_cardsInHand[x] + ".png");
-                let index = ai_tempCards.indexOf(ai_cardsInHand[x]);
-                ai_played.push(ai_cardsInHand[x]);
-                ai_tempPoint = ai_cardsInHand[x];
-                ai_tempCards.splice(index,1);
-                ai_cardsInHand[x] = 0;
-                ai_pc_count = ai_pc_count + 1;
-            }
+        if(ai_pc_count == 0) {
+            document.getElementById("ai_pointCenter").src="/assets/cards2/point" + ai_cardsInHand[x] + ".png";
+            document.getElementById("Bronto-card5").src="";
+            console.log("/assets/cards2/point" + ai_cardsInHand[x] + ".png");
+            let index = ai_tempCards.indexOf(ai_cardsInHand[x]);
+            ai_played.push(ai_cardsInHand[x]);
+            ai_tempPoint = ai_cardsInHand[x];
+            ai_tempCards.splice(index,1);
+            ai_cardsInHand[x] = 0;
+            ai_pc_count = ai_pc_count + 1;
         }
+    }
 };
