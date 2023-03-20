@@ -549,30 +549,29 @@ let ai_pc_count = 0
 
 function ai_playIt() {
     let x = Math.random(1, 5);
-    if (ai_cardsInHand[x] >=7) {
-        document.getElementById('ai_instantCenter').src = '/assets/cards2/point' + ai_cardsInHand[x] + '.png';
+    for (let Num = 0; Num >= 11; Num++) {
+        if (ai_cardsInHand[Num] >=7) {
+        document.getElementById('ai_instantCenter').src = '/assets/cards2/point' + ai_cardsInHand[Num] + '.png';
         document.getElementById('stego-card1').src = '';
-        let index = ai_temp.indexOf(ai_cardsInHand[x]);
+        let index = ai_temp.indexOf(ai_cardsInHand[Num]);
         ai_tempCards.splice(index,1);
-        ai_played.push(ai_cardsInHand[x]);
-        ai_tempInstant = ai_cardsInHand[x];
-        ai_cardsInHand[x] = 0;
+        ai_played.push(ai_cardsInHand[Num]);
+        ai_tempInstant = ai_cardsInHand[Num];
+        ai_cardsInHand[Num] = 0;
         ai_ic_count = ai_ic_count + 1;
     }
-    else 
-    for (let Num = 0; Num >= 11; Num++) {
-        if(ai_cardsInHand[Num] <= 6){
+    }
+    if(ai_cardsInHand[Num] <= 6){
             if(ai_pc_count == 0) {
-                document.getElementById("ai_pointCenter").src="/assets/cards2/point" + ai_cardsInHand[Num] + ".png";
+                document.getElementById("ai_pointCenter").src="/assets/cards2/point" + ai_cardsInHand[x] + ".png";
                 document.getElementById("steg-card5").src="";
-                console.log("/assets/cards2/point" + ai_cardsInHand[Num] + ".png");
-                let index = ai_tempCards.indexOf(ai_cardsInHand[Num]);
-                ai_played.push(ai_cardsInHand[Num]);
-                ai_tempPoint = ai_cardsInHand[Num];
+                console.log("/assets/cards2/point" + ai_cardsInHand[x] + ".png");
+                let index = ai_tempCards.indexOf(ai_cardsInHand[x]);
+                ai_played.push(ai_cardsInHand[x]);
+                ai_tempPoint = ai_cardsInHand[x];
                 ai_tempCards.splice(index,1);
-                ai_cardsInHand[Num] = 0;
+                ai_cardsInHand[x] = 0;
                 ai_pc_count = ai_pc_count + 1;
             }
         }
-    }
 };
