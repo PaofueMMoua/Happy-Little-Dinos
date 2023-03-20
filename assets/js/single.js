@@ -541,25 +541,40 @@ function ai_myfunction2() {
 };
 let ai_ab = ai_cardsInHand[0];
 
+let ai_played = [];
+let ai_tempCards = [];
+let ai_tempInstant = 0;
+let ai_ic_count = 0;
+let ai_pc_count = 0
+
 function ai_playIt() {
-    if (pc_count < 1 && ic_count < 1 || pc_count < 1 && ic_count >= 1) {
-        if (cardsInHand[0] >= 7) {
-            // console.log(tempCards);
-            document.getElementById("ai_instantCenter").src = "/assets/cards2/point" + cardsInHand[0] + ".png";
-            document.getElementById("steg-card1").src = "";
-            let index = tempCards.indexOf(cardsInHand[0]);
-            tempCards.splice(index, 1);
-            played.push(cardsInHand[0]);
-            tempInstant = cardsInHand[0];
-            cardsInHand[0] = 0;
-            console.log(cardsInHand);
-            ic_count = ic_count + 1;
-            console.log(ic_count);
-            
+    let x = Math.random(1, 5);
+    if (ai_cardsInHand[x] >=7) {
+        document.getElementById('ai_instantCenter').src = '/assets/cards2/point' + ai_cardsInHand[x] + '.png';
+        document.getElementById('stego-card1').src = '';
+        let index = ai_temp.indexOf(ai_cardsInHand[x]);
+        ai_tempCards.splice(index,1);
+        ai_played.push(ai_cardsInHand[x]);
+        ai_tempInstant = ai_cardsInHand[x];
+        ai_cardsInHand[x] = 0;
+        ai_ic_count = ai_ic_count + 1;
+    }
+    else if(ai_cardsInHand[x] <= 6){
+        if(ai_pc_count == 0) {
+            document.getElementById("ai_pointCenter").src="/assets/cards2/point" + ai_cardsInHand[4] + ".png";
+            document.getElementById("steg-card5").src="";
+            console.log("/assets/cards2/point" + ai_cardsInHand[x] + ".png");
+            let index = tempCards.indexOf(ai_cardsInHand[x]);
+            ai_played.push(ai_cardsInHand[x]);
+            ai_tempPoint = ai_cardsInHand[x];
+            ai_tempCards.splice(index,1);
+            ai_cardsInHand[x] = 0;
+            ai_pc_count = ai_pc_count + 1;
+        }
+        else {
+            alert("you cannot play another point card");
         }
     }
-    if (played_cards < 0) {
-        let x = Math.random(0, 6);
-        ai_cardsInHand[x]
-    }
+check();
+
 };
