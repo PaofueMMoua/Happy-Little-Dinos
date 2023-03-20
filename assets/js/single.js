@@ -627,6 +627,8 @@ for (let i = 0; i <= 50; i++) {
     temp_img.src = "/assets/img/stego-meeple.png";
     let temporary = document.getElementById('col-' + row);
     temporary.appendChild(temp_img);
+    
+    
   }
 }
 
@@ -745,3 +747,32 @@ function ai_playIt() {
     }
 };
 console.log(ai_cardsInHand);
+
+// Get the meeple and board elements from the DOM
+const meeple = document.getElementById('meeple');
+
+
+// Set the initial position of the meeple
+
+let cellWidth = 30;
+let cellHeight = 30;
+meeple.style.top = `${y * cellHeight}px`;
+meeple.style.left = `${x * cellWidth}px`;
+
+// Function to move the meeple to a new position
+function moveMeeple(newX, newY) {
+  // Calculate the new position of the meeple
+  x = newX;
+  y = newY;
+  meeple.style.top = `${y * cellHeight}px`;
+  meeple.style.left = `${x * cellWidth}px`;
+}
+
+// Example usage: move the meeple to position (2, 3)
+moveMeeple(2, 3);
+
+
+
+// meeple = document . .. ('cell_' + x );
+// x = score + point - temp_disaster_amount + disaster_positive - disaster_negative
+
