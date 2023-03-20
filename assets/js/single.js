@@ -559,20 +559,20 @@ function ai_playIt() {
         ai_cardsInHand[x] = 0;
         ai_ic_count = ai_ic_count + 1;
     }
-    else if(ai_cardsInHand[x] <= 6){
-        if(ai_pc_count == 0) {
-            document.getElementById("ai_pointCenter").src="/assets/cards2/point" + ai_cardsInHand[4] + ".png";
-            document.getElementById("steg-card5").src="";
-            console.log("/assets/cards2/point" + ai_cardsInHand[x] + ".png");
-            let index = tempCards.indexOf(ai_cardsInHand[x]);
-            ai_played.push(ai_cardsInHand[x]);
-            ai_tempPoint = ai_cardsInHand[x];
-            ai_tempCards.splice(index,1);
-            ai_cardsInHand[x] = 0;
-            ai_pc_count = ai_pc_count + 1;
-        }
-        else {
-            alert("you cannot play another point card");
+    else 
+    for (let Num = 0; Num = 11; Num++) {
+        if(ai_cardsInHand[x] <= 6){
+            if(ai_pc_count == 0) {
+                document.getElementById("ai_pointCenter").src="/assets/cards2/point" + ai_cardsInHand[4] + ".png";
+                document.getElementById("steg-card5").src="";
+                console.log("/assets/cards2/point" + ai_cardsInHand[x] + ".png");
+                let index = tempCards.indexOf(ai_cardsInHand[x]);
+                ai_played.push(ai_cardsInHand[x]);
+                ai_tempPoint = ai_cardsInHand[x];
+                ai_tempCards.splice(index,1);
+                ai_cardsInHand[x] = 0;
+                ai_pc_count = ai_pc_count + 1;
+            }
         }
     }
 check();
