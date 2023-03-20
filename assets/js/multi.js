@@ -164,7 +164,7 @@ let tempInstant = 0;
 let play = document.getElementById("playButton");
 
 // function calculatePoint() {
-//     //don't forget if statment for if player has a higher card score than player 2 or AI
+//     //don't forget if statement for if player has a higher card score than player 2 or AI
 //     let instantPoints = 0;
 //     if(tempInstant == 7) {
 //         instantPoints = 2

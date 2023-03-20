@@ -1,3 +1,3 @@
 # Happy-Little-Dinos
 
-The Game Happy Little Dinosaurs atempted to be recreated within HTML, CSS, JavaScript.
+The Game Happy Little Dinosaurs attempted to be recreated within HTML, CSS, JavaScript.
