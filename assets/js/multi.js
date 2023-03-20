@@ -1,26 +1,12 @@
-const a = document.getElementById('allboards2')
-const b = document.getElementById('allboards')
-const m = document.getElementById('Bronto')
-const n = document.getElementById('Stego')
-m.addEventListener("click", function(){
-    let hero = document.getElementById('hero-img-two')
-    hero.style.display = 'none';
-    b.style.display = 'none';
-    a.style.display = 'block';
-    let testflex = document.getElementById('testflex')
-    testflex.style.display = 'flex';
-});
-n.addEventListener("click", function() {
-    let hero = document.getElementById('hero-img-two')
-    hero.style.display = 'none';
-    b.style.display = 'block';
-    a.style.display = 'none';
-    let testflex = document.getElementById('testflex')
-    testflex.style.display = 'flex';
-})
-
-// board
 // Needed things
+
+import { joinRoom, selfId } from 'https://cdn.skypack.dev/trystero/ipfs';
+const config = {appId: 'HappyLittleDinosaur'};
+const room = joinRoom(config, 'lobby');
+const [sendPlayedCards, getPlayedCards] = room.makeAction('name');
+
+const idsToNames = [];
+const nameInput = document.getElementById('')
 
 let board = [
     [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
@@ -39,7 +25,7 @@ const all = document.getElementById('allboards2')
 const bll = document.getElementById('allboards')
 const Bronto = document.getElementById('Bronto')
 const Stego = document.getElementById('Stego')
-Bronto.addEventListener("click", function() {
+Bronto.addEventListener("click", function () {
     let hero = document.getElementById('hero-img-two')
     hero.style.display = 'none';
     bll.style.display = 'none';
@@ -47,7 +33,7 @@ Bronto.addEventListener("click", function() {
     let testflex = document.getElementById('testflex')
     testflex.style.display = 'flex';
 });
-Stego.addEventListener("click", function() {
+Stego.addEventListener("click", function () {
     let hero = document.getElementById('hero-img-two')
     hero.style.display = 'none';
     bll.style.display = 'block';
@@ -56,11 +42,10 @@ Stego.addEventListener("click", function() {
     testflex.style.display = 'flex';
 })
 
-
 //DOES THE SAME THING BUT WHEN YOU CLICK ON THE DINOS RATHER THAN THEIR NAME
 const brontx = document.getElementById('dino')
 const stegx = document.getElementById('dino_two')
-brontx.addEventListener("click", function() {
+brontx.addEventListener("click", function () {
     let hero = document.getElementById('hero-img-two')
     hero.style.display = 'none';
     bll.style.display = 'none';
@@ -68,7 +53,7 @@ brontx.addEventListener("click", function() {
     let testflex = document.getElementById('testflex')
     testflex.style.display = 'flex';
 });
-stegx.addEventListener("click", function() {
+stegx.addEventListener("click", function () {
     let hero = document.getElementById('hero-img-two')
     hero.style.display = 'none';
     bll.style.display = 'block';
@@ -79,61 +64,359 @@ stegx.addEventListener("click", function() {
 
 // Cards
 let deckCount = 0;
-
 //CARDS IS WORKING
-let allCards=[1,1,1,1,1,1,1,2,2,2,2,2,,2,2,3,3,3,3,3,3,3,4,4,4,4,4,4,4,5,5,5,5,5,5,5,6,6,6,6,6,6,6,7,7,8,8,9,9,10,10];
+let allCards = [1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 3, 3, 4, 4, 4, 4, 4, 4, 4, 5, 5, 5, 5, 5, 5, 5, 6, 6, 6, 6, 6, 6, 6, 7, 7, 8, 8, 9, 9, 10, 10];
 let cardsInHand = [];
+let tempCards = [];
 function myfunction2() {
+    cardsInHand = [];
+    tempCards = [];
     let f = document.getElementById("reveal")
     f.style.display = 'none';
-    if(allCards.length > 4) {
-        for(let i=0; i<5; i++) {
-        let number = Math.round(Math.random()* allCards.length - .5);
-        let num = allCards[number];
-        cardsInHand.push(num);
-        let l = allCards.splice(number, 1);
-        console.log(allCards);
-        console.log(cardsInHand);
+        if (allCards.length > 4) {
+            for (let i = 0; i < 5; i++) {
+                let number = Math.round(Math.random() * allCards.length - .5);
+                let num = allCards[number];
+                tempCards.push(num);
+                cardsInHand.push(num);
+                allCards.splice(number, 1);
+                console.log(allCards);
+                console.log(cardsInHand);
+            }  
         }
-    } 
-    else {
-        alert('Shuffling Cards');
-        allCards = [1,1,1,1,1,1,1,2,2,2,2,2,,2,2,3,3,3,3,3,3,3,4,4,4,4,4,4,4,5,5,5,5,5,5,5,6,6,6,6,6,6,6,7,7,8,8,9,9,10,10];
-    }
-    for(let i=0; i<=5; i++) {
+        else {
+            alert('Shuffling Cards');
+            allCards = [1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, , 2, 2, 3, 3, 3, 3, 3, 3, 3, 4, 4, 4, 4, 4, 4, 4, 5, 5, 5, 5, 5, 5, 5, 6, 6, 6, 6, 6, 6, 6, 7, 7, 8, 8, 9, 9, 10, 10];
+            for (let i = 0; i < 5; i++) {
+                let number = Math.round(Math.random() * allCards.length - .5);
+                let num = allCards[number];
+                tempCards.push(num);
+                cardsInHand.push(num);
+                allCards.splice(number, 1);
+                console.log(allCards);
+                console.log(cardsInHand);
+            }  
+        }
+    
+    for (let i = 0; i <= 5; i++) {
         if (cardsInHand[i] == 1) {
             document.getElementById("steg-card" + [i + 1]).src = "/assets/cards2/point1.png";
-        } 
-        else if(cardsInHand[i] == 2) {
+        }
+        else if (cardsInHand[i] == 2) {
             document.getElementById("steg-card" + [i + 1]).src = "/assets/cards2/point2.png";
         }
-        else if(cardsInHand[i] == 3) {
-            document.getElementById("steg-card" + [i + 1]).src="/assets/cards2/point3.png";
-        } 
-        else if(cardsInHand[i] == 4) {
-            document.getElementById("steg-card" + [i + 1]).src="/assets/cards2/point4.png";
-        } 
-        else if(cardsInHand[i] == 5) {
-            document.getElementById("steg-card" + [i + 1]).src="/assets/cards2/point5.png";
-        } 
-        else if(cardsInHand[i] == 6) {
-            document.getElementById("steg-card" + [i + 1]).src="/assets/cards2/point6.png";
+        else if (cardsInHand[i] == 3) {
+            document.getElementById("steg-card" + [i + 1]).src = "/assets/cards2/point3.png";
         }
-        else if(cardsInHand[i] == 7) {
-            document.getElementById("steg-card" + [i + 1]).src="/assets/cards2/instant-booster.png";
+        else if (cardsInHand[i] == 4) {
+            document.getElementById("steg-card" + [i + 1]).src = "/assets/cards2/point4.png";
         }
-        else if(cardsInHand[i] == 8) {
-            document.getElementById("steg-card" + [i + 1]).src="/assets/cards2/instant-insurance.png";
+        else if (cardsInHand[i] == 5) {
+            document.getElementById("steg-card" + [i + 1]).src = "/assets/cards2/point5.png";
         }
-        else if(cardsInHand[i] == 9) {
-            document.getElementById("steg-card" + [i + 1]).src="/assets/cards2/instant-redirect.png";
+        else if (cardsInHand[i] == 6) {
+            document.getElementById("steg-card" + [i + 1]).src = "/assets/cards2/point6.png";
         }
-        else if(cardsInHand[i] == 10) {
-            document.getElementById("steg-card" + [i + 1]).src="/assets/cards2/instant-sapper.png";
+        else if (cardsInHand[i] == 7) {
+            document.getElementById("steg-card" + [i + 1]).src = "/assets/cards2/point7.png";
         }
-    } 
-    cardsInHand = [];
+        else if (cardsInHand[i] == 8) {
+            document.getElementById("steg-card" + [i + 1]).src = "/assets/cards2/point8.png";
+        }
+        else if (cardsInHand[i] == 9) {
+            document.getElementById("steg-card" + [i + 1]).src = "/assets/cards2/point9.png";
+        }
+        else if (cardsInHand[i] == 10) {
+            document.getElementById("steg-card" + [i + 1]).src = "/assets/cards2/point10.png";
+        }
+    }
+    // return cardsInHand && tempCards;
 };
+
+// Only let users draw cards if they have no cards in their hand or only instant cards - WORKING
+function testas() {
+    console.log(tempCards);
+    if(!tempCards.includes(1) && !tempCards.includes(2) && !tempCards.includes(3) && !tempCards.includes(4) && !tempCards.includes(5) && !tempCards.includes(6)) {
+        myfunction2(); 
+    }
+    else {
+        alert("You cannot draw cards at the moment");
+        console.log("trash");
+    }
+}
+
+//automates drawing new hand and alerts player when it is drawn - WORKING
+function vivaVida() {
+    if(tempCards.length == 0 || !tempCards.includes(1) && !tempCards.includes(2) && !tempCards.includes(3) && !tempCards.includes(4) && !tempCards.includes(5) && !tempCards.includes(6)) {
+     alert("drawing new deck");
+     myfunction2();
+     } 
+ }
+
+//USERS WILL BE ABLE TO PLAY CARDS
+let pc_count = 0;
+let ic_count = 0;
+let totalPoints = 0;
+let tempPoints = 0;
+let pointPoint = 0;
+let played = [];
+let tempInstant = 0;
+let play = document.getElementById("playButton");
+
+// function calculatePoint() {
+//     //don't forget if statement for if player has a higher card score than player 2 or AI
+//     let instantPoints = 0;
+//     if(tempInstant == 7) {
+//         instantPoints = 2
+//     }
+//     else {
+//         instantPoints = 0
+//     }
+//     tempPoints =  tempPoints + instantPoints;
+//     totalPoints = totalPoints + tempPoints;
+//     console.log(tempPoints);
+//     console.log(totalPoints);
+
+// }
+
+function calculatePoint() {
+    pc_count=0;
+    ic_count=0;
+    document.getElementById("instantCenter").src="/assets/cards2/main-empty.png";
+    document.getElementById("pointCenter").src="/assets/cards2/main-empty.png";
+    vivaVida();
+}
+
+//Play cards in the center - WORKING 
+function playIt_1() {
+    if(cardsInHand[0] >= 7) {
+        if(ic_count == 0) {
+            // console.log(tempCards);
+            document.getElementById("instantCenter").src="/assets/cards2/point" + cardsInHand[0] + ".png";
+            document.getElementById("steg-card1").src="";
+            let index = tempCards.indexOf(cardsInHand[0]);
+            tempCards.splice(index,1);
+            played.push(cardsInHand[0]);
+            tempInstant = cardsInHand[0];
+            cardsInHand[0] = 0; 
+            console.log(cardsInHand);
+            ic_count = ic_count + 1;
+            console.log(ic_count);
+        }
+        else {
+            alert("you cannot play another instant card");
+        }           
+    }
+    else if(cardsInHand[0] <= 6){
+        if(pc_count == 0) {
+            // console.log(tempCards);
+            document.getElementById("pointCenter").src="/assets/cards2/point" + cardsInHand[0] + ".png";
+            document.getElementById("steg-card1").src="";
+            console.log("/assets/cards2/point" + cardsInHand[0] + ".png");
+            let index = tempCards.indexOf(cardsInHand[0]);
+            played.push(cardsInHand[0]);
+            tempPoint = cardsInHand[0];
+            tempCards.splice(index,1);
+            cardsInHand[0] = 0; 
+            console.log(cardsInHand);
+            pc_count = pc_count + 1;
+            console.log(pc_count);
+        }
+        else {
+            alert("you cannot play another point card");
+        }
+    }
+    check();
+    // drawing_cards();
+};
+
+function playIt_2() {
+    if(cardsInHand[1] >= 7) {
+        if(ic_count == 0) {
+            document.getElementById("instantCenter").src="/assets/cards2/point" + cardsInHand[1] + ".png";
+            document.getElementById("steg-card2").src="";
+            let index = tempCards.indexOf(cardsInHand[1]);
+            played.push(cardsInHand[1]);
+            tempInstant = cardsInHand[1];
+            tempCards.splice(index,1);
+            cardsInHand[1] = 0;
+            console.log(cardsInHand);  
+            ic_count = ic_count + 1;
+            console.log(ic_count);
+        }
+        else {
+            alert("you cannot play another instant card");
+        }
+    }
+    else if(cardsInHand[1] <= 6){
+        if(pc_count == 0) {
+            document.getElementById("pointCenter").src="/assets/cards2/point" + cardsInHand[1] + ".png";
+            document.getElementById("steg-card2").src="";
+            console.log("/assets/cards2/point" + cardsInHand[1] + ".png");
+            let index = tempCards.indexOf(cardsInHand[1]);
+            played.push(cardsInHand[1]);
+            tempPoint = cardsInHand[1];
+            tempCards.splice(index,1);
+            cardsInHand[1] = 0;
+            console.log(cardsInHand);
+            pc_count = pc_count + 1;
+            console.log(pc_count);
+        }
+        else {
+            alert("you cannot play another point card");
+        }    
+    }
+    check(); 
+    // drawing_cards();
+};
+
+function playIt_3() {
+    if(cardsInHand[2] >= 7) {
+        if(ic_count == 0) {
+            document.getElementById("instantCenter").src="/assets/cards2/point" + cardsInHand[2] + ".png";
+            document.getElementById("steg-card3").src="";
+            let index = tempCards.indexOf(cardsInHand[2]);
+            played.push(cardsInHand[2]);
+            tempInstant = cardsInHand[2];
+            tempCards.splice(index,1);
+            cardsInHand[2] = 0;
+            console.log(cardsInHand); 
+            ic_count = ic_count + 1;
+        }
+        else {
+            alert("you cannot play another instant card");
+        }     
+    }
+    else if(cardsInHand[2] <= 6){
+        if(pc_count == 0) {
+            document.getElementById("pointCenter").src="/assets/cards2/point" + cardsInHand[2] + ".png";
+            document.getElementById("steg-card3").src="";
+            console.log("/assets/cards2/point" + cardsInHand[2] + ".png");
+            let index = tempCards.indexOf(cardsInHand[2]);
+            played.push(cardsInHand[2]);
+            tempPoint = cardsInHand[2];
+            tempCards.splice(index,1);
+            cardsInHand[2] = 0;
+            console.log(cardsInHand);
+            pc_count = pc_count + 1; 
+        }
+        else {
+            alert("you cannot play another point card")
+        }    
+    } 
+    check();
+    // drawing_cards();
+};
+
+function playIt_4() {
+        if(cardsInHand[3] >= 7) {
+            if(ic_count == 0) {
+                document.getElementById("instantCenter").src="/assets/cards2/point" + cardsInHand[3] + ".png";
+                document.getElementById("steg-card4").src="";
+                let index = tempCards.indexOf(cardsInHand[3]);
+                played.push(cardsInHand[3]);
+                tempInstant = cardsInHand[3];
+                tempCards.splice(index,1);
+                cardsInHand[3] = 0;
+                console.log(cardsInHand); 
+                ic_count = ic_count + 1;
+            }
+            else {
+                alert("you cannot play another instant card");
+            } 
+        }
+        else if(cardsInHand[3] <= 6){
+            if(pc_count == 0) {
+                document.getElementById("pointCenter").src="/assets/cards2/point" + cardsInHand[3] + ".png";
+                document.getElementById("steg-card4").src="";
+                console.log("/assets/cards2/point" + cardsInHand[3] + ".png");
+                let index = tempCards.indexOf(cardsInHand[3]);
+                played.push(cardsInHand[3]);
+                tempPoint = cardsInHand[3];
+                tempCards.splice(index,1); 
+                cardsInHand[3] = 0;
+                pc_count = pc_count + 1;
+            }
+            else {
+                alert("you cannot play another point card");
+            }
+            
+        }
+    check();
+    // drawing_cards();
+};
+
+function playIt_5() {
+        if(cardsInHand[4] >= 7) {
+            if(ic_count == 0) {
+                document.getElementById("instantCenter").src="/assets/cards2/point" + cardsInHand[4] + ".png";
+                document.getElementById("steg-card5").src="";
+                let index = tempCards.indexOf(cardsInHand[4]);
+                played.push(cardsInHand[4]);
+                tempInstant = cardsInHand[4];
+                tempCards.splice(index,1);
+                cardsInHand[4] = 0;
+                ic_count = ic_count + 1; 
+            }
+            else {
+                alert("you cannot play another instant card");
+            }
+        }
+        else if(cardsInHand[4] <= 6){
+            if(pc_count == 0) {
+                document.getElementById("pointCenter").src="/assets/cards2/point" + cardsInHand[4] + ".png";
+                document.getElementById("steg-card5").src="";
+                console.log("/assets/cards2/point" + cardsInHand[4] + ".png");
+                let index = tempCards.indexOf(cardsInHand[4]);
+                played.push(cardsInHand[4]);
+                tempPoint = cardsInHand[4];
+                tempCards.splice(index,1);
+                cardsInHand[4] = 0;
+                pc_count = pc_count + 1;
+            }
+            else {
+                alert("you cannot play another point card");
+            }
+        }
+    check();
+    // drawing_cards();
+};
+
+// function drawing_cards() {
+//     if (cardsInHand > 5) {
+//         let n = myfunction2();
+//         n.splice(0, (a.length - 1))
+//         cardsInHand = cardsInHand + n;
+//     }
+// }
+
+//play button functions (change color when hover + appear when player plays a point card)
+function check() {
+    if(pc_count == 1) {
+        play.style.backgroundColor = '#F27F77';
+        play.style.cursor = 'pointer';
+    }
+}
+
+function hoverIn(x) {
+    if (pc_count == 1) {
+        x.style.backgroundColor = '#16d26a'; 
+        play.style.cursor = 'pointer'; 
+    }
+    else {
+        x.style.backgroundColor = 'black';
+    }
+    
+}
+
+function hoverOut(x) {
+    if (pc_count == 1) {
+        x.style.backgroundColor = '#F27F77';
+    }
+    else {
+        x.style.backgroundColor = 'black';
+    }
+}
 
 //DISASTER CARDS
 let disasters = [
@@ -154,7 +437,7 @@ let disasters = [
 ]
 
 function fu() {
-    if(disasters.length > 0) {
+    if (disasters.length > 0) {
         let idea = Math.round(Math.random() * disasters.length - .5);
         let card = disasters[idea];
         let x = disasters.splice(idea, 1);
@@ -186,13 +469,6 @@ let player_hand = deck.handA(deck.drawCards(5))
 // playing a point card
 let played_cards = [];
 
-for (let i = 0; i <= 5; i++) {
-    if(player_hand[i] ) {
-        played_cards = player_hand[i];
-        player_hand[i].remove;
-    }
-}
-
 // calc player card
 function calculate() {
     for (let i = 0; i <= 2; i++) {
@@ -212,13 +488,14 @@ for (let i = 0; i <= 50; i++) {
         let k = 5;
         let j = document.getElementsByClassName('cell' + k);
         let row = document.getElementById(j)
-        let col = document.getElementById(j.firstChild) 
+        let col = document.getElementById(j.firstChild)
         let temp_img = document.createElement('img')
         temp_img.src = "/assets/img/stego-meeple.png"
         let temporary = document.getElementById('col-' + row)
         temporary.appendChild(img);
     }
 }
+
 
  // calc player card simplified?
  // function calculate(played_cards, number) {
