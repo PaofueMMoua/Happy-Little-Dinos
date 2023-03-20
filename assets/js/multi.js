@@ -574,17 +574,3 @@ for (let i = 0; i <= 50; i++) {
   // el.style.transform = "translate3d(" + xPos + "px, " + yPos + "px, 0)";
 // }
 
-// AI Opponent //
-// function playOpponent() { 
-  // Get the current game state and hand of the AI opponent
-  // let gameState = getCurrentGameState();
-  // let hand = gameState.opponentHand;
-  
-  // Select a random card from the hand to play
-  // let randomIndex = Math.floor(Math.random() * hand.length);
-  // let cardToPlay = hand[randomIndex];
-  
-  // Play the selected card 
-  // playCard(cardToPlay);
-  // OK COMPUTER //   
-// }
