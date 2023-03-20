@@ -577,8 +577,8 @@ let ai_avg = (ai_hand[1] + ai_hand[2] + ai_hand[3] + ai_hand[4] + ai_hand[5] + a
 
 // single player things
 // AI
-let ai_hand = deck.ai_hand(deck.drawCards(5));
-ai_cardsInHand = []
+let ai_hand = ai_myfunction2();
+let ai_cardsInHand = []
 function ai_card_choice() {
     for (let i = 0; i <= 2; i++) {
         for (let x = 0; x <= 6; i++) {
@@ -614,16 +614,30 @@ function ai_myfunction2() {
     else {
         alert('Shuffling Cards');
         ai_allCards = [1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 3, 3, 4, 4, 4, 4, 4, 4, 4, 5, 5, 5, 5, 5, 5, 5, 6, 6, 6, 6, 6, 6, 6, 7, 7, 8, 8, 9, 9, 10, 10];
-    }
-    for (let i = 0; i <= 5; i++) {
-        for (j = 0; j <= 10; j++) {
-            if (ai_cardsInHand[i] == j) {
-                document.getElementById("steg-card" + [i + j]).src = "/assets/cards2/point" + j + ".png";
-            }
+        for (let i = 0; i < 5; i++) {
+            let number = Math.round(Math.random() * ai_allCards.length - .5);
+            let num = allCards[number];
+            ai_tempCards.push(num);
+            ai_cardsInHand.push(num);
+            ai_allCards.splice(number, 1);
+            console.log(allCards);
+            console.log(cardsInHand);
         }
     }
-    return ai_cardsInHandler;
 };
+
+function ai_testas() {
+    console.log(tempCards);
+    if (!tempCards.includes(1) && !tempCards.includes(2) && !tempCards.includes(3) && !tempCards.includes(4) && !tempCards.includes(5) && !tempCards.includes(6)) {
+        ai_myfunction2();
+    }
+    else {
+        alert("You cannot draw cards at the moment");
+        console.log("trash");
+    }
+}
+
+
 let ai_ab = ai_cardsInHand[0];
 
 let ai_played = [];
@@ -631,25 +645,25 @@ let ai_tempCards = [];
 let ai_tempInstant = 0;
 let ai_ic_count = 0;
 let ai_pc_count = 0
+let ai_totalPoints = 0;
+ai_temppoints = 0;
 
 function ai_playIt() {
     let x = Math.random(1, 5);
-    for (let Num = 0; Num >= 11; Num++) {
-        if (ai_cardsInHand[Num] >= 7) {
-            document.getElementById('ai_instantCenter').src = '/assets/cards2/point' + ai_cardsInHand[Num] + '.png';
-            document.getElementById('Bronto-card1').src = '';
-            let index = ai_temp.indexOf(ai_cardsInHand[Num]);
+        if (ai_cardsInHand[x] >= 7) {
+            document.getElementById('ai_instantCenter').src = '/assets/cards2/point' + ai_cardsInHand[x] + '.png';
+            document.getElementById('Bronto-card' + x).src = '';
+            let index = ai_tempCards.indexOf(ai_cardsInHand[x]);
             ai_tempCards.splice(index, 1);
-            ai_played.push(ai_cardsInHand[Num]);
-            ai_tempInstant = ai_cardsInHand[Num];
-            ai_cardsInHand[Num] = 0;
+            ai_played.push(ai_cardsInHand[x]);
+            ai_tempInstant = ai_cardsInHand[x];
+            ai_cardsInHand[x] = 0;
             ai_ic_count = ai_ic_count + 1;
         }
-    }
-    if (ai_cardsInHand[Num] <= 6) {
+    else if (ai_cardsInHand[x] <= 6) {
         if (ai_pc_count == 0) {
             document.getElementById("ai_pointCenter").src = "/assets/cards2/point" + ai_cardsInHand[x] + ".png";
-            document.getElementById("Bronto-card5").src = "";
+            document.getElementById("Bronto-card" + x).src = "";
             console.log("/assets/cards2/point" + ai_cardsInHand[x] + ".png");
             let index = ai_tempCards.indexOf(ai_cardsInHand[x]);
             ai_played.push(ai_cardsInHand[x]);
@@ -658,5 +672,17 @@ function ai_playIt() {
             ai_cardsInHand[x] = 0;
             ai_pc_count = ai_pc_count + 1;
         }
+        let m = Math.random(1, 5);
+        if (ai_cardsInHand[m] >= 7) {
+            document.getElementById('ai_instantCenter').src = '/assets/cards2/point' + ai_cardsInHand[m] + '.png';
+            document.getElementById('Bronto-card' + m).src = '';
+            let index = ai_tempCards.indexOf(ai_cardsInHand[m]);
+            ai_tempCards.splice(index, 1);
+            ai_played.push(ai_cardsInHand[m]);
+            ai_tempInstant = ai_cardsInHand[m];
+            ai_cardsInHand[m] = 0;
+            ai_ic_count = ai_ic_count + 1;
+        }
     }
 };
+console.log(ai_cardsInHand);
