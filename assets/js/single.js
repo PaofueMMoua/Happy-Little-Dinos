@@ -137,11 +137,12 @@ function testas() {
     }
 }
 
-//automates drawing new hand and alerts player when it is drawn - WORKING
+//automates drawing new hand and alerts player when it is drawn OR alert users when they can draw a new hand
 function vivaVida() {
     if(tempCards.length == 0 || !tempCards.includes(1) && !tempCards.includes(2) && !tempCards.includes(3) && !tempCards.includes(4) && !tempCards.includes(5) && !tempCards.includes(6)) {
-     alert("drawing new deck");
-     myfunction2();
+    alert("Draw a new hand from Main Deck")
+    //  alert("drawing new deck");
+    //  myfunction2();
      } 
  }
 
