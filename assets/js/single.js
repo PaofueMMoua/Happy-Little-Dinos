@@ -70,31 +70,31 @@ function myfunction2() {
     tempCards = [];
     let f = document.getElementById("reveal")
     f.style.display = 'none';
-        if (allCards.length > 4) {
-            for (let i = 0; i < 5; i++) {
-                let number = Math.round(Math.random() * allCards.length - .5);
-                let num = allCards[number];
-                tempCards.push(num);
-                cardsInHand.push(num);
-                allCards.splice(number, 1);
-                console.log(allCards);
-                console.log(cardsInHand);
-            }  
+    if (allCards.length > 4) {
+        for (let i = 0; i < 5; i++) {
+            let number = Math.round(Math.random() * allCards.length - .5);
+            let num = allCards[number];
+            tempCards.push(num);
+            cardsInHand.push(num);
+            allCards.splice(number, 1);
+            console.log(allCards);
+            console.log(cardsInHand);
         }
-        else {
-            alert('Shuffling Cards');
-            allCards = [1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, , 2, 2, 3, 3, 3, 3, 3, 3, 3, 4, 4, 4, 4, 4, 4, 4, 5, 5, 5, 5, 5, 5, 5, 6, 6, 6, 6, 6, 6, 6, 7, 7, 8, 8, 9, 9, 10, 10];
-            for (let i = 0; i < 5; i++) {
-                let number = Math.round(Math.random() * allCards.length - .5);
-                let num = allCards[number];
-                tempCards.push(num);
-                cardsInHand.push(num);
-                allCards.splice(number, 1);
-                console.log(allCards);
-                console.log(cardsInHand);
-            }  
+    }
+    else {
+        alert('Shuffling Cards');
+        allCards = [1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, , 2, 2, 3, 3, 3, 3, 3, 3, 3, 4, 4, 4, 4, 4, 4, 4, 5, 5, 5, 5, 5, 5, 5, 6, 6, 6, 6, 6, 6, 6, 7, 7, 8, 8, 9, 9, 10, 10];
+        for (let i = 0; i < 5; i++) {
+            let number = Math.round(Math.random() * allCards.length - .5);
+            let num = allCards[number];
+            tempCards.push(num);
+            cardsInHand.push(num);
+            allCards.splice(number, 1);
+            console.log(allCards);
+            console.log(cardsInHand);
         }
-    
+    }
+
     for (let i = 0; i <= 5; i++) {
         if (cardsInHand[i] == 1) {
             document.getElementById("steg-card" + [i + 1]).src = "/assets/cards2/point1.png";
@@ -133,8 +133,8 @@ function myfunction2() {
 // Only let users draw cards if they have no cards in their hand or only instant cards - WORKING
 function testas() {
     console.log(tempCards);
-    if(!tempCards.includes(1) && !tempCards.includes(2) && !tempCards.includes(3) && !tempCards.includes(4) && !tempCards.includes(5) && !tempCards.includes(6)) {
-        myfunction2(); 
+    if (!tempCards.includes(1) && !tempCards.includes(2) && !tempCards.includes(3) && !tempCards.includes(4) && !tempCards.includes(5) && !tempCards.includes(6)) {
+        myfunction2();
     }
     else {
         alert("You cannot draw cards at the moment");
@@ -144,12 +144,12 @@ function testas() {
 
 //automates drawing new hand and alerts player when it is drawn OR alert users when they can draw a new hand
 function vivaVida() {
-    if(tempCards.length == 0 || !tempCards.includes(1) && !tempCards.includes(2) && !tempCards.includes(3) && !tempCards.includes(4) && !tempCards.includes(5) && !tempCards.includes(6)) {
-    alert("Draw a new hand from Main Deck")
-    //  alert("drawing new deck");
-    //  myfunction2();
-     } 
- }
+    if (tempCards.length == 0 || !tempCards.includes(1) && !tempCards.includes(2) && !tempCards.includes(3) && !tempCards.includes(4) && !tempCards.includes(5) && !tempCards.includes(6)) {
+        alert("Draw a new hand from Main Deck")
+        //  alert("drawing new deck");
+        //  myfunction2();
+    }
+}
 
 //USERS WILL BE ABLE TO PLAY CARDS
 let pc_count = 0;
@@ -161,7 +161,7 @@ let tempPoints = 0;
 // let pointPoint = 0;
 let played = [];
 // let opp_instantPoints = 0;
- 
+
 let play = document.getElementById("playButton");
 
 // function calculatePoint() {
@@ -180,30 +180,30 @@ let play = document.getElementById("playButton");
 // }
 
 function instantCalc() {
-    if(tempInstant == 7) {
+    if (tempInstant == 7) {
         return instantPoints = 2;
     }
-    else if(tempInstant == 8) {
-       return instantPoints = 0;
+    else if (tempInstant == 8) {
+        return instantPoints = 0;
         // Disaster card is discarded   
     }
-    else if(tempInstant == 9) {
+    else if (tempInstant == 9) {
         return instantPoints = 0;
         // Disaster card goes to opponent
-     }
-     else if(tempInstant == 10) {
+    }
+    else if (tempInstant == 10) {
         opp_instantPoints = -2;
         return instantPoints = 0;
-     } else {
+    } else {
         return instantPoints = 0;
-     }
+    }
 }
 
 function calculatePoint() {
     pc_count = 0;
     ic_count = 0;
-    document.getElementById("instantCenter").src="/assets/cards2/main-empty.png";
-    document.getElementById("pointCenter").src="/assets/cards2/main-empty.png";
+    document.getElementById("instantCenter").src = "/assets/cards2/main-empty.png";
+    document.getElementById("pointCenter").src = "/assets/cards2/main-empty.png";
     totalPoints = tempPoints + instantCalc();
     directDisaster();
 }
@@ -213,47 +213,47 @@ function directDisaster() {
     let opp_totalPoints = Math.round(Math.random() * 10);
     console.log("opp points =" + opp_totalPoints);
     console.log("ur points =" + totalPoints);
-    if(totalPoints < opp_totalPoints) {
-        if(playerOne == "bronto") {
-           if(disasterCount <= 0) {
-                document.getElementById("brontoDisaster1").src="/assets/img/" + "blue" + "-disaster.png";
-                disasterCount = disasterCount + 1;
-            } 
-            else if(disasterCount == 1) {
-                document.getElementById("brontoDisaster2").src="/assets/img/" + "blue" + "-disaster.png";
+    if (totalPoints < opp_totalPoints) {
+        if (playerOne == "bronto") {
+            if (disasterCount <= 0) {
+                document.getElementById("brontoDisaster1").src = "/assets/img/" + "blue" + "-disaster.png";
                 disasterCount = disasterCount + 1;
             }
-            else if(disasterCount == 2) {
-                document.getElementById("brontoDisaster3").src="/assets/img/" + "blue" + "-disaster.png";
+            else if (disasterCount == 1) {
+                document.getElementById("brontoDisaster2").src = "/assets/img/" + "blue" + "-disaster.png";
                 disasterCount = disasterCount + 1;
             }
-            else if(disasterCount == 3) {
-                document.getElementById("brontoDisaster4").src="/assets/img/" + "blue" + "-disaster.png";
+            else if (disasterCount == 2) {
+                document.getElementById("brontoDisaster3").src = "/assets/img/" + "blue" + "-disaster.png";
                 disasterCount = disasterCount + 1;
             }
-            else if(disasterCount == 4) {
-                document.getElementById("brontoDisaster5").src="/assets/img/" + "blue" + "-disaster.png";
-                disasterCount = disasterCount + 1;
-            } 
-        } else if(playerOne == "stego") {
-            if(disasterCount == 0) {
-                document.getElementById("stegoDisaster1").src="/assets/img/" + "blue" + "-disaster.png";
-                disasterCount = disasterCount + 1;
-            } 
-            else if(disasterCount == 1) {
-                document.getElementById("stegoDisaster2").src="/assets/img/" + "blue" + "-disaster.png";
+            else if (disasterCount == 3) {
+                document.getElementById("brontoDisaster4").src = "/assets/img/" + "blue" + "-disaster.png";
                 disasterCount = disasterCount + 1;
             }
-            else if(disasterCount == 2) {
-                document.getElementById("stegoDisaster3").src="/assets/img/" + "blue" + "-disaster.png";
+            else if (disasterCount == 4) {
+                document.getElementById("brontoDisaster5").src = "/assets/img/" + "blue" + "-disaster.png";
                 disasterCount = disasterCount + 1;
             }
-            else if(disasterCount == 3) {
-                document.getElementById("stegoDisaster4").src="/assets/img/" + "blue" + "-disaster.png";
+        } else if (playerOne == "stego") {
+            if (disasterCount == 0) {
+                document.getElementById("stegoDisaster1").src = "/assets/img/" + "blue" + "-disaster.png";
                 disasterCount = disasterCount + 1;
             }
-            else if(disasterCount == 4) {
-                document.getElementById("stegoDisaster5").src="/assets/img/" + "blue" + "-disaster.png";
+            else if (disasterCount == 1) {
+                document.getElementById("stegoDisaster2").src = "/assets/img/" + "blue" + "-disaster.png";
+                disasterCount = disasterCount + 1;
+            }
+            else if (disasterCount == 2) {
+                document.getElementById("stegoDisaster3").src = "/assets/img/" + "blue" + "-disaster.png";
+                disasterCount = disasterCount + 1;
+            }
+            else if (disasterCount == 3) {
+                document.getElementById("stegoDisaster4").src = "/assets/img/" + "blue" + "-disaster.png";
+                disasterCount = disasterCount + 1;
+            }
+            else if (disasterCount == 4) {
+                document.getElementById("stegoDisaster5").src = "/assets/img/" + "blue" + "-disaster.png";
                 disasterCount = disasterCount + 1;
             }
         }
@@ -263,35 +263,35 @@ function directDisaster() {
 
 //Play cards in the center - WORKING 
 function playIt_1() {
-    if(cardsInHand[0] >= 7) {
-        if(ic_count == 0) {
+    if (cardsInHand[0] >= 7) {
+        if (ic_count == 0) {
             // console.log(tempCards);
-            document.getElementById("instantCenter").src="/assets/cards2/point" + cardsInHand[0] + ".png";
-            document.getElementById("steg-card1").src="";
+            document.getElementById("instantCenter").src = "/assets/cards2/point" + cardsInHand[0] + ".png";
+            document.getElementById("steg-card1").src = "";
             let index = tempCards.indexOf(cardsInHand[0]);
-            tempCards.splice(index,1);
+            tempCards.splice(index, 1);
             played.push(cardsInHand[0]);
             tempInstant = cardsInHand[0];
-            cardsInHand[0] = 0; 
+            cardsInHand[0] = 0;
             console.log(cardsInHand);
             ic_count = ic_count + 1;
             console.log(ic_count);
         }
         else {
             alert("you cannot play another instant card");
-        }           
+        }
     }
-    else if(cardsInHand[0] <= 6){
-        if(pc_count == 0) {
+    else if (cardsInHand[0] <= 6) {
+        if (pc_count == 0) {
             // console.log(tempCards);
-            document.getElementById("pointCenter").src="/assets/cards2/point" + cardsInHand[0] + ".png";
-            document.getElementById("steg-card1").src="";
+            document.getElementById("pointCenter").src = "/assets/cards2/point" + cardsInHand[0] + ".png";
+            document.getElementById("steg-card1").src = "";
             console.log("/assets/cards2/point" + cardsInHand[0] + ".png");
             let index = tempCards.indexOf(cardsInHand[0]);
             played.push(cardsInHand[0]);
             tempPoints = cardsInHand[0];
-            tempCards.splice(index,1);
-            cardsInHand[0] = 0; 
+            tempCards.splice(index, 1);
+            cardsInHand[0] = 0;
             console.log(cardsInHand);
             pc_count = pc_count + 1;
             console.log(pc_count);
@@ -305,16 +305,16 @@ function playIt_1() {
 };
 
 function playIt_2() {
-    if(cardsInHand[1] >= 7) {
-        if(ic_count == 0) {
-            document.getElementById("instantCenter").src="/assets/cards2/point" + cardsInHand[1] + ".png";
-            document.getElementById("steg-card2").src="";
+    if (cardsInHand[1] >= 7) {
+        if (ic_count == 0) {
+            document.getElementById("instantCenter").src = "/assets/cards2/point" + cardsInHand[1] + ".png";
+            document.getElementById("steg-card2").src = "";
             let index = tempCards.indexOf(cardsInHand[1]);
             played.push(cardsInHand[1]);
             tempInstant = cardsInHand[1];
-            tempCards.splice(index,1);
+            tempCards.splice(index, 1);
             cardsInHand[1] = 0;
-            console.log(cardsInHand);  
+            console.log(cardsInHand);
             ic_count = ic_count + 1;
             console.log(ic_count);
         }
@@ -322,15 +322,15 @@ function playIt_2() {
             alert("you cannot play another instant card");
         }
     }
-    else if(cardsInHand[1] <= 6){
-        if(pc_count == 0) {
-            document.getElementById("pointCenter").src="/assets/cards2/point" + cardsInHand[1] + ".png";
-            document.getElementById("steg-card2").src="";
+    else if (cardsInHand[1] <= 6) {
+        if (pc_count == 0) {
+            document.getElementById("pointCenter").src = "/assets/cards2/point" + cardsInHand[1] + ".png";
+            document.getElementById("steg-card2").src = "";
             console.log("/assets/cards2/point" + cardsInHand[1] + ".png");
             let index = tempCards.indexOf(cardsInHand[1]);
             played.push(cardsInHand[1]);
             tempPoints = cardsInHand[1];
-            tempCards.splice(index,1);
+            tempCards.splice(index, 1);
             cardsInHand[1] = 0;
             console.log(cardsInHand);
             pc_count = pc_count + 1;
@@ -338,120 +338,120 @@ function playIt_2() {
         }
         else {
             alert("you cannot play another point card");
-        }    
+        }
     }
-    check(); 
+    check();
     // drawing_cards();
 };
 
 function playIt_3() {
-    if(cardsInHand[2] >= 7) {
-        if(ic_count == 0) {
-            document.getElementById("instantCenter").src="/assets/cards2/point" + cardsInHand[2] + ".png";
-            document.getElementById("steg-card3").src="";
+    if (cardsInHand[2] >= 7) {
+        if (ic_count == 0) {
+            document.getElementById("instantCenter").src = "/assets/cards2/point" + cardsInHand[2] + ".png";
+            document.getElementById("steg-card3").src = "";
             let index = tempCards.indexOf(cardsInHand[2]);
             played.push(cardsInHand[2]);
             tempInstant = cardsInHand[2];
-            tempCards.splice(index,1);
+            tempCards.splice(index, 1);
             cardsInHand[2] = 0;
-            console.log(cardsInHand); 
+            console.log(cardsInHand);
             ic_count = ic_count + 1;
         }
         else {
             alert("you cannot play another instant card");
-        }     
+        }
     }
-    else if(cardsInHand[2] <= 6){
-        if(pc_count == 0) {
-            document.getElementById("pointCenter").src="/assets/cards2/point" + cardsInHand[2] + ".png";
-            document.getElementById("steg-card3").src="";
+    else if (cardsInHand[2] <= 6) {
+        if (pc_count == 0) {
+            document.getElementById("pointCenter").src = "/assets/cards2/point" + cardsInHand[2] + ".png";
+            document.getElementById("steg-card3").src = "";
             console.log("/assets/cards2/point" + cardsInHand[2] + ".png");
             let index = tempCards.indexOf(cardsInHand[2]);
             played.push(cardsInHand[2]);
             tempPoints = cardsInHand[2];
-            tempCards.splice(index,1);
+            tempCards.splice(index, 1);
             cardsInHand[2] = 0;
             console.log(cardsInHand);
-            pc_count = pc_count + 1; 
+            pc_count = pc_count + 1;
         }
         else {
             alert("you cannot play another point card")
-        }    
-    } 
+        }
+    }
     check();
     // drawing_cards();
 };
 
 function playIt_4() {
-        if(cardsInHand[3] >= 7) {
-            if(ic_count == 0) {
-                document.getElementById("instantCenter").src="/assets/cards2/point" + cardsInHand[3] + ".png";
-                document.getElementById("steg-card4").src="";
-                let index = tempCards.indexOf(cardsInHand[3]);
-                played.push(cardsInHand[3]);
-                tempInstant = cardsInHand[3];
-                tempCards.splice(index,1);
-                cardsInHand[3] = 0;
-                console.log(cardsInHand); 
-                ic_count = ic_count + 1;
-            }
-            else {
-                alert("you cannot play another instant card");
-            } 
+    if (cardsInHand[3] >= 7) {
+        if (ic_count == 0) {
+            document.getElementById("instantCenter").src = "/assets/cards2/point" + cardsInHand[3] + ".png";
+            document.getElementById("steg-card4").src = "";
+            let index = tempCards.indexOf(cardsInHand[3]);
+            played.push(cardsInHand[3]);
+            tempInstant = cardsInHand[3];
+            tempCards.splice(index, 1);
+            cardsInHand[3] = 0;
+            console.log(cardsInHand);
+            ic_count = ic_count + 1;
         }
-        else if(cardsInHand[3] <= 6){
-            if(pc_count == 0) {
-                document.getElementById("pointCenter").src="/assets/cards2/point" + cardsInHand[3] + ".png";
-                document.getElementById("steg-card4").src="";
-                console.log("/assets/cards2/point" + cardsInHand[3] + ".png");
-                let index = tempCards.indexOf(cardsInHand[3]);
-                played.push(cardsInHand[3]);
-                tempPoints = cardsInHand[3];
-                tempCards.splice(index,1); 
-                cardsInHand[3] = 0;
-                pc_count = pc_count + 1;
-            }
-            else {
-                alert("you cannot play another point card");
-            }
-            
+        else {
+            alert("you cannot play another instant card");
         }
+    }
+    else if (cardsInHand[3] <= 6) {
+        if (pc_count == 0) {
+            document.getElementById("pointCenter").src = "/assets/cards2/point" + cardsInHand[3] + ".png";
+            document.getElementById("steg-card4").src = "";
+            console.log("/assets/cards2/point" + cardsInHand[3] + ".png");
+            let index = tempCards.indexOf(cardsInHand[3]);
+            played.push(cardsInHand[3]);
+            tempPoints = cardsInHand[3];
+            tempCards.splice(index, 1);
+            cardsInHand[3] = 0;
+            pc_count = pc_count + 1;
+        }
+        else {
+            alert("you cannot play another point card");
+        }
+
+    }
     check();
     // drawing_cards();
 };
 
 function playIt_5() {
-        if(cardsInHand[4] >= 7) {
-            if(ic_count == 0) {
-                document.getElementById("instantCenter").src="/assets/cards2/point" + cardsInHand[4] + ".png";
-                document.getElementById("steg-card5").src="";
-                let index = tempCards.indexOf(cardsInHand[4]);
-                played.push(cardsInHand[4]);
-                tempInstant = cardsInHand[4];
-                tempCards.splice(index,1);
-                cardsInHand[4] = 0;
-                ic_count = ic_count + 1; 
-            }
-            else {
-                alert("you cannot play another instant card");
-            }
+    if (cardsInHand[4] >= 7) {
+        if (ic_count == 0) {
+            document.getElementById("instantCenter").src = "/assets/cards2/point" + cardsInHand[4] + ".png";
+            document.getElementById("steg-card5").src = "";
+            let index = tempCards.indexOf(cardsInHand[4]);
+            played.push(cardsInHand[4]);
+            tempInstant = cardsInHand[4];
+            tempCards.splice(index, 1);
+            cardsInHand[4] = 0;
+            ic_count = ic_count + 1;
         }
-        else if(cardsInHand[4] <= 6){
-            if(pc_count == 0) {
-                document.getElementById("pointCenter").src="/assets/cards2/point" + cardsInHand[4] + ".png";
-                document.getElementById("steg-card5").src="";
-                console.log("/assets/cards2/point" + cardsInHand[4] + ".png");
-                let index = tempCards.indexOf(cardsInHand[4]);
-                played.push(cardsInHand[4]);
-                tempPoints = cardsInHand[4];
-                tempCards.splice(index,1);
-                cardsInHand[4] = 0;
-                pc_count = pc_count + 1;
-            }
-            else {
-                alert("you cannot play another point card");
-            }
+        else {
+            alert("you cannot play another instant card");
         }
+    }
+    else if (cardsInHand[4] <= 6) {
+        if (pc_count == 0) {
+            document.getElementById("pointCenter").src = "/assets/cards2/point" + cardsInHand[4] + ".png";
+            document.getElementById("steg-card5").src = "";
+            console.log("/assets/cards2/point" + cardsInHand[4] + ".png");
+            let index = tempCards.indexOf(cardsInHand[4]);
+            played.push(cardsInHand[4]);
+            tempPoints = cardsInHand[4];
+            tempCards.splice(index, 1);
+            cardsInHand[4] = 0;
+            pc_count = pc_count + 1;
+        }
+        else {
+            alert("you cannot play another point card");
+        }
+    }
     check();
     // drawing_cards();
 };
@@ -466,7 +466,7 @@ function playIt_5() {
 
 //play button functions (change color when hover + appear when player plays a point card)
 function check() {
-    if(pc_count == 1) {
+    if (pc_count == 1) {
         play.style.backgroundColor = '#F27F77';
         play.style.cursor = 'pointer';
     }
@@ -474,13 +474,13 @@ function check() {
 
 function hoverIn(x) {
     if (pc_count == 1) {
-        x.style.backgroundColor = '#16d26a'; 
-        play.style.cursor = 'pointer'; 
+        x.style.backgroundColor = '#16d26a';
+        play.style.cursor = 'pointer';
     }
     else {
         x.style.backgroundColor = 'black';
     }
-    
+
 }
 
 function hoverOut(x) {
@@ -575,6 +575,7 @@ for (let i = 0; i <= 50; i++) {
 let ai_avg = (ai_hand[1] + ai_hand[2] + ai_hand[3] + ai_hand[4] + ai_hand[5] + ai_hand[6]) / ai_hand.length;
 
     
+let ai_avg = (ai_hand[1] + ai_hand[2] + ai_hand[3] + ai_hand[4] + ai_hand[5] + ai_hand[6]) / ai_hand.length;
 
 // single player things
 // AI
@@ -602,19 +603,19 @@ ai_cardsInHand = [];
 function ai_myfunction2() {
     let f = document.getElementById("reveal")
     f.style.display = 'none';
-    if (allCards.length > 4) {
+    if (ai_allCards.length > 4) {
         for (let i = 0; i < 5; i++) {
-            let number = Math.round(Math.random() * allCards.length - .5);
-            let num = allCards[number];
-            cardsInHand.push(num);
-            let l = allCards.splice(number, 1);
-            console.log(allCards);
-            console.log(cardsInHand);
+            let number = Math.round(Math.random() * ai_allCards.length - .5);
+            let num = ai_allCards[number];
+            ai_cardsInHand.push(num);
+            let l = ai_allCards.splice(number, 1);
+            console.log(ai_allCards);
+            console.log(ai_cardsInHand);
         }
     }
     else {
         alert('Shuffling Cards');
-        allCards = [1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 3, 3, 4, 4, 4, 4, 4, 4, 4, 5, 5, 5, 5, 5, 5, 5, 6, 6, 6, 6, 6, 6, 6, 7, 7, 8, 8, 9, 9, 10, 10];
+        ai_allCards = [1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 3, 3, 4, 4, 4, 4, 4, 4, 4, 5, 5, 5, 5, 5, 5, 5, 6, 6, 6, 6, 6, 6, 6, 7, 7, 8, 8, 9, 9, 10, 10];
     }
     for (let i = 0; i <= 5; i++) {
         for (j = 0; j <= 10; j++) {
@@ -636,26 +637,26 @@ let ai_pc_count = 0
 function ai_playIt() {
     let x = Math.random(1, 5);
     for (let Num = 0; Num >= 11; Num++) {
-        if (ai_cardsInHand[Num] >=7) {
-        document.getElementById('ai_instantCenter').src = '/assets/cards2/point' + ai_cardsInHand[Num] + '.png';
-        document.getElementById('Bronto-card1').src = '';
-        let index = ai_temp.indexOf(ai_cardsInHand[Num]);
-        ai_tempCards.splice(index,1);
-        ai_played.push(ai_cardsInHand[Num]);
-        ai_tempInstant = ai_cardsInHand[Num];
-        ai_cardsInHand[Num] = 0;
-        ai_ic_count = ai_ic_count + 1;
+        if (ai_cardsInHand[Num] >= 7) {
+            document.getElementById('ai_instantCenter').src = '/assets/cards2/point' + ai_cardsInHand[Num] + '.png';
+            document.getElementById('Bronto-card1').src = '';
+            let index = ai_temp.indexOf(ai_cardsInHand[Num]);
+            ai_tempCards.splice(index, 1);
+            ai_played.push(ai_cardsInHand[Num]);
+            ai_tempInstant = ai_cardsInHand[Num];
+            ai_cardsInHand[Num] = 0;
+            ai_ic_count = ai_ic_count + 1;
+        }
     }
-    }
-    if(ai_cardsInHand[Num] <= 6){
-        if(ai_pc_count == 0) {
-            document.getElementById("ai_pointCenter").src="/assets/cards2/point" + ai_cardsInHand[x] + ".png";
-            document.getElementById("Bronto-card5").src="";
+    if (ai_cardsInHand[Num] <= 6) {
+        if (ai_pc_count == 0) {
+            document.getElementById("ai_pointCenter").src = "/assets/cards2/point" + ai_cardsInHand[x] + ".png";
+            document.getElementById("Bronto-card5").src = "";
             console.log("/assets/cards2/point" + ai_cardsInHand[x] + ".png");
             let index = ai_tempCards.indexOf(ai_cardsInHand[x]);
             ai_played.push(ai_cardsInHand[x]);
             ai_tempPoint = ai_cardsInHand[x];
-            ai_tempCards.splice(index,1);
+            ai_tempCards.splice(index, 1);
             ai_cardsInHand[x] = 0;
             ai_pc_count = ai_pc_count + 1;
         }
