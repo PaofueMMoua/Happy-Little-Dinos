@@ -150,10 +150,12 @@ function vivaVida() {
 let pc_count = 0;
 let ic_count = 0;
 let totalPoints = 0;
+let instantPoints = 0;
 let tempPoints = 0;
-let pointPoint = 0;
+// let pointPoint = 0;
 let played = [];
-let tempInstant = 0;
+let opp_instantPoints = 0;
+ 
 let play = document.getElementById("playButton");
 
 // function calculatePoint() {
@@ -169,16 +171,43 @@ let play = document.getElementById("playButton");
 //     totalPoints = totalPoints + tempPoints;
 //     console.log(tempPoints);
 //     console.log(totalPoints);
-
 // }
 
+function instantCalc() {
+    if(tempInstant == 7) {
+        instantPoints = 2;
+    }
+    if(tempInstant == 8) {
+       instantPoints = 0;
+        // Disaster card is discarded   
+    }
+    if(tempInstant == 9) {
+        instantPoints = 0;
+        // Disaster card goes to opponent
+     }
+     if(tempInstant == 10) {
+        opp_instantPoints = -2;
+        instantPoints = 0;
+     }
+}
+
 function calculatePoint() {
-    pc_count=0;
-    ic_count=0;
+    totalPoints = tempPoints + instantCalc();
+    pc_count = 0;
+    ic_count = 0;
     document.getElementById("instantCenter").src="/assets/cards2/main-empty.png";
     document.getElementById("pointCenter").src="/assets/cards2/main-empty.png";
     vivaVida();
 }
+
+// function directDisaster {
+//     if(totalPoints < opp_totalPoints) {
+//         if(disasterCount == 0) {
+//           document.getElementById("")
+//         }
+        
+//     }
+// }
 
 //Play cards in the center - WORKING 
 function playIt_1() {
@@ -208,7 +237,7 @@ function playIt_1() {
             console.log("/assets/cards2/point" + cardsInHand[0] + ".png");
             let index = tempCards.indexOf(cardsInHand[0]);
             played.push(cardsInHand[0]);
-            tempPoint = cardsInHand[0];
+            tempPoints = cardsInHand[0];
             tempCards.splice(index,1);
             cardsInHand[0] = 0; 
             console.log(cardsInHand);
@@ -248,7 +277,7 @@ function playIt_2() {
             console.log("/assets/cards2/point" + cardsInHand[1] + ".png");
             let index = tempCards.indexOf(cardsInHand[1]);
             played.push(cardsInHand[1]);
-            tempPoint = cardsInHand[1];
+            tempPoints = cardsInHand[1];
             tempCards.splice(index,1);
             cardsInHand[1] = 0;
             console.log(cardsInHand);
@@ -287,7 +316,7 @@ function playIt_3() {
             console.log("/assets/cards2/point" + cardsInHand[2] + ".png");
             let index = tempCards.indexOf(cardsInHand[2]);
             played.push(cardsInHand[2]);
-            tempPoint = cardsInHand[2];
+            tempPoints = cardsInHand[2];
             tempCards.splice(index,1);
             cardsInHand[2] = 0;
             console.log(cardsInHand);
@@ -325,7 +354,7 @@ function playIt_4() {
                 console.log("/assets/cards2/point" + cardsInHand[3] + ".png");
                 let index = tempCards.indexOf(cardsInHand[3]);
                 played.push(cardsInHand[3]);
-                tempPoint = cardsInHand[3];
+                tempPoints = cardsInHand[3];
                 tempCards.splice(index,1); 
                 cardsInHand[3] = 0;
                 pc_count = pc_count + 1;
@@ -362,7 +391,7 @@ function playIt_5() {
                 console.log("/assets/cards2/point" + cardsInHand[4] + ".png");
                 let index = tempCards.indexOf(cardsInHand[4]);
                 played.push(cardsInHand[4]);
-                tempPoint = cardsInHand[4];
+                tempPoints = cardsInHand[4];
                 tempCards.splice(index,1);
                 cardsInHand[4] = 0;
                 pc_count = pc_count + 1;
@@ -433,8 +462,8 @@ function fu() {
     if (disasters.length > 0) {
         let idea = Math.round(Math.random() * disasters.length - .5);
         let card = disasters[idea];
-        let x = disasters.splice(idea, 1);
-        let image = "/assets/cards2/" + card[0] + ".png";
+        disasters.splice(idea, 1);
+        document.getElementById("disaster-deck").src = "/assets/cards2/" + card[0] + ".png";
     }
     else {
         disasters = [
