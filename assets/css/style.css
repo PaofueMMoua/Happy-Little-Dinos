@@ -561,7 +561,8 @@ h3,
 
 .play2 {
     position:relative;
-    left:8.5vw
+    left:8.5vw;
+    width: fit-content;
 }
 
 .hover {
