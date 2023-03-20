@@ -559,23 +559,21 @@ function calculate() {
 // Update score and check for cell color change
 score += point;
 for (let i = 0; i <= 50; i++) {
-  if (score === i) { 
-    let k = 5; 
+  if (score === i) {
+    let k = 5;
     let j = document.getElementsByClassName('cell' + k);
     let row = document.getElementById(j);
     let col = document.getElementById(j.firstChild);
     let temp_img = document.createElement('img');
     temp_img.src = "/assets/img/stego-meeple.png";
     let temporary = document.getElementById('col-' + row);
-    temporary.appendChild(temp_img); 
+    temporary.appendChild(temp_img);
   }
 }
 
-// Calculate AI average hand value 
+// Calculate AI average hand value
 let ai_avg = (ai_hand[1] + ai_hand[2] + ai_hand[3] + ai_hand[4] + ai_hand[5] + ai_hand[6]) / ai_hand.length;
 
-    
-let ai_avg = (ai_hand[1] + ai_hand[2] + ai_hand[3] + ai_hand[4] + ai_hand[5] + ai_hand[6]) / ai_hand.length;
 
 // single player things
 // AI
