@@ -149,11 +149,11 @@ function testas() {
 function vivaVida() {
     if(tempCards.length == 0 || !tempCards.includes(1) && !tempCards.includes(2) && !tempCards.includes(3) && !tempCards.includes(4) && !tempCards.includes(5) && !tempCards.includes(6)) {
      alert("drawing new deck");
-     myfunction2();
+     myfunction2(); 
      } 
  }
 
-//USERS WILL BE ABLE TO PLAY CARDS
+//USERS WILL BE ABLE TO PLAY CARDS 
 let pc_count = 0;
 let ic_count = 0;
 let totalPoints = 0;
@@ -166,7 +166,7 @@ let play = document.getElementById("playButton");
 // function calculatePoint() {
 //     //don't forget if statement for if player has a higher card score than player 2 or AI
 //     let instantPoints = 0;
-//     if(tempInstant == 7) {
+//     if(tempInstant == 7) { 
 //         instantPoints = 2
 //     }
 //     else {
@@ -177,7 +177,8 @@ let play = document.getElementById("playButton");
 //     console.log(tempPoints);
 //     console.log(totalPoints);
 
-// }
+
+// } 
 
 function calculatePoint() {
     pc_count=0;
@@ -188,7 +189,7 @@ function calculatePoint() {
 }
 
 //Play cards in the center - WORKING 
-function playIt_1() {
+function playIt_1() { 
     if(cardsInHand[0] >= 7) {
         if(ic_count == 0) {
             // console.log(tempCards);
