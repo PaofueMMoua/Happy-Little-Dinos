@@ -175,19 +175,93 @@ function opp_play() {
         document.getElementById("ai_pointCenter").src = "/assets/cards2/point" + lowNum[lowIndex] + ".png";
         let l = opp_hand.indexOf(lowNum[lowIndex]);
         opp_hand.splice(l, 1);
-        lowNum.splice(lowIndex, 1);
+        opp_tempPoints = lowNum.splice(lowIndex, 1);
         console.log(opp_hand);
     }
 
     if(highNum.length >= 1) {
         document.getElementById("ai_instantCenter").src = "/assets/cards2/point" + highNum[highIndex] + ".png"
-        highNum.splice(highIndex, 1);
+        opp_tempInstant = highNum.splice(highIndex, 1);
         let p = opp_hand.indexOf(highNum[highIndex]);
         opp_hand.splice(p, 1);
         console.log(opp_hand);
     } 
     else {
         document.getElementById("ai_instantCenter").src = "/assets/cards2/main-empty.png"
+    }
+}
+
+//CALCULATING WINNER 
+let totalPoints = 0;
+let instantPoints = 0;
+let tempInstant = 0;
+let tempPoints = 0;
+let color
+let played = [];
+let opp_instantPoints = 0;
+let opp_tempPoints = 0;
+let opp_totalPoints = 0;
+let opp_tempInstant = 0;
+
+
+//calculate player one total points for the round - called in HTML #playButton
+function calculatePoint() {
+    opp_play();
+    pc_count = 0;
+    ic_count = 0;
+    totalPoints = tempPoints + instantCalc() +  instantPoints;
+    opp_totalPoints = opp_tempPoints + opp_instantPoints + opp_instantPlay();
+    directDisaster();
+    // setTimeout(disposeCards, 5000);
+    // disposeCards();
+    
+}
+
+function opp_instantPlay() {
+    if (opp_tempInstant == 7) {
+        return opp_instantPoints = 2;
+    }
+    else if (opp_tempInstant == 8) {
+        // document.getElementById("disaster-deck").src = ''
+        return instantPoints = 0; 
+        //disaster card is discarded
+        
+    }
+    else if (opp_tempInstant == 9) {
+        return instantPoints = 0;
+        // Disaster card goes to opponent
+    }
+    else if (opp_tempInstantt == 10) {
+        opp_instantPoints = -2;
+        return instantPoints = 0;
+    } 
+    else {
+        return instantPoints = 0;
+    }
+}
+
+// checks if instant cards will affect player one's results for the round - called in function calculatePoint()
+function instantCalc() {
+    opp_instantPoints = 0;
+    if (tempInstant == 7) {
+        return instantPoints = 2;
+    }
+    else if (tempInstant == 8) {
+        // document.getElementById("disaster-deck").src = ''
+        return instantPoints = 0; 
+        //disaster card is discarded
+        
+    }
+    else if (tempInstant == 9) {
+        return instantPoints = 0;
+        // Disaster card goes to opponent
+    }
+    else if (tempInstant == 10) {
+        opp_instantPoints = -2;
+        return instantPoints = 0;
+    } 
+    else {
+        return instantPoints = 0;
     }
 }
 
@@ -451,47 +525,6 @@ function hoverOut(x) {
     }
 }
 
-//CALCULATING WINNER 
-let totalPoints = 0;
-let instantPoints = 0;
-let tempInstant = 0;
-let tempPoints = 0;
-let color
-let played = [];
-let opp_instantPoints = 0;
-
-//calculate player one total points for the round - called in HTML #playButton
-function calculatePoint() {
-    opp_play();
-    pc_count = 0;
-    ic_count = 0;
-    totalPoints = tempPoints + instantCalc();
-    alert("Dispose your cards");
-    directDisaster();
-}
-    
-// checks if instant cards will affect player one's results for the round - called in function calculatePoint()
-function instantCalc() {
-    if (tempInstant == 7) {
-        return instantPoints = 2;
-    }
-    else if (tempInstant == 8) {
-        return instantPoints = 0; 
-        //disaster card is discarded
-    }
-    else if (tempInstant == 9) {
-        return instantPoints = 0;
-        // Disaster card goes to opponent
-    }
-    else if (tempInstant == 10) {
-        opp_instantPoints = -2;
-        return instantPoints = 0;
-    } 
-    else {
-        return instantPoints = 0;
-    }
-}
-
 //DISASTER CARDS
 let player_disCount = 0;
 let opp_disCount = 0;
@@ -560,6 +593,7 @@ function directDisaster() {
     }
     vivaVida();
     check_opp_hand();
+    // setTimeout(disposeCards(), 5000);
 }
 
 //If player one loses disaster card will be assigned to player one - called in function directDisaster()
@@ -609,15 +643,15 @@ function win() {
 }
 
 function disposeCards() {
-    if(pc_count == 0 && ic_count == 0) {
+    // if(pc_count == 0 && ic_count == 0) {
     document.getElementById("instantCenter").src = "/assets/cards2/main-empty.png";
     document.getElementById("pointCenter").src = "/assets/cards2/main-empty.png";
     document.getElementById("ai_pointCenter").src = "/assets/cards2/main-empty.png";
     document.getElementById("ai_instantCenter").src = "/assets/cards2/main-empty.png";
-    }
-    else {
-        alert("you cannot dispose cards at the moment");
-    }  
+    // }
+    // else {
+    //     alert("you cannot dispose cards at the moment");
+    // }  
 }
 
 //AI CODE
