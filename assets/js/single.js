@@ -140,16 +140,25 @@ function testas() {
     console.log(tempCards);
     if (!tempCards.includes(1) && !tempCards.includes(2) && !tempCards.includes(3) && !tempCards.includes(4) && !tempCards.includes(5) && !tempCards.includes(6)) {
         myfunction2();
+        firstDisaster();
     }
     else {
         alert("You cannot draw cards at the moment");
     }
 }
 
+let v = 0;
+function firstDisaster() {
+    if(v == 0) {
+        fu();
+        v = 1;
+    }
+}
+
 //automates drawing new hand and alerts player when it is drawn OR alert users when they can draw a new hand
 function vivaVida() {
     if (tempCards.length == 0 || !tempCards.includes(1) && !tempCards.includes(2) && !tempCards.includes(3) && !tempCards.includes(4) && !tempCards.includes(5) && !tempCards.includes(6)) {
-        alert("Draw a new hand from Main Deck")
+        alert("draw a new hand from Main Deck");
         //  alert("drawing new deck");
         //  myfunction2();
     }
@@ -162,6 +171,7 @@ let totalPoints = 0;
 let instantPoints = 0;
 let tempInstant = 0;
 let tempPoints = 0;
+let color
 // let pointPoint = 0;
 let played = [];
 // let opp_instantPoints = 0;
@@ -177,6 +187,7 @@ function instantCalc() {
         // Disaster card is discarded   
     }
     else if (tempInstant == 9) {
+    
         return instantPoints = 0;
         // Disaster card goes to opponent
     }
@@ -211,98 +222,50 @@ function directDisaster() {
     } else if(totalPoints == opp_totalPoints) {
         alert("tie");
     }
-    // vivaVida();
+    vivaVida();
 }
 
 function lose() {
     if (playerOne == "bronto") {
-        if (player_disCount == 0) {
-            document.getElementById("brontoDisaster1").src = "/assets/img/" + "blue" + "-disaster.png";
-            player_disCount = player_disCount + 1;
+        for(let i = 0; i < 5; i++) {
+            if(player_disCount == i) {
+                document.getElementById("brontoDisaster" + (i + 1)).src = "/assets/img/" + color + "-disaster.png";
+            }
         }
-        else if (player_disCount == 1) {
-            document.getElementById("brontoDisaster2").src = "/assets/img/" + "blue" + "-disaster.png";
-            player_disCount = player_disCount + 1;
-        }
-        else if (player_disCount == 2) {
-            document.getElementById("brontoDisaster3").src = "/assets/img/" + "blue" + "-disaster.png";
-            player_disCount = player_disCount + 1;
-        }
-        else if (player_disCount == 3) {
-            document.getElementById("brontoDisaster4").src = "/assets/img/" + "blue" + "-disaster.png";
-            player_disCount = player_disCount + 1;
-        }
-        else if (player_disCount == 4) {
-            document.getElementById("brontoDisaster5").src = "/assets/img/" + "blue" + "-disaster.png";
-            player_disCount = player_disCount + 1;
-        }
-    } else if (playerOne == "stego") {
-        if (player_disCount == 0) {
-            document.getElementById("stegoDisaster1").src = "/assets/img/" + "blue" + "-disaster.png";
-            player_disCount = player_disCount + 1;
-        }
-        else if (player_disCount == 1) {
-            document.getElementById("stegoDisaster2").src = "/assets/img/" + "blue" + "-disaster.png";
-            player_disCount = player_disCount + 1;
-        }
-        else if (player_disCount == 2) {
-            document.getElementById("stegoDisaster3").src = "/assets/img/" + "blue" + "-disaster.png";
-            player_disCount = player_disCount + 1;
-        }
-        else if (player_disCount == 3) {
-            document.getElementById("stegoDisaster4").src = "/assets/img/" + "blue" + "-disaster.png";
-            player_disCount = player_disCount + 1;
-        }
-        else if (player_disCount == 4) {
-            document.getElementById("stegoDisaster5").src = "/assets/img/" + "blue" + "-disaster.png";
-            player_disCount = player_disCount + 1;
-        }
+        player_disCount = player_disCount + 1;
+
     }
+    else if(playerOne == "stego") {
+        for(let i = 0; i < 5; i++) {
+            if(player_disCount == i) {
+                document.getElementById("stegoDisaster" + (i + 1)).src = "/assets/img/" + color + "-disaster.png";
+                console.log("stegoDisaster" + (i + 1));
+            }
+        } 
+        player_disCount = player_disCount + 1;
+    }
+   fu();
 }
 function win() {
     if (playerOne == "stego") {
-        if (opp_disCount == 0) {
-            document.getElementById("oppBronto1").src = "/assets/img/" + "blue" + "-disaster.png";
-            opp_disCount = opp_disCount + 1;
+        for(let i = 0; i < 5; i++) {
+            if(opp_disCount == i) {
+                document.getElementById("oppBronto" + (i + 1)).src = "/assets/img/" + color + "-disaster.png";
+            }
         }
-        else if (opp_disCount == 1) {
-            document.getElementById("oppBronto2").src = "/assets/img/" + "blue" + "-disaster.png";
-            opp_disCount = opp_disCount + 1;
-        }
-        else if (opp_disCount == 2) {
-            document.getElementById("oppBronto3").src = "/assets/img/" + "blue" + "-disaster.png";
-            opp_disCount = opp_disCount + 1;
-        }
-        else if (opp_disCount == 3) {
-            document.getElementById("oppBronto4").src = "/assets/img/" + "blue" + "-disaster.png";
-            opp_disCount = opp_disCount + 1;
-        }
-        else if (opp_disCount == 4) {
-            document.getElementById("oppBronto5").src = "/assets/img/" + "blue" + "-disaster.png";
-            opp_disCount = opp_disCount + 1;
-        }
-    } else if (playerOne == "bronto") {
-        if (opp_disCount == 0) {
-            document.getElementById("oppSteg1").src = "/assets/img/" + "blue" + "-disaster.png";
-            opp_disCount = opp_disCount + 1;
-        }
-        else if (opp_disCount == 1) {
-            document.getElementById("oppSteg2").src = "/assets/img/" + "blue" + "-disaster.png";
-            opp_disCount = opp_disCount + 1;
-        }
-        else if (opp_disCount == 2) {
-            document.getElementById("oppSteg3").src = "/assets/img/" + "blue" + "-disaster.png";
-            opp_disCount = opp_disCount + 1;
-        }
-        else if (opp_disCount == 3) {
-            document.getElementById("oppSteg4").src = "/assets/img/" + "blue" + "-disaster.png";
-            opp_disCount = opp_disCount + 1;
-        }
-        else if (opp_disCount == 4) {
-            document.getElementById("oppSteg5").src = "/assets/img/" + "blue" + "-disaster.png";
-            opp_disCount = opp_disCount + 1;
-        }
+        opp_disCount = opp_disCount + 1;
+
     }
+    else if(playerOne == "bronto") {
+        for(let i = 0; i < 5; i++) {
+            if(opp_disCount == i) {
+                document.getElementById("oppSteg" + (i + 1)).src = "/assets/img/" + color + "-disaster.png";
+                console.log("stegoDisaster" + (i + 1));
+            }
+        } 
+        opp_disCount = opp_disCount + 1;
+    }
+   fu();
 }
 
 //Play cards in the center - WORKING 
@@ -554,12 +517,14 @@ let disasters = [
     ["disaster-trapped", "green"]
 ]
 
+let card
 function fu() {
     if (disasters.length > 0) {
         let idea = Math.round(Math.random() * disasters.length - .5);
-        let card = disasters[idea];
+        card = disasters[idea];
+        color = card[1];
         disasters.splice(idea, 1);
-        document.getElementById("disaster-deck").src = "/assets/cards2/" + card[0] + ".png";
+        document.getElementById("emptyDisaster").src = "/assets/cards2/" + card[0] + ".png";
     }
     else {
         disasters = [
@@ -580,6 +545,9 @@ function fu() {
         ]
     }
 }
+
+
+
 
 let round_end = false;
 let player_hand = deck.handA(deck.drawCards(5))
