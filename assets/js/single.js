@@ -1,4 +1,3 @@
-// Needed things
 
 let board = [
     [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
@@ -19,6 +18,8 @@ const Bronto = document.getElementById('Bronto')
 const Stego = document.getElementById('Stego')
 let playerOne;
 let playerTwo;
+
+//Switch board position when click on dinosaur name
 Bronto.addEventListener("click", function () {
     let hero = document.getElementById('hero-img-two')
     hero.style.display = 'none';
@@ -40,7 +41,7 @@ Stego.addEventListener("click", function () {
     playerTwo = "bronto";
 })
 
-//DOES THE SAME THING BUT WHEN YOU CLICK ON THE DINOS RATHER THAN THEIR NAME
+//Switch board position when click on dinosuar image
 const brontx = document.getElementById('dino')
 const stegx = document.getElementById('dino_two')
 brontx.addEventListener("click", function () {
@@ -64,17 +65,30 @@ stegx.addEventListener("click", function () {
     playerTwo = "bronto";
 })
 
-// Cards
+// variables for cards
 let deckCount = 0;
-//CARDS IS WORKING
 let allCards = [1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 3, 3, 4, 4, 4, 4, 4, 4, 4, 5, 5, 5, 5, 5, 5, 5, 6, 6, 6, 6, 6, 6, 6, 7, 7, 8, 8, 9, 9, 10, 10];
 let cardsInHand = [];
 let tempCards = [];
+
+//DRAWING A HAND
+//automates drawing new hand and alerts player when it is drawn OR alert users when they can draw a new hand - called in function directDisaster()
+function vivaVida() {
+    if (tempCards.length == 0 || !tempCards.includes(1) && !tempCards.includes(2) && !tempCards.includes(3) && !tempCards.includes(4) && !tempCards.includes(5) && !tempCards.includes(6)) {
+        alert("draw a new hand from Main Deck");
+        //  alert("drawing new deck");
+        //  myfunction2();
+    }
+}
+
+// function for shuffling and distributing cards to player one - called in function testas ();
 function myfunction2() {
     cardsInHand = [];
     tempCards = [];
+    //make text "click main deck to reveal your card" disappear when main deck is clicked
     let f = document.getElementById("reveal")
     f.style.display = 'none';
+    // establishing player one's hand
     if (allCards.length > 4) {
         for (let i = 0; i < 5; i++) {
             let number = Math.round(Math.random() * allCards.length - .5);
@@ -86,6 +100,7 @@ function myfunction2() {
             console.log(cardsInHand);
         }
     }
+    // If deck is out of cards, create new deck then establish player one's hand
     else {
         alert('Shuffling Cards');
         allCards = [1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, , 2, 2, 3, 3, 3, 3, 3, 3, 3, 4, 4, 4, 4, 4, 4, 4, 5, 5, 5, 5, 5, 5, 5, 6, 6, 6, 6, 6, 6, 6, 7, 7, 8, 8, 9, 9, 10, 10];
@@ -99,43 +114,26 @@ function myfunction2() {
             console.log(cardsInHand);
         }
     }
-
-    for (let i = 0; i <= 5; i++) {
-        if (cardsInHand[i] == 1) {
-            document.getElementById("steg-card" + [i + 1]).src = "/assets/cards2/point1.png";
-        }
-        else if (cardsInHand[i] == 2) {
-            document.getElementById("steg-card" + [i + 1]).src = "/assets/cards2/point2.png";
-        }
-        else if (cardsInHand[i] == 3) {
-            document.getElementById("steg-card" + [i + 1]).src = "/assets/cards2/point3.png";
-        }
-        else if (cardsInHand[i] == 4) {
-            document.getElementById("steg-card" + [i + 1]).src = "/assets/cards2/point4.png";
-        }
-        else if (cardsInHand[i] == 5) {
-            document.getElementById("steg-card" + [i + 1]).src = "/assets/cards2/point5.png";
-        }
-        else if (cardsInHand[i] == 6) {
-            document.getElementById("steg-card" + [i + 1]).src = "/assets/cards2/point6.png";
-        }
-        else if (cardsInHand[i] == 7) {
-            document.getElementById("steg-card" + [i + 1]).src = "/assets/cards2/point7.png";
-        }
-        else if (cardsInHand[i] == 8) {
-            document.getElementById("steg-card" + [i + 1]).src = "/assets/cards2/point8.png";
-        }
-        else if (cardsInHand[i] == 9) {
-            document.getElementById("steg-card" + [i + 1]).src = "/assets/cards2/point9.png";
-        }
-        else if (cardsInHand[i] == 10) {
-            document.getElementById("steg-card" + [i + 1]).src = "/assets/cards2/point10.png";
+// Set all images for player one's hand 
+    for(let i = 0; i<=5; i++) {
+        for(let m=1; m<=10; m++) {
+            if(cardsInHand[i] == m) {
+                document.getElementById("steg-card" + [i + 1]).src = "/assets/cards2/point" + m + ".png";
+            }
         }
     }
-    // return cardsInHand && tempCards;
 };
 
-// Only let users draw cards if they have no cards in their hand or only instant cards - WORKING
+let opp_hand = [];
+function opp_myfunction2() {
+    if(allCards.length > 4) {
+        for(let i=0; i<5; i++) {
+            
+        }
+    }
+}
+
+// Only let users draw cards if they have no cards in their hand or only instant cards - Called in html draw-deck
 function testas() {
     console.log(tempCards);
     if (!tempCards.includes(1) && !tempCards.includes(2) && !tempCards.includes(3) && !tempCards.includes(4) && !tempCards.includes(5) && !tempCards.includes(6)) {
@@ -147,6 +145,7 @@ function testas() {
     }
 }
 
+// Set round 1 disaster card to random (only used once) - called in testas();
 let v = 0;
 function firstDisaster() {
     if(v == 0) {
@@ -155,120 +154,8 @@ function firstDisaster() {
     }
 }
 
-//automates drawing new hand and alerts player when it is drawn OR alert users when they can draw a new hand
-function vivaVida() {
-    if (tempCards.length == 0 || !tempCards.includes(1) && !tempCards.includes(2) && !tempCards.includes(3) && !tempCards.includes(4) && !tempCards.includes(5) && !tempCards.includes(6)) {
-        alert("draw a new hand from Main Deck");
-        //  alert("drawing new deck");
-        //  myfunction2();
-    }
-}
-
-//USERS WILL BE ABLE TO PLAY CARDS
-let pc_count = 0;
-let ic_count = 0;
-let totalPoints = 0;
-let instantPoints = 0;
-let tempInstant = 0;
-let tempPoints = 0;
-let color
-// let pointPoint = 0;
-let played = [];
-// let opp_instantPoints = 0;
-
-let play = document.getElementById("playButton");
-
-function instantCalc() {
-    if (tempInstant == 7) {
-        return instantPoints = 2;
-    }
-    else if (tempInstant == 8) {
-        return instantPoints = 0;
-        // Disaster card is discarded   
-    }
-    else if (tempInstant == 9) {
-    
-        return instantPoints = 0;
-        // Disaster card goes to opponent
-    }
-    else if (tempInstant == 10) {
-        opp_instantPoints = -2;
-        return instantPoints = 0;
-    } else {
-        return instantPoints = 0;
-    }
-}
-
-function calculatePoint() {
-    pc_count = 0;
-    ic_count = 0;
-    document.getElementById("instantCenter").src = "/assets/cards2/main-empty.png";
-    document.getElementById("pointCenter").src = "/assets/cards2/main-empty.png";
-    totalPoints = tempPoints + instantCalc();
-    directDisaster();
-}
-
-let player_disCount = 0;
-let opp_disCount = 0;
-function directDisaster() {
-    let opp_totalPoints = Math.round(Math.random() * 10);
-    console.log("opp points =" + opp_totalPoints);
-    console.log("ur points =" + totalPoints);
-    if (totalPoints < opp_totalPoints) {
-        lose();
-    }
-    else if(totalPoints > opp_totalPoints) {
-        win();
-    } else if(totalPoints == opp_totalPoints) {
-        alert("tie");
-    }
-    vivaVida();
-}
-
-function lose() {
-    if (playerOne == "bronto") {
-        for(let i = 0; i < 5; i++) {
-            if(player_disCount == i) {
-                document.getElementById("brontoDisaster" + (i + 1)).src = "/assets/img/" + color + "-disaster.png";
-            }
-        }
-        player_disCount = player_disCount + 1;
-
-    }
-    else if(playerOne == "stego") {
-        for(let i = 0; i < 5; i++) {
-            if(player_disCount == i) {
-                document.getElementById("stegoDisaster" + (i + 1)).src = "/assets/img/" + color + "-disaster.png";
-                console.log("stegoDisaster" + (i + 1));
-            }
-        } 
-        player_disCount = player_disCount + 1;
-    }
-   fu();
-}
-function win() {
-    if (playerOne == "stego") {
-        for(let i = 0; i < 5; i++) {
-            if(opp_disCount == i) {
-                document.getElementById("oppBronto" + (i + 1)).src = "/assets/img/" + color + "-disaster.png";
-            }
-        }
-        opp_disCount = opp_disCount + 1;
-
-    }
-    else if(playerOne == "bronto") {
-        for(let i = 0; i < 5; i++) {
-            if(opp_disCount == i) {
-                document.getElementById("oppSteg" + (i + 1)).src = "/assets/img/" + color + "-disaster.png";
-                console.log("stegoDisaster" + (i + 1));
-            }
-        } 
-        opp_disCount = opp_disCount + 1;
-    }
-   fu();
-}
-
-//Play cards in the center - WORKING 
+//PLAY CARDS IN THE CENTER
+// Sets center image if player one chooses to play card #1 (furthest to the left)
 function playIt_1() {
     if (cardsInHand[0] >= 7) {
         if (ic_count == 0) {
@@ -311,6 +198,7 @@ function playIt_1() {
     // drawing_cards();
 };
 
+// Sets center image if player one chooses to play card #2
 function playIt_2() {
     if (cardsInHand[1] >= 7) {
         if (ic_count == 0) {
@@ -351,6 +239,7 @@ function playIt_2() {
     // drawing_cards();
 };
 
+// Sets center image if player one chooses to play card #3
 function playIt_3() {
     if (cardsInHand[2] >= 7) {
         if (ic_count == 0) {
@@ -389,6 +278,7 @@ function playIt_3() {
     // drawing_cards();
 };
 
+// Sets center image if player one chooses to play card #4
 function playIt_4() {
     if (cardsInHand[3] >= 7) {
         if (ic_count == 0) {
@@ -427,6 +317,7 @@ function playIt_4() {
     // drawing_cards();
 };
 
+// Sets center image if player one chooses to play card #5 (furthest to the right)
 function playIt_5() {
     if (cardsInHand[4] >= 7) {
         if (ic_count == 0) {
@@ -463,15 +354,12 @@ function playIt_5() {
     // drawing_cards();
 };
 
-// function drawing_cards() {
-//     if (cardsInHand > 5) {
-//         let n = myfunction2();
-//         n.splice(0, (a.length - 1))
-//         cardsInHand = cardsInHand + n;
-//     }
-// }
+//PLAY BUTTON APPEARS
+let pc_count = 0;
+let ic_count = 0;
+let play = document.getElementById("playButton");
 
-//play button functions (change color when hover + appear when player plays a point card)
+//play button functions (change color when hover + appear when player plays a point card) - called in playIt functions
 function check() {
     if (pc_count == 1) {
         play.style.backgroundColor = '#F27F77';
@@ -479,6 +367,7 @@ function check() {
     }
 }
 
+//play button changes color to green when hovered over - called in HTML #playButton
 function hoverIn(x) {
     if (pc_count == 1) {
         x.style.backgroundColor = '#16d26a';
@@ -490,6 +379,7 @@ function hoverIn(x) {
 
 }
 
+//play button changes color to red when hovered out - called in HTML #playButton
 function hoverOut(x) {
     if (pc_count == 1) {
         x.style.backgroundColor = '#F27F77';
@@ -499,7 +389,51 @@ function hoverOut(x) {
     }
 }
 
+//CALCULATING WINNER 
+let totalPoints = 0;
+let instantPoints = 0;
+let tempInstant = 0;
+let tempPoints = 0;
+let color
+let played = [];
+let opp_instantPoints = 0;
+
+// reset center images back to normal and calculate player one total points for the round - called in HTML #playButton
+function calculatePoint() {
+    pc_count = 0;
+    ic_count = 0;
+    document.getElementById("instantCenter").src = "/assets/cards2/main-empty.png";
+    document.getElementById("pointCenter").src = "/assets/cards2/main-empty.png";
+    totalPoints = tempPoints + instantCalc();
+    directDisaster();
+}
+
+// checks if instant cards will affect player one's results for the round - called in function calculatePoint()
+function instantCalc() {
+    if (tempInstant == 7) {
+        return instantPoints = 2;
+    }
+    else if (tempInstant == 8) {
+        return instantPoints = 0; 
+        //disaster card is discarded
+    }
+    else if (tempInstant == 9) {
+        return instantPoints = 0;
+        // Disaster card goes to opponent
+    }
+    else if (tempInstant == 10) {
+        opp_instantPoints = -2;
+        return instantPoints = 0;
+    } 
+    else {
+        return instantPoints = 0;
+    }
+}
+
 //DISASTER CARDS
+let player_disCount = 0;
+let opp_disCount = 0;
+let card;
 let disasters = [
     ["disaster-beach", "red"],
     ["disaster-burn", "blue"],
@@ -517,7 +451,7 @@ let disasters = [
     ["disaster-trapped", "green"]
 ]
 
-let card
+//randomnize disaster card that shows on screen - called in function firstDisaster(), lose(), win(), directDisaster() 
 function fu() {
     if (disasters.length > 0) {
         let idea = Math.round(Math.random() * disasters.length - .5);
@@ -546,14 +480,85 @@ function fu() {
     }
 }
 
+//Determines which board the disaster card goes to
+// If player one loses the game, the disaster card will be assigned to player one. Visa Versa. - called in function calculatePoint()
+function directDisaster() {
+    let opp_totalPoints = Math.round(Math.random() * 10);
+    console.log("opp points =" + opp_totalPoints);
+    console.log("ur points =" + totalPoints);
+    if (totalPoints < opp_totalPoints) {
+        lose();
+    }
+    else if(totalPoints > opp_totalPoints) {
+        win();
+    } 
+    else if(totalPoints == opp_totalPoints) {
+        alert("tie");
+        fu();
+    }
+    vivaVida();
+}
 
+//If player one loses disaster card will be assigned to player one - called in function directDisaster()
+function lose() {
+    if (playerOne == "bronto") {
+        for(let i = 0; i < 5; i++) {
+            if(player_disCount == i) {
+                document.getElementById("brontoDisaster" + (i + 1)).src = "/assets/img/" + color + "-disaster.png";
+            }
+        }
+        player_disCount = player_disCount + 1;
 
+    }
+    else if(playerOne == "stego") {
+        for(let i = 0; i < 5; i++) {
+            if(player_disCount == i) {
+                document.getElementById("stegoDisaster" + (i + 1)).src = "/assets/img/" + color + "-disaster.png";
+                console.log("stegoDisaster" + (i + 1));
+            }
+        } 
+        player_disCount = player_disCount + 1;
+    }
+   fu();
+}
 
+//If player one wins disaster card will be assigned to player two - called in function directDisaster()
+function win() {
+    if (playerOne == "stego") {
+        for(let i = 0; i < 5; i++) {
+            if(opp_disCount == i) {
+                document.getElementById("oppBronto" + (i + 1)).src = "/assets/img/" + color + "-disaster.png";
+            }
+        }
+        opp_disCount = opp_disCount + 1;
+
+    }
+    else if(playerOne == "bronto") {
+        for(let i = 0; i < 5; i++) {
+            if(opp_disCount == i) {
+                document.getElementById("oppSteg" + (i + 1)).src = "/assets/img/" + color + "-disaster.png";
+                console.log("stegoDisaster" + (i + 1));
+            }
+        } 
+        opp_disCount = opp_disCount + 1;
+    }
+   fu();
+}
+
+//AI CODE
 let round_end = false;
 let player_hand = deck.handA(deck.drawCards(5))
 
 // playing a point card
 let played_cards = [];
+
+// function drawing_cards() {
+//     if (cardsInHand > 5) {
+//         let n = myfunction2();
+//         n.splice(0, (a.length - 1))
+//         cardsInHand = cardsInHand + n;
+//     }
+// }
 
 // calc player card
 function calculate() {
