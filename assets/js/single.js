@@ -63,7 +63,7 @@ stegx.addEventListener("click", function () {
     testflex.style.display = 'flex';
     playerOne = "stego";
     playerTwo = "bronto";
-})
+});
 
 // variables for cards
 let deckCount = 0;
@@ -79,9 +79,12 @@ function vivaVida() {
         //  alert("drawing new deck");
         //  myfunction2();
     }
+    if(!opp_hand.includes(1) && !opp_hand.includes(2) && !opp_hand.includes(3) && !opp_hand.includes(4) && !opp_hand.includes(5) && !opp_hand.includes(6)) {
+        // opp_myfunction2();
+    }
 }
 
-// function for shuffling and distributing cards to player one - called in function testas ();
+// function for shuffling and distributing cards to player one - 
 function myfunction2() {
     cardsInHand = [];
     tempCards = [];
@@ -124,31 +127,64 @@ function myfunction2() {
     }
 };
 
-let opp_hand = [];
-function opp_myfunction2() {
-    if(allCards.length > 4) {
-        for(let i=0; i<5; i++) {
-            
-        }
-    }
-}
+// This is how you break javascript.
+// function opp_myfunction2() {
+//     opp_hand = [];
+//     if(allCards.length > 4) {
+//         for(let i=0; i<5; i++) {
+//             let number = Math.round(Math.random() * allCards.length - .5);
+//             let num = allCards[number];
+//             opp_hand.push(num);
+//             allCards.splice(number, 1);
+//             console.log("opponent's hand" + opp_hand);
+//         }
+//     }
+// }
+
+// let highNum = [];
+// let lowNum = [];
+// function opp_play() {
+
+//     for(let i=0; 1<5; i++) {
+//         if(opp_hand[i] >= 7 ) {
+//             highNum.push();
+//         }
+//         else {
+//             lowNum.push();
+//         }
+//     }
+//     console.log(highNum);
+//     console.log(lowNum);
+//     let highIndex = Math.round(Math.random() * highNum.length - .5);
+//     let lowIndex = Math.round(Math.random() * lowNum.length - .5);
+//     document.getElementById("ai_pointCenter").src = "/assets/cards2/point" + lowNum[lowIndex] + ".png";
+//     lowNum.splice(lowIndex, 1);
+//     if(highNum.length >= 1) {
+//         document.getElementById("ai_instantCenter").src = "/assets/cards2/point" + highNum[highIndex] + ".png"
+//         highNum.splice(highIndex, 1);
+//     } 
+//     else {
+//         document.getElementById("ai_instantCenter").src = "/assets/cards2/main-empty.png"
+//     }
+// }
 
 // Only let users draw cards if they have no cards in their hand or only instant cards - Called in html draw-deck
 function testas() {
     console.log(tempCards);
     if (!tempCards.includes(1) && !tempCards.includes(2) && !tempCards.includes(3) && !tempCards.includes(4) && !tempCards.includes(5) && !tempCards.includes(6)) {
         myfunction2();
-        firstDisaster();
+        onlyFirst();
     }
     else {
         alert("You cannot draw cards at the moment");
     }
 }
 
-// Set round 1 disaster card to random (only used once) - called in testas();
+// Set round 1 disaster card to random and set opponent's hand (only used once) - called in testas();
 let v = 0;
-function firstDisaster() {
+function onlyFirst() {
     if(v == 0) {
+        // opp_myfunction2();
         fu();
         v = 1;
     }
@@ -398,12 +434,12 @@ let color
 let played = [];
 let opp_instantPoints = 0;
 
-// reset center images back to normal and calculate player one total points for the round - called in HTML #playButton
+//calculate player one total points for the round - called in HTML #playButton
 function calculatePoint() {
     pc_count = 0;
     ic_count = 0;
-    document.getElementById("instantCenter").src = "/assets/cards2/main-empty.png";
-    document.getElementById("pointCenter").src = "/assets/cards2/main-empty.png";
+    // document.getElementById("instantCenter").src = "/assets/cards2/main-empty.png";
+    // document.getElementById("pointCenter").src = "/assets/cards2/main-empty.png";
     totalPoints = tempPoints + instantCalc();
     directDisaster();
 }
@@ -451,7 +487,7 @@ let disasters = [
     ["disaster-trapped", "green"]
 ]
 
-//randomnize disaster card that shows on screen - called in function firstDisaster(), lose(), win(), directDisaster() 
+//randomnize disaster card that shows on screen - called in function onlyFirst(), lose(), win(), directDisaster() 
 function fu() {
     if (disasters.length > 0) {
         let idea = Math.round(Math.random() * disasters.length - .5);
