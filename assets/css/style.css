@@ -598,7 +598,14 @@ h3,
     position:relative;
     font-size:3vw;
     bottom:7.5vw;
-    left:1vw;
+    left:.5vw;
+}
+
+.trashcan {
+    width:4vw;
+    position:relative;
+    bottom:12.8vw;
+    left:35.5vw;
 }
 
 /* Card Movement

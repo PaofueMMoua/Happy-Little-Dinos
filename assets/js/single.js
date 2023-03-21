@@ -70,6 +70,7 @@ let deckCount = 0;
 let allCards = [1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 3, 3, 4, 4, 4, 4, 4, 4, 4, 5, 5, 5, 5, 5, 5, 5, 6, 6, 6, 6, 6, 6, 6, 7, 7, 8, 8, 9, 9, 10, 10];
 let cardsInHand = [];
 let tempCards = [];
+let opp_hand = [];
 
 //DRAWING A HAND
 //automates drawing new hand and alerts player when it is drawn OR alert users when they can draw a new hand - called in function directDisaster()
@@ -78,9 +79,6 @@ function vivaVida() {
         alert("draw a new hand from Main Deck");
         //  alert("drawing new deck");
         //  myfunction2();
-    }
-    if(!opp_hand.includes(1) && !opp_hand.includes(2) && !opp_hand.includes(3) && !opp_hand.includes(4) && !opp_hand.includes(5) && !opp_hand.includes(6)) {
-        // opp_myfunction2();
     }
 }
 
@@ -127,46 +125,71 @@ function myfunction2() {
     }
 };
 
+let highNum = [];
+let lowNum = [];
 // This is how you break javascript.
-// function opp_myfunction2() {
-//     opp_hand = [];
-//     if(allCards.length > 4) {
-//         for(let i=0; i<5; i++) {
-//             let number = Math.round(Math.random() * allCards.length - .5);
-//             let num = allCards[number];
-//             opp_hand.push(num);
-//             allCards.splice(number, 1);
-//             console.log("opponent's hand" + opp_hand);
-//         }
-//     }
-// }
+function opp_myfunction2() {
+    opp_hand = [];
+    if(allCards.length > 4) {
+        for(let i=0; i<5; i++) {
+            let number = Math.round(Math.random() * allCards.length - .5);
+            let num = allCards[number];
+            opp_hand.push(num);
+            allCards.splice(number, 1);
+            console.log("opponent's hand " + opp_hand);
+        }
+    }
+    else {
+        alert('Shuffling Cards');
+        allCards = [1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, , 2, 2, 3, 3, 3, 3, 3, 3, 3, 4, 4, 4, 4, 4, 4, 4, 5, 5, 5, 5, 5, 5, 5, 6, 6, 6, 6, 6, 6, 6, 7, 7, 8, 8, 9, 9, 10, 10]; 
+        for(let i=0; i<5; i++) {
+            let number = Math.round(Math.random() * allCards.length - .5);
+            let num = allCards[number];
+            opp_hand.push(num);
+            allCards.splice(number, 1);
+            console.log("opponent's hand " + opp_hand);
+        }
+    }
+}
 
-// let highNum = [];
-// let lowNum = [];
-// function opp_play() {
+function opp_play() {
+    for(let i=0; i<5; i++) {
+        if(opp_hand[i] >= 7 ) {
+            highNum[highNum.length] = opp_hand[i];
+        }
+        else if (opp_hand[i] <= 6) {
+            lowNum[lowNum.length] = opp_hand[i];
+        }
+    }
 
-//     for(let i=0; 1<5; i++) {
-//         if(opp_hand[i] >= 7 ) {
-//             highNum.push();
-//         }
-//         else {
-//             lowNum.push();
-//         }
-//     }
-//     console.log(highNum);
-//     console.log(lowNum);
-//     let highIndex = Math.round(Math.random() * highNum.length - .5);
-//     let lowIndex = Math.round(Math.random() * lowNum.length - .5);
-//     document.getElementById("ai_pointCenter").src = "/assets/cards2/point" + lowNum[lowIndex] + ".png";
-//     lowNum.splice(lowIndex, 1);
-//     if(highNum.length >= 1) {
-//         document.getElementById("ai_instantCenter").src = "/assets/cards2/point" + highNum[highIndex] + ".png"
-//         highNum.splice(highIndex, 1);
-//     } 
-//     else {
-//         document.getElementById("ai_instantCenter").src = "/assets/cards2/main-empty.png"
-//     }
-// }
+    console.log(highNum);
+    console.log(lowNum);
+    let highIndex = Math.round(Math.random() * highNum.length - .5);
+    let lowIndex = Math.round(Math.random() * lowNum.length - .5);
+
+    if(lowNum.length < 1) {
+        opp_myfunction2();
+        highNum = [];
+        lowNum = [];
+    } else {
+        document.getElementById("ai_pointCenter").src = "/assets/cards2/point" + lowNum[lowIndex] + ".png";
+        let l = opp_hand.indexOf(lowNum[lowIndex]);
+        opp_hand.splice(l, 1);
+        lowNum.splice(lowIndex, 1);
+        console.log(opp_hand);
+    }
+
+    if(highNum.length >= 1) {
+        document.getElementById("ai_instantCenter").src = "/assets/cards2/point" + highNum[highIndex] + ".png"
+        highNum.splice(highIndex, 1);
+        let p = opp_hand.indexOf(highNum[highIndex]);
+        opp_hand.splice(p, 1);
+        console.log(opp_hand);
+    } 
+    else {
+        document.getElementById("ai_instantCenter").src = "/assets/cards2/main-empty.png"
+    }
+}
 
 // Only let users draw cards if they have no cards in their hand or only instant cards - Called in html draw-deck
 function testas() {
@@ -184,7 +207,7 @@ function testas() {
 let v = 0;
 function onlyFirst() {
     if(v == 0) {
-        // opp_myfunction2();
+        opp_myfunction2();
         fu();
         v = 1;
     }
@@ -400,6 +423,9 @@ function check() {
     if (pc_count == 1) {
         play.style.backgroundColor = '#F27F77';
         play.style.cursor = 'pointer';
+    } 
+    else {
+        play.style.display = 'hidden';
     }
 }
 
@@ -410,7 +436,7 @@ function hoverIn(x) {
         play.style.cursor = 'pointer';
     }
     else {
-        x.style.backgroundColor = 'black';
+        x.style.display = 'hidden';
     }
 
 }
@@ -421,7 +447,7 @@ function hoverOut(x) {
         x.style.backgroundColor = '#F27F77';
     }
     else {
-        x.style.backgroundColor = 'black';
+        x.style.display = 'hidden';
     }
 }
 
@@ -436,14 +462,14 @@ let opp_instantPoints = 0;
 
 //calculate player one total points for the round - called in HTML #playButton
 function calculatePoint() {
+    opp_play();
     pc_count = 0;
     ic_count = 0;
-    // document.getElementById("instantCenter").src = "/assets/cards2/main-empty.png";
-    // document.getElementById("pointCenter").src = "/assets/cards2/main-empty.png";
     totalPoints = tempPoints + instantCalc();
+    alert("Dispose your cards");
     directDisaster();
 }
-
+    
 // checks if instant cards will affect player one's results for the round - called in function calculatePoint()
 function instantCalc() {
     if (tempInstant == 7) {
@@ -533,6 +559,7 @@ function directDisaster() {
         fu();
     }
     vivaVida();
+    check_opp_hand();
 }
 
 //If player one loses disaster card will be assigned to player one - called in function directDisaster()
@@ -579,6 +606,18 @@ function win() {
         opp_disCount = opp_disCount + 1;
     }
    fu();
+}
+
+function disposeCards() {
+    if(pc_count == 0 && ic_count == 0) {
+    document.getElementById("instantCenter").src = "/assets/cards2/main-empty.png";
+    document.getElementById("pointCenter").src = "/assets/cards2/main-empty.png";
+    document.getElementById("ai_pointCenter").src = "/assets/cards2/main-empty.png";
+    document.getElementById("ai_instantCenter").src = "/assets/cards2/main-empty.png";
+    }
+    else {
+        alert("you cannot dispose cards at the moment");
+    }  
 }
 
 //AI CODE
