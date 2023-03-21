@@ -787,10 +787,10 @@ const meeple = document.getElementById('meeple');
 
 // Set the initial position of the meeple
 
-let cellWidth = 30;
-let cellHeight = 30;
+let cellWidth = 30; 
+let cellHeight = 30; 
 meeple.style.top = `${y * cellHeight}px`;
-meeple.style.left = `${x * cellWidth}px`;
+meeple.style.left = `${x * cellWidth}px`; 
 
 // Function to move the meeple to a new position
 function moveMeeple(newX, newY) {
@@ -799,10 +799,11 @@ function moveMeeple(newX, newY) {
   y = newY;
   meeple.style.top = `${y * cellHeight}px`;
   meeple.style.left = `${x * cellWidth}px`;
+  
 }
 
 // Example usage: move the meeple to position (2, 3)
-moveMeeple(2, 3);
+moveMeeple(2, 3); 
 
 
 
