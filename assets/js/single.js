@@ -216,10 +216,11 @@ function calculatePoint() {
     // ic_count = 0;
     // tempPoints = tempPoints; + instantCalc();
     // opp_tempPoints = opp_tempPoints; + opp_instantPlay();
-    setTimeout(directDisaster, 1000);
+    
     // directDisaster();
     totalPoints = totalPoints + tempPoints;
     opp_totalPoints = opp_totalPoints + opp_tempPoints[0];
+    setTimeout(directDisaster, 1000);
     setTimeout(disposeCards, 2000);
 }
 
@@ -611,18 +612,14 @@ function Meeple_Move() {
     } else {
         if (playerOne == "bronto") {
             let f = document.getElementsByClassName('cell_b_' + totalPoints);
-            const j = document.createElement('img')
             let h = document.getElementsByClassName('cell_b_' + temp_tempPoints);
-            j.src = "./assets/img/bronto-meeple.png";
-            f.appendChild(j)
+            f.document.createElement('img').src = "./assets/img/bronto-meeple.png";
             h.removeElement(h[0]);
         }
         else if (playerOne == "stego") {
             let f = document.getElementsByClassName('cell_b_' + totalPoints);
-            const j = document.createElement('img')
             let h = document.getElementsByClassName('cell_b_' + temp_tempPoints);
-            j.src = "./assets/img/stego-meeple.png";
-            f.appendChild(j);
+            f.document.createElement('img').src = "./assets/img/stego-meeple.png";
             h.removeElement(h[0]);
         }
     }
