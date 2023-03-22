@@ -497,6 +497,20 @@ for (let i = 0; i <= 50; i++) {
     }
 }
 
+// score += point;
+// for (let i = 0; i <= 50; i++) {
+   // if (score === i) {
+     //   let k = 5;
+       // let j = document.getElementsByClassName('cell' + k)[0];
+       // let row = j.parentNode;
+       // let col = j.firstElementChild;
+       // let temp_img = document.createElement('img');
+       // temp_img.src = "/assets/img/stego-meeple.png";
+       // let temporary = document.getElementById('col-' + row.id);
+       // temporary.appendChild(temp_img);
+   // }
+// }
+
 
  // calc player card simplified?
  // function calculate(played_cards, number) {
