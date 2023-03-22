@@ -815,7 +815,7 @@ function ai_playIt() {
 };
 console.log(ai_cardsInHand);
 
-// Get the meeple and board elements from the DOM
+// Get the meeple and board elements from the DOM 
 const meeple = document.getElementById('meeple');
 
 
@@ -828,7 +828,7 @@ meeple.style.left = `${x * cellWidth}px`;
 
 // Function to move the meeple to a new position
 function moveMeeple(newX, newY) {
-  // Calculate the new position of the meeple
+  // Calculate the new position of the meeple 
   x = newX;
   y = newY;
   meeple.style.top = `${y * cellHeight}px`;
