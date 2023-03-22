@@ -209,36 +209,38 @@ function calculatePoint() {
     opp_play();
     pc_count = 0;
     ic_count = 0;
-    totalPoints = tempPoints + instantCalc();
-    opp_totalPoints = opp_tempPoints + opp_instantPoints + opp_instantPlay();
+    // tempPoints = tempPoints; + instantCalc();
+    // opp_tempPoints = opp_tempPoints; + opp_instantPlay();
+    totalPoints = (totalPoints + tempPoints);
+    opp_totalPoints = (opp_totalPoints + opp_tempPoints);
     directDisaster();
     // setTimeout(disposeCards, 5000);
     // disposeCards();
     
 }
 
-function opp_instantPlay() {
-    if (opp_tempInstant == 7) {
-        return opp_instantPoints = 2;
-    }
-    else if (opp_tempInstant == 8) {
-        // document.getElementById("disaster-deck").src = ''
-        return instantPoints = 0; 
-        //disaster card is discarded
+// function opp_instantPlay() {
+//     if (opp_tempInstant == 7) {
+//         return opp_instantPoints = 2;
+//     }
+//     else if (opp_tempInstant == 8) {
+//         // document.getElementById("disaster-deck").src = ''
+//         return instantPoints = 0; 
+//         //disaster card is discarded
         
-    }
-    else if (opp_tempInstant == 9) {
-        return instantPoints = 0;
-        // Disaster card goes to opponent
-    }
-    else if (opp_tempInstantt == 10) {
-        opp_instantPoints = -2;
-        return instantPoints = 0;
-    } 
-    else {
-        return instantPoints = 0;
-    }
-}
+//     }
+//     else if (opp_tempInstant == 9) {
+//         return instantPoints = 0;
+//         // Disaster card goes to opponent
+//     }
+//     else if (opp_tempInstant == 10) {
+//         opp_instantPoints = -2;
+//         return instantPoints = 0;
+//     } 
+//     else {
+//         return instantPoints = 0;
+//     }
+// }
 
 // checks if instant cards will affect player one's results for the round - called in function calculatePoint()
 function instantCalc() {
@@ -578,16 +580,16 @@ function fu() {
 //Determines which board the disaster card goes to
 // If player one loses the game, the disaster card will be assigned to player one. Visa Versa. - called in function calculatePoint()
 function directDisaster() {
-    let opp_totalPoints = Math.round(Math.random() * 10);
-    console.log("opp points =" + opp_totalPoints);
-    console.log("ur points =" + totalPoints);
-    if (totalPoints < opp_totalPoints) {
+    // let opp_totalPoints = Math.round(Math.random() * 10);
+    console.log("opp points =" + opp_tempPoints);
+    console.log("ur points =" + tempPoints);
+    if (tempPoints < opp_tempPoints) {
         lose();
     }
-    else if(totalPoints > opp_totalPoints) {
+    else if(tempPoints > opp_tempPoints) {
         win();
     } 
-    else if(totalPoints == opp_totalPoints) {
+    else if(tempPoints == opp_tempPoints) {
         alert("tie");
         fu();
     }
