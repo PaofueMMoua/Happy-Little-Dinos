@@ -218,7 +218,7 @@ function calculatePoint() {
     // opp_tempPoints = opp_tempPoints; + opp_instantPlay();
     setTimeout(directDisaster, 1000);
     // directDisaster();
-    totalPoints = tempTotal + tempPoints;
+    totalPoints = totalPoints + tempPoints;
     opp_totalPoints = opp_totalPoints + opp_tempPoints[0];
     setTimeout(disposeCards, 2000);
 }
@@ -588,9 +588,11 @@ function directDisaster() {
     console.log("ur points =" + tempPoints);
     if (tempPoints < opp_tempPoints) {
         lose();
+        opp_Meeple_Move();
     }
     else if(tempPoints > opp_tempPoints) {
         win();
+        Meeple_Move();
     } 
     else if(tempPoints == opp_tempPoints) {
         alert("tie");
