@@ -721,12 +721,12 @@ function Meeple_Move() {
         totalPoints = totalPoints - 1 ;
     } else {
         if (playerOne == "bronto") {
-            j.src = "/assets/img/bronto-meeple.png";
+            j.src = "./assets/img/bronto-meeple.png";
             f.appendChild(j)
             h.removeElement(h[0]);
         }
         else if (playerOne == "stego") {
-            j.src = "/assets/img/stego-meeple.png";
+            j.src = "./assets/img/stego-meeple.png";
             f.appendChild(j);
             h.removeElement(h[0]);
         }
