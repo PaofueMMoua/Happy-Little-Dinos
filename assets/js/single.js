@@ -216,7 +216,7 @@ function calculatePoint() {
     // ic_count = 0;
     // tempPoints = tempPoints; + instantCalc();
     // opp_tempPoints = opp_tempPoints; + opp_instantPlay();
-    tempPoints = tempPoints + instantPoints + instantSubtract;
+    // tempPoints = tempPoints + instantPoints + instantSubtract;
     setTimeout(directDisaster, 1000);
     // directDisaster();
     totalPoints = totalPoints + tempPoints;
