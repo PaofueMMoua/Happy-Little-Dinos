@@ -705,6 +705,25 @@ for (let i = 0; i <= 50; i++) {
 let ai_avg = (ai_hand[1] + ai_hand[2] + ai_hand[3] + ai_hand[4] + ai_hand[5] + ai_hand[6]) / ai_hand.length;
 
 
+function Meeple_Move() {
+    if (player_disCount < 0) {
+        player_disCount = 0;
+        // tempPoints = totalPoints;
+        // totalPoints = totalPoints - 1 + points +/- trait;
+        let f = document.getElementsByClassName('cell' + 
+        // totalPoints (remove the temp 1)
+         1 );
+        let j = document.createElement(img)
+        f.appendChild(j);
+        if (playerOne == "bronto") {
+            j.src = "/assets/img/bronto-meeple.png";
+        }
+        if (playerOne == "stego") {
+            j.src = "/assets/img/stego-meeple.png";
+        }
+    }
+} 
+
 // single player things
 // AI
 let ai_hand = ai_myfunction2();
