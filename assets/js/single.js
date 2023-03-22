@@ -706,20 +706,45 @@ let ai_avg = (ai_hand[1] + ai_hand[2] + ai_hand[3] + ai_hand[4] + ai_hand[5] + a
 
 
 function Meeple_Move() {
+    let temp_tempPoints = totalPoints;
+    let f = document.getElementsByClassName('cell' + totalPoints);
+    let j = document.createElement(img)
+    let h = document.getElementsByClassNames('cell' + temp_tempPoints);
     if (player_disCount < 0) {
         player_disCount = 0;
-        // tempPoints = totalPoints;
-        // totalPoints = totalPoints - 1 + points +/- trait;
-        let f = document.getElementsByClassName('cell' + 
-        // totalPoints (remove the temp 1)
-         1 );
-        let j = document.createElement(img)
-        f.appendChild(j);
+        totalPoints = totalPoints - 1 ;
+    } else {
         if (playerOne == "bronto") {
             j.src = "/assets/img/bronto-meeple.png";
+            f.appendChild(j)
+            h.removeElement(h[0]);
         }
-        if (playerOne == "stego") {
+        else if (playerOne == "stego") {
             j.src = "/assets/img/stego-meeple.png";
+            f.appendChild(j);
+            h.removeElement(h[0]);
+        }
+    }
+} 
+
+function opp_Meeple_Move() {
+    let opp_temp_tempPoints = opp_totalPoints;
+    let f = document.getElementsByClassName('cell' + opp_totalPoints);
+    let j = document.createElement(img)
+    let h = document.getElementsByClassNames('cell' + opp_temp_tempPoints);
+    if (player_disCount < 0) {
+        player_disCount = 0;
+        opp_totalPoints = opp_totalPoints - 1 ;
+    } else {
+        if (playerTwo == "bronto") {
+            j.src = "/assets/img/bronto-meeple.png";
+            f.appendChild(j)
+            h.removeElement(h[0]);
+        }
+        else if (playerTwo == "stego") {
+            j.src = "/assets/img/stego-meeple.png";
+            f.appendChild(j);
+            h.removeElement(h[0]);
         }
     }
 } 
