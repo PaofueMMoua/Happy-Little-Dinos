@@ -587,7 +587,7 @@ function directDisaster() {
             else {
                 lose();
             }
-        // opp_Meeple_Move();
+        opp_Meeple_Move();
         }
         else if(tempPoints > opp_tempPoints) {
             if(opp_tempInstant == 8) {
@@ -597,7 +597,7 @@ function directDisaster() {
             else {
                 win();
             }
-            // Meeple_Move();
+            Meeple_Move();
         } 
         else if(tempPoints == opp_tempPoints) {
             alert("tie");
@@ -611,6 +611,7 @@ function directDisaster() {
 
 function Meeple_Move() {
     let temp_tempPoints = totalPoints;
+    alert("Meeple move");
     if (player_disCount < 0) {
         player_disCount = 0;
         totalPoints = totalPoints - 1 ;
@@ -619,13 +620,11 @@ function Meeple_Move() {
             let f = document.getElementsByClassName('cell_b_' + totalPoints);
             let h = document.getElementsByClassName('cell_b_' + temp_tempPoints);
             f.document.createElement('img').src = "./assets/img/bronto-meeple.png";
-            h.removeElement(h[0]);
         }
         else if (playerOne == "stego") {
             let f = document.getElementsByClassName('cell_b_' + totalPoints);
             let h = document.getElementsByClassName('cell_b_' + temp_tempPoints);
             f.document.createElement('img').src = "./assets/img/stego-meeple.png";
-            h.removeElement(h[0]);
         }
     }
 } 
@@ -642,7 +641,6 @@ function opp_Meeple_Move() {
             let h = document.getElementsByClassName('cell_a_' + opp_temp_tempPoints);
             j.src = "/assets/img/bronto-meeple.png";
             f.appendChild(j)
-            h.removeElement(h[0]);
         }
         else if (playerTwo == "stego") {
             let f = document.getElementsByClassName('cell_a_' + opp_totalPoints);
@@ -650,7 +648,6 @@ function opp_Meeple_Move() {
             let h = document.getElementsByClassName('cell_a_' + opp_temp_tempPoints);
             j.src = "/assets/img/stego-meeple.png";
             f.appendChild(j);
-            h.removeElement(h[0]);
         }
     }
 } 
