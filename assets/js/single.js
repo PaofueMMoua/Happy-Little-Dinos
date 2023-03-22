@@ -202,18 +202,24 @@ let opp_instantPoints = 0;
 let opp_tempPoints = 0;
 let opp_totalPoints = 0;
 let opp_tempInstant = 0;
-
+let tempTotal = 0;
+let opp_tempTotal = 0;
 
 //calculate player one total points for the round - called in HTML #playButton
 function calculatePoint() {
+    opp_tempTotal = opp_totalPoints;
+    tempTotal = totalPoints;
+    console.log(opp_tempTotal);
+    console.log(tempTotal);
     opp_play();
     pc_count = 0;
     ic_count = 0;
     // tempPoints = tempPoints; + instantCalc();
     // opp_tempPoints = opp_tempPoints; + opp_instantPlay();
-    totalPoints = (totalPoints + tempPoints);
-    opp_totalPoints = (opp_totalPoints + opp_tempPoints);
     directDisaster();
+    totalPoints = (tempTotal + tempPoints);
+    opp_totalPoints = opp_totalPoints + opp_tempPoints[0];
+    
     // setTimeout(disposeCards, 5000);
     // disposeCards();
     
@@ -591,11 +597,11 @@ function directDisaster() {
     } 
     else if(tempPoints == opp_tempPoints) {
         alert("tie");
+        tempPoints = 0;
+        opp_tempPoints = [0];
         fu();
     }
     vivaVida();
-    check_opp_hand();
-    // setTimeout(disposeCards(), 5000);
 }
 
 //If player one loses disaster card will be assigned to player one - called in function directDisaster()
@@ -645,15 +651,15 @@ function win() {
 }
 
 function disposeCards() {
-    // if(pc_count == 0 && ic_count == 0) {
+    if(pc_count == 0 && ic_count == 0) {
     document.getElementById("instantCenter").src = "/assets/cards2/main-empty.png";
     document.getElementById("pointCenter").src = "/assets/cards2/main-empty.png";
     document.getElementById("ai_pointCenter").src = "/assets/cards2/main-empty.png";
     document.getElementById("ai_instantCenter").src = "/assets/cards2/main-empty.png";
-    // }
-    // else {
-    //     alert("you cannot dispose cards at the moment");
-    // }  
+    }
+    else {
+        alert("you cannot dispose cards at the moment");
+    }  
 }
 
 //AI CODE
