@@ -610,17 +610,17 @@ function Meeple_Move() {
         totalPoints = totalPoints - 1 ;
     } else {
         if (playerOne == "bronto") {
-            let f = document.getElementsByClassName('col-' + totalPoints);
-            let j = document.createElement(img)
-            let h = document.getElementsByClassName('col-' + temp_tempPoints);
+            let f = document.getElementsByClassName('cell_b_' + totalPoints);
+            const j = document.createElement('img')
+            let h = document.getElementsByClassName('cell_b_' + temp_tempPoints);
             j.src = "./assets/img/bronto-meeple.png";
             f.appendChild(j)
             h.removeElement(h[0]);
         }
         else if (playerOne == "stego") {
-            let f = document.getElementsByClassName('col-' + totalPoints);
-            let j = document.createElement(img)
-            let h = document.getElementsByClassName('col-' + temp_tempPoints);
+            let f = document.getElementsByClassName('cell_b_' + totalPoints);
+            const j = document.createElement('img')
+            let h = document.getElementsByClassName('cell_b_' + temp_tempPoints);
             j.src = "./assets/img/stego-meeple.png";
             f.appendChild(j);
             h.removeElement(h[0]);
@@ -635,17 +635,17 @@ function opp_Meeple_Move() {
         opp_totalPoints = opp_totalPoints - 1 ;
     } else {
         if (playerTwo == "bronto") {
-            let f = document.getElementsByClassName('col-' + opp_totalPoints);
-            let j = document.createElement(img)
-            let h = document.getElementsByClassName('col-' + opp_temp_tempPoints);
+            let f = document.getElementsByClassName('cell_a_' + opp_totalPoints);
+            const j = document.createElement('img')
+            let h = document.getElementsByClassName('cell_a_' + opp_temp_tempPoints);
             j.src = "/assets/img/bronto-meeple.png";
             f.appendChild(j)
             h.removeElement(h[0]);
         }
         else if (playerTwo == "stego") {
-            let f = document.getElementsByClassName('col-' + opp_totalPoints);
-            let j = document.createElement(img)
-            let h = document.getElementsByClassName('col-' + opp_temp_tempPoints);
+            let f = document.getElementsByClassName('cell_a_' + opp_totalPoints);
+            const j = document.createElement('img')
+            let h = document.getElementsByClassName('cell_a_' + opp_temp_tempPoints);
             j.src = "/assets/img/stego-meeple.png";
             f.appendChild(j);
             h.removeElement(h[0]);
