@@ -837,7 +837,7 @@ function moveMeeple(newX, newY) {
 }
 
 // Example usage: move the meeple to position (2, 3)
-moveMeeple(2, 3); 
+moveMeeple(2, 3);
 
 
 
