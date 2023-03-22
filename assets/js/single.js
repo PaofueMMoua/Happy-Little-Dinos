@@ -209,7 +209,7 @@ function calculatePoint() {
     opp_play();
     pc_count = 0;
     ic_count = 0;
-    totalPoints = tempPoints + instantCalc() +  instantPoints;
+    totalPoints = tempPoints + instantCalc();
     opp_totalPoints = opp_tempPoints + opp_instantPoints + opp_instantPlay();
     directDisaster();
     // setTimeout(disposeCards, 5000);
