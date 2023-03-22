@@ -211,18 +211,16 @@ function calculatePoint() {
     tempTotal = totalPoints;
     console.log(opp_tempTotal);
     console.log(tempTotal);
-    opp_play();
-    pc_count = 0;
-    ic_count = 0;
+    opp_play(); 
+    // pc_count = 0;
+    // ic_count = 0;
     // tempPoints = tempPoints; + instantCalc();
     // opp_tempPoints = opp_tempPoints; + opp_instantPlay();
-    directDisaster();
-    totalPoints = (tempTotal + tempPoints);
+    setTimeout(directDisaster, 1000);
+    // directDisaster();
+    totalPoints = tempTotal + tempPoints;
     opp_totalPoints = opp_totalPoints + opp_tempPoints[0];
-    
-    // setTimeout(disposeCards, 5000);
-    // disposeCards();
-    
+    setTimeout(disposeCards, 2000);
 }
 
 // function opp_instantPlay() {
@@ -258,7 +256,6 @@ function instantCalc() {
         // document.getElementById("disaster-deck").src = ''
         return instantPoints = 0; 
         //disaster card is discarded
-        
     }
     else if (tempInstant == 9) {
         return instantPoints = 0;
@@ -599,9 +596,9 @@ function directDisaster() {
         alert("tie");
         tempPoints = 0;
         opp_tempPoints = [0];
-        fu();
     }
     vivaVida();
+    setTimeout(fu, 500);
 }
 
 //If player one loses disaster card will be assigned to player one - called in function directDisaster()
@@ -624,7 +621,6 @@ function lose() {
         } 
         player_disCount = player_disCount + 1;
     }
-   fu();
 }
 
 //If player one wins disaster card will be assigned to player two - called in function directDisaster()
@@ -647,10 +643,11 @@ function win() {
         } 
         opp_disCount = opp_disCount + 1;
     }
-   fu();
 }
 
 function disposeCards() {
+    pc_count = 0;
+    ic_count = 0;
     if(pc_count == 0 && ic_count == 0) {
     document.getElementById("instantCenter").src = "/assets/cards2/main-empty.png";
     document.getElementById("pointCenter").src = "/assets/cards2/main-empty.png";
