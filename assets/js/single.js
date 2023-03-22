@@ -608,6 +608,55 @@ function directDisaster() {
     vivaVida();
 }
 
+function Meeple_Move() {
+    let temp_tempPoints = totalPoints;
+    if (player_disCount < 0) {
+        player_disCount = 0;
+        totalPoints = totalPoints - 1 ;
+    } else {
+        if (playerOne == "bronto") {
+            let f = document.getElementsByClassName('cell_b_' + totalPoints);
+            const j = document.createElement('img')
+            let h = document.getElementsByClassName('cell_b_' + temp_tempPoints);
+            j.src = "./assets/img/bronto-meeple.png";
+            f.appendChild(j)
+            h.removeElement(h[0]);
+        }
+        else if (playerOne == "stego") {
+            let f = document.getElementsByClassName('cell_b_' + totalPoints);
+            const j = document.createElement('img')
+            let h = document.getElementsByClassName('cell_b_' + temp_tempPoints);
+            j.src = "./assets/img/stego-meeple.png";
+            f.appendChild(j);
+            h.removeElement(h[0]);
+        }
+    }
+} 
+
+function opp_Meeple_Move() {
+    let opp_temp_tempPoints = opp_totalPoints;
+    if (player_disCount < 0) {
+        player_disCount = 0;
+        opp_totalPoints = opp_totalPoints - 1 ;
+    } else {
+        if (playerTwo == "bronto") {
+            let f = document.getElementsByClassName('cell_a_' + opp_totalPoints);
+            const j = document.createElement('img')
+            let h = document.getElementsByClassName('cell_a_' + opp_temp_tempPoints);
+            j.src = "/assets/img/bronto-meeple.png";
+            f.appendChild(j)
+            h.removeElement(h[0]);
+        }
+        else if (playerTwo == "stego") {
+            let f = document.getElementsByClassName('cell_a_' + opp_totalPoints);
+            const j = document.createElement('img')
+            let h = document.getElementsByClassName('cell_a_' + opp_temp_tempPoints);
+            j.src = "/assets/img/stego-meeple.png";
+            f.appendChild(j);
+            h.removeElement(h[0]);
+        }
+    }
+} 
 //If player one loses disaster card will be assigned to player one - called in function directDisaster()
 function lose() {
     if (playerOne == "bronto") {
@@ -717,49 +766,7 @@ for (let i = 0; i <= 50; i++) {
 let ai_avg = (ai_hand[1] + ai_hand[2] + ai_hand[3] + ai_hand[4] + ai_hand[5] + ai_hand[6]) / ai_hand.length;
 
 
-function Meeple_Move() {
-    let temp_tempPoints = totalPoints;
-    let f = document.getElementsByClassName('cell' + totalPoints);
-    let j = document.createElement(img)
-    let h = document.getElementsByClassNames('cell' + temp_tempPoints);
-    if (player_disCount < 0) {
-        player_disCount = 0;
-        totalPoints = totalPoints - 1 ;
-    } else {
-        if (playerOne == "bronto") {
-            j.src = "./assets/img/bronto-meeple.png";
-            f.appendChild(j)
-            h.removeElement(h[0]);
-        }
-        else if (playerOne == "stego") {
-            j.src = "./assets/img/stego-meeple.png";
-            f.appendChild(j);
-            h.removeElement(h[0]);
-        }
-    }
-} 
 
-function opp_Meeple_Move() {
-    let opp_temp_tempPoints = opp_totalPoints;
-    let f = document.getElementsByClassName('cell' + opp_totalPoints);
-    let j = document.createElement(img)
-    let h = document.getElementsByClassNames('cell' + opp_temp_tempPoints);
-    if (player_disCount < 0) {
-        player_disCount = 0;
-        opp_totalPoints = opp_totalPoints - 1 ;
-    } else {
-        if (playerTwo == "bronto") {
-            j.src = "/assets/img/bronto-meeple.png";
-            f.appendChild(j)
-            h.removeElement(h[0]);
-        }
-        else if (playerTwo == "stego") {
-            j.src = "/assets/img/stego-meeple.png";
-            f.appendChild(j);
-            h.removeElement(h[0]);
-        }
-    }
-} 
 
 // single player things
 // AI
