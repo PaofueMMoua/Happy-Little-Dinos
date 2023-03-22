@@ -216,50 +216,32 @@ function calculatePoint() {
     // ic_count = 0;
     // tempPoints = tempPoints; + instantCalc();
     // opp_tempPoints = opp_tempPoints; + opp_instantPlay();
+    tempPoints = tempPoints + instantPoints + instantSubtract;
     setTimeout(directDisaster, 1000);
     // directDisaster();
     totalPoints = totalPoints + tempPoints;
     opp_totalPoints = opp_totalPoints + opp_tempPoints[0];
     setTimeout(disposeCards, 2000);
 }
-
-// function opp_instantPlay() {
-//     if (opp_tempInstant == 7) {
-//         return opp_instantPoints = 2;
-//     }
-//     else if (opp_tempInstant == 8) {
-//         // document.getElementById("disaster-deck").src = ''
-//         return instantPoints = 0; 
-//         //disaster card is discarded
-        
-//     }
-//     else if (opp_tempInstant == 9) {
-//         return instantPoints = 0;
-//         // Disaster card goes to opponent
-//     }
-//     else if (opp_tempInstant == 10) {
-//         opp_instantPoints = -2;
-//         return instantPoints = 0;
-//     } 
-//     else {
-//         return instantPoints = 0;
-//     }
-// }
+let instantSubtract = 0;
+let opp_instantSubtract = 0;
+function opp_instantPlay() {
+    if (opp_tempInstant == 7) {
+        opp_instantPoints = 2;
+    }
+    else if (opp_tempInstant == 10) {
+        opp_instantSubtract = -2;
+        instantPoints = 0;
+    } 
+    else {
+        instantPoints = 0;
+    }
+}
 
 // checks if instant cards will affect player one's results for the round - called in function calculatePoint()
 function instantCalc() {
-    opp_instantPoints = 0;
     if (tempInstant == 7) {
         return instantPoints = 2;
-    }
-    else if (tempInstant == 8) {
-        // document.getElementById("disaster-deck").src = ''
-        return instantPoints = 0; 
-        //disaster card is discarded
-    }
-    else if (tempInstant == 9) {
-        return instantPoints = 0;
-        // Disaster card goes to opponent
     }
     else if (tempInstant == 10) {
         opp_instantPoints = -2;
@@ -586,21 +568,44 @@ function directDisaster() {
     // let opp_totalPoints = Math.round(Math.random() * 10);
     console.log("opp points =" + opp_tempPoints);
     console.log("ur points =" + tempPoints);
-    if (tempPoints < opp_tempPoints) {
-        lose();
-        opp_Meeple_Move();
+    if(opp_tempInstant == 9 && tempInstant == 9) {
+        alert("Disaster card is discarded");
     }
-    else if(tempPoints > opp_tempPoints) {
+    else if(opp_tempInstant == 9) {
+        lose();
+    }
+    else if(tempInstant == 9) {
         win();
-        Meeple_Move();
-    } 
-    else if(tempPoints == opp_tempPoints) {
-        alert("tie");
-        tempPoints = 0;
-        opp_tempPoints = [0];
+    }
+    else {
+        if (tempPoints < opp_tempPoints) {
+            if(tempInstant == 8) {
+                alert("Disaster card is discarded");
+                fu();
+            }
+            else {
+                lose();
+            }
+        // opp_Meeple_Move();
+        }
+        else if(tempPoints > opp_tempPoints) {
+            if(opp_tempInstant == 8) {
+                alert("Disaster card is discarded");
+                fu();
+            }
+            else {
+                win();
+            }
+            // Meeple_Move();
+        } 
+        else if(tempPoints == opp_tempPoints) {
+            alert("tie");
+            tempPoints = 0;
+            opp_tempPoints = [0];
+            fu();
+        } 
     }
     vivaVida();
-    setTimeout(fu, 500);
 }
 
 //If player one loses disaster card will be assigned to player one - called in function directDisaster()
@@ -623,6 +628,7 @@ function lose() {
         } 
         player_disCount = player_disCount + 1;
     }
+    fu();
 }
 
 //If player one wins disaster card will be assigned to player two - called in function directDisaster()
@@ -645,6 +651,7 @@ function win() {
         } 
         opp_disCount = opp_disCount + 1;
     }
+    fu();
 }
 
 function disposeCards() {
