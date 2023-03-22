@@ -711,6 +711,25 @@ for (let i = 0; i <= 50; i++) {
 let ai_avg = (ai_hand[1] + ai_hand[2] + ai_hand[3] + ai_hand[4] + ai_hand[5] + ai_hand[6]) / ai_hand.length;
 
 
+function Meeple_Move() {
+    if (player_disCount < 0) {
+        player_disCount = 0;
+        // tempPoints = totalPoints;
+        // totalPoints = totalPoints - 1 + points +/- trait;
+        let f = document.getElementsByClassName('cell' + 
+        // totalPoints (remove the temp 1)
+         1 );
+        let j = document.createElement(img)
+        f.appendChild(j);
+        if (playerOne == "bronto") {
+            j.src = "/assets/img/bronto-meeple.png";
+        }
+        if (playerOne == "stego") {
+            j.src = "/assets/img/stego-meeple.png";
+        }
+    }
+} 
+
 // single player things
 // AI
 let ai_hand = ai_myfunction2();
@@ -823,7 +842,7 @@ function ai_playIt() {
 };
 console.log(ai_cardsInHand);
 
-// Get the meeple and board elements from the DOM
+// Get the meeple and board elements from the DOM 
 const meeple = document.getElementById('meeple');
 
 
@@ -836,7 +855,7 @@ meeple.style.left = `${x * cellWidth}px`;
 
 // Function to move the meeple to a new position
 function moveMeeple(newX, newY) {
-  // Calculate the new position of the meeple
+  // Calculate the new position of the meeple 
   x = newX;
   y = newY;
   meeple.style.top = `${y * cellHeight}px`;
