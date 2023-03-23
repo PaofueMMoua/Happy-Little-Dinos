@@ -901,11 +901,11 @@ meeple.style.left = `${x * cellWidth}px`;
 // Function to move the meeple to a new position
 function moveMeeple(newX, newY) {
   // Calculate the new position of the meeple 
-  x = newX;
-  y = newY;
-  meeple.style.top = `${y * cellHeight}px`;
-  meeple.style.left = `${x * cellWidth}px`;
-  
+    x = newX;
+    y = newY;
+    meeple.style.top = `${y * cellHeight}px`;
+    meeple.style.left = `${x * cellWidth}px`;
+    
 }
 
 // Example usage: move the meeple to position (2, 3)
