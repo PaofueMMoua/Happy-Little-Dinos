@@ -1,4 +1,3 @@
-
 let board = [
     [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
     [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
@@ -16,8 +15,8 @@ const all = document.getElementById('allboards2')
 const bll = document.getElementById('allboards')
 const Bronto = document.getElementById('Bronto')
 const Stego = document.getElementById('Stego')
-let playerOne;
-let playerTwo;
+let playerOne = '';
+let playerTwo = '';
 
 //Switch board position when click on dinosaur name
 Bronto.addEventListener("click", function () {
@@ -609,33 +608,40 @@ function directDisaster() {
 }
 
 function Meeple_Move() {
-    calculatePoint()
-    let temp_tempPoints = totalPoints;
+    let t_t_p = totalPoints;
     if (player_disCount < 0) {
         player_disCount = 0;
-        totalPoints = totalPoints - 1;
-        if (playerOne == "bronto") {
-            let f = document.getElementsByClassName('cell_b_' + totalPoints);
-            let h = document.getElementsByClassName('cell_b_' + temp_tempPoints);
+        t_p = totalPoints - 1;
+        if (playerOne = "bronto") {
+            let f = document.getElementsByClassName('cell_b_' + t_p);
+            let h = document.getElementsByClassName('cell_b_' + t_t_p);
             f.document.createElement('img').src = "./assets/img/bronto-meeple.png";
         }
-        else if (playerOne == "stego") {
-            let f = document.getElementsByClassName('cell_b_' + totalPoints);
-            let h = document.getElementsByClassName('cell_b_' + temp_tempPoints);
+        else if (playerOne = "stego") {
+            let f = document.getElementsByClassName('cell_b_' + t_p);
+            let h = document.getElementsByClassName('cell_b_' + t_t_p);
             f.document.createElement('img').src = "./assets/img/stego-meeple.png";
+        }
+        else {
+            alert('error dino')
         }
     } else {
-        if (playerOne == "bronto") {
-            let f = document.getElementsByClassName('cell_b_' + totalPoints);
-            let h = document.getElementsByClassName('cell_b_' + temp_tempPoints);
+        if (playerOne = "bronto") {
+            let f = document.getElementsByClassName('cell_b_' + t_p);
+            let h = document.getElementsByClassName('cell_b_' + t_t_p);
             f.document.createElement('img').src = "./assets/img/bronto-meeple.png";
         }
-        else if (playerOne == "stego") {
-            let f = document.getElementsByClassName('cell_b_' + totalPoints);
-            let h = document.getElementsByClassName('cell_b_' + temp_tempPoints);
+        else if (playerOne = "stego") {
+            let f = document.getElementsByClassName('cell_b_' + t_p);
+            let h = document.getElementsByClassName('cell_b_' + t_t_p);
             f.document.createElement('img').src = "./assets/img/stego-meeple.png";
         }
+        else {
+            alert('error dino 2')
+        }
     }
+    
+    player_hand.push();
 } 
 
 function opp_Meeple_Move() {
@@ -751,18 +757,16 @@ let played_cards = [];
 // Update score and check for cell color change
 score += point;
 for (let i = 0; i <= 50; i++) {
-  if (score === i) {
-    let k = 5;
-    let j = document.getElementsByClassName('cell' + k);
-    let row = document.getElementById(j);
-    let col = document.getElementById(j.firstChild);
-    let temp_img = document.createElement('img');
-    temp_img.src = "/assets/img/stego-meeple.png";
-    let temporary = document.getElementById('col-' + row);
-    temporary.appendChild(temp_img);
-    
-    
-  }
+    if (score === i) {
+        let k = 5;
+        let j = document.getElementsByClassName('cell' + k);
+        let row = document.getElementById(j);
+        let col = document.getElementById(j.firstChild);
+        let temp_img = document.createElement('img');
+        temp_img.src = "/assets/img/stego-meeple.png";
+        let temporary = document.getElementById('col-' + row);
+        temporary.appendChild(temp_img);
+    }
 }
 
 // Calculate AI average hand value
