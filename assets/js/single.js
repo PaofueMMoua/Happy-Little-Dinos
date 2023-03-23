@@ -206,15 +206,17 @@ let opp_tempTotal = 0;
 
 //calculate player one total points for the round - called in HTML #playButton
 function calculatePoint() {
-    opp_tempTotal = opp_totalPoints;
-    tempTotal = totalPoints;
-    console.log(opp_tempTotal);
-    console.log(tempTotal);
+    // opp_tempTotal = opp_totalPoints;
+    // tempTotal = totalPoints;
+    // console.log(opp_tempTotal);
+    // console.log(tempTotal);
     opp_play(); 
     // pc_count = 0;
     // ic_count = 0;
-    // tempPoints = tempPoints; + instantCalc();
-    // opp_tempPoints = opp_tempPoints; + opp_instantPlay();
+    tempPoints = tempPoints + instantCalc() + instantSubtract;
+    opp_tempPoints = opp_tempPoints + opp_instantPlay() + opp_instantSubtract;
+    console.log(tempPoints);
+    console.log(opp_tempPoints);
     // tempPoints = tempPoints + instantPoints + instantSubtract;
     // directDisaster();
     totalPoints = totalPoints + tempPoints;
