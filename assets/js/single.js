@@ -217,7 +217,6 @@ function calculatePoint() {
     // tempPoints = tempPoints; + instantCalc();
     // opp_tempPoints = opp_tempPoints; + opp_instantPlay();
     // tempPoints = tempPoints + instantPoints + instantSubtract;
-    setTimeout(directDisaster, 1000);
     // directDisaster();
     totalPoints = totalPoints + tempPoints;
     opp_totalPoints = opp_totalPoints + opp_tempPoints[0];
@@ -610,11 +609,21 @@ function directDisaster() {
 }
 
 function Meeple_Move() {
+    calculatePoint()
     let temp_tempPoints = totalPoints;
-    alert("Meeple move");
     if (player_disCount < 0) {
         player_disCount = 0;
-        totalPoints = totalPoints - 1 ;
+        totalPoints = totalPoints - 1;
+        if (playerOne == "bronto") {
+            let f = document.getElementsByClassName('cell_b_' + totalPoints);
+            let h = document.getElementsByClassName('cell_b_' + temp_tempPoints);
+            f.document.createElement('img').src = "./assets/img/bronto-meeple.png";
+        }
+        else if (playerOne == "stego") {
+            let f = document.getElementsByClassName('cell_b_' + totalPoints);
+            let h = document.getElementsByClassName('cell_b_' + temp_tempPoints);
+            f.document.createElement('img').src = "./assets/img/stego-meeple.png";
+        }
     } else {
         if (playerOne == "bronto") {
             let f = document.getElementsByClassName('cell_b_' + totalPoints);
@@ -727,15 +736,15 @@ let played_cards = [];
 // }
 
 // calc player card
-function calculate() {
-    for (let i = 0; i <= 2; i++) {
-        if (played_cards = number) {
-            if (played_cards[i] = i) {
-                temp_points = temp_points + i;
-            }
-        }
-    }
-}
+// function calculate() {
+//     for (let i = 0; i <= 2; i++) {
+//         if (played_cards = number) {
+//             if (played_cards[i] = i) {
+//                 temp_points = temp_points + i;
+//             }
+//         }
+//     }
+// }
 
 // score
 
