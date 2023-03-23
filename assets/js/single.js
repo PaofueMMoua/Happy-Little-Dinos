@@ -79,6 +79,9 @@ function vivaVida() {
         //  alert("drawing new deck");
         //  myfunction2();
     }
+    if(opp_hand.length == 0 || !opp_hand.includes(1) && !opp_hand.includes(2) && !opp_hand.includes(3) &&!opp_hand.includes(4) && !opp_hand.includes(5) && !opp_hand.includes(6)) {
+        opp_myfunction2();
+    }
 }
 
 // function for shuffling and distributing cards to player one - 
@@ -132,8 +135,8 @@ function opp_myfunction2() {
     if(allCards.length > 4) {
         for(let i=0; i<5; i++) {
             let number = Math.round(Math.random() * allCards.length - .5);
-            let num = allCards[number];
-            opp_hand.push(num);
+            let num2 = allCards[number];
+            opp_hand.push(num2);
             allCards.splice(number, 1);
             console.log("opponent's hand " + opp_hand);
         }
@@ -143,8 +146,8 @@ function opp_myfunction2() {
         allCards = [1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, , 2, 2, 3, 3, 3, 3, 3, 3, 3, 4, 4, 4, 4, 4, 4, 4, 5, 5, 5, 5, 5, 5, 5, 6, 6, 6, 6, 6, 6, 6, 7, 7, 8, 8, 9, 9, 10, 10]; 
         for(let i=0; i<5; i++) {
             let number = Math.round(Math.random() * allCards.length - .5);
-            let num = allCards[number];
-            opp_hand.push(num);
+            let num2 = allCards[number];
+            opp_hand.push(num2);
             allCards.splice(number, 1);
             console.log("opponent's hand " + opp_hand);
         }
@@ -206,6 +209,8 @@ let opp_tempTotal = 0;
 
 //calculate player one total points for the round - called in HTML #playButton
 function calculatePoint() {
+    instantSubtract = 0;
+    opp_instantSubtract = 0;
     // opp_tempTotal = opp_totalPoints;
     // tempTotal = totalPoints;
     // console.log(opp_tempTotal);
@@ -213,43 +218,43 @@ function calculatePoint() {
     opp_play(); 
     // pc_count = 0;
     // ic_count = 0;
-    tempPoints = tempPoints + instantCalc() + instantSubtract;
-    opp_tempPoints = opp_tempPoints;
-    console.log(tempPoints);
-    console.log(opp_tempPoints[0]);
+    tempPoints = tempPoints + instantCalc() - instantSubtract;
+    opp_tempPoints = opp_tempPoints[0] + opp_instantPlay() - opp_instantSubtract;
+    console.log( "opp" + opp_tempPoints);
+    console.log("urs" + tempPoints);
     // tempPoints = tempPoints + instantPoints + instantSubtract;
     // directDisaster();
     totalPoints = totalPoints + tempPoints;
-    opp_totalPoints = opp_totalPoints + opp_tempPoints[0];
+    opp_totalPoints = opp_totalPoints + opp_tempPoints;
     setTimeout(directDisaster, 1000);
-    setTimeout(disposeCards, 2000);
+    // setTimeout(disposeCards, 2000);
 }
 let instantSubtract = 0;
 let opp_instantSubtract = 0;
 function opp_instantPlay() {
     if (opp_tempInstant == 7) {
-        opp_instantPoints = 2;
+        return 2;
     }
     else if (opp_tempInstant == 10) {
-        opp_instantSubtract = -2;
-        instantPoints = 0;
+        instantSubtract = 2;
+        return 0;
     } 
     else {
-        instantPoints = 0;
+        return 0;
     }
 }
 
 // checks if instant cards will affect player one's results for the round - called in function calculatePoint()
 function instantCalc() {
     if (tempInstant == 7) {
-        return instantPoints = 2;
+        return 2;
     }
     else if (tempInstant == 10) {
-        opp_instantPoints = -2;
-        return instantPoints = 0;
+        opp_instantSubtract = 2;
+        return 0;
     } 
     else {
-        return instantPoints = 0;
+        return 0;
     }
 }
 
@@ -569,14 +574,14 @@ function directDisaster() {
     // let opp_totalPoints = Math.round(Math.random() * 10);
     console.log("opp points =" + opp_tempPoints);
     console.log("ur points =" + tempPoints);
-    if(opp_tempInstant == 9 && tempInstant == 9) {
-        alert("Disaster card is discarded");
+    if(tempInstant == 9 && opp_tempInstant[0] != 9) {
+        win();
     }
-    else if(opp_tempInstant == 9) {
+    else if(opp_tempInstant[0] == 9 && tempInstant != 9) {
         lose();
     }
-    else if(tempInstant == 9) {
-        win();
+    else if (opp_tempInstant[0] == 9 && tempInstant == 9) {
+        alert("Disaster card is discarded");
     }
     else {
         if (tempPoints < opp_tempPoints) {
@@ -587,17 +592,17 @@ function directDisaster() {
             else {
                 lose();
             }
-        opp_Meeple_Move();
+        // opp_Meeple_Move();
         }
         else if(tempPoints > opp_tempPoints) {
-            if(opp_tempInstant == 8) {
+            if(opp_tempInstant[0] == 8) {
                 alert("Disaster card is discarded");
                 fu();
             }
             else {
                 win();
             }
-            Meeple_Move();
+            // Meeple_Move();
         } 
         else if(tempPoints == opp_tempPoints) {
             alert("tie");
