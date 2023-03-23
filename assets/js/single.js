@@ -214,9 +214,9 @@ function calculatePoint() {
     // pc_count = 0;
     // ic_count = 0;
     tempPoints = tempPoints + instantCalc() + instantSubtract;
-    opp_tempPoints = opp_tempPoints + opp_instantPlay() + opp_instantSubtract;
+    opp_tempPoints = opp_tempPoints;
     console.log(tempPoints);
-    console.log(opp_tempPoints);
+    console.log(opp_tempPoints[0]);
     // tempPoints = tempPoints + instantPoints + instantSubtract;
     // directDisaster();
     totalPoints = totalPoints + tempPoints;
