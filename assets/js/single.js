@@ -848,6 +848,48 @@ let ai_pc_count = 0
 let ai_totalPoints = 0;
 ai_temppoints = 0;
 
+ // Get the first card in the AI's hand
+// const aiAb = aiCardsInHand[0];
+
+// Initialize variables for the cards the AI has played, temporary cards, and points earned
+// const aiPlayedCards = [];
+// const aiTempCards = [];
+// let aiTempInstantPoints = 0;
+// let aiInstantCardCount = 0;
+// let aiPointsCardCount = 0;
+// let aiTotalPoints = 0;
+// let aiTempPoints = 0;
+
+// function aiPlayCard() {
+    // Generate a random number between 1 and 5 (inclusive)
+    // const randomIndex = Math.floor(Math.random() * 5) + 1;
+  
+    // Check if the selected card has a point value of 7 or higher
+    // if (aiCardsInHand[randomIndex] >= 7) {
+      // Update the image source for the instant center
+      // const instantCenterImage = document.getElementById('ai_instantCenter');
+     // instantCenterImage.src = `/assets/cards2/point${aiCardsInHand[randomIndex]}.png`;
+  
+      // Hide the played card from the AI's hand
+      // const playedCardImage = document.getElementById(`Bronto-card${randomIndex}`);
+      // playedCardImage.src = '';
+  
+      // Remove the played card from the temporary card array
+      // const playedCardIndex = aiTempCards.indexOf(aiCardsInHand[randomIndex]);
+     // aiTempCards.splice(playedCardIndex, 1);
+       
+      // Add the played card to the AI's list of played cards and update the temporary instant card
+      // aiPlayedCards.push(aiCardsInHand[randomIndex]);
+      // aiTempInstantPoints = aiCardsInHand[randomIndex];
+  
+      // Set the value of the selected card in the AI's hand to 0 and update the card counts
+      // aiCardsInHand[randomIndex] = 0;
+      // aiInstantCardCount += 1;
+    // }
+  // }
+  
+
+
 function ai_playIt() {
     let x = Math.random(1, 5);
         if (ai_cardsInHand[x] >= 7) {
@@ -887,7 +929,7 @@ function ai_playIt() {
 };
 console.log(ai_cardsInHand);
 
-// Get the meeple and board elements from the DOM 
+//  Get the meeple and board elements from the DOM  
 const meeple = document.getElementById('meeple');
 
 
@@ -900,7 +942,7 @@ meeple.style.left = `${x * cellWidth}px`;
 
 // Function to move the meeple to a new position
 function moveMeeple(newX, newY) {
-  // Calculate the new position of the meeple 
+  // Caculate the new position of meeple 
     x = newX;
     y = newY;
     meeple.style.top = `${y * cellHeight}px`;
