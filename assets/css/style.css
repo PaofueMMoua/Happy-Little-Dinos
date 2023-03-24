@@ -614,4 +614,6 @@ h3,
 } */
 
 
-  
+.meeple_class {
+    position:absolute;
+}
