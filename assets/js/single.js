@@ -453,7 +453,7 @@ function playIt_4() {
 };
 
 // Sets center image if player one chooses to play card #5 (furthest to the right)
-function playIt_5() {
+function playIt_5() { 
     if (cardsInHand[4] >= 7) {
         if (ic_count == 0) {
             document.getElementById("instantCenter").src = "/assets/cards2/point" + cardsInHand[4] + ".png";
@@ -776,35 +776,28 @@ function disposeCards() {
     }  
 }
 
-//AI CODE
-// let round_end = false;
-// let player_hand = deck.handA(deck.drawCards(5))
+// function drawing_cards() {
+ //     if (cardsInHand > 5) {
+ //         let n = myfunction2();
+ //         n.splice(0, (a.length - 1))
+ //         cardsInHand = cardsInHand + n;
+ //     }
+ // }
 
-// // playing a point card
-// let played_cards = [];
+ // calc player card
+ // function calculate() {
+ //     for (let i = 0; i <= 2; i++) {
+ //         if (played_cards = number) {
+ //             if (played_cards[i] = i) {
+ //                 temp_points = temp_points + i;
+ //             }
+ //         }
+ //     }
+ // }
 
-// // function drawing_cards() {
-// //     if (cardsInHand > 5) {
-// //         let n = myfunction2();
-// //         n.splice(0, (a.length - 1))
-// //         cardsInHand = cardsInHand + n;
-// //     }
-// // }
+ // score
 
-// // calc player card
-// // function calculate() {
-// //     for (let i = 0; i <= 2; i++) {
-// //         if (played_cards = number) {
-// //             if (played_cards[i] = i) {
-// //                 temp_points = temp_points + i;
-// //             }
-// //         }
-// //     }
-// // }
-
-// // score
-
-// // Update score and check for cell color change
+ // Update score and check for cell color change
 // score += point;
 // for (let i = 0; i <= 50; i++) {
 //     if (score === i) {
@@ -819,14 +812,14 @@ function disposeCards() {
 //     }
 // }
 
-// // Calculate AI average hand value
+ // Calculate AI average hand value
 // let ai_avg = (ai_hand[1] + ai_hand[2] + ai_hand[3] + ai_hand[4] + ai_hand[5] + ai_hand[6]) / ai_hand.length;
 
 
 
 
-// // single player things
-// // AI
+ // single player things
+ // AI
 // let ai_hand = ai_myfunction2();
 // let ai_cardsInHand = []
 // function ai_card_choice() {
@@ -937,11 +930,10 @@ function disposeCards() {
 // };
 // console.log(ai_cardsInHand);
 
-// // Get the meeple and board elements from the DOM 
+ // Get the meeple and board elements from the DOM 
 // const meeple = document.getElementById('meeple');
 
-
-// // Set the initial position of the meeple
+ // Set the initial position of the meeple
 
 // let cellWidth = 30; 
 // let cellHeight = 30; 
@@ -1063,7 +1055,7 @@ function ai_playIt() {
             ai_tempPoint = ai_cardsInHand[x];
             ai_tempCards.splice(index, 1);
             ai_cardsInHand[x] = 0;
-            ai_pc_count = ai_pc_count + 1;
+            ai_pc_count = ai_pc_count + 1; 
         }
         let m = Math.random(1, 5);
         if (ai_cardsInHand[m] >= 7) {
