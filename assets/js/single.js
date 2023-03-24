@@ -1084,7 +1084,8 @@ function moveMeeple(newX, newY) {
     y = newY;
     meeple.style.top = `${y * cellHeight}px`;
     meeple.style.left = `${x * cellWidth}px`;
-// // Function to move the meeple to a new position
+     }
+//  Function to move the meeple to a new position
 // function moveMeeple(newX, newY) {
 //   // Calculate the new position of the meeple 
 //     x = newX;
@@ -1094,10 +1095,12 @@ function moveMeeple(newX, newY) {
     
 // }
 
-// // Example usage: move the meeple to position (2, 3)
+//  Example usage: move the meeple to position (2, 3)
 // moveMeeple(2, 3);
 
 
 
-// // meeple = document . .. ('cell_' + x );
-// // x = score + point - temp_disaster_amount + disaster_positive - disaster_negati
+ // meeple = document . .. ('cell_' + x );
+ // x = score + point - temp_disaster_amount + disaster_positive - disaster_negative
+
+
