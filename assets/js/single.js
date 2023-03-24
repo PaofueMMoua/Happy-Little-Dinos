@@ -948,21 +948,181 @@ function disposeCards() {
 // meeple.style.top = `${y * cellHeight}px`;
 // meeple.style.left = `${x * cellWidth}px`; 
 
-// // Function to move the meeple to a new position
+ai_cardsInHand = [];
+function ai_myfunction2() {
+    let f = document.getElementById("reveal")
+    f.style.display = 'none';
+    if (ai_allCards.length > 4) {
+        for (let i = 0; i < 5; i++) {
+            let number = Math.round(Math.random() * ai_allCards.length - .5);
+            let num = ai_allCards[number];
+            ai_cardsInHand.push(num);
+            let l = ai_allCards.splice(number, 1);
+            console.log(ai_allCards);
+            console.log(ai_cardsInHand);
+        }
+    }
+    else {
+        alert('Shuffling Cards');
+        ai_allCards = [1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 3, 3, 4, 4, 4, 4, 4, 4, 4, 5, 5, 5, 5, 5, 5, 5, 6, 6, 6, 6, 6, 6, 6, 7, 7, 8, 8, 9, 9, 10, 10];
+        for (let i = 0; i < 5; i++) {
+            let number = Math.round(Math.random() * ai_allCards.length - .5);
+            let num = allCards[number];
+            ai_tempCards.push(num);
+            ai_cardsInHand.push(num);
+            ai_allCards.splice(number, 1);
+            console.log(allCards);
+            console.log(cardsInHand);
+        }
+    }
+};
+
+function ai_testas() {
+    console.log(tempCards);
+    if (!tempCards.includes(1) && !tempCards.includes(2) && !tempCards.includes(3) && !tempCards.includes(4) && !tempCards.includes(5) && !tempCards.includes(6)) {
+        ai_myfunction2();
+    }
+    else {
+        alert("You cannot draw cards at the moment");
+        console.log("trash");
+    }
+}
+
+
+let ai_ab = ai_cardsInHand[0];
+
+let ai_played = [];
+let ai_tempCards = [];
+let ai_tempInstant = 0;
+let ai_ic_count = 0;
+let ai_pc_count = 0
+let ai_totalPoints = 0;
+ai_temppoints = 0;
+
+ // Get the first card in the AI's hand
+// const aiAb = aiCardsInHand[0];
+
+// Initialize variables for the cards the AI has played, temporary cards, and points earned
+// const aiPlayedCards = [];
+// const aiTempCards = [];
+// let aiTempInstantPoints = 0;
+// let aiInstantCardCount = 0;
+// let aiPointsCardCount = 0;
+// let aiTotalPoints = 0;
+// let aiTempPoints = 0;
+
+// function aiPlayCard() {
+    // Generate a random number between 1 and 5 (inclusive)
+    // const randomIndex = Math.floor(Math.random() * 5) + 1;
+  
+    // Check if the selected card has a point value of 7 or higher
+    // if (aiCardsInHand[randomIndex] >= 7) {
+      // Update the image source for the instant center
+      // const instantCenterImage = document.getElementById('ai_instantCenter');
+     // instantCenterImage.src = `/assets/cards2/point${aiCardsInHand[randomIndex]}.png`;
+  
+      // Hide the played card from the AI's hand
+      // const playedCardImage = document.getElementById(`Bronto-card${randomIndex}`);
+      // playedCardImage.src = '';
+  
+      // Remove the played card from the temporary card array
+      // const playedCardIndex = aiTempCards.indexOf(aiCardsInHand[randomIndex]);
+     // aiTempCards.splice(playedCardIndex, 1);
+       
+      // Add the played card to the AI's list of played cards and update the temporary instant card
+      // aiPlayedCards.push(aiCardsInHand[randomIndex]);
+      // aiTempInstantPoints = aiCardsInHand[randomIndex];
+  
+      // Set the value of the selected card in the AI's hand to 0 and update the card counts
+      // aiCardsInHand[randomIndex] = 0;
+      // aiInstantCardCount += 1;
+    // }
+  // }
+  
+
+
+function ai_playIt() {
+    let x = Math.random(1, 5);
+        if (ai_cardsInHand[x] >= 7) {
+            document.getElementById('ai_instantCenter').src = '/assets/cards2/point' + ai_cardsInHand[x] + '.png';
+            document.getElementById('Bronto-card' + x).src = '';
+            let index = ai_tempCards.indexOf(ai_cardsInHand[x]);
+            ai_tempCards.splice(index, 1);
+            ai_played.push(ai_cardsInHand[x]);
+            ai_tempInstant = ai_cardsInHand[x];
+            ai_cardsInHand[x] = 0;
+            ai_ic_count = ai_ic_count + 1;
+        }
+    else if (ai_cardsInHand[x] <= 6) {
+        if (ai_pc_count == 0) {
+            document.getElementById("ai_pointCenter").src = "/assets/cards2/point" + ai_cardsInHand[x] + ".png";
+            document.getElementById("Bronto-card" + x).src = "";
+            console.log("/assets/cards2/point" + ai_cardsInHand[x] + ".png");
+            let index = ai_tempCards.indexOf(ai_cardsInHand[x]);
+            ai_played.push(ai_cardsInHand[x]);
+            ai_tempPoint = ai_cardsInHand[x];
+            ai_tempCards.splice(index, 1);
+            ai_cardsInHand[x] = 0;
+            ai_pc_count = ai_pc_count + 1;
+        }
+        let m = Math.random(1, 5);
+        if (ai_cardsInHand[m] >= 7) {
+            document.getElementById('ai_instantCenter').src = '/assets/cards2/point' + ai_cardsInHand[m] + '.png';
+            document.getElementById('Bronto-card' + m).src = '';
+            let index = ai_tempCards.indexOf(ai_cardsInHand[m]);
+            ai_tempCards.splice(index, 1);
+            ai_played.push(ai_cardsInHand[m]);
+            ai_tempInstant = ai_cardsInHand[m];
+            ai_cardsInHand[m] = 0;
+            ai_ic_count = ai_ic_count + 1;
+        }
+    }
+};
+console.log(ai_cardsInHand);
+
+//  Get the meeple and board elements from the DOM  
+const meeple = document.getElementById('meeple');
+
+
+// Set the initial position of the meeple
+
+let cellWidth = 30; 
+let cellHeight = 30; 
+meeple.style.top = `${y * cellHeight}px`;
+meeple.style.left = `${x * cellWidth}px`; 
+
+// Function to move the meeple to a new position
+function moveMeeple(newX, newY) {
+  // Caculate the new position of meeple 
+    x = newX;
+    y = newY;
+    meeple.style.top = `${y * cellHeight}px`;
+    meeple.style.left = `${x * cellWidth}px`;
+     }
+//  Function to move the meeple to a new position
 // function moveMeeple(newX, newY) {
 //   // Calculate the new position of the meeple 
 //     x = newX;
 //     y = newY;
 //     meeple.style.top = `${y * cellHeight}px`;
 //     meeple.style.left = `${x * cellWidth}px`;
-    
+     
 // }
 
-// // Example usage: move the meeple to position (2, 3)
+//  Example usage: move the meeple to position (2, 3)
 // moveMeeple(2, 3);
 
+// Updated function to move the meeple along board
+// function moveMeepleWithinCell(meepleElement, x, y) {
+ // meepleElement.style.position = "relative"; // Set position to relative
+ // meepleElement.style.left = x + "px"; // Move the meeple horizontally
+ // meepleElement.style.top = y + "px"; // Move the meeple vertically
+ // }
 
+ // const meeple = document.getElementById("meeple");
+ // moveMeepleWithinCell(meeple, 10, 20);
+ 
+ // meeple = document . .. ('cell_' + x );
+ // x = score + point - temp_disaster_amount + disaster_positive - disaster_negative
 
-// // meeple = document . .. ('cell_' + x );
-// // x = score + point - temp_disaster_amount + disaster_positive - disaster_negative
 
