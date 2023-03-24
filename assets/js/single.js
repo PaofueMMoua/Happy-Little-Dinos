@@ -168,7 +168,6 @@ function opp_play() {
     console.log(lowNum);
     let highIndex = Math.round(Math.random() * highNum.length - .5);
     let lowIndex = Math.round(Math.random() * lowNum.length - .5);
-
     if(lowNum.length < 1) {
         opp_myfunction2();
         highNum = [];
@@ -183,7 +182,9 @@ function opp_play() {
 
     if(highNum.length >= 1) {
         document.getElementById("ai_instantCenter").src = "/assets/cards2/point" + highNum[highIndex] + ".png"
-        opp_tempInstant = highNum.splice(highIndex, 1);
+        // opp_tempInstant = highNum.splice(highIndex, 1);
+         v = highNum.splice(highIndex, 1);
+        opp_tempInstant = v[0];
         let p = opp_hand.indexOf(highNum[highIndex]);
         opp_hand.splice(p, 1);
         console.log(opp_hand);
@@ -218,10 +219,12 @@ function calculatePoint() {
     // console.log(opp_tempTotal);
     // console.log(tempTotal);
     opp_play(); 
+    instantCalc();
+    opp_instantCalc();
     // pc_count = 0;
     // ic_count = 0;
-    tempPoints = tempPoints + instantCalc() - instantSubtract;
-    opp_tempPoints = opp_tempPoints[0] + opp_instantPlay() - opp_instantSubtract;
+    tempPoints = tempPoints + instantPoints - instantSubtract 
+    opp_tempPoints = opp_tempPoints[0] + opp_instantPoints - opp_instantSubtract;
     console.log( "opp" + opp_tempPoints);
     console.log("urs" + tempPoints);
     // tempPoints = tempPoints + instantPoints + instantSubtract;
@@ -233,30 +236,34 @@ function calculatePoint() {
 }
 let instantSubtract = 0;
 let opp_instantSubtract = 0;
-function opp_instantPlay() {
+function opp_instantCalc() {
     if (opp_tempInstant == 7) {
-        return 2;
+        opp_instantPoints =  2;
+        instantSubtract = 0;
     }
     else if (opp_tempInstant == 10) {
         instantSubtract = 2;
-        return 0;
+        opp_instantPoints = 0;
     } 
     else {
-        return 0;
+        instantSubtract = 0;
+        opp_instantPoints = 0;
     }
 }
 
 // checks if instant cards will affect player one's results for the round - called in function calculatePoint()
 function instantCalc() {
     if (tempInstant == 7) {
-        return 2;
+        instantPoints = 2;
+        opp_instantSubtract = 0;
     }
     else if (tempInstant == 10) {
         opp_instantSubtract = 2;
-        return 0;
+        instantPoints = 0;
     } 
     else {
-        return 0;
+        opp_instantSubtract = 0;
+        instantPoints = 0;
     }
 }
 
@@ -576,14 +583,19 @@ function directDisaster() {
     // let opp_totalPoints = Math.round(Math.random() * 10);
     console.log("opp points =" + opp_tempPoints);
     console.log("ur points =" + tempPoints);
-    if(tempInstant == 9 && opp_tempInstant[0] != 9) {
+    if(opp_tempInstant == 9 && tempInstant == 8 || opp_tempInstant == 8 && tempInstant == 9) {
+        alert("Disaster card is discarded");
+        fu();
+    }
+    else if (opp_tempInstant == 9 && tempInstant == 9) {
+        alert("Disaster card is discarded");
+        fu();
+    }
+    else if(tempInstant == 9 && opp_tempInstant != 9) {
         win();
     }
-    else if(opp_tempInstant[0] == 9 && tempInstant != 9) {
+    else if(opp_tempInstant == 9 && tempInstant != 9) {
         lose();
-    }
-    else if (opp_tempInstant[0] == 9 && tempInstant == 9) {
-        alert("Disaster card is discarded");
     }
     else {
         if (tempPoints < opp_tempPoints) {
@@ -597,7 +609,7 @@ function directDisaster() {
         opp_Meeple_Move();
         }
         else if(tempPoints > opp_tempPoints) {
-            if(opp_tempInstant[0] == 8) {
+            if(opp_tempInstant == 8) {
                 alert("Disaster card is discarded");
                 fu();
             }
@@ -609,7 +621,7 @@ function directDisaster() {
         else if(tempPoints == opp_tempPoints) {
             alert("tie");
             tempPoints = 0;
-            opp_tempPoints = [0];
+            opp_tempPoints = 0;
             fu();
         } 
     }
@@ -751,6 +763,8 @@ function win() {
 function disposeCards() {
     pc_count = 0;
     ic_count = 0;
+    tempInstant = 0;
+    opp_tempInstant = 0;
     if(pc_count == 0 && ic_count == 0) {
     document.getElementById("instantCenter").src = "/assets/cards2/main-empty.png";
     document.getElementById("pointCenter").src = "/assets/cards2/main-empty.png";
