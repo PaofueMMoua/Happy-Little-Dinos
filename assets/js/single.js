@@ -1092,14 +1092,22 @@ function moveMeeple(newX, newY) {
 //     y = newY;
 //     meeple.style.top = `${y * cellHeight}px`;
 //     meeple.style.left = `${x * cellWidth}px`;
-    
+     
 // }
 
 //  Example usage: move the meeple to position (2, 3)
 // moveMeeple(2, 3);
 
+// Updated function to move the meeple along board
+// function moveMeepleWithinCell(meepleElement, x, y) {
+ // meepleElement.style.position = "relative"; // Set position to relative
+ // meepleElement.style.left = x + "px"; // Move the meeple horizontally
+ // meepleElement.style.top = y + "px"; // Move the meeple vertically
+ // }
 
-
+ // const meeple = document.getElementById("meeple");
+ // moveMeepleWithinCell(meeple, 10, 20);
+ 
  // meeple = document . .. ('cell_' + x );
  // x = score + point - temp_disaster_amount + disaster_positive - disaster_negative
 
