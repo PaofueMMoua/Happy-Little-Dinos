@@ -453,7 +453,7 @@ function playIt_4() {
 };
 
 // Sets center image if player one chooses to play card #5 (furthest to the right)
-function playIt_5() {
+function playIt_5() { 
     if (cardsInHand[4] >= 7) {
         if (ic_count == 0) {
             document.getElementById("instantCenter").src = "/assets/cards2/point" + cardsInHand[4] + ".png";
@@ -851,35 +851,92 @@ function checkWinGame() {
     }
 }
 
-//AI CODE
-// let round_end = false;
-// let player_hand = deck.handA(deck.drawCards(5))
 
-// // playing a point card
-// let played_cards = [];
+function checkLoseGame() {
+    let red = [];
+    let blue = [];
+    let green = [];
+    for(i=0; i < disasterTrack.length; i++) {
+        if(disasterTrack[i] === 'red') {
+            red.push(disasterTrack[i]);
+            console.log('player sub');
+            console.log(red);
+        }
+        else if(disasterTrack[i] === 'blue') {
+            blue.push(disasterTrack[i]);
+            console.log('player sub');
+            console.log(blue);
+        }
+        else if(disasterTrack[i] === 'green') {
+            green.push(disasterTrack[i]);
+            console.log('player sub');
+            console.log(green);
+        }
+    }
 
-// // function drawing_cards() {
-// //     if (cardsInHand > 5) {
-// //         let n = myfunction2();
-// //         n.splice(0, (a.length - 1))
-// //         cardsInHand = cardsInHand + n;
-// //     }
-// // }
+    if(red.length == 4 || blue.length == 4 || green.length == 4) {
+        alert("you lose!");
+    }
+    else if(red.length == 2 && blue.length == 2 && green.length == 2) {
+        alert("you lose!");
+    }
+}
 
-// // calc player card
-// // function calculate() {
-// //     for (let i = 0; i <= 2; i++) {
-// //         if (played_cards = number) {
-// //             if (played_cards[i] = i) {
-// //                 temp_points = temp_points + i;
-// //             }
-// //         }
-// //     }
-// // }
+// let redTwo = [];
+// let blueTwo = [];
+// let greenTwo = [];
+function checkWinGame() {
+    let redTwo = [];
+    let blueTwo = [];
+    let greenTwo = [];
+    for(i=0; i < opp_disasterTrack.length; i++) {
+        if(opp_disasterTrack[i] === 'red') {
+            redTwo.push(opp_disasterTrack[i]);
+            console.log("opp sub");
+            console.log(redTwo);
+        }
+        else if(opp_disasterTrack[i] === 'blue') {
+            blueTwo.push(opp_disasterTrack[i]);
+            console.log("opp sub");
+            console.log(blueTwo);
+        }
+        else if(opp_disasterTrack[i] === 'green') {
+            greenTwo.push(opp_disasterTrack[i]);
+            console.log("opp sub");
+            console.log(greenTwo);
+        }
+    }
 
-// // score
+    if(redTwo.length == 4 || blueTwo.length == 4 || greenTwo.length == 4) {
+        alert("you win!");
+    }
+    else if(redTwo.length == 2 && blueTwo.length == 2 && greenTwo.length == 2) {
+        alert("you win!");
+    }
+}
 
-// // Update score and check for cell color change
+// function drawing_cards() {
+ //     if (cardsInHand > 5) {
+ //         let n = myfunction2();
+ //         n.splice(0, (a.length - 1))
+ //         cardsInHand = cardsInHand + n;
+ //     }
+ // }
+
+ // calc player card
+ // function calculate() {
+ //     for (let i = 0; i <= 2; i++) {
+ //         if (played_cards = number) {
+ //             if (played_cards[i] = i) {
+ //                 temp_points = temp_points + i;
+ //             }
+ //         }
+ //     }
+ // }
+
+ // score
+
+ // Update score and check for cell color change
 // score += point;
 // for (let i = 0; i <= 50; i++) {
 //     if (score === i) {
@@ -894,14 +951,14 @@ function checkWinGame() {
 //     }
 // }
 
-// // Calculate AI average hand value
+ // Calculate AI average hand value
 // let ai_avg = (ai_hand[1] + ai_hand[2] + ai_hand[3] + ai_hand[4] + ai_hand[5] + ai_hand[6]) / ai_hand.length;
 
 
 
 
-// // single player things
-// // AI
+ // single player things
+ // AI
 // let ai_hand = ai_myfunction2();
 // let ai_cardsInHand = []
 // function ai_card_choice() {
@@ -1012,11 +1069,10 @@ function checkWinGame() {
 // };
 // console.log(ai_cardsInHand);
 
-// // Get the meeple and board elements from the DOM 
+ // Get the meeple and board elements from the DOM 
 // const meeple = document.getElementById('meeple');
 
-
-// // Set the initial position of the meeple
+ // Set the initial position of the meeple
 
 // let cellWidth = 30; 
 // let cellHeight = 30; 
@@ -1138,7 +1194,7 @@ function ai_playIt() {
             ai_tempPoint = ai_cardsInHand[x];
             ai_tempCards.splice(index, 1);
             ai_cardsInHand[x] = 0;
-            ai_pc_count = ai_pc_count + 1;
+            ai_pc_count = ai_pc_count + 1; 
         }
         let m = Math.random(1, 5);
         if (ai_cardsInHand[m] >= 7) {
