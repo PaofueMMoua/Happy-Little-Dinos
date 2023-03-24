@@ -714,50 +714,61 @@ function opp_Meeple_Move() {
         }
     }
 } 
+
+let disasterTrack = [];
+let opp_disasterTrack = [];
 //If player one loses disaster card will be assigned to player one - called in function directDisaster()
 function lose() {
     if (playerOne == "bronto") {
-        for(let i = 0; i < 5; i++) {
+        for(let i = 0; i < 6; i++) {
             if(player_disCount == i) {
                 document.getElementById("brontoDisaster" + (i + 1)).src = "/assets/img/" + color + "-disaster.png";
+                disasterTrack.push(color);
+                console.log(disasterTrack);
             }
         }
         player_disCount = player_disCount + 1;
 
     }
     else if(playerOne == "stego") {
-        for(let i = 0; i < 5; i++) {
+        for(let i = 0; i < 6; i++) {
             if(player_disCount == i) {
                 document.getElementById("stegoDisaster" + (i + 1)).src = "/assets/img/" + color + "-disaster.png";
-                console.log("stegoDisaster" + (i + 1));
+                disasterTrack.push(color);
+                console.log(disasterTrack);
             }
         } 
         player_disCount = player_disCount + 1;
     }
     fu();
+    checkLoseGame();
 }
 
 //If player one wins disaster card will be assigned to player two - called in function directDisaster()
 function win() {
     if (playerOne == "stego") {
-        for(let i = 0; i < 5; i++) {
+        for(let i = 0; i < 6; i++) {
             if(opp_disCount == i) {
                 document.getElementById("oppBronto" + (i + 1)).src = "/assets/img/" + color + "-disaster.png";
+                opp_disasterTrack.push(color);
+                console.log(opp_disasterTrack);
             }
         }
         opp_disCount = opp_disCount + 1;
 
     }
     else if(playerOne == "bronto") {
-        for(let i = 0; i < 5; i++) {
+        for(let i = 0; i < 6; i++) {
             if(opp_disCount == i) {
                 document.getElementById("oppSteg" + (i + 1)).src = "/assets/img/" + color + "-disaster.png";
-                console.log("stegoDisaster" + (i + 1));
+                opp_disasterTrack.push(color);
+                console.log(opp_disasterTrack);
             }
         } 
         opp_disCount = opp_disCount + 1;
     }
     fu();
+    checkWinGame();
 }
 
 function disposeCards() {
@@ -774,6 +785,70 @@ function disposeCards() {
     else {
         alert("you cannot dispose cards at the moment");
     }  
+}
+
+
+function checkLoseGame() {
+    let red = [];
+    let blue = [];
+    let green = [];
+    for(i=0; i < disasterTrack.length; i++) {
+        if(disasterTrack[i] === 'red') {
+            red.push(disasterTrack[i]);
+            console.log('player sub');
+            console.log(red);
+        }
+        else if(disasterTrack[i] === 'blue') {
+            blue.push(disasterTrack[i]);
+            console.log('player sub');
+            console.log(blue);
+        }
+        else if(disasterTrack[i] === 'green') {
+            green.push(disasterTrack[i]);
+            console.log('player sub');
+            console.log(green);
+        }
+    }
+
+    if(red.length == 4 || blue.length == 4 || green.length == 4) {
+        alert("you lose!");
+    }
+    else if(red.length == 2 && blue.length == 2 && green.length == 2) {
+        alert("you lose!");
+    }
+}
+
+// let redTwo = [];
+// let blueTwo = [];
+// let greenTwo = [];
+function checkWinGame() {
+    let redTwo = [];
+    let blueTwo = [];
+    let greenTwo = [];
+    for(i=0; i < opp_disasterTrack.length; i++) {
+        if(opp_disasterTrack[i] === 'red') {
+            redTwo.push(opp_disasterTrack[i]);
+            console.log("opp sub");
+            console.log(redTwo);
+        }
+        else if(opp_disasterTrack[i] === 'blue') {
+            blueTwo.push(opp_disasterTrack[i]);
+            console.log("opp sub");
+            console.log(blueTwo);
+        }
+        else if(opp_disasterTrack[i] === 'green') {
+            greenTwo.push(opp_disasterTrack[i]);
+            console.log("opp sub");
+            console.log(greenTwo);
+        }
+    }
+
+    if(redTwo.length == 4 || blueTwo.length == 4 || greenTwo.length == 4) {
+        alert("you win!");
+    }
+    else if(redTwo.length == 2 && blueTwo.length == 2 && greenTwo.length == 2) {
+        alert("you win!");
+    }
 }
 
 //AI CODE
