@@ -79,6 +79,9 @@ function vivaVida() {
         //  alert("drawing new deck");
         //  myfunction2();
     }
+    if(opp_hand.length == 0 || !opp_hand.includes(1) && !opp_hand.includes(2) && !opp_hand.includes(3) &&!opp_hand.includes(4) && !opp_hand.includes(5) && !opp_hand.includes(6)) {
+        opp_myfunction2();
+    }
 }
 
 // function for shuffling and distributing cards to player one - 
@@ -132,8 +135,8 @@ function opp_myfunction2() {
     if(allCards.length > 4) {
         for(let i=0; i<5; i++) {
             let number = Math.round(Math.random() * allCards.length - .5);
-            let num = allCards[number];
-            opp_hand.push(num);
+            let num2 = allCards[number];
+            opp_hand.push(num2);
             allCards.splice(number, 1);
             console.log("opponent's hand " + opp_hand);
         }
@@ -143,8 +146,8 @@ function opp_myfunction2() {
         allCards = [1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, , 2, 2, 3, 3, 3, 3, 3, 3, 3, 4, 4, 4, 4, 4, 4, 4, 5, 5, 5, 5, 5, 5, 5, 6, 6, 6, 6, 6, 6, 6, 7, 7, 8, 8, 9, 9, 10, 10]; 
         for(let i=0; i<5; i++) {
             let number = Math.round(Math.random() * allCards.length - .5);
-            let num = allCards[number];
-            opp_hand.push(num);
+            let num2 = allCards[number];
+            opp_hand.push(num2);
             allCards.splice(number, 1);
             console.log("opponent's hand " + opp_hand);
         }
@@ -206,48 +209,54 @@ let opp_tempTotal = 0;
 
 //calculate player one total points for the round - called in HTML #playButton
 function calculatePoint() {
+    instantSubtract = 0;
+    opp_instantSubtract = 0;
+    // opp_tempTotal = opp_totalPoints;
+    // tempTotal = totalPoints;
     opp_tempTotal = opp_totalPoints;
     tempTotal = totalPoints;
-    console.log(opp_tempTotal);
-    console.log(tempTotal);
+    // console.log(opp_tempTotal);
+    // console.log(tempTotal);
     opp_play(); 
     // pc_count = 0;
     // ic_count = 0;
-    // tempPoints = tempPoints; + instantCalc();
-    // opp_tempPoints = opp_tempPoints; + opp_instantPlay();
+    tempPoints = tempPoints + instantCalc() - instantSubtract;
+    opp_tempPoints = opp_tempPoints[0] + opp_instantPlay() - opp_instantSubtract;
+    console.log( "opp" + opp_tempPoints);
+    console.log("urs" + tempPoints);
     // tempPoints = tempPoints + instantPoints + instantSubtract;
     // directDisaster();
     totalPoints = totalPoints + tempPoints;
-    opp_totalPoints = opp_totalPoints + opp_tempPoints[0];
+    opp_totalPoints = opp_totalPoints + opp_tempPoints;
     setTimeout(directDisaster, 1000);
-    setTimeout(disposeCards, 2000);
+    // setTimeout(disposeCards, 2000);
 }
 let instantSubtract = 0;
 let opp_instantSubtract = 0;
 function opp_instantPlay() {
     if (opp_tempInstant == 7) {
-        opp_instantPoints = 2;
+        return 2;
     }
     else if (opp_tempInstant == 10) {
-        opp_instantSubtract = -2;
-        instantPoints = 0;
+        instantSubtract = 2;
+        return 0;
     } 
     else {
-        instantPoints = 0;
+        return 0;
     }
 }
 
 // checks if instant cards will affect player one's results for the round - called in function calculatePoint()
 function instantCalc() {
     if (tempInstant == 7) {
-        return instantPoints = 2;
+        return 2;
     }
     else if (tempInstant == 10) {
-        opp_instantPoints = -2;
-        return instantPoints = 0;
+        opp_instantSubtract = 2;
+        return 0;
     } 
     else {
-        return instantPoints = 0;
+        return 0;
     }
 }
 
@@ -567,14 +576,14 @@ function directDisaster() {
     // let opp_totalPoints = Math.round(Math.random() * 10);
     console.log("opp points =" + opp_tempPoints);
     console.log("ur points =" + tempPoints);
-    if(opp_tempInstant == 9 && tempInstant == 9) {
-        alert("Disaster card is discarded");
+    if(tempInstant == 9 && opp_tempInstant[0] != 9) {
+        win();
     }
-    else if(opp_tempInstant == 9) {
+    else if(opp_tempInstant[0] == 9 && tempInstant != 9) {
         lose();
     }
-    else if(tempInstant == 9) {
-        win();
+    else if (opp_tempInstant[0] == 9 && tempInstant == 9) {
+        alert("Disaster card is discarded");
     }
     else {
         if (tempPoints < opp_tempPoints) {
@@ -588,7 +597,7 @@ function directDisaster() {
         opp_Meeple_Move();
         }
         else if(tempPoints > opp_tempPoints) {
-            if(opp_tempInstant == 8) {
+            if(opp_tempInstant[0] == 8) {
                 alert("Disaster card is discarded");
                 fu();
             }
@@ -608,61 +617,88 @@ function directDisaster() {
 }
 
 function Meeple_Move() {
-    let t_t_p = totalPoints;
-    if (player_disCount < 0) {
+    let temp_tempPoints = totalPoints;
+    if (player_disCount > 0) {
         player_disCount = 0;
-        t_p = totalPoints - 1;
-        if (playerOne = "bronto") {
-            let f = document.getElementsByClassName('cell_b_' + t_p);
-            let h = document.getElementsByClassName('cell_b_' + t_t_p);
-            f.document.createElement('img').src = "./assets/img/bronto-meeple.png";
+        let totalPoints = totalPoints - 1;
+        if (playerone  == "bronto") {
+            let f = document.getElementsByClassName('cell_b_' + totalPoints)[0];
+            const j = document.createElement('img')
+            let h = document.getElementsByClassName('cell_b_' + temp_tempPoints)[0];
+            j.src = "/assets/img/bronto-meeple.png";
+            f.appendChild(j)
         }
-        else if (playerOne = "stego") {
-            let f = document.getElementsByClassName('cell_b_' + t_p);
-            let h = document.getElementsByClassName('cell_b_' + t_t_p);
-            f.document.createElement('img').src = "./assets/img/stego-meeple.png";
+        else if (playerone == "stego") {
+            let f = document.getElementsByClassName('cell_b_' + totalPoints)[0];
+            const j = document.createElement('img')
+            let h = document.getElementsByClassName('cell_b_' + temp_tempPoints)[0];
+            j.src = "/assets/img/stego-meeple.png";
+            f.appendChild(j);
         }
-        else {
-            alert('error dino')
+    } else if (player_disCount = 0) {
+        if (playerone  == "bronto") {
+            let f = document.getElementsByClassName('cell_b_' + totalPoints)[0];
+            const j = document.createElement('img')
+            let h = document.getElementsByClassName('cell_b_' + temp_tempPoints)[0];
+            j.src = "/assets/img/bronto-meeple.png";
+            f.appendChild(j)
         }
-    } else {
-        if (playerOne = "bronto") {
-            let f = document.getElementsByClassName('cell_b_' + t_p);
-            let h = document.getElementsByClassName('cell_b_' + t_t_p);
-            f.document.createElement('img').src = "./assets/img/bronto-meeple.png";
-        }
-        else if (playerOne = "stego") {
-            let f = document.getElementsByClassName('cell_b_' + t_p);
-            let h = document.getElementsByClassName('cell_b_' + t_t_p);
-            f.document.createElement('img').src = "./assets/img/stego-meeple.png";
-        }
-        else {
-            alert('error dino 2')
+        else if (playerone == "stego") {
+            let f = document.getElementsByClassName('cell_b_' + totalPoints)[0];
+            const j = document.createElement('img')
+            let h = document.getElementsByClassName('cell_b_' + temp_tempPoints)[0];
+            j.src = "/assets/img/stego-meeple.png";
+            f.appendChild(j);
         }
     }
-    
-    player_hand.push();
 } 
 
 function opp_Meeple_Move() {
     let opp_temp_tempPoints = opp_totalPoints;
+    tempTotal
     if (player_disCount < 0) {
         player_disCount = 0;
         opp_totalPoints = opp_totalPoints - 1 ;
-    } else {
         if (playerTwo == "bronto") {
-            let f = document.getElementsByClassName('cell_a_' + opp_totalPoints);
+            let f = document.getElementsByClassName('cell_a_' + opp_totalPoints)[0];
             const j = document.createElement('img')
-            let h = document.getElementsByClassName('cell_a_' + opp_temp_tempPoints);
+            let h = document.getElementsByClassName('cell_a_' + opp_tempTotal);
             j.src = "/assets/img/bronto-meeple.png";
-            f.appendChild(j)
+            j.style.display = 'block';
+            f.firstChild.style.display = 'none';
+          
+            f.appendChild(j).style.width = '2vw';
         }
         else if (playerTwo == "stego") {
-            let f = document.getElementsByClassName('cell_a_' + opp_totalPoints);
+            let f = document.getElementsByClassName('cell_a_' + opp_totalPoints)[0];
             const j = document.createElement('img')
-            let h = document.getElementsByClassName('cell_a_' + opp_temp_tempPoints);
+            let h = document.getElementsByClassName('cell_a_' + opp_tempTotal);
             j.src = "/assets/img/stego-meeple.png";
-            f.appendChild(j);
+           j.style.display = 'block';
+            f.firstChild.style.display = 'none';
+            
+            f.appendChild(j).style.width = '2vw';
+        }
+    } else {
+        if (playerTwo == "bronto") {
+            let f = document.getElementsByClassName('cell_a_' + opp_totalPoints)[0];
+            const j = document.createElement('img')
+            let h = document.getElementsByClassName('cell_a_' + opp_tempTotal);
+            j.src = "/assets/img/bronto-meeple.png";
+            j.style.display = 'block';
+            f.firstChild.style.display = 'none';
+            
+            f.appendChild(j).style.width = '2vw';
+        }
+        else if (playerTwo == "stego") {
+            let f = document.getElementsByClassName('cell_a_' + opp_totalPoints)[0];
+            const j = document.createElement('img')
+            let h = document.getElementsByClassName('cell_a_' + opp_tempTotal);
+            j.style.display = 'block';
+            j.src = "/assets/img/stego-meeple.png";
+            f.firstChild.style.display = 'none';
+           
+            f.appendChild(j).style.width = '2vw';
         }
     }
 } 
@@ -727,75 +763,176 @@ function disposeCards() {
 }
 
 //AI CODE
-let round_end = false;
-let player_hand = deck.handA(deck.drawCards(5))
+// let round_end = false;
+// let player_hand = deck.handA(deck.drawCards(5))
 
-// playing a point card
-let played_cards = [];
+// // playing a point card
+// let played_cards = [];
 
-// function drawing_cards() {
-//     if (cardsInHand > 5) {
-//         let n = myfunction2();
-//         n.splice(0, (a.length - 1))
-//         cardsInHand = cardsInHand + n;
+// // function drawing_cards() {
+// //     if (cardsInHand > 5) {
+// //         let n = myfunction2();
+// //         n.splice(0, (a.length - 1))
+// //         cardsInHand = cardsInHand + n;
+// //     }
+// // }
+
+// // calc player card
+// // function calculate() {
+// //     for (let i = 0; i <= 2; i++) {
+// //         if (played_cards = number) {
+// //             if (played_cards[i] = i) {
+// //                 temp_points = temp_points + i;
+// //             }
+// //         }
+// //     }
+// // }
+
+// // score
+
+// // Update score and check for cell color change
+// score += point;
+// for (let i = 0; i <= 50; i++) {
+//     if (score === i) {
+//         let k = 5;
+//         let j = document.getElementsByClassName('cell' + k);
+//         let row = document.getElementById(j);
+//         let col = document.getElementById(j.firstChild);
+//         let temp_img = document.createElement('img');
+//         temp_img.src = "/assets/img/stego-meeple.png";
+//         let temporary = document.getElementById('col-' + row);
+//         temporary.appendChild(temp_img);
 //     }
 // }
 
-// calc player card
-// function calculate() {
+// // Calculate AI average hand value
+// let ai_avg = (ai_hand[1] + ai_hand[2] + ai_hand[3] + ai_hand[4] + ai_hand[5] + ai_hand[6]) / ai_hand.length;
+
+
+
+
+// // single player things
+// // AI
+// let ai_hand = ai_myfunction2();
+// let ai_cardsInHand = []
+// function ai_card_choice() {
 //     for (let i = 0; i <= 2; i++) {
-//         if (played_cards = number) {
-//             if (played_cards[i] = i) {
-//                 temp_points = temp_points + i;
+//         for (let x = 0; x <= 6; i++) {
+//             if (ai_cardsInHand[i] == x) {
+//                 ai_played_cards = ai_cardsInHand[i];
+//                 document.getElementById('');
 //             }
 //         }
 //     }
 // }
 
-// score
+// function SR() {
+//     if (ai_hand < 5) {
+//         deck.drawCards(1) + ai_hand;
+//         deck.ai_hand.sort()
+//     }
+// }
 
-// Update score and check for cell color change
-score += point;
-for (let i = 0; i <= 50; i++) {
-    if (score === i) {
-        let k = 5;
-        let j = document.getElementsByClassName('cell' + k);
-        let row = document.getElementById(j);
-        let col = document.getElementById(j.firstChild);
-        let temp_img = document.createElement('img');
-        temp_img.src = "/assets/img/stego-meeple.png";
-        let temporary = document.getElementById('col-' + row);
-        temporary.appendChild(temp_img);
-    }
-}
+// ai_cardsInHand = [];
+// function ai_myfunction2() {
+//     let f = document.getElementById("reveal")
+//     f.style.display = 'none';
+//     if (ai_allCards.length > 4) {
+//         for (let i = 0; i < 5; i++) {
+//             let number = Math.round(Math.random() * ai_allCards.length - .5);
+//             let num = ai_allCards[number];
+//             ai_cardsInHand.push(num);
+//             let l = ai_allCards.splice(number, 1);
+//             console.log(ai_allCards);
+//             console.log(ai_cardsInHand);
+//         }
+//     }
+//     else {
+//         alert('Shuffling Cards');
+//         ai_allCards = [1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 3, 3, 4, 4, 4, 4, 4, 4, 4, 5, 5, 5, 5, 5, 5, 5, 6, 6, 6, 6, 6, 6, 6, 7, 7, 8, 8, 9, 9, 10, 10];
+//         for (let i = 0; i < 5; i++) {
+//             let number = Math.round(Math.random() * ai_allCards.length - .5);
+//             let num = allCards[number];
+//             ai_tempCards.push(num);
+//             ai_cardsInHand.push(num);
+//             ai_allCards.splice(number, 1);
+//             console.log(allCards);
+//             console.log(cardsInHand);
+//         }
+//     }
+// };
 
-// Calculate AI average hand value
-let ai_avg = (ai_hand[1] + ai_hand[2] + ai_hand[3] + ai_hand[4] + ai_hand[5] + ai_hand[6]) / ai_hand.length;
+// function ai_testas() {
+//     console.log(tempCards);
+//     if (!tempCards.includes(1) && !tempCards.includes(2) && !tempCards.includes(3) && !tempCards.includes(4) && !tempCards.includes(5) && !tempCards.includes(6)) {
+//         ai_myfunction2();
+//     }
+//     else {
+//         alert("You cannot draw cards at the moment");
+//         console.log("trash");
+//     }
+// }
 
 
+// let ai_ab = ai_cardsInHand[0];
+
+// let ai_played = [];
+// let ai_tempCards = [];
+// let ai_tempInstant = 0;
+// let ai_ic_count = 0;
+// let ai_pc_count = 0
+// let ai_totalPoints = 0;
+// ai_temppoints = 0;
+
+// function ai_playIt() {
+//     let x = Math.random(1, 5);
+//         if (ai_cardsInHand[x] >= 7) {
+//             document.getElementById('ai_instantCenter').src = '/assets/cards2/point' + ai_cardsInHand[x] + '.png';
+//             document.getElementById('Bronto-card' + x).src = '';
+//             let index = ai_tempCards.indexOf(ai_cardsInHand[x]);
+//             ai_tempCards.splice(index, 1);
+//             ai_played.push(ai_cardsInHand[x]);
+//             ai_tempInstant = ai_cardsInHand[x];
+//             ai_cardsInHand[x] = 0;
+//             ai_ic_count = ai_ic_count + 1;
+//         }
+//     else if (ai_cardsInHand[x] <= 6) {
+//         if (ai_pc_count == 0) {
+//             document.getElementById("ai_pointCenter").src = "/assets/cards2/point" + ai_cardsInHand[x] + ".png";
+//             document.getElementById("Bronto-card" + x).src = "";
+//             console.log("/assets/cards2/point" + ai_cardsInHand[x] + ".png");
+//             let index = ai_tempCards.indexOf(ai_cardsInHand[x]);
+//             ai_played.push(ai_cardsInHand[x]);
+//             ai_tempPoint = ai_cardsInHand[x];
+//             ai_tempCards.splice(index, 1);
+//             ai_cardsInHand[x] = 0;
+//             ai_pc_count = ai_pc_count + 1;
+//         }
+//         let m = Math.random(1, 5);
+//         if (ai_cardsInHand[m] >= 7) {
+//             document.getElementById('ai_instantCenter').src = '/assets/cards2/point' + ai_cardsInHand[m] + '.png';
+//             document.getElementById('Bronto-card' + m).src = '';
+//             let index = ai_tempCards.indexOf(ai_cardsInHand[m]);
+//             ai_tempCards.splice(index, 1);
+//             ai_played.push(ai_cardsInHand[m]);
+//             ai_tempInstant = ai_cardsInHand[m];
+//             ai_cardsInHand[m] = 0;
+//             ai_ic_count = ai_ic_count + 1;
+//         }
+//     }
+// };
+// console.log(ai_cardsInHand);
+
+// // Get the meeple and board elements from the DOM 
+// const meeple = document.getElementById('meeple');
 
 
-// single player things
-// AI
-let ai_hand = ai_myfunction2();
-let ai_cardsInHand = []
-function ai_card_choice() {
-    for (let i = 0; i <= 2; i++) {
-        for (let x = 0; x <= 6; i++) {
-            if (ai_cardsInHand[i] == x) {
-                ai_played_cards = ai_cardsInHand[i];
-                document.getElementById('');
-            }
-        }
-    }
-}
+// // Set the initial position of the meeple
 
-function SR() {
-    if (ai_hand < 5) {
-        deck.drawCards(1) + ai_hand;
-        deck.ai_hand.sort()
-    }
-}
+// let cellWidth = 30; 
+// let cellHeight = 30; 
+// meeple.style.top = `${y * cellHeight}px`;
+// meeple.style.left = `${x * cellWidth}px`; 
 
 ai_cardsInHand = [];
 function ai_myfunction2() {
@@ -947,14 +1084,20 @@ function moveMeeple(newX, newY) {
     y = newY;
     meeple.style.top = `${y * cellHeight}px`;
     meeple.style.left = `${x * cellWidth}px`;
+// // Function to move the meeple to a new position
+// function moveMeeple(newX, newY) {
+//   // Calculate the new position of the meeple 
+//     x = newX;
+//     y = newY;
+//     meeple.style.top = `${y * cellHeight}px`;
+//     meeple.style.left = `${x * cellWidth}px`;
     
-}
+// }
 
-// Example usage: move the meeple to position (2, 3)
-moveMeeple(2, 3);
+// // Example usage: move the meeple to position (2, 3)
+// moveMeeple(2, 3);
 
 
 
-// meeple = document . .. ('cell_' + x );
-// x = score + point - temp_disaster_amount + disaster_positive - disaster_negative
-
+// // meeple = document . .. ('cell_' + x );
+// // x = score + point - temp_disaster_amount + disaster_positive - disaster_negati
