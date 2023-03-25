@@ -617,4 +617,5 @@ h3,
 .Meeples {
     position:absolute;
     display: none;
+    width:2vw;
 }

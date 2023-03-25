@@ -606,7 +606,8 @@ function directDisaster() {
             else {
                 lose();
             }
-        opp_Meeple_Move();
+            opp_Meeple_Move();
+            Meeple_Move();
         }
         else if(tempPoints > opp_tempPoints) {
             if(opp_tempInstant == 8) {
@@ -616,6 +617,7 @@ function directDisaster() {
             else {
                 win();
             }
+            opp_Meeple_Move();
             Meeple_Move();
         } 
         else if(tempPoints == opp_tempPoints) {
@@ -629,88 +631,57 @@ function directDisaster() {
 }
 
 function Meeple_Move() {
-    let temp_tempPoints = totalPoints;
     if (player_disCount > 0) {
         player_disCount = 0;
         let totalPoints = totalPoints - 1;
-        if (playerone  == "bronto") {
-            let f = document.getElementsByClassName('cell_b_' + totalPoints)[0];
-            const j = document.createElement('img')
-            let h = document.getElementsByClassName('cell_b_' + temp_tempPoints)[0];
-            j.src = "/assets/img/bronto-meeple.png";
-            f.appendChild(j)
+        if (playerOne == "bronto") {
+            let f = document.getElementsByClassName('meeple_class_b' + totalPoints)[0];
+            f.src = "/assets/img/bronto-meeple.png";
+            f.style.display = 'block'
         }
-        else if (playerone == "stego") {
-            let f = document.getElementsByClassName('cell_b_' + totalPoints)[0];
-            const j = document.createElement('img')
-            let h = document.getElementsByClassName('cell_b_' + temp_tempPoints)[0];
-            j.src = "/assets/img/stego-meeple.png";
-            f.appendChild(j);
+        else if (playerOne == "stego") {
+            let f = document.getElementsByClassName('meeple_class_b' + totalPoints)[0];
+            f.src = "/assets/img/stego-meeple.png";
+            f.style.display = 'block'
         }
-    } else if (player_disCount = 0) {
-        if (playerone  == "bronto") {
-            let f = document.getElementsByClassName('cell_b_' + totalPoints)[0];
-            const j = document.createElement('img')
-            let h = document.getElementsByClassName('cell_b_' + temp_tempPoints)[0];
-            j.src = "/assets/img/bronto-meeple.png";
-            f.appendChild(j)
+    } else {
+        if (playerOne == "bronto") {
+            let f = document.getElementsByClassName('meeple_class_b' + totalPoints)[0];
+            f.src = "/assets/img/bronto-meeple.png";
+            f.style.display = 'block'
         }
-        else if (playerone == "stego") {
-            let f = document.getElementsByClassName('cell_b_' + totalPoints)[0];
-            const j = document.createElement('img')
-            let h = document.getElementsByClassName('cell_b_' + temp_tempPoints)[0];
-            j.src = "/assets/img/stego-meeple.png";
-            f.appendChild(j);
+        else if (playerOne == "stego") {
+            let f = document.getElementsByClassName('meeple_class_b' + totalPoints)[0];
+            f.src = "/assets/img/stego-meeple.png";
+            f.style.display = 'block'
         }
     }
 } 
 
 function opp_Meeple_Move() {
-    let opp_temp_tempPoints = opp_totalPoints;
-    tempTotal
     if (player_disCount < 0) {
         player_disCount = 0;
         opp_totalPoints = opp_totalPoints - 1 ;
         if (playerTwo == "bronto") {
-            let f = document.getElementsByClassName('cell_a_' + opp_totalPoints)[0];
-            const j = document.createElement('img')
-            let h = document.getElementsByClassName('cell_a_' + opp_tempTotal);
-            j.src = "/assets/img/bronto-meeple.png";
-            j.style.display = 'block';
-            f.firstChild.style.display = 'none';
-          
-            f.appendChild(j).style.width = '2vw';
+            let f = document.getElementsByClassName('meeple_class_a' + opp_totalPoints)[0];
+            f.src = "/assets/img/bronto-meeple.png";
+            f.style.display = 'block'
         }
         else if (playerTwo == "stego") {
-            let f = document.getElementsByClassName('cell_a_' + opp_totalPoints)[0];
-            const j = document.createElement('img')
-            let h = document.getElementsByClassName('cell_a_' + opp_tempTotal);
-            j.src = "/assets/img/stego-meeple.png";
-           j.style.display = 'block';
-            f.firstChild.style.display = 'none';
-            
-            f.appendChild(j).style.width = '2vw';
+            let f = document.getElementsByClassName('meeple_class_a' + opp_totalPoints)[0];
+            f.src = "/assets/img/stego-meeple.png";
+            f.style.display = 'block'
         }
     } else {
         if (playerTwo == "bronto") {
-            let f = document.getElementsByClassName('cell_a_' + opp_totalPoints)[0];
-            const j = document.createElement('img')
-            let h = document.getElementsByClassName('cell_a_' + opp_tempTotal);
-            j.src = "/assets/img/bronto-meeple.png";
-            j.style.display = 'block';
-            f.firstChild.style.display = 'none';
-            
-            f.appendChild(j).style.width = '2vw';
+            let f = document.getElementsByClassName('meeple_class_a' + opp_totalPoints)[0];
+            f.src = "/assets/img/bronto-meeple.png";
+            f.style.display = 'block'
         }
         else if (playerTwo == "stego") {
-            let f = document.getElementsByClassName('cell_a_' + opp_totalPoints)[0];
-            const j = document.createElement('img')
-            let h = document.getElementsByClassName('cell_a_' + opp_tempTotal);
-            j.style.display = 'block';
-            j.src = "/assets/img/stego-meeple.png";
-            f.firstChild.style.display = 'none';
-           
-            f.appendChild(j).style.width = '2vw';
+            let f = document.getElementsByClassName('meeple_class_a' + opp_totalPoints)[0];
+            f.src = "/assets/img/stego-meeple.png";
+            f.style.display = 'block'
         }
     }
 } 
@@ -1229,7 +1200,7 @@ function moveMeeple(newX, newY) {
     y = newY;
     meeple.style.top = `${y * cellHeight}px`;
     meeple.style.left = `${x * cellWidth}px`;
-     }
+    }
 //  Function to move the meeple to a new position
 // function moveMeeple(newX, newY) {
 //   // Calculate the new position of the meeple 
@@ -1237,7 +1208,6 @@ function moveMeeple(newX, newY) {
 //     y = newY;
 //     meeple.style.top = `${y * cellHeight}px`;
 //     meeple.style.left = `${x * cellWidth}px`;
-     
 // }
 
 //  Example usage: move the meeple to position (2, 3)
