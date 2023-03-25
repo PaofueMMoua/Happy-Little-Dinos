@@ -631,7 +631,7 @@ function directDisaster() {
 }
 
 function Meeple_Move() {
-    if (player_disCount > 0) {
+    if (player_disCount < 0) {
         player_disCount = 0;
         let totalPoints = totalPoints - 1;
         if (playerOne == "bronto") {
@@ -644,7 +644,7 @@ function Meeple_Move() {
             f.src = "/assets/img/stego-meeple.png";
             f.style.display = 'block'
         }
-    } else {
+    } else{
         if (playerOne == "bronto") {
             let f = document.getElementsByClassName('meeple_class_b' + totalPoints)[0];
             f.src = "/assets/img/bronto-meeple.png";
@@ -659,8 +659,8 @@ function Meeple_Move() {
 } 
 
 function opp_Meeple_Move() {
-    if (player_disCount < 0) {
-        player_disCount = 0;
+    if (opp_disCount < 0) {
+        opp_disCount = 0;
         opp_totalPoints = opp_totalPoints - 1 ;
         if (playerTwo == "bronto") {
             let f = document.getElementsByClassName('meeple_class_a' + opp_totalPoints)[0];
