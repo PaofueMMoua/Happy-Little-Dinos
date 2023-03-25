@@ -130,6 +130,7 @@ function myfunction2() {
 let highNum = [];
 let lowNum = [];
 // This is how you break javascript.
+// shuffling and distributing cards to player two aka the ai or opponent
 function opp_myfunction2() {
     opp_hand = [];
     if(allCards.length > 4) {
@@ -291,6 +292,7 @@ function onlyFirst() {
 
 //PLAY CARDS IN THE CENTER
 // Sets center image if player one chooses to play card #1 (furthest to the left)
+// Play another instant card
 function playIt_1() {
     if (cardsInHand[0] >= 7) {
         if (ic_count == 0) {
@@ -632,6 +634,7 @@ function directDisaster() {
     vivaVida();
 }
 
+// Moves the meeples along the board
 function Meeple_Move() {
     if (player_disCount < 0) {
         player_disCount = 0;
@@ -744,6 +747,7 @@ function win() {
     checkWinGame();
 }
 
+// removed the cards that are currently on the playing section
 function disposeCards() {
     pc_count = 0;
     ic_count = 0;
@@ -760,7 +764,7 @@ function disposeCards() {
     }  
 }
 
-
+// checking if the player has lost the game
 function checkLoseGame() {
     let red = [];
     let blue = [];
@@ -794,6 +798,9 @@ function checkLoseGame() {
 // let redTwo = [];
 // let blueTwo = [];
 // let greenTwo = [];
+
+
+// checking if the player has won the game
 function checkWinGame() {
     let redTwo = [];
     let blueTwo = [];
@@ -824,7 +831,7 @@ function checkWinGame() {
     }
 }
 
-
+// checking if the player has lost the game
 function checkLoseGame() {
     let red = [];
     let blue = [];
@@ -858,6 +865,9 @@ function checkLoseGame() {
 // let redTwo = [];
 // let blueTwo = [];
 // let greenTwo = [];
+
+
+// checking if the player has won the game
 function checkWinGame() {
     let redTwo = [];
     let blueTwo = [];
