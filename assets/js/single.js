@@ -183,7 +183,7 @@ function opp_play() {
     if(highNum.length >= 1) {
         document.getElementById("ai_instantCenter").src = "/assets/cards2/point" + highNum[highIndex] + ".png"
         // opp_tempInstant = highNum.splice(highIndex, 1);
-         v = highNum.splice(highIndex, 1);
+        v = highNum.splice(highIndex, 1);
         opp_tempInstant = v[0];
         let p = opp_hand.indexOf(highNum[highIndex]);
         opp_hand.splice(p, 1);
