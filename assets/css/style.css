@@ -610,10 +610,11 @@ h3,
 
 /* Card Movement
 #card {
-  cursor: move;
+    cursor: move;
 } */
 
 
-.meeple_class {
+.Meeples {
     position:absolute;
+    display: none;
 }
