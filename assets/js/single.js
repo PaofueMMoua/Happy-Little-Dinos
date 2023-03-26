@@ -512,6 +512,7 @@ function hoverIn(x) {
     if (pc_count == 1) {
         x.style.backgroundColor = '#16d26a';
         play.style.cursor = 'pointer';
+        x.style.color = "black";
     }
     else {
         x.style.display = 'hidden';
@@ -523,6 +524,7 @@ function hoverIn(x) {
 function hoverOut(x) {
     if (pc_count == 1) {
         x.style.backgroundColor = '#F27F77';
+        x.style.color = "black";
     }
     else {
         x.style.display = 'hidden';
