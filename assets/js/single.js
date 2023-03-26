@@ -635,6 +635,7 @@ function directDisaster() {
 }
 
 // Moves the meeples along the board
+// Me going crazy thinking aobut why this doesnt work what so ever AHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH.
 function Meeple_Move() {
     if (player_disCount < 0) {
         player_disCount = 0;
