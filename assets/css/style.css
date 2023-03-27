@@ -418,9 +418,18 @@ background-image:url("../img/low-contrast-linen.png");
 } 
 
 .bronto-foot {
-    width:2vw;
+    width:1vw;
     position:relative;
     bottom:1vw;
+}
+
+.meeple_class_b0,
+.meeple_class_a0,
+.meeple_class_bb0,
+.meeple_class_aa0 {
+    width:2vw;
+    bottom:1vw;
+    position: relative;
 }
 
 /* BRONTO'S DISASTER AREA */

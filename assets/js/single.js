@@ -233,7 +233,7 @@ function calculatePoint() {
     totalPoints = totalPoints + tempPoints;
     opp_totalPoints = opp_totalPoints + opp_tempPoints;
     setTimeout(directDisaster, 1000);
-    // setTimeout(disposeCards, 2000);
+    setTimeout(disposeCards, 3500);
 }
 let instantSubtract = 0;
 let opp_instantSubtract = 0;
@@ -501,6 +501,7 @@ function check() {
     if (pc_count == 1) {
         play.style.backgroundColor = '#F27F77';
         play.style.cursor = 'pointer';
+        play.style.color = 'black';
     } 
     else {
         play.style.display = 'hidden';
@@ -588,41 +589,53 @@ function directDisaster() {
     console.log("opp points =" + opp_tempPoints);
     console.log("ur points =" + tempPoints);
     if(opp_tempInstant == 9 && tempInstant == 8 || opp_tempInstant == 8 && tempInstant == 9) {
+        opp_Meeple_Move();
+        Meeple_Move();
         alert("Disaster card is discarded");
         fu();
     }
     else if (opp_tempInstant == 9 && tempInstant == 9) {
+        opp_Meeple_Move();
+        Meeple_Move();
         alert("Disaster card is discarded");
         fu();
     }
     else if(tempInstant == 9 && opp_tempInstant != 9) {
+        opp_Meeple_Move();
+        Meeple_Move();
         win();
     }
     else if(opp_tempInstant == 9 && tempInstant != 9) {
+        opp_Meeple_Move();
+        Meeple_Move();
         lose();
     }
     else {
         if (tempPoints < opp_tempPoints) {
             if(tempInstant == 8) {
+                opp_Meeple_Move();
+                Meeple_Move();
                 alert("Disaster card is discarded");
                 fu();
             }
             else {
                 lose();
+                opp_Meeple_Move();
+                Meeple_Move();
             }
-            opp_Meeple_Move();
-            Meeple_Move();
         }
         else if(tempPoints > opp_tempPoints) {
             if(opp_tempInstant == 8) {
                 alert("Disaster card is discarded");
                 fu();
+                opp_Meeple_Move();
+                Meeple_Move();
             }
             else {
                 win();
+                opp_Meeple_Move();
+                Meeple_Move();
             }
-            opp_Meeple_Move();
-            Meeple_Move();
         } 
         else if(tempPoints == opp_tempPoints) {
             alert("tie");
@@ -633,66 +646,86 @@ function directDisaster() {
             fu();
         } 
     }
+    // opp_Meeple_Move();
+    // Meeple_Move();
     vivaVida();
 }
 
 // Moves the meeples along the board
 // Me going crazy thinking aobut why this doesnt work what so ever AHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH.
 function Meeple_Move() {
-    if (player_disCount < 0) {
-        player_disCount = 0;
-        let totalPoints = totalPoints - 1;
+    // if (player_disCount < 0) {
+    //     player_disCount = 0;
+    //     let totalPoints = totalPoints - 1;
+    //     if (playerOne == "bronto") {
+    //         let f = document.getElementsByClassName('meeple_class_b' + totalPoints)[0];
+    //         f.src = "/assets/img/bronto-meeple.png";
+    //         f.style.display = 'block'
+    //         document.getElementsByClassName('meeple_class_b' + tempTotal)[0].style = 'hidden';
+            
+    //     }
+    //     else if (playerOne == "stego") {
+    //         let f = document.getElementsByClassName('meeple_class_b' + totalPoints)[0];
+    //         f.src = "/assets/img/stego-meeple.png";
+    //         f.style.display = 'block'
+    //         document.getElementsByClassName('meeple_class_b' + tempTotal)[0].style = 'hidden';
+    //     }
+    // } else {
         if (playerOne == "bronto") {
-            let f = document.getElementsByClassName('meeple_class_b' + totalPoints)[0];
+            let f = document.getElementsByClassName('meeple_class_bb' + totalPoints)[0];
             f.src = "/assets/img/bronto-meeple.png";
             f.style.display = 'block'
+            if(tempTotal >= 1) {
+                document.getElementsByClassName('meeple_class_bb' + tempTotal)[0].style = 'hidden'; 
+            }
         }
         else if (playerOne == "stego") {
             let f = document.getElementsByClassName('meeple_class_b' + totalPoints)[0];
             f.src = "/assets/img/stego-meeple.png";
             f.style.display = 'block'
-        }
-    } else{
-        if (playerOne == "bronto") {
-            let f = document.getElementsByClassName('meeple_class_b' + totalPoints)[0];
-            f.src = "/assets/img/bronto-meeple.png";
-            f.style.display = 'block'
-        }
-        else if (playerOne == "stego") {
-            let f = document.getElementsByClassName('meeple_class_b' + totalPoints)[0];
-            f.src = "/assets/img/stego-meeple.png";
-            f.style.display = 'block'
+            if(tempTotal >= 1) {
+                document.getElementsByClassName('meeple_class_b' + tempTotal)[0].style = 'hidden'; 
+            }
         }
     }
-} 
+// } 
 
 function opp_Meeple_Move() {
-    if (opp_disCount < 0) {
-        opp_disCount = 0;
-        opp_totalPoints = opp_totalPoints - 1 ;
+    // if (opp_disCount < 0) {
+    //     opp_disCount = 0;
+    //     opp_totalPoints = opp_totalPoints - 1 ;
+    //     if (playerTwo == "bronto") {
+    //         let f = document.getElementsByClassName('meeple_class_a' + opp_totalPoints)[0];
+    //         f.src = "/assets/img/bronto-meeple.png";
+    //         f.style.display = 'block'
+    //         document.getElementsByClassName('meeple_class_a' + opp_tempTotal)[0].style = 'hidden';
+    //     }
+    //     else if (playerTwo == "stego") {
+    //         let f = document.getElementsByClassName('meeple_class_a' + opp_totalPoints)[0];
+    //         f.src = "/assets/img/stego-meeple.png";
+    //         f.style.display = 'block'
+    //         document.getElementsByClassName('meeple_class_a' + opp_tempTotal)[0].style = 'hidden';
+    //     }
+    // } else {
         if (playerTwo == "bronto") {
             let f = document.getElementsByClassName('meeple_class_a' + opp_totalPoints)[0];
             f.src = "/assets/img/bronto-meeple.png";
             f.style.display = 'block'
+            if(opp_tempTotal >= 1) {
+                document.getElementsByClassName('meeple_class_a' + opp_tempTotal)[0].style = 'hidden'; 
+            }
+            
         }
         else if (playerTwo == "stego") {
-            let f = document.getElementsByClassName('meeple_class_a' + opp_totalPoints)[0];
+            let f = document.getElementsByClassName('meeple_class_aa' + opp_totalPoints)[0];
             f.src = "/assets/img/stego-meeple.png";
             f.style.display = 'block'
-        }
-    } else {
-        if (playerTwo == "bronto") {
-            let f = document.getElementsByClassName('meeple_class_a' + opp_totalPoints)[0];
-            f.src = "/assets/img/bronto-meeple.png";
-            f.style.display = 'block'
-        }
-        else if (playerTwo == "stego") {
-            let f = document.getElementsByClassName('meeple_class_a' + opp_totalPoints)[0];
-            f.src = "/assets/img/stego-meeple.png";
-            f.style.display = 'block'
+            if(opp_tempTotal >= 1) {
+                document.getElementsByClassName('meeple_class_aa' + opp_tempTotal)[0].style = 'hidden'; 
+            }
         }
     }
-} 
+// } 
 
 let disasterTrack = [];
 let opp_disasterTrack = [];
@@ -775,26 +808,27 @@ function checkLoseGame() {
     for(i=0; i < disasterTrack.length; i++) {
         if(disasterTrack[i] === 'red') {
             red.push(disasterTrack[i]);
-            console.log('player sub');
-            console.log(red);
         }
         else if(disasterTrack[i] === 'blue') {
             blue.push(disasterTrack[i]);
-            console.log('player sub');
-            console.log(blue);
         }
         else if(disasterTrack[i] === 'green') {
             green.push(disasterTrack[i]);
-            console.log('player sub');
-            console.log(green);
         }
     }
 
     if(red.length == 4 || blue.length == 4 || green.length == 4) {
         alert("you lose!");
+        location.reload();
     }
     else if(red.length == 2 && blue.length == 2 && green.length == 2) {
         alert("you lose!");
+        location.reload();
+    }
+
+    if(opp_totalPoints == 50) {
+        alert("you lose!");
+        location.reload();
     }
 }
 
@@ -811,92 +845,32 @@ function checkWinGame() {
     for(i=0; i < opp_disasterTrack.length; i++) {
         if(opp_disasterTrack[i] === 'red') {
             redTwo.push(opp_disasterTrack[i]);
-            console.log("opp sub");
-            console.log(redTwo);
         }
         else if(opp_disasterTrack[i] === 'blue') {
             blueTwo.push(opp_disasterTrack[i]);
-            console.log("opp sub");
-            console.log(blueTwo);
         }
         else if(opp_disasterTrack[i] === 'green') {
             greenTwo.push(opp_disasterTrack[i]);
-            console.log("opp sub");
-            console.log(greenTwo);
         }
     }
 
     if(redTwo.length == 4 || blueTwo.length == 4 || greenTwo.length == 4) {
         alert("you win!");
+        location.reload();
     }
     else if(redTwo.length == 2 && blueTwo.length == 2 && greenTwo.length == 2) {
         alert("you win!");
-    }
-}
-
-// checking if the player has lost the game
-function checkLoseGame() {
-    let red = [];
-    let blue = [];
-    let green = [];
-    for(i=0; i < disasterTrack.length; i++) {
-        if(disasterTrack[i] === 'red') {
-            red.push(disasterTrack[i]);
-            console.log('player sub');
-            console.log(red);
-        }
-        else if(disasterTrack[i] === 'blue') {
-            blue.push(disasterTrack[i]);
-            console.log('player sub');
-            console.log(blue);
-        }
-        else if(disasterTrack[i] === 'green') {
-            green.push(disasterTrack[i]);
-            console.log('player sub');
-            console.log(green);
-        }
+        location.reload();
     }
 
-    if(red.length == 4 || blue.length == 4 || green.length == 4) {
-        alert("you lose!");
-    }
-    else if(red.length == 2 && blue.length == 2 && green.length == 2) {
-        alert("you lose!");
-    }
-}
-
-// let redTwo = [];
-// let blueTwo = [];
-// let greenTwo = [];
-
-
-// checking if the player has won the game
-function checkWinGame() {
-    let redTwo = [];
-    let blueTwo = [];
-    let greenTwo = [];
-    for(i=0; i < opp_disasterTrack.length; i++) {
-        if(opp_disasterTrack[i] === 'red') {
-            redTwo.push(opp_disasterTrack[i]);
-            console.log("opp sub");
-            console.log(redTwo);
-        }
-        else if(opp_disasterTrack[i] === 'blue') {
-            blueTwo.push(opp_disasterTrack[i]);
-            console.log("opp sub");
-            console.log(blueTwo);
-        }
-        else if(opp_disasterTrack[i] === 'green') {
-            greenTwo.push(opp_disasterTrack[i]);
-            console.log("opp sub");
-            console.log(greenTwo);
-        }
-    }
-
-    if(redTwo.length == 4 || blueTwo.length == 4 || greenTwo.length == 4) {
+    if(totalPoints == 50) {
         alert("you win!");
-    }
-    else if(redTwo.length == 2 && blueTwo.length == 2 && greenTwo.length == 2) {
-        alert("you win!");
+        location.reload();
     }
 }
+
+// function checkDisaster {
+//     if(player_disCount == 6) {
+        
+//     }
+// }
