@@ -213,27 +213,30 @@ let opp_tempTotal = 0;
 function calculatePoint() {
     instantSubtract = 0;
     opp_instantSubtract = 0;
-    // opp_tempTotal = opp_totalPoints;
-    // tempTotal = totalPoints;
     opp_tempTotal = opp_totalPoints;
     tempTotal = totalPoints;
     // console.log(opp_tempTotal);
     // console.log(tempTotal);
-    opp_play(); 
-    instantCalc();
-    opp_instantCalc();
-    // pc_count = 0;
-    // ic_count = 0;
-    tempPoints = tempPoints + instantPoints - instantSubtract 
-    opp_tempPoints = opp_tempPoints[0] + opp_instantPoints - opp_instantSubtract;
-    console.log( "opp" + opp_tempPoints);
-    console.log("urs" + tempPoints);
-    // tempPoints = tempPoints + instantPoints + instantSubtract;
-    // directDisaster();
-    totalPoints = totalPoints + tempPoints;
-    opp_totalPoints = opp_totalPoints + opp_tempPoints;
-    setTimeout(directDisaster, 1000);
-    setTimeout(disposeCards, 3500);
+    if(pc_count >= 1) {
+        opp_play(); 
+        instantCalc();
+        opp_instantCalc();
+        pc_count = 0;
+        ic_count = 0;
+        tempPoints = tempPoints + instantPoints - instantSubtract 
+        opp_tempPoints = opp_tempPoints[0] + opp_instantPoints - opp_instantSubtract;
+        console.log( "opp " + opp_tempPoints);
+        console.log("urs " + tempPoints);
+        // tempPoints = tempPoints + instantPoints + instantSubtract;
+        // directDisaster();
+        totalPoints = totalPoints + tempPoints;
+        opp_totalPoints = opp_totalPoints + opp_tempPoints;
+        setTimeout(directDisaster, 1000);
+        setTimeout(disposeCards, 3200);
+    } else {
+        alert("Place a point card to play");
+    }
+    
 }
 let instantSubtract = 0;
 let opp_instantSubtract = 0;
@@ -589,52 +592,60 @@ function directDisaster() {
     console.log("opp points =" + opp_tempPoints);
     console.log("ur points =" + tempPoints);
     if(opp_tempInstant == 9 && tempInstant == 8 || opp_tempInstant == 8 && tempInstant == 9) {
-        opp_Meeple_Move();
-        Meeple_Move();
         alert("Disaster card is discarded");
+        totalPoints = totalPoints - tempPoints;
+        opp_totalPoints = opp_totalPoints - opp_tempPoints;
+        tempPoints = 0;
+        opp_tempPoints = 0;
         fu();
     }
     else if (opp_tempInstant == 9 && tempInstant == 9) {
-        opp_Meeple_Move();
-        Meeple_Move();
+        totalPoints = totalPoints - tempPoints;
+        opp_totalPoints = opp_totalPoints - opp_tempPoints;
+        tempPoints = 0;
+        opp_tempPoints = 0;
         alert("Disaster card is discarded");
         fu();
     }
     else if(tempInstant == 9 && opp_tempInstant != 9) {
-        opp_Meeple_Move();
-        Meeple_Move();
         win();
+        // opp_Meeple_Move();
+        // Meeple_Move();
     }
     else if(opp_tempInstant == 9 && tempInstant != 9) {
-        opp_Meeple_Move();
-        Meeple_Move();
         lose();
+        // opp_Meeple_Move();
+        // Meeple_Move();
     }
     else {
         if (tempPoints < opp_tempPoints) {
             if(tempInstant == 8) {
-                opp_Meeple_Move();
-                Meeple_Move();
+                totalPoints = totalPoints - tempPoints;
+                opp_totalPoints = opp_totalPoints - opp_tempPoints;
+                tempPoints = 0;
+                opp_tempPoints = 0;
                 alert("Disaster card is discarded");
                 fu();
             }
             else {
                 lose();
-                opp_Meeple_Move();
-                Meeple_Move();
+                // opp_Meeple_Move();
+                // Meeple_Move();
             }
         }
         else if(tempPoints > opp_tempPoints) {
             if(opp_tempInstant == 8) {
+                totalPoints = totalPoints - tempPoints;
+                opp_totalPoints = opp_totalPoints - opp_tempPoints;
+                tempPoints = 0;
+                opp_tempPoints = 0;
                 alert("Disaster card is discarded");
                 fu();
-                opp_Meeple_Move();
-                Meeple_Move();
             }
             else {
                 win();
-                opp_Meeple_Move();
-                Meeple_Move();
+                // opp_Meeple_Move();
+                // Meeple_Move();
             }
         } 
         else if(tempPoints == opp_tempPoints) {
@@ -646,32 +657,15 @@ function directDisaster() {
             fu();
         } 
     }
-    // opp_Meeple_Move();
-    // Meeple_Move();
     vivaVida();
 }
 
 // Moves the meeples along the board
 // Me going crazy thinking aobut why this doesnt work what so ever AHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH.
 function Meeple_Move() {
-    // if (player_disCount < 0) {
-    //     player_disCount = 0;
-    //     let totalPoints = totalPoints - 1;
-    //     if (playerOne == "bronto") {
-    //         let f = document.getElementsByClassName('meeple_class_b' + totalPoints)[0];
-    //         f.src = "/assets/img/bronto-meeple.png";
-    //         f.style.display = 'block'
-    //         document.getElementsByClassName('meeple_class_b' + tempTotal)[0].style = 'hidden';
-            
-    //     }
-    //     else if (playerOne == "stego") {
-    //         let f = document.getElementsByClassName('meeple_class_b' + totalPoints)[0];
-    //         f.src = "/assets/img/stego-meeple.png";
-    //         f.style.display = 'block'
-    //         document.getElementsByClassName('meeple_class_b' + tempTotal)[0].style = 'hidden';
-    //     }
-    // } else {
-        if (playerOne == "bronto") {
+    console.log("Meeple_Move " + totalPoints);
+    if(totalPoints <= 49) {
+       if (playerOne == "bronto") {
             let f = document.getElementsByClassName('meeple_class_bb' + totalPoints)[0];
             f.src = "/assets/img/bronto-meeple.png";
             f.style.display = 'block'
@@ -686,27 +680,22 @@ function Meeple_Move() {
             if(tempTotal >= 1) {
                 document.getElementsByClassName('meeple_class_b' + tempTotal)[0].style = 'hidden'; 
             }
+        } 
+    } else if (totalPoints > 49) {
+        if(playerOne == "bronto") { 
+            document.getElementsByClassName("meeple_class_bb50").src = "/assets/img/bronto-meeple.png";
+        } else if (playerOne == "stego") { 
+            document.getElementsByClassName("meeple_class_b50").src = "/assets/img/stego-meeple.png";
         }
+        alert("You escaped!");
+        location.reload();
     }
+}
 // } 
 
 function opp_Meeple_Move() {
-    // if (opp_disCount < 0) {
-    //     opp_disCount = 0;
-    //     opp_totalPoints = opp_totalPoints - 1 ;
-    //     if (playerTwo == "bronto") {
-    //         let f = document.getElementsByClassName('meeple_class_a' + opp_totalPoints)[0];
-    //         f.src = "/assets/img/bronto-meeple.png";
-    //         f.style.display = 'block'
-    //         document.getElementsByClassName('meeple_class_a' + opp_tempTotal)[0].style = 'hidden';
-    //     }
-    //     else if (playerTwo == "stego") {
-    //         let f = document.getElementsByClassName('meeple_class_a' + opp_totalPoints)[0];
-    //         f.src = "/assets/img/stego-meeple.png";
-    //         f.style.display = 'block'
-    //         document.getElementsByClassName('meeple_class_a' + opp_tempTotal)[0].style = 'hidden';
-    //     }
-    // } else {
+    console.log("opp_Meeple_Move " + opp_totalPoints);
+    if(opp_totalPoints <= 49) {
         if (playerTwo == "bronto") {
             let f = document.getElementsByClassName('meeple_class_a' + opp_totalPoints)[0];
             f.src = "/assets/img/bronto-meeple.png";
@@ -724,7 +713,17 @@ function opp_Meeple_Move() {
                 document.getElementsByClassName('meeple_class_aa' + opp_tempTotal)[0].style = 'hidden'; 
             }
         }
+    } else if(opp_totalPoints > 49) {
+        if(playerTwo == "bronto") { 
+            document.getElementsByClassName("meeple_class_a50").src = "/assets/img/bronto-meeple.png";
+        } else if (playerTwo == "stego") { 
+            document.getElementsByClassName("meeple_class_aa50").src = "/assets/img/stego-meeple.png";
+        }
+        alert("Your opponent escaped!");
+        location.reload();
     }
+        
+}
 // } 
 
 let disasterTrack = [];
@@ -752,6 +751,8 @@ function lose() {
         } 
         player_disCount = player_disCount + 1;
     }
+    Meeple_Move();
+    opp_Meeple_Move();
     fu();
     checkLoseGame();
 }
@@ -779,6 +780,8 @@ function win() {
         } 
         opp_disCount = opp_disCount + 1;
     }
+    Meeple_Move();
+    opp_Meeple_Move();
     fu();
     checkWinGame();
 }
@@ -826,16 +829,14 @@ function checkLoseGame() {
         location.reload();
     }
 
-    if(opp_totalPoints == 50) {
-        alert("you lose!");
-        location.reload();
-    }
+    // if(opp_totalPoints == 50) {
+    //     alert("you lose!");
+    //     location.reload();
+    // }
+
+    setTimeout(checkDisaster, 1500);
+    
 }
-
-// let redTwo = [];
-// let blueTwo = [];
-// let greenTwo = [];
-
 
 // checking if the player has won the game
 function checkWinGame() {
@@ -863,14 +864,70 @@ function checkWinGame() {
         location.reload();
     }
 
-    if(totalPoints == 50) {
-        alert("you win!");
-        location.reload();
+    // if(totalPoints == 50) {
+    //     alert("you win!");
+    //     location.reload();
+    // }
+    setTimeout(opp_checkDisaster, 1500);
+    
+}
+
+function checkDisaster() {
+    if(player_disCount == 6 && playerOne == "bronto") { 
+        alert("Lucky dino! You survived all the disasters. Move forward 5 spaces! Disaster board will reset...");
+        document.getElementById("brontoDisaster1").src = "";
+        document.getElementById("brontoDisaster2").src = "";
+        document.getElementById("brontoDisaster3").src = "";
+        document.getElementById("brontoDisaster4").src = "";
+        document.getElementById("brontoDisaster5").src = "";
+        document.getElementById("brontoDisaster6").src = "";
+        disasterTrack = [];
+        player_disCount = 0;
+        tempTotal = totalPoints;
+        totalPoints = totalPoints + 5;
+        Meeple_Move();
+    } else if(player_disCount == 6 && playerOne == "stego") { 
+        alert("Lucky dino! You survived all the disasters. Move forward 5 spaces! Disaster board will reset...");
+        document.getElementById("stegoDisaster1").src = "";
+        document.getElementById("stegoDisaster2").src = "";
+        document.getElementById("stegoDisaster3").src = "";
+        document.getElementById("stegoDisaster4").src = "";
+        document.getElementById("stegoDisaster5").src = "";
+        document.getElementById("stegoDisaster6").src = "";
+        disasterTrack = [];
+        player_disCount = 0;
+        tempTotal = totalPoints;
+        totalPoints = totalPoints + 5;
+        Meeple_Move();
     }
 }
 
-// function checkDisaster {
-//     if(player_disCount == 6) {
-        
-//     }
-// }
+function opp_checkDisaster() {
+    if(opp_disCount == 6 && playerTwo == "bronto") { 
+        alert("Your opponent survived all the disasters. They will forward 5 spaces.");
+        document.getElementById("oppBronto1").src = "";
+        document.getElementById("oppBronto2").src = "";
+        document.getElementById("oppBronto3").src = "";
+        document.getElementById("oppBronto4").src = "";
+        document.getElementById("oppBronto5").src = "";
+        document.getElementById("oppBronto6").src = "";
+        opp_disasterTrack = [];
+        opp_disCount = 0;
+        opp_tempTotal = opp_totalPoints;
+        opp_totalPoints = opp_totalPoints + 5;
+        opp_Meeple_Move();
+    } else if(opp_disCount == 6 && playerTwo == "stego") { 
+        alert("Your opponent survived all the disasters. They will forward 5 spaces.");
+        document.getElementById("oppSteg1").src = "";
+        document.getElementById("oppSteg2").src = "";
+        document.getElementById("oppSteg3").src = "";
+        document.getElementById("oppSteg4").src = "";
+        document.getElementById("oppSteg5").src = "";
+        document.getElementById("oppSteg6").src = "";
+        opp_disasterTrack = [];
+        opp_disCount = 0;
+        opp_tempTotal = opp_totalPoints;
+        opp_totalPoints = opp_totalPoints + 5;
+        opp_Meeple_Move();
+    }
+}

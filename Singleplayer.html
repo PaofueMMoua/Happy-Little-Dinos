@@ -44,7 +44,10 @@
             <div class="bronto-bk2">
                 <div class="escape-route">
                     <div class="row1 row">
-                        <div class="cell escape-cell"><p>YOU'VE ESCAPED!</p></div>
+                        <div class="cell escape-cell">
+                            <img src="" class="Meeples meeple_class_a50">
+                            <p>YOU'VE ESCAPED!</p>
+                        </div>
                         <p class="escape-directions">Move your meeple across the route to escape the disasters</p>
                     </div>
                     <div class="row2 row">
@@ -163,7 +166,10 @@
             <div class="bronto-bk2 stego-bk2">
                 <div class="escape-route">
                     <div class="row1 row">
-                        <div class="steg-cell escape-cell"><p>YOU'VE ESCAPED!</p></div>
+                        <div class="steg-cell escape-cell">
+                            <img src="" class="Meeples meeple_class_b50">
+                            <p>YOU'VE ESCAPED!</p>
+                        </div>
                         <p class="escape-directions">Move your meeple across the route to escape the disasters</p>
                     </div>
                     <div class="row2 row">
@@ -284,6 +290,7 @@
                 <div class="escape-route">
                     <div class="row1 row">
                         <div class="steg-cell escape-cell">
+                            <img src="" class="Meeples meeple_class_aa50">
                             <p>YOU'VE ESCAPED!</p>
                         </div>
                         <p class="escape-directions">Move your meeple across the route to escape the disasters</p>
@@ -503,6 +510,7 @@
                 <div class="escape-route">
                     <div class="row1 row">
                         <div class="cell escape-cell">
+                            <img src="" class="Meeples meeple_class_bb50">
                             <p>YOU'VE ESCAPED!</p>
                         </div>
                         <p class="escape-directions">Move your meeple across the route to escape the disasters</p>
@@ -596,7 +604,7 @@
                     </div>
                     <div class="row5 row">
                         <div class="cell cell_b_2 cell2" id="col-1">
-                            <img src="" class="Meeples meeple_class_bb1"><p class="cell-num" id="row-4">2</p>
+                            <img src="" class="Meeples meeple_class_bb2"><p class="cell-num" id="row-4">2</p>
                         </div>
                         <div class="cell cell_b_3 cell3" id="col-2">
                             <img src="" class="Meeples meeple_class_bb3"><p class="cell-num" id="row-4">3</p>
@@ -625,22 +633,22 @@
                             <img src="" class="Meeples meeple_class_bb1"><p class="cell-num" id="row-5">1</p>
                         </div>
                         <div class="cell cell_b_5 cell5" id="col-3">
-                            <img src="" class="Meeples meeple_class_bb3"><p class="cell-num" id="row-5">5</p>
+                            <img src="" class="Meeples meeple_class_bb5"><p class="cell-num" id="row-5">5</p>
                         </div>
                         <div class="cell cell_b_17 cell17" id="col-5">
-                            <img src="" class="Meeples meeple_class_bb5"><p class="cell-num" id="row-5">17</p>
+                            <img src="" class="Meeples meeple_class_bb17"><p class="cell-num" id="row-5">17</p>
                         </div>
                         <div class="cell cell_b_16 cell16" id="col-6">
-                            <img src="" class="Meeples meeple_class_bb6"><p class="cell-num" id="row-5">16</p>
+                            <img src="" class="Meeples meeple_class_bb16"><p class="cell-num" id="row-5">16</p>
                         </div>
                         <div class="cell cell_b_15 cell15" id="col-7">
-                            <img src="" class="Meeples meeple_class_bb7"><p class="cell-num" id="row-5">15</p>
+                            <img src="" class="Meeples meeple_class_bb15"><p class="cell-num" id="row-5">15</p>
                         </div>
                         <div class="cell cell_b_14 cell14" id="col-8">
-                            <img src="" class="Meeples meeple_class_bb8"><p class="cell-num" id="row-5">14</p>
+                            <img src="" class="Meeples meeple_class_bb14"><p class="cell-num" id="row-5">14</p>
                         </div>
                         <div class="cell cell_b_13 cell13" id="col-9">
-                            <img src="" class="Meeples meeple_class_bb9"><p class="cell-num" id="row-5">13</p>
+                            <img src="" class="Meeples meeple_class_bb13"><p class="cell-num" id="row-5">13</p>
                         </div>
                     </div>
                     <div class="row7 row">
@@ -735,8 +743,9 @@
             <img class="testing card5 hover" id="steg-card5" onclick="playIt_5()" src="./assets/cards2/main-empty.png" alt="">
             <p id="reveal">Click on Main Deck to reveal your cards!</p>  
         </div>
-        <!-- <img class="trashcan" id="trash" src="assets/cards2/trash.png" alt=""> -->
+       <img class="trashcan" id="trash" onclick="disposeCards()" src="assets/cards2/trash.png" alt=""> 
     </div>
+    
 </div>
 
     <script src="./assets/js/single.js"> </script>
