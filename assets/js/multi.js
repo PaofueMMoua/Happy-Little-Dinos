@@ -467,7 +467,7 @@ function fu() {
 let round_end = false;
 let player_hand = deck.handA(deck.drawCards(5))
 
-// playing a point card
+// playing a point card 
 let played_cards = [];
 
 // calc player card
@@ -528,6 +528,31 @@ for (let i = 0; i <= 50; i++) {
  //   let score = 0;
    // let point = 1;
    // score += point;
+
+   // function playCard() { 
+    // const MIN_CARD_VALUE = 7;
+    
+    // if (cardsInHand[0] >= MIN_CARD_VALUE) {
+      // if (instantCenterCount === 0) {
+        // const cardImageUrl = `/assets/cards2/point${cardsInHand[0]}.png`;
+        // document.getElementById("instantCenter").src = cardImageUrl;
+        // document.getElementById("steg-card1").src = "";
+        
+        // const playedCardIndex = tempCards.indexOf(cardsInHand[0]);
+        // tempCards.splice(playedCardIndex, 1);
+        // played.push(cardsInHand[0]);
+        // tempInstant = cardsInHand[0];
+        // cardsInHand[0] = 0; 
+        
+        // console.log(cardsInHand);
+        // instantCenterCount++;
+        // console.log(instantCenterCount);
+       
+        
+      
+    
+  
+  
     
    // for (let i = 0; i <= 50; i++) {
    //     if (score === i) {
