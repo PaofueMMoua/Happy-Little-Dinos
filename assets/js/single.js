@@ -129,7 +129,7 @@ function myfunction2() {
 
 let highNum = [];
 let lowNum = [];
-// This is how you break javascript.
+
 // shuffling and distributing cards to player two aka the ai or opponent
 function opp_myfunction2() {
     opp_hand = [];
@@ -155,6 +155,7 @@ function opp_myfunction2() {
     }
 }
 
+//Determines what opponent/ai places down in the center when users press the play button - called in calculatePoint
 function opp_play() {
     for(let i=0; i<5; i++) {
         if(opp_hand[i] >= 7 ) {
@@ -215,24 +216,20 @@ function calculatePoint() {
     opp_instantSubtract = 0;
     opp_tempTotal = opp_totalPoints;
     tempTotal = totalPoints;
-    // console.log(opp_tempTotal);
-    // console.log(tempTotal);
     if(pc_count >= 1) {
         opp_play(); 
         instantCalc();
         opp_instantCalc();
-        pc_count = 0;
-        ic_count = 0;
+        // pc_count = 0;
+        // ic_count = 0;
         tempPoints = tempPoints + instantPoints - instantSubtract 
         opp_tempPoints = opp_tempPoints[0] + opp_instantPoints - opp_instantSubtract;
         console.log( "opp " + opp_tempPoints);
         console.log("urs " + tempPoints);
-        // tempPoints = tempPoints + instantPoints + instantSubtract;
-        // directDisaster();
         totalPoints = totalPoints + tempPoints;
         opp_totalPoints = opp_totalPoints + opp_tempPoints;
         setTimeout(directDisaster, 1000);
-        setTimeout(disposeCards, 3200);
+        setTimeout(disposeCards, 3100);
     } else {
         alert("Place a point card to play");
     }
@@ -240,6 +237,8 @@ function calculatePoint() {
 }
 let instantSubtract = 0;
 let opp_instantSubtract = 0;
+
+//determines if opponent/ai should add 2 points to their score or subtract 2 points from user score depending on the instant card they play - called in calculatePoint
 function opp_instantCalc() {
     if (opp_tempInstant == 7) {
         opp_instantPoints =  2;
@@ -335,7 +334,6 @@ function playIt_1() {
         }
     }
     check();
-    // drawing_cards();
 };
 
 // Sets center image if player one chooses to play card #2
@@ -376,7 +374,6 @@ function playIt_2() {
         }
     }
     check();
-    // drawing_cards();
 };
 
 // Sets center image if player one chooses to play card #3
@@ -415,7 +412,6 @@ function playIt_3() {
         }
     }
     check();
-    // drawing_cards();
 };
 
 // Sets center image if player one chooses to play card #4
@@ -454,7 +450,6 @@ function playIt_4() {
 
     }
     check();
-    // drawing_cards();
 };
 
 // Sets center image if player one chooses to play card #5 (furthest to the right)
@@ -491,7 +486,6 @@ function playIt_5() {
         }
     }
     check();
-    // drawing_cards();
 };
 
 //PLAY BUTTON APPEARS
@@ -526,13 +520,8 @@ function hoverIn(x) {
 
 //play button changes color to red when hovered out - called in HTML #playButton
 function hoverOut(x) {
-    if (pc_count == 1) {
         x.style.backgroundColor = '#F27F77';
         x.style.color = "black";
-    }
-    else {
-        x.style.display = 'hidden';
-    }
 }
 
 //DISASTER CARDS
@@ -660,8 +649,7 @@ function directDisaster() {
     vivaVida();
 }
 
-// Moves the meeples along the board
-// Me going crazy thinking aobut why this doesnt work what so ever AHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH.
+// Moves the player meeple along the board according to their total points - called in lose() and win()
 function Meeple_Move() {
     console.log("Meeple_Move " + totalPoints);
     if(totalPoints <= 49) {
@@ -693,6 +681,7 @@ function Meeple_Move() {
 }
 // } 
 
+// Moves opponent meeple according to their total points - called in lose() and win()
 function opp_Meeple_Move() {
     console.log("opp_Meeple_Move " + opp_totalPoints);
     if(opp_totalPoints <= 49) {
@@ -828,14 +817,7 @@ function checkLoseGame() {
         alert("you lose!");
         location.reload();
     }
-
-    // if(opp_totalPoints == 50) {
-    //     alert("you lose!");
-    //     location.reload();
-    // }
-
     setTimeout(checkDisaster, 1500);
-    
 }
 
 // checking if the player has won the game
@@ -863,15 +845,10 @@ function checkWinGame() {
         alert("you win!");
         location.reload();
     }
-
-    // if(totalPoints == 50) {
-    //     alert("you win!");
-    //     location.reload();
-    // }
-    setTimeout(opp_checkDisaster, 1500);
-    
+    setTimeout(opp_checkDisaster, 1500);  
 }
 
+// check if user lost the game according to what they have in their disaster area - called in checkLoseGame
 function checkDisaster() {
     if(player_disCount == 6 && playerOne == "bronto") { 
         alert("Lucky dino! You survived all the disasters. Move forward 5 spaces! Disaster board will reset...");
@@ -902,6 +879,7 @@ function checkDisaster() {
     }
 }
 
+//check if opponent has lost the game according to what they have in their disaster area - called in checkWinGame
 function opp_checkDisaster() {
     if(opp_disCount == 6 && playerTwo == "bronto") { 
         alert("Your opponent survived all the disasters. They will forward 5 spaces.");
