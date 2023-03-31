@@ -637,6 +637,12 @@ function directDisaster() {
                 // Meeple_Move();
             }
         } 
+        else if (tempPoints == 0) {
+            lose();
+        }
+        else if (opp_tempPoints == 0) {
+            win();
+            }
         else if(tempPoints == opp_tempPoints) {
             alert("tie");
             totalPoints = totalPoints - tempPoints;
