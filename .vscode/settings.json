@@ -12,5 +12,6 @@
         "stegx",
         "testflex",
         "ai_Played"
-    ]
+    ],
+    "liveServer.settings.port": 5501
 }
