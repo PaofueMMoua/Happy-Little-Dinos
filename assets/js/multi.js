@@ -1,22 +1,51 @@
 // Needed things
 
 import { joinRoom, selfId } from 'https://cdn.skypack.dev/trystero/ipfs';
-const config = {appId: 'HappyLittleDinosaur'};
-const room = joinRoom(config, 'lobby');
-const [sendPlayedCards, getPlayedCards] = room.makeAction('name');
+const config = { appId: 'HLD' };
 
-const idsToNames = [];
-const nameInput = document.getElementById('')
+let mainMenuRoom;
+let queueRoom;
+let gameRoom;
 
-let board = [
-    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
-];
+// const room = joinRoom(config, 'lobby');
+// const [sendPlayedCards, getPlayedCards] = room.makeAction('name');
+
+// const idsToNames = [];
+// const nameInput = document.getElementById('')
+
+queueRoom.leave();
+
+gameRoom = joinRoom(config, firstPlayer + secondPlayer);
+
+function leave(pressedBack = true) {
+    ending = true;
+
+    if (pressedBack) {
+        clearTimeout(removeTimeout);
+        clearInterval(countdownInterval);
+        toggleNuclear(false);
+    }
+
+    gameRoom.leave();
+
+    remove.removeEventListener('click', clickReset);
+    remove.classList.toggle('reset-used', false);
+
+    youPieceSpin.classList.toggle('piece-spin', true);
+    enemyPieceSpin.classList.toggle('piece-spin', true);
+
+    toggleGrid(false);
+    resetGrid();
+
+    joinMainMenu();
+
+    hideModal();
+
+    showStart();
+
+    ended = true;
+}
+
 let score = 0;
 let temp_points = 0;
 let points = 0;
