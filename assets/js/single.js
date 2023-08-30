@@ -11,6 +11,7 @@ let score = 0;
 let temp_points = 0;
 let points = 0;
 
+const play_temp_button = document.getElementById("playButton")
 const all = document.getElementById('allboards2')
 const bll = document.getElementById('allboards')
 const Bronto = document.getElementById('Bronto')
@@ -209,6 +210,7 @@ let opp_totalPoints = 0;
 let opp_tempInstant = 0;
 let tempTotal = 0;
 let opp_tempTotal = 0;
+let temp_calc = 0;
 
 //calculate player one total points for the round - called in HTML #playButton
 function calculatePoint() {
@@ -216,6 +218,12 @@ function calculatePoint() {
     opp_instantSubtract = 0;
     opp_tempTotal = opp_totalPoints;
     tempTotal = totalPoints;
+    temp_calc = 1;
+
+    if(play.style.display == 'block') {
+        play.style.visibility = "hidden";
+    }
+
     if(pc_count >= 1) {
         opp_play(); 
         instantCalc();
@@ -229,12 +237,18 @@ function calculatePoint() {
         totalPoints = totalPoints + tempPoints;
         opp_totalPoints = opp_totalPoints + opp_tempPoints;
         setTimeout(directDisaster, 1000);
-        setTimeout(disposeCards, 3100);
+        setTimeout(disposeCards, 2000);
+        
     } else {
         alert("Place a point card to play");
     }
     
 }
+
+// document.getElementById("playButton").onclick = function() {
+//     document.getElementById("playButton").setTimeout(playButton 2000)
+// }
+
 let instantSubtract = 0;
 let opp_instantSubtract = 0;
 
@@ -333,6 +347,8 @@ function playIt_1() {
             alert("you cannot play another point card");
         }
     }
+    play.style.display = "block";
+    play.style.visibility = 'visible'
     check();
 };
 
@@ -373,6 +389,8 @@ function playIt_2() {
             alert("you cannot play another point card");
         }
     }
+    play.style.display = "block";
+    play.style.visibility = 'visible'
     check();
 };
 
@@ -411,6 +429,8 @@ function playIt_3() {
             alert("you cannot play another point card")
         }
     }
+    play.style.display = "block";
+    play.style.visibility = 'visible'
     check();
 };
 
@@ -449,6 +469,8 @@ function playIt_4() {
         }
 
     }
+    play.style.display = "block";
+    play.style.visibility = 'visible'
     check();
 };
 
@@ -485,6 +507,8 @@ function playIt_5() {
             alert("you cannot play another point card");
         }
     }
+    play.style.display = "block";
+    play.style.visibility = 'visible'
     check();
 };
 
