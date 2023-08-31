@@ -53,6 +53,7 @@ brontx.addEventListener("click", function () {
     hero.style.display = 'none';
     bll.style.display = 'none';
     all.style.display = 'block';
+    gone.style.display = 'none';
     let testflex = document.getElementById('testflex')
     testflex.style.display = 'flex';
     playerOne = "bronto";
@@ -63,6 +64,7 @@ stegx.addEventListener("click", function () {
     hero.style.display = 'none';
     bll.style.display = 'block';
     all.style.display = 'none';
+    gone.style.display = 'none';
     let testflex = document.getElementById('testflex')
     testflex.style.display = 'flex';
     playerOne = "stego";
