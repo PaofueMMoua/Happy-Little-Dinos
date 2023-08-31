@@ -630,6 +630,7 @@ function directDisaster() {
         opp_tempPoints = 0;
         fu();
     }
+    
     else if (opp_tempInstant == 9 && tempInstant == 9) {
         totalPoints = totalPoints - tempPoints;
         opp_totalPoints = opp_totalPoints - opp_tempPoints;
@@ -638,16 +639,19 @@ function directDisaster() {
         alert("Disaster card is discarded");
         fu();
     }
+    
     else if(tempInstant == 9 && opp_tempInstant != 9) {
         win();
         // opp_Meeple_Move();
         // Meeple_Move();
     }
+    
     else if(opp_tempInstant == 9 && tempInstant != 9) {
         lose();
         // opp_Meeple_Move();
         // Meeple_Move();
     }
+    
     else {
         if (tempPoints < opp_tempPoints) {
             if(tempInstant == 8) {
@@ -664,6 +668,7 @@ function directDisaster() {
                 // Meeple_Move();
             }
         }
+        
         else if(tempPoints > opp_tempPoints) {
             if(opp_tempInstant == 8) {
                 totalPoints = totalPoints - tempPoints;
@@ -679,6 +684,7 @@ function directDisaster() {
                 // Meeple_Move();
             }
         } 
+        
         else if(tempPoints == opp_tempPoints) {
             alert("tie");
             totalPoints = totalPoints - tempPoints;
@@ -703,6 +709,7 @@ function Meeple_Move() {
                 document.getElementsByClassName('meeple_class_bb' + tempTotal)[0].style = 'hidden'; 
             }
         }
+        
         else if (playerOne == "stego") {
             let f = document.getElementsByClassName('meeple_class_b' + totalPoints)[0];
             f.src = "/assets/img/stego-meeple.png";
@@ -711,10 +718,14 @@ function Meeple_Move() {
                 document.getElementsByClassName('meeple_class_b' + tempTotal)[0].style = 'hidden'; 
             }
         } 
-    } else if (totalPoints > 49) {
+        
+    }
+     else if (totalPoints > 49) {
         if(playerOne == "bronto") { 
             document.getElementsByClassName("meeple_class_bb50").src = "/assets/img/bronto-meeple.png";
-        } else if (playerOne == "stego") { 
+        }
+         
+        else if (playerOne == "stego") { 
             document.getElementsByClassName("meeple_class_b50").src = "/assets/img/stego-meeple.png";
         }
         alert("You escaped!");
@@ -736,6 +747,7 @@ function opp_Meeple_Move() {
             }
             
         }
+        
         else if (playerTwo == "stego") {
             let f = document.getElementsByClassName('meeple_class_aa' + opp_totalPoints)[0];
             f.src = "/assets/img/stego-meeple.png";
@@ -744,10 +756,15 @@ function opp_Meeple_Move() {
                 document.getElementsByClassName('meeple_class_aa' + opp_tempTotal)[0].style = 'hidden'; 
             }
         }
-    } else if(opp_totalPoints > 49) {
+        
+    }
+     
+    else if(opp_totalPoints > 49) {
         if(playerTwo == "bronto") { 
             document.getElementsByClassName("meeple_class_a50").src = "/assets/img/bronto-meeple.png";
-        } else if (playerTwo == "stego") { 
+        }
+         
+        else if (playerTwo == "stego") { 
             document.getElementsByClassName("meeple_class_aa50").src = "/assets/img/stego-meeple.png";
         }
         alert("Your opponent escaped!");
@@ -772,6 +789,7 @@ function lose() {
         player_disCount = player_disCount + 1;
 
     }
+    
     else if(playerOne == "stego") {
         for(let i = 0; i < 6; i++) {
             if(player_disCount == i) {
@@ -801,6 +819,7 @@ function win() {
         opp_disCount = opp_disCount + 1;
 
     }
+    
     else if(playerOne == "bronto") {
         for(let i = 0; i < 6; i++) {
             if(opp_disCount == i) {
@@ -843,9 +862,11 @@ function checkLoseGame() {
         if(disasterTrack[i] === 'red') {
             red.push(disasterTrack[i]);
         }
+        
         else if(disasterTrack[i] === 'blue') {
             blue.push(disasterTrack[i]);
         }
+        
         else if(disasterTrack[i] === 'green') {
             green.push(disasterTrack[i]);
         }
@@ -855,6 +876,7 @@ function checkLoseGame() {
         alert("you lose!");
         location.reload();
     }
+    
     else if(red.length == 2 && blue.length == 2 && green.length == 2) {
         alert("you lose!");
         location.reload();
@@ -871,9 +893,11 @@ function checkWinGame() {
         if(opp_disasterTrack[i] === 'red') {
             redTwo.push(opp_disasterTrack[i]);
         }
+        
         else if(opp_disasterTrack[i] === 'blue') {
             blueTwo.push(opp_disasterTrack[i]);
         }
+        
         else if(opp_disasterTrack[i] === 'green') {
             greenTwo.push(opp_disasterTrack[i]);
         }
@@ -883,6 +907,7 @@ function checkWinGame() {
         alert("you win!");
         location.reload();
     }
+    
     else if(redTwo.length == 2 && blueTwo.length == 2 && greenTwo.length == 2) {
         alert("you win!");
         location.reload();
@@ -905,7 +930,9 @@ function checkDisaster() {
         tempTotal = totalPoints;
         totalPoints = totalPoints + 5;
         Meeple_Move();
-    } else if(player_disCount == 6 && playerOne == "stego") { 
+    }
+     
+    else if(player_disCount == 6 && playerOne == "stego") { 
         alert("Lucky dino! You survived all the disasters. Move forward 5 spaces! Disaster board will reset...");
         document.getElementById("stegoDisaster1").src = "";
         document.getElementById("stegoDisaster2").src = "";
@@ -936,7 +963,9 @@ function opp_checkDisaster() {
         opp_tempTotal = opp_totalPoints;
         opp_totalPoints = opp_totalPoints + 5;
         opp_Meeple_Move();
-    } else if(opp_disCount == 6 && playerTwo == "stego") { 
+    }
+     
+    else if(opp_disCount == 6 && playerTwo == "stego") { 
         alert("Your opponent survived all the disasters. They will forward 5 spaces.");
         document.getElementById("oppSteg1").src = "";
         document.getElementById("oppSteg2").src = "";
