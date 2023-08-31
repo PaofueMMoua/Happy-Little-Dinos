@@ -56,6 +56,7 @@ const Bronto = document.getElementById('Bronto')
 const Stego = document.getElementById('Stego')
 let playerOne = '';
 let playerTwo = '';
+const gone = document.getElementById('gone')
 
 //Switch board position when click on dinosaur name
 Bronto.addEventListener("click", function () {
@@ -63,6 +64,7 @@ Bronto.addEventListener("click", function () {
     hero.style.display = 'none';
     bll.style.display = 'none';
     all.style.display = 'block';
+    gone.style.display = 'none';
     let testflex = document.getElementById('testflex')
     testflex.style.display = 'flex';
     playerOne = "bronto";
@@ -73,6 +75,7 @@ Stego.addEventListener("click", function () {
     hero.style.display = 'none';
     bll.style.display = 'block';
     all.style.display = 'none';
+    gone.style.display = 'none';
     let testflex = document.getElementById('testflex')
     testflex.style.display = 'flex';
     playerOne = "stego";

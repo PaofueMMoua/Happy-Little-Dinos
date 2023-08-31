@@ -12,7 +12,30 @@ body {
     background-image:-moz-linear-gradient(blue, orange); */
     background-color: rgba(0,0,0,0.76);
 background-image:url("../img/low-contrast-linen.png");
+}
 
+.sticky {
+    position:absolute;
+    background-image: url('../img/Foot_right.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width:10vw;
+    height:10vw;
+    background-color:transparent;
+    border:none;
+    z-index:1;
+    font-size: 1vw;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+
+.sticky a {
+    z-index:2;
+    color:#FFA953;
+    font-size:1.5vw;
+    text-decoration: none;
 }
 
 .hero-img {
@@ -75,7 +98,9 @@ background-image:url("../img/low-contrast-linen.png");
     text-decoration: none;
 }
 
-.hero-btn a:hover, .hero-btn-2 a:hover {
+
+
+.hero-btn a:hover, .hero-btn-2 a:hover, .sticky a:hover {
     color:#ffce9d;
 }
 
