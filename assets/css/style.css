@@ -191,6 +191,11 @@ background-image:url("../img/low-contrast-linen.png");
     transition: all 250ms ease; 
 }
 
+.roomcreate {
+    width:100%;
+    height:5vw;
+}
+
 .dino-select {
     color: #F27F77;
 }
