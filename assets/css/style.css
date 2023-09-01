@@ -14,6 +14,39 @@ body {
 background-image:url("../img/low-contrast-linen.png");
 }
 
+.modal {
+    display:none;
+    position:absolute;
+    z-index:2;
+    width:100vw;
+    height:100vh;
+    
+}
+
+.modal_content {
+    width:100vw;
+    height:100vh;
+    background-image:;
+    background-position:center;
+    background-repeat:no-repeat;
+    background-size:cover;
+}
+
+.close {
+    width:5vw;
+    height:5vw;
+    background-image: url('../img/Foot_left.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.close:hover,
+.close:focus {
+    text-decoration:none;
+    cursor:pointer;
+}
+
 .sticky {
     position:absolute;
     background-image: url('../img/Foot_left.png');
