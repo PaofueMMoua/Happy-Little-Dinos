@@ -52,7 +52,9 @@ background-image:url("../img/low-contrast-linen.png");
     display:flex;
     justify-content: center;
     align-items: end;
+    color:#FFA953;
     font-size:5vw;
+    text-decoration: none;
 }
 
 .close:hover,
