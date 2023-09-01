@@ -1,4 +1,4 @@
-h2{
+h2 {
     font-size: 1vw;
 }
 
@@ -6,46 +6,50 @@ h2{
 
 
 main {
-    width:100vw;
+    width: 100vw;
     display: flex;
     justify-content: space-around;
 }
 
 /*rooms*/
-.datadiv{
+.datadiv {
     height: 2.5vw;
     display: flex;
     width: 55vw;
     justify-content: space-between;
 }
-.datadiv p:nth-of-type(1){
+
+.datadiv p:nth-of-type(1) {
     margin-left: 4vw;
     width: 8vw;
 }
-.datadiv p:nth-of-type(2){
+
+.datadiv p:nth-of-type(2) {
     width: 8vw;
     margin-right: 35vw;
 }
 
 
-.roomcont{
+.roomcont {
     width: 80vw;
     min-height: 18vw;
     display: flex;
-    flex-wrap: wrap ;
+    flex-wrap: wrap;
     justify-content: space-around;
     background-color: rgb(66, 66, 66, 0.5);
     border-radius: 2vw;
     margin-top: 5vw;
 }
-.roomlist{
+
+.roomlist {
     min-height: 10vw;
     margin-top: 2vw;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
 }
-.roomlist>h2{
+
+.roomlist>h2 {
     text-align: center;
     border-bottom: .15vw solid rgb(66, 66, 66, 0.5);
     width: 55vw;
@@ -54,7 +58,7 @@ main {
 }
 
 
-.roomlist>ul{
+.roomlist>ul {
     width: 55vw;
     min-height: 2vw;
     border-left: .15vw solid rgb(66, 66, 66, 0.5);
@@ -62,57 +66,63 @@ main {
     margin: 0;
     padding: 0;
     margin-bottom: 4vw;
-    list-style: none; 
+    list-style: none;
     box-sizing: border-box;
     display: flex;
     flex-wrap: wrap;
 }
-.roomlist ul li:last-of-type{
+
+.roomlist ul li:last-of-type {
     border-bottom: .15vw solid rgba(41, 40, 40, 0.5);
 }
-li{
+
+li {
     height: 2vw;
-    width:  55vw;
+    width: 55vw;
     border-top: .15vw solid rgba(41, 40, 40, 0.5);
     box-sizing: border-box;
     padding-left: calc(4vw - .15vw);
     display: flex;
     flex-wrap: wrap;
 }
-li p{
+
+li p {
     width: 8vw;
     margin: 0;
     line-height: 2vw;
 }
-li button{
+
+li button {
     margin-left: 27vw;
     height: 2vw;
 
 }
-li p{
+
+li p {
     margin-top: -.15vw;
 }
-li button{
+
+li button {
     height: 1.2vw;
     margin-top: calc(.4vw - .15vw);
 }
 
-.roomcreate{
+.roomcreate {
     height: 2vw;
     align-items: center;
     display: flex;
 }
 
-.roomcreate h2{
+.roomcreate h2 {
     width: 20vw;
     text-align: center;
 }
 
-input::placeholder{
-    color:  rgb(66, 66, 66, 0.5);
+input::placeholder {
+    color: rgb(66, 66, 66, 0.5);
 }
 
-.createform{
+.createform {
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -121,31 +131,34 @@ input::placeholder{
 }
 
 
-.roomcreate{
+.roomcreate {
     width: 70vw;
     height: 5vw;
-    background-color: white;    
+    background-color: white;
     margin-bottom: 2vw;
 }
-.roomlist{
+
+.roomlist {
     width: 60vw;
-    background-color: white;    
+    background-color: white;
     margin-bottom: 2vw;
     display: flex;
     align-self: flex-start;
 }
-.playerlist{
+
+.playerlist {
     display: flex;
     justify-content: space-around;
     flex-wrap: wrap;
     align-self: flex-start;
-    min-height: 10vw; 
+    min-height: 10vw;
     width: 8vw;
     margin-top: 2vw;
-    background-color: white;    
+    background-color: white;
     margin-bottom: 2vw;
 }
-.playerlist>ul{
+
+.playerlist>ul {
     margin-top: 2.5vw;
     width: 5vw;
     min-height: 2vw;
@@ -153,13 +166,13 @@ input::placeholder{
     border-right: .15vw solid rgb(66, 66, 66, 0.5);
     padding: 0;
     margin-bottom: 4vw;
-    list-style: none; 
+    list-style: none;
     box-sizing: border-box;
     display: flex;
     flex-wrap: wrap;
 }
 
-.playerlist h2{
+.playerlist h2 {
     text-align: center;
     border-bottom: .15vw solid rgb(66, 66, 66, 0.5);
     height: 2vw;
@@ -167,7 +180,7 @@ input::placeholder{
     margin-bottom: 0;
 }
 
-.playerlist ul li{
+.playerlist ul li {
     width: 100%;
     padding: 0;
     display: flex;
@@ -177,66 +190,66 @@ input::placeholder{
 
 }
 
-.playerlist ul li:last-of-type{
+.playerlist ul li:last-of-type {
     border-bottom: .15vw solid rgba(41, 40, 40, 0.5);
 }
 
-.infoboard{
+.infoboard {
     width: 70vw;
     display: flex;
     justify-content: space-between;
 }
 
 
-#createroom{
+#createroom {
     width: 8vw;
     height: 2vw;
-    font-size:1.5vw;
+    font-size: 1.5vw;
 }
 
 .dino-select {
-    width:40%;
-    font-size:1.5vw;
-    color:#F27F77;
+    width: 40%;
+    font-size: 1.5vw;
+    color: #F27F77;
 }
 
 input {
-    height:50%;
-    width:10vw;
-    font-size:1.5vw;
+    height: 50%;
+    width: 10vw;
+    font-size: 1.5vw;
 }
 
 .dino-select-2 {
-    width:40%;
-    font-size:2vw;
-    color:#F27F77;
+    width: 40%;
+    font-size: 2vw;
+    color: #F27F77;
 }
 
 .pink {
-    color:#F27F77;
+    color: #F27F77;
 }
 
 
 .sticky {
-    position:absolute;
+    position: absolute;
     background-image: url('../img/Foot_left.png');
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    width:10vw;
-    height:10vw;
-    background-color:transparent;
-    border:none;
-    z-index:1;
+    width: 10vw;
+    height: 10vw;
+    background-color: transparent;
+    border: none;
+    z-index: 1;
     font-size: 1vw;
-    display:flex;
-    align-items:center;
-    justify-content:center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .sticky a {
-    z-index:2;
-    color:#FFA953;
-    font-size:1.5vw;
+    z-index: 2;
+    color: #FFA953;
+    font-size: 1.5vw;
     text-decoration: none;
 }

@@ -1,38 +1,38 @@
 @import url('https://fonts.googleapis.com/css2?family=Baloo+Bhai+2&display=swap');
 
 * {
-font-family:'Bahiana', sans-serif;
-font-weight: 100;
-margin:0;
-padding:0;
+    font-family: 'Bahiana', sans-serif;
+    font-weight: 100;
+    margin: 0;
+    padding: 0;
 }
 
 body {
     /* background-color: rgb(241, 241, 241);
     background-image:-moz-linear-gradient(blue, orange); */
-    background-color: rgba(0,0,0,0.76);
-background-image:url("../img/low-contrast-linen.png");
+    background-color: rgba(0, 0, 0, 0.76);
+    background-image: url("../img/low-contrast-linen.png");
 }
 
 /* https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_modal */
 
 .modal {
-    display:none;
-    position:absolute;
-    z-index:2;
-    width:100vw;
-    height:100vh;
-    
+    display: none;
+    position: absolute;
+    z-index: 2;
+    width: 100vw;
+    height: 100vh;
+
 }
 
 .modal_content {
-    width:100vw;
-    height:100vh;
-    display:flex;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
-    font-size:5vw;
+    font-size: 5vw;
     overflow: hidden;
 
     /* Un Comment when the background image is put in and is done */
@@ -44,70 +44,70 @@ background-image:url("../img/low-contrast-linen.png");
 }
 
 .modal_content h1 {
-    height:20vw;
-    margin-bottom:10vw;
+    height: 20vw;
+    margin-bottom: 10vw;
 }
 
 .close {
-    width:100vw;
-    height:20vw;
-    display:flex;
-    flex-direction:row;
+    width: 100vw;
+    height: 20vw;
+    display: flex;
+    flex-direction: row;
     justify-content: center;
     align-items: end;
-    color:#FFA953;
-    font-size:10vw;
+    color: #FFA953;
+    font-size: 10vw;
     text-decoration: none;
 }
 
 .close a {
-    display:flex;
-    flex-direction:row;
-    color:#FFA953;
+    display: flex;
+    flex-direction: row;
+    color: #FFA953;
     text-decoration: none;
 }
 
 .close:hover,
 .close:focus {
-    text-decoration:none;
-    cursor:pointer;
+    text-decoration: none;
+    cursor: pointer;
 }
 
 .sticky {
-    position:absolute;
+    position: absolute;
     background-image: url('../img/Foot_left.png');
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    width:10vw;
-    height:10vw;
-    background-color:transparent;
-    border:none;
-    z-index:1;
+    width: 10vw;
+    height: 10vw;
+    background-color: transparent;
+    border: none;
+    z-index: 1;
     font-size: 1vw;
-    display:flex;
-    align-items:center;
-    justify-content:center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .sticky a {
-    z-index:2;
-    color:#FFA953;
-    font-size:1.5vw;
+    z-index: 2;
+    color: #FFA953;
+    font-size: 1.5vw;
     text-decoration: none;
 }
 
 .hero-img {
-    background-image:url('../img/dino.png') ;
+    background-image: url('../img/dino.png');
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
     position: relative;
     height: 100vh;
-    width:100vw;
-    overflow:hidden;
-    margin:0px;
-    border:0px;
+    width: 100vw;
+    overflow: hidden;
+    margin: 0px;
+    border: 0px;
 }
 
 .hero-txt {
@@ -124,10 +124,10 @@ background-image:url("../img/low-contrast-linen.png");
     background-repeat: no-repeat;
     background-size: cover;
     position: relative;
-    width:15vw;
-    height:15vw;
-    background-color:transparent;
-    border:none;
+    width: 15vw;
+    height: 15vw;
+    background-color: transparent;
+    border: none;
 }
 
 .hero-btn-2 {
@@ -136,49 +136,52 @@ background-image:url("../img/low-contrast-linen.png");
     background-repeat: no-repeat;
     background-size: cover;
     position: relative;
-    width:17vw;
-    height:17vw;
-    background-color:transparent;
-    border:none;
+    width: 17vw;
+    height: 17vw;
+    background-color: transparent;
+    border: none;
 }
 
 .hero-txt h1 {
-    font-size:7vw;
+    font-size: 7vw;
 }
 
 .title {
-    color:white;
+    color: white;
 }
 
-.hero-btn a, .hero-btn-2 a {
-    z-index:2;
-    color:#FFA953;
-    font-size:2.5vw;
+.hero-btn a,
+.hero-btn-2 a {
+    z-index: 2;
+    color: #FFA953;
+    font-size: 2.5vw;
     text-decoration: none;
 }
 
 
 
-.hero-btn a:hover, .hero-btn-2 a:hover, .sticky a:hover {
-    color:#ffce9d;
+.hero-btn a:hover,
+.hero-btn-2 a:hover,
+.sticky a:hover {
+    color: #ffce9d;
 }
 
 /* single player dino select */
 
 .hero-img-two {
-    background-image:url("../img/star.png");
+    background-image: url("../img/star.png");
     height: 100vh;
-    width:100vw;
-    overflow:hidden;
-    margin:0px;
-    border:0px;
-    background-repeat:no-repeat;
+    width: 100vw;
+    overflow: hidden;
+    margin: 0px;
+    border: 0px;
+    background-repeat: no-repeat;
     background-size: cover;
-    background-position:center;
+    background-position: center;
 }
 
 .dino {
-    background-image:url('../../assets/img/Bronto.png');
+    background-image: url('../../assets/img/Bronto.png');
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -188,12 +191,12 @@ background-image:url("../img/low-contrast-linen.png");
     background-color: transparent;
     border: none;
     transition: -webkit-transform 0.2s;
-	transition: transform 0.2s;
-	transition: transform 0.2s, -webkit-transform 0.2s;
+    transition: transform 0.2s;
+    transition: transform 0.2s, -webkit-transform 0.2s;
 }
 
 .dino_two {
-    background-image:url('../img/stego.png');
+    background-image: url('../img/stego.png');
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -203,56 +206,56 @@ background-image:url("../img/low-contrast-linen.png");
     background-color: transparent;
     border: none;
     transition: -webkit-transform 0.2s;
-	transition: transform 0.2s;
-	transition: transform 0.2s, -webkit-transform 0.2s;
+    transition: transform 0.2s;
+    transition: transform 0.2s, -webkit-transform 0.2s;
 }
 
 .dino:hover,
 .dino_two:hover {
-    -webkit-transform:scale(1.2);
-        transform:scale(1.2);
+    -webkit-transform: scale(1.2);
+    transform: scale(1.2);
 }
 
 .dino-space {
-    display:flex;
+    display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
 .column {
-    display:flex;
-    flex-direction:column;
+    display: flex;
+    flex-direction: column;
 }
 
 .column a {
-    font-size:5vw;
+    font-size: 5vw;
 }
 
 .green,
 .blue {
-    color:white;
-    text-decoration:none;
-    
+    color: white;
+    text-decoration: none;
+
 }
 
 .green:hover {
     background-color: #16d26a;
     background-image: linear-gradient(45deg, #16d26a 0%, #e9e754 80%);
-    -webkit-background-clip:text;
+    -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     transition: all 250ms ease;
 }
 
 .blue:hover {
-    background: linear-gradient(17deg, rgb(34, 89, 161) 30%, rgb(93, 129, 212) 44%, rgb(181, 96, 215) 68%, rgb(98, 14, 134) 81%); 
-    -webkit-background-clip:text;
+    background: linear-gradient(17deg, rgb(34, 89, 161) 30%, rgb(93, 129, 212) 44%, rgb(181, 96, 215) 68%, rgb(98, 14, 134) 81%);
+    -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    transition: all 250ms ease; 
+    transition: all 250ms ease;
 }
 
 .roomcreate {
-    width:100%;
-    height:5vw;
+    width: 100%;
+    height: 5vw;
 }
 
 .dino-select {
@@ -261,119 +264,119 @@ background-image:url("../img/low-contrast-linen.png");
 
 /* BRONTO'S AVATAR + TRAITS */
 .bronto-board {
-    display:flex;
-    flex:wrap;
-    margin-left:1vw;
-    margin-top:.5vw;
-    height:21vw;
-    width:55vw;
+    display: flex;
+    flex: wrap;
+    margin-left: 1vw;
+    margin-top: .5vw;
+    height: 21vw;
+    width: 55vw;
 }
 
 .bronto-bk {
-    background-image: url("../img/bronto-bk.png"); 
-    background-repeat:no-repeat;
-    justify-content:flex-start;
-    background-size:cover;
-    background-size:16.65vw;
-    background-position-y:bottom;
-    background-position-x:right;
+    background-image: url("../img/bronto-bk.png");
+    background-repeat: no-repeat;
+    justify-content: flex-start;
+    background-size: cover;
+    background-size: 16.65vw;
+    background-position-y: bottom;
+    background-position-x: right;
 }
 
 .bronto-bk2 {
     background-image: url("../img/bronto-bk2.png");
-    width:40vw;
-    background-repeat:no-repeat;
-    display:flex;
-    flex-direction:row;
-    background-size:cover;
-    background-position-x:left;
-    background-position-y:bottom;
-    background-color:rgb(225, 182, 241);
+    width: 40vw;
+    background-repeat: no-repeat;
+    display: flex;
+    flex-direction: row;
+    background-size: cover;
+    background-position-x: left;
+    background-position-y: bottom;
+    background-color: rgb(225, 182, 241);
 }
 
 .char-bronto {
-    width:15vw;
-    bottom:-1vw;
-    position:relative;
+    width: 15vw;
+    bottom: -1vw;
+    position: relative;
 }
 
 .char-name {
     text-align: center;
-    font-size:3vw;
-    color:#DEE0F4;
+    font-size: 3vw;
+    color: #DEE0F4;
 }
 
 .trait {
-    width:3.5vw;
+    width: 3.5vw;
 }
 
 .traits-sec {
-    display:flex;
-    flex-direction:row;
+    display: flex;
+    flex-direction: row;
     justify-content: center;
 }
 
 .number {
-    font-size:2.5vw;
-    margin-left:1vw;
-    margin-right:1vw;
-    top:.5vw;
-    position:relative;
-    color:#DEE0F4;
-} 
+    font-size: 2.5vw;
+    margin-left: 1vw;
+    margin-right: 1vw;
+    top: .5vw;
+    position: relative;
+    color: #DEE0F4;
+}
 
 /*BRONTO'S ESCAPE ROUTE */
 .escape-route {
-    box-sizing:border-box;
-    margin-left:.5vw;
-    margin-top:.2vw;
-    width:25vw;
+    box-sizing: border-box;
+    margin-left: .5vw;
+    margin-top: .2vw;
+    width: 25vw;
 }
 
 .cell,
 .steg-cell {
-    width:2.5vw;
-    height:2.5vw;
+    width: 2.5vw;
+    height: 2.5vw;
     text-align: center;
-    background-color:#DEE0F4;
+    background-color: #DEE0F4;
     border: solid .1vw #693396b4;
-    position:relative;
+    position: relative;
 }
 
 .row {
-    display:flex;
-    flex-direction:row;
-    position:relative;
+    display: flex;
+    flex-direction: row;
+    position: relative;
 }
 
 .row2 {
-    margin-left:1.35vw;
-    top:.3vw;
+    margin-left: 1.35vw;
+    top: .3vw;
 }
 
 .row3 {
-    margin-left:1.35vw;
-    top:.3vw;
+    margin-left: 1.35vw;
+    top: .3vw;
 }
 
 .row4 {
-    left:1.35vw;
-    top:.28vw;
+    left: 1.35vw;
+    top: .28vw;
 }
 
 .row5 {
-    left:3.85vw;
-    top:.34vw;
+    left: 3.85vw;
+    top: .34vw;
 }
 
 .row6 {
-    margin-left:6.35vw;
-    bottom:.14vw;
-    margin-top:.5vw;
+    margin-left: 6.35vw;
+    bottom: .14vw;
+    margin-top: .5vw;
 }
 
 .row7 {
-    bottom:.1vw;
+    bottom: .1vw;
 }
 
 .cell24,
@@ -402,7 +405,7 @@ background-image:url("../img/low-contrast-linen.png");
 .cell19,
 .cell20,
 .cell21,
-.cell2, 
+.cell2,
 .cell3,
 .cell14,
 .cell15,
@@ -414,27 +417,27 @@ background-image:url("../img/low-contrast-linen.png");
 .cell9,
 .cell10,
 .cell11 {
-    border-right:transparent;
+    border-right: transparent;
 }
 
 .cell48,
 .cell30,
 .cell16 {
-    border-left:transparent;
+    border-left: transparent;
 }
 
 .cell22 {
-    padding-top:.4vw;
-    bottom:.35vw;
-    border-top:transparent;
-} 
+    padding-top: .4vw;
+    bottom: .35vw;
+    border-top: transparent;
+}
 
 .cell40,
 .cell31,
 .cell49 {
-    padding-top:.4vw;
-    bottom:.3vw;
-    border-top:transparent;
+    padding-top: .4vw;
+    bottom: .3vw;
+    border-top: transparent;
 }
 
 .row7-nums {
@@ -444,190 +447,190 @@ background-image:url("../img/low-contrast-linen.png");
 }
 
 .cell12 {
-    padding-top:.45vw;
-    border-top:transparent;
-    bottom:.4vw;
+    padding-top: .45vw;
+    border-top: transparent;
+    bottom: .4vw;
 }
 
 .cell17 {
-    padding-top:.4vw;
-    bottom:.35vw;
-    border-top:transparent;
+    padding-top: .4vw;
+    bottom: .35vw;
+    border-top: transparent;
 }
 
 .cell1,
 .cell5 {
-    top:.55vw;
-    right:2.5vw;
-    border-bottom:transparent;
-    border-top:transparent;
+    top: .55vw;
+    right: 2.5vw;
+    border-bottom: transparent;
+    border-top: transparent;
 }
 
 .cell1 {
-    right:5vw;
+    right: 5vw;
 }
 
 .cell2,
 .cell3,
 .cell4 {
-    top:.9vw;
-    right:2.5vw;
+    top: .9vw;
+    right: 2.5vw;
 }
 
 .cell-num,
 .escape-cell p,
 .start-cell p {
-    top:.6vw;
-    font-size:1.2vw;
-    position:relative;
-    color:#693396b4;
+    top: .6vw;
+    font-size: 1.2vw;
+    position: relative;
+    color: #693396b4;
 }
 
 .empty {
-    border:transparent;
-    background-color:transparent;
-    width:1.1vw;
+    border: transparent;
+    background-color: transparent;
+    width: 1.1vw;
 }
 
 .escape-cell,
 .start-cell {
-    width:5.25vw;
+    width: 5.25vw;
 }
 
 .escape-directions {
-    font-size:.8vw;
-    color:black;
-    font-family:"Baloo Bhai 2", sans-serif;
-    line-height:1vw;
-    font-weight:bold;
-    width:14vw;
+    font-size: .8vw;
+    color: black;
+    font-family: "Baloo Bhai 2", sans-serif;
+    line-height: 1vw;
+    font-weight: bold;
+    width: 14vw;
     text-align: center;
-    margin-left:2.5vw;
-    margin-top:.5vw;
-} 
+    margin-left: 2.5vw;
+    margin-top: .5vw;
+}
 
 .bronto-foot {
-    width:1vw;
-    position:relative;
-    bottom:1vw;
+    width: 1vw;
+    position: relative;
+    bottom: 1vw;
 }
 
 .meeple_class_b0,
 .meeple_class_a0,
 .meeple_class_bb0,
 .meeple_class_aa0 {
-    width:2vw;
-    bottom:1vw;
+    width: 2vw;
+    bottom: 1vw;
     position: relative;
 }
 
 /* BRONTO'S DISASTER AREA */
 .disaster-area {
-    box-sizing:border-box;
-    margin-top:2vw;
-    margin-left:2vw;
+    box-sizing: border-box;
+    margin-top: 2vw;
+    margin-left: 2vw;
 }
 
 .disaster-cell {
-    background-color:#51555254;
-    border-radius:.4vw;
-    margin:.5vw;
-    height:4vw;
-    width:4vw;
+    background-color: #51555254;
+    border-radius: .4vw;
+    margin: .5vw;
+    height: 4vw;
+    width: 4vw;
 }
 
 .disaster-img {
-    width:4vw;
+    width: 4vw;
 }
 
 .disaster-flex {
-    display:flex;
+    display: flex;
     flex-direction: row;
-    justify-content:space-around;
-    width:10vw;
-    margin:0;
+    justify-content: space-around;
+    width: 10vw;
+    margin: 0;
 }
 
 .disaster-area h2,
 h3 {
-    font-size:2.3vw;
+    font-size: 2.3vw;
     text-align: center;
-    color:#DEE0F4;
+    color: #DEE0F4;
 }
 
 .dis-cell5 {
-    margin-left:3vw;
+    margin-left: 3vw;
 }
 
 /* STEGO */
 .stego {
-    margin-top:4vw;
+    margin-top: 4vw;
 }
 
 .stego-bk {
-    background-image:url("../img/stego-bk.png");
+    background-image: url("../img/stego-bk.png");
 }
 
 .stego-bk2 {
-    background-image:url("../img/stego-bk2.png");
-    background-color:rgb(239, 243, 234);
+    background-image: url("../img/stego-bk2.png");
+    background-color: rgb(239, 243, 234);
 }
 
 .char-stego {
-    margin-top:5vw;
-    width:15vw;
+    margin-top: 5vw;
+    width: 15vw;
 }
 
 h3,
 .steg-name,
 .steg-num {
-    color:rgb(20, 19, 19);
+    color: rgb(20, 19, 19);
 }
 
 .steg-cell {
-    background-color:#B9DCAC;
-    border-color:#613535b7;
+    background-color: #B9DCAC;
+    border-color: #613535b7;
 }
 
 .steg-cell p {
-    color:#613535b7;
+    color: #613535b7;
 }
 
 ::selection {
-    background-color:rgb(255, 228, 185);
+    background-color: rgb(255, 228, 185);
 }
 
 .allboards2 {
-    display:none;
+    display: none;
 }
 
 .allboards {
-    display:none;
+    display: none;
 }
 
-.testflex  {
-    display:none;
+.testflex {
+    display: none;
 }
 
 .testing {
-    margin-top:.5vw;
-    width:8vw;
+    margin-top: .5vw;
+    width: 8vw;
 }
 
 .play-card {
-    width:7.9vw;
-    height:3vw;
-    font-size:2vw;
+    width: 7.9vw;
+    height: 3vw;
+    font-size: 2vw;
     text-align: center;
-    padding-top:.5vw;
+    padding-top: .5vw;
     /* background-color:black; */
-    color:transparent;
-    position:relative;
-    left:19vw;
-    bottom:5vw;
-    z-index:2;
-    border:none;
-    cursor:default;
+    color: transparent;
+    position: relative;
+    left: 19vw;
+    bottom: 5vw;
+    z-index: 2;
+    border: none;
+    cursor: default;
 }
 
 /* #playButton:hover {
@@ -636,35 +639,35 @@ h3,
 } */
 
 .cards {
-    margin-left:1.5vw;
+    margin-left: 1.5vw;
 }
 
 .centercards img {
-    position:relative;
+    position: relative;
 }
 
 .dis-deck,
 .draw-deck {
-    top:5vw;
+    top: 5vw;
 }
 
 .dis-deck {
-    left:3vw;
+    left: 3vw;
 }
 
 .playercards2 {
-    bottom:3.5vw;
-    position:relative;
+    bottom: 3.5vw;
+    position: relative;
 }
 
 .player1-point,
 .player2-point {
-    left:3vw;
+    left: 3vw;
 }
 
 .play2 {
-    position:relative;
-    left:8.5vw;
+    position: relative;
+    left: 8.5vw;
     width: fit-content;
 }
 
@@ -677,38 +680,38 @@ h3,
 }
 
 .card2 {
-    position:relative;
-    right:1.5vw;
+    position: relative;
+    right: 1.5vw;
 }
 
 .card3 {
-    position:relative;
-    right:3vw;
+    position: relative;
+    right: 3vw;
 }
 
 .card4 {
-    position:relative;
-    right:4.5vw;
+    position: relative;
+    right: 4.5vw;
 }
 
 .card5 {
-    position:relative;
-    right:6vw;
+    position: relative;
+    right: 6vw;
 }
 
 #reveal {
-    color:black;
-    position:relative;
-    font-size:3vw;
-    bottom:7.5vw;
-    left:.5vw;
+    color: black;
+    position: relative;
+    font-size: 3vw;
+    bottom: 7.5vw;
+    left: .5vw;
 }
 
 .trashcan {
-    width:4vw;
-    position:relative;
-    bottom:13vw;
-    left:35.5vw; 
+    width: 4vw;
+    position: relative;
+    bottom: 13vw;
+    left: 35.5vw;
 }
 
 /* Card Movement
@@ -718,7 +721,7 @@ h3,
 
 
 .Meeples {
-    position:absolute;
+    position: absolute;
     display: none;
-    width:2vw;
+    width: 2vw;
 }
