@@ -54,6 +54,11 @@ background-image:url("../img/low-contrast-linen.png");
     text-decoration: none;
 }
 
+.close a {
+    color:#FFA953;
+    text-decoration: none;
+}
+
 .close:hover,
 .close:focus {
     text-decoration:none;
