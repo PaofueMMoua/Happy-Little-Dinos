@@ -29,9 +29,10 @@ background-image:url("../img/low-contrast-linen.png");
     width:100vw;
     height:100vh;
     display:flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    font-size:10vw;
+    font-size:5vw;
 
     /* Un Comment when the background image is put in and is done */
     background-color: #16d26a;
