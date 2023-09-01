@@ -30,7 +30,7 @@ background-image:url("../img/low-contrast-linen.png");
     height:100vh;
     display:flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
     font-size:5vw;
 
@@ -42,19 +42,26 @@ background-image:url("../img/low-contrast-linen.png");
     background-size:cover; */
 }
 
+.modal_content h1 {
+    height:20vw;
+    margin-bottom:10vw;
+}
+
 .close {
-    width:10vw;
-    height:10vw;
+    width:100vw;
+    height:20vw;
     display:flex;
     flex-direction:row;
     justify-content: center;
     align-items: end;
     color:#FFA953;
-    font-size:5vw;
+    font-size:10vw;
     text-decoration: none;
 }
 
 .close a {
+    display:flex;
+    flex-direction:row;
     color:#FFA953;
     text-decoration: none;
 }
