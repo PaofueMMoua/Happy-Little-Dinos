@@ -28,6 +28,10 @@ background-image:url("../img/low-contrast-linen.png");
 .modal_content {
     width:100vw;
     height:100vh;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    font-size:10vw;
 
     /* Un Comment when the background image is put in and is done */
     background-color: #16d26a;
@@ -38,8 +42,8 @@ background-image:url("../img/low-contrast-linen.png");
 }
 
 .close {
-    width:5vw;
-    height:5vw;
+    width:10vw;
+    height:10vw;
     background-image: url('../img/New_Stego.png');
     background-position: center;
     background-repeat: no-repeat;
@@ -47,6 +51,7 @@ background-image:url("../img/low-contrast-linen.png");
     display:flex;
     justify-content: center;
     align-items: end;
+    font-size:5vw;
 }
 
 .close:hover,
