@@ -33,6 +33,7 @@ background-image:url("../img/low-contrast-linen.png");
     justify-content: space-between;
     align-items: center;
     font-size:5vw;
+    overflow: hidden;
 
     /* Un Comment when the background image is put in and is done */
     background-color: #16d26a;
