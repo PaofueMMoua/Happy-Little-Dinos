@@ -18,6 +18,9 @@ const Bronto = document.getElementById('Bronto')
 const Stego = document.getElementById('Stego')
 let playerOne = '';
 let playerTwo = '';
+const win_condition = document.getElementById('modal-win')
+const lose_condition = document.getElementById('modal-lose')
+
 
 const gone = document.getElementById('gone')
 
@@ -711,8 +714,7 @@ function Meeple_Move() {
         } else if (playerOne == "stego") { 
             document.getElementsByClassName("meeple_class_b50").src = "/assets/img/stego-meeple.png";
         }
-        alert("You escaped!");
-        location.reload();
+        win_condition.style.display = 'block'
     }
 }
 // } 
@@ -744,8 +746,7 @@ function opp_Meeple_Move() {
         } else if (playerTwo == "stego") { 
             document.getElementsByClassName("meeple_class_aa50").src = "/assets/img/stego-meeple.png";
         }
-        alert("Your opponent escaped!");
-        location.reload();
+        lose_condition.style.display = 'block'
     }
         
 }
@@ -846,12 +847,10 @@ function checkLoseGame() {
     }
 
     if(red.length == 4 || blue.length == 4 || green.length == 4) {
-        alert("you lose!");
-        location.reload();
+        lose_condition.style.display = 'block';
     }
     else if(red.length == 2 && blue.length == 2 && green.length == 2) {
-        alert("you lose!");
-        location.reload();
+        lose_condition.style.display = 'block';
     }
     setTimeout(checkDisaster, 1500);
 }
@@ -874,12 +873,10 @@ function checkWinGame() {
     }
 
     if(redTwo.length == 4 || blueTwo.length == 4 || greenTwo.length == 4) {
-        alert("you win!");
-        location.reload();
+        win_condition.style.display = 'block'
     }
     else if(redTwo.length == 2 && blueTwo.length == 2 && greenTwo.length == 2) {
-        alert("you win!");
-        location.reload();
+        win_condition.style.display = 'block'
     }
     setTimeout(opp_checkDisaster, 1500);  
 }
