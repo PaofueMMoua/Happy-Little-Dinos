@@ -1,101 +1,131 @@
 * {
-    margin:0;
-    padding:0;
-    font-family:'Bahiana', sans-serif;
-    font-size:1.2vw;
+    margin: 0;
+    padding: 0;
+    font-family: 'Bahiana', sans-serif;
+    font-size: 1.2vw;
 }
 
 h2 {
     text-align: center;
-    font-size:6vw;
-    padding:1vw;
-    color:#F27F77;
+    font-size: 6vw;
+    padding: 1vw;
+    color: #F27F77;
 }
 
 hr {
-    background-color:rgb(97, 209, 140);
-    height:1px;
-    border:none;
+    background-color: rgb(97, 209, 140);
+    height: 1px;
+    border: none;
 }
 
 body {
-background-color: rgba(0,0,0,0.76);
-background-image:url("../img/low-contrast-linen.png");
+    background-color: rgba(0, 0, 0, 0.76);
+    background-image: url("../img/low-contrast-linen.png");
+}
+
+.hero-btn a:hover,
+.hero-btn-2 a:hover,
+.sticky a:hover {
+    color: #ffce9d;
+}
+
+.sticky {
+    position: absolute;
+    background-image: url('../img/Foot_left.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 10vw;
+    height: 10vw;
+    background-color: transparent;
+    border: none;
+    z-index: 1;
+    font-size: 1vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.sticky a {
+    z-index: 2;
+    color: #FFA953;
+    font-size: 1.5vw;
+    text-decoration: none;
 }
 
 p {
-    font-family:"Baloo Bhai 2", sans-serif;
-    color:rgb(209, 209, 209);
-    padding-left:2vw;
-    padding-top:1vw;
-    padding-right:2vw;
+    font-family: "Baloo Bhai 2", sans-serif;
+    color: rgb(209, 209, 209);
+    padding-left: 2vw;
+    padding-top: 1vw;
+    padding-right: 2vw;
 }
 
 h3 {
-    color:rgb(95, 95, 177);
-    font-size:3.5vw;
-    padding-top:2vw;
-    padding-left:2vw;
+    color: rgb(95, 95, 177);
+    font-size: 3.5vw;
+    padding-top: 2vw;
+    padding-left: 2vw;
 }
 
 h4 {
-    font-family:"Baloo Bhai 2", sans-serif;
-    color:rgb(209, 209, 209);
-    padding-left:2vw;
-    padding-top:1vw;
-    padding-right:2vw;
-    font-weight:normal;  
+    font-family: "Baloo Bhai 2", sans-serif;
+    color: rgb(209, 209, 209);
+    padding-left: 2vw;
+    padding-top: 1vw;
+    padding-right: 2vw;
+    font-weight: normal;
 }
 
 img {
-    width:6vw;
+    width: 6vw;
 }
 
 .steg {
-    position:relative;
-    float:right;
-    right:20vw;
-    bottom:7.5vw;
+    position: relative;
+    float: right;
+    right: 20vw;
+    bottom: 7.5vw;
 }
 
 .bronto {
-    position:relative;
-    left:20vw;
-    bottom:7.5vw;
-    width:7.5vw;
+    position: relative;
+    left: 20vw;
+    bottom: 7.5vw;
+    width: 7.5vw;
 }
 
 .flex {
-    display:flex;
+    display: flex;
     flex-direction: row;
-    flex:wrap;
+    flex: wrap;
 }
 
 .four {
-    padding-left:2vw;
-    margin-right:3vw;
+    padding-left: 2vw;
+    margin-right: 3vw;
 }
 
 .flex2 {
-    padding-top:2vw;
+    padding-top: 2vw;
     justify-content: center;
 }
 
 .flex2 img {
-    margin-right:.5vw;
+    margin-right: .5vw;
 }
 
 b {
-    font-family:"Baloo Bhai 2", sans-serif;
-    color:#F27F77;
+    font-family: "Baloo Bhai 2", sans-serif;
+    color: #F27F77;
 }
 
 .dis {
-    margin-top:1vw;
+    margin-top: 1vw;
 }
 
 .last {
-    margin-bottom:4vw;
+    margin-bottom: 4vw;
 }
 
 .hover {
@@ -107,95 +137,95 @@ b {
 }
 
 .points {
-    float:right;
+    float: right;
 }
 
 .testing {
-    margin-top:.5vw;
-    width:7vw;
+    margin-top: .5vw;
+    width: 7vw;
 }
 
 .card2 {
-    position:relative;
-    right:1.5vw;
+    position: relative;
+    right: 1.5vw;
 }
 
 .card3 {
-    position:relative;
-    right:3vw;
+    position: relative;
+    right: 3vw;
 }
 
 .card4 {
-    position:relative;
-    right:4.5vw;
+    position: relative;
+    right: 4.5vw;
 }
 
 .card5 {
-    position:relative;
-    right:6vw;
+    position: relative;
+    right: 6vw;
 }
 
 .card6 {
-    position:relative;
-    right:7.5vw;
+    position: relative;
+    right: 7.5vw;
 }
 
 .instant {
-    margin-top:8vw;
+    margin-top: 8vw;
 }
 
 footer {
-    height:30vw;
-    background-color:rgba(0, 0, 0, 0.37);
-    margin-top:5vw;
+    height: 30vw;
+    background-color: rgba(0, 0, 0, 0.37);
+    margin-top: 5vw;
 }
 
 footer p {
     text-align: center;
-    font-family:Times, 'Times New Roman', serif;
-    font-size:1.2vw;
-    color:rgb(165, 165, 165);
+    font-family: Times, 'Times New Roman', serif;
+    font-size: 1.2vw;
+    color: rgb(165, 165, 165);
 }
 
 .p {
-    padding-top:3vw;
+    padding-top: 3vw;
 }
 
 .flex3 {
-    justify-content:center;
+    justify-content: center;
     text-align: center;
-    font-family:Times, 'Times New Roman', serif;
-    font-size:1.2vw;
-    color:rgb(165, 165, 165);
-    padding-top:1vw;
+    font-family: Times, 'Times New Roman', serif;
+    font-size: 1.2vw;
+    color: rgb(165, 165, 165);
+    padding-top: 1vw;
 }
 
 .cart {
-    width:8vw;
+    width: 8vw;
 }
 
 .fast {
     /* margin-left:46.5vw; */
-    margin-top:1vw;
-    padding-left:1vw;
-    width:7vw;
+    margin-top: 1vw;
+    padding-left: 1vw;
+    width: 7vw;
 }
 
 .thx {
-    margin-top:1vw;
-    margin-bottom:.5vw;
+    margin-top: 1vw;
+    margin-bottom: .5vw;
 }
 
 .border {
-    border:.2vw solid rgba(8, 8, 8, 0.425);
-    width:9vw;
-    margin-left:44.7vw;
-    height:10vw;
+    border: .2vw solid rgba(8, 8, 8, 0.425);
+    width: 9vw;
+    margin-left: 44.7vw;
+    height: 10vw;
 }
 
 .pfast {
     text-align: center;
     position: relative;
-    bottom:.8vw;
+    bottom: .8vw;
     /* margin-left:46.5vw; */
 }
