@@ -726,7 +726,7 @@ h3,
     width: 2vw;
 }
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 425px) {
     .allboards, .allboards2 {
         display:flex;
         align-self:center;
@@ -739,8 +739,45 @@ h3,
         flex-wrap: wrap;
         align-items:center;
         justify-content:center;
+        width:100vw;
 
     }
     .cards {
+        
+    }
+
+    .bronto_board {
+        width:100vw;
+        height:25vh;
+    }
+    .bronto-bk {
+        background-size: cover;
+    }
+    .bronto-bk2 {
+        width:80vw;
+        display:flex;
+        align-items:center;
+        justify-content:space-evenly;
+    }
+    .disaster-area {
+        width:22vw
+    }
+    .disaster-cell {
+        width:10vw;
+        height:10vw;
+    }
+
+    .disaster-flex {
+        width:auto;
+    }
+    .cell {
+        width:4vw;
+        height:4vw;
+    }
+    .cell-num {
+        font-size:2.2vw;
+    }
+    .escape-route {
+        width:50vw;
     }
 }
