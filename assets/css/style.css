@@ -725,3 +725,22 @@ h3,
     display: none;
     width: 2vw;
 }
+
+@media only screen and (max-width: 600px) {
+    .allboards, .allboards2 {
+        display:flex;
+        align-self:center;
+        justify-items:center;
+        margin-bottom:5vw;
+    }
+    .testflex {
+        display:flex;
+        flex-direction:column;
+        flex-wrap: wrap;
+        align-items:center;
+        justify-content:center;
+
+    }
+    .cards {
+    }
+}
