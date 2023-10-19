@@ -726,7 +726,16 @@ h3,
     width: 2vw;
 }
 
-@media only screen and (max-width: 425px) {
+@media only screen and (max-width: 480px) {
+    
+    body {
+        overflow:hidden;
+    }
+
+    .hero-img-two {
+        height:110vh;
+    }
+
     .allboards, .allboards2 {
         display:flex;
         align-self:center;
