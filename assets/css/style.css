@@ -37,18 +37,25 @@ body {
 
     /* Un Comment when the background image is put in and is done */
     background-color: #16d26a;
+    height:51vw;
     /* background-image:;
     background-position:center;
     background-repeat:no-repeat;
     background-size:cover; */
 }
 
+.modal_content_lose {
+    background-color: #ce0e0e;
+}
+
 .modal_content h1 {
-    height: 20vw;
-    margin-bottom: 10vw;
+    /* height: 20vw; */
+    /* margin-bottom: 5vw; */
 }
 
 .close {
+    position:relative;
+    bottom:5vw;
     width: 100vw;
     height: 20vw;
     display: flex;
